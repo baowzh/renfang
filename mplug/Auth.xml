@@ -1,0 +1,423 @@
+<?xml version="1.0"?>
+<root>
+	<auths>
+
+		<!-- 政府办公室 -->
+		<item>
+			<usrid>5</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>597</catid>						
+		</item>
+
+		<!-- 发展和改革局 -->
+		<item>
+			<usrid>6</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>598</catid>						
+		</item>
+
+		<!-- 财政局 -->
+		<item>
+			<usrid>55</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>1368</catid>						
+		</item>
+
+		<!-- 经贸局 -->
+		<item>
+			<usrid>7</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>599</catid>						
+		</item>
+
+		<!-- 教育局 -->
+		<item>
+			<usrid>8</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>600</catid>						
+		</item>
+
+		<!-- 科技局 -->
+		<item>
+			<usrid>9</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>601</catid>						
+		</item>		
+
+		<!-- 公安局 -->
+		<item>
+			<usrid>10</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>602</catid>						
+		</item>	
+
+		<!-- 监察局 -->
+		<item>
+			<usrid>11</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>603</catid>						
+		</item>	
+
+		<!-- 民政局 -->
+		<item>
+			<usrid>12</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>604</catid>						
+		</item>	
+
+		<!-- 司法局 -->
+		<item>
+			<usrid>13</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>605</catid>						
+		</item>	
+
+		<!-- 人事局 -->
+		<item>
+			<usrid>14</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>606</catid>						
+		</item>	
+
+		<!-- 国土资源局 -->
+		<item>
+			<usrid>15</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>608</catid>						
+		</item>	
+
+
+		<!-- 交通局 -->
+		<item>
+			<usrid>16</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>609</catid>						
+		</item>
+		
+		<!-- 水利局 -->
+		<item>
+			<usrid>17</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>610</catid>						
+		</item>	
+
+
+		<!-- 农业局 -->
+		<item>
+			<usrid>18</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>611</catid>						
+		</item>	
+
+		<!-- 林业局 -->
+		<item>
+			<usrid>19</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>612</catid>						
+		</item>	
+
+		<!-- 文体局 -->
+		<item>
+			<usrid>20</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>613</catid>						
+		</item>	
+
+		<!-- 广播电视局 -->
+		<item>
+			<usrid>21</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>614</catid>						
+		</item>	
+
+		<!-- 卫生局 -->
+		<item>
+			<usrid>22</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>615</catid>						
+		</item>
+
+
+		<!-- 环境保护局 -->
+		<item>
+			<usrid>23</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>616</catid>						
+		</item>
+
+		<!-- 审计局 -->
+		<item>
+			<usrid>24</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>617</catid>						
+		</item>
+
+		<!-- 旅游局 -->
+		<item>
+			<usrid>25</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>618</catid>						
+		</item>
+
+	    <!-- need category -->
+
+		<!-- 食品局 -->
+		<item>
+			<usrid>26</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>619</catid>						
+		</item>
+
+		<!-- 安检局 -->
+		<item>
+			<usrid>27</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>620</catid>						
+		</item>
+
+		<!-- 扶贫办 -->
+		<item>
+			<usrid>28</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>621</catid>						
+		</item>
+
+		<!-- 粮食管理局 -->
+		<item>
+			<usrid>29</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>622</catid>						
+		</item>
+
+		<!-- 市容管理 -->
+		<item>
+			<usrid>30</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>623</catid>						
+		</item>
+
+		<!-- 乡镇局 -->
+		<item>
+			<usrid>31</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>624</catid>						
+		</item>
+
+		<!-- 统计局 -->
+		<item>
+			<usrid>32</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>625</catid>						
+		</item>
+
+		<!-- 农业综合开发板 -->
+		<item>
+			<usrid>33</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>626</catid>						
+		</item>
+
+		<!-- 残联 -->
+		<item>
+			<usrid>34</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>627</catid>						
+		</item>
+
+		<!-- 人口计划生育 -->
+		<item>
+			<usrid>35</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>628</catid>						
+		</item>
+
+
+		<!-- 防汛办 -->
+		<item>
+			<usrid>36</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>630</catid>						
+		</item>
+
+		<!-- 建设规划局 -->
+		<item>
+			<usrid>37</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>631</catid>						
+		</item>
+
+		<!-- 供销合作社联合社 -->
+		<item>
+			<usrid>38</usrid>
+			<siteid>2</siteid>
+			<roleid>10</roleid>
+			<catid>632</catid>						
+		</item>
+
+
+
+
+		<!--  乡镇 -->
+
+		<!-- 差速器 -->
+		<item>
+			<usrid>39</usrid>
+			<siteid>3</siteid>
+			<roleid>11</roleid>
+			<catid>1114</catid>						
+		</item>
+
+		<!-- taigemu -->
+		<item>
+			<usrid>40</usrid>
+			<siteid>3</siteid>
+			<roleid>10</roleid>
+			<catid>1115</catid>						
+		</item>
+
+		<!-- shandaizhen -->
+		<item>
+			<usrid>41</usrid>
+			<siteid>3</siteid>
+			<roleid>10</roleid>
+			<catid>1116</catid>						
+		</item>
+
+		<!-- bikeqi -->
+		<item>
+			<usrid>42</usrid>
+			<siteid>3</siteid>
+			<roleid>10</roleid>
+			<catid>1117</catid>						
+		</item>
+
+		<!-- baimiaozi -->
+		<item>
+			<usrid>43</usrid>
+			<siteid>3</siteid>
+			<roleid>10</roleid>
+			<catid>1118</catid>						
+		</item>
+
+		<!--  beishizhou-->
+		<item>
+			<usrid>44</usrid>
+			<siteid>3</siteid>
+			<roleid>10</roleid>
+			<catid>1119</catid>						
+		</item>
+
+		<!-- zhijiliang -->
+		<item>
+			<usrid>45</usrid>
+			<siteid>3</siteid>
+			<roleid>10</roleid>
+			<catid>1120</catid>						
+		</item>
+
+
+		<!-- tabusai -->
+		<item>
+			<usrid>46</usrid>
+			<siteid>3</siteid>
+			<roleid>10</roleid>
+			<catid>1121</catid>						
+		</item>
+
+		<!-- tiemao -->
+		<item>
+			<usrid>47</usrid>
+			<siteid>3</siteid>
+			<roleid>10</roleid>
+			<catid>1122</catid>						
+		</item>
+
+		<!-- sanliangi -->
+		<item>
+			<usrid>48</usrid>
+			<siteid>3</siteid>
+			<roleid>10</roleid>
+			<catid>1123</catid>						
+		</item>
+
+
+		<!-- dadai -->
+		<item>
+			<usrid>49</usrid>
+			<siteid>3</siteid>
+			<roleid>10</roleid>
+			<catid>1124</catid>						
+		</item>
+
+
+		<!-- shaerying -->
+		<item>
+			<usrid>51</usrid>
+			<siteid>3</siteid>
+			<roleid>10</roleid>
+			<catid>1125</catid>						
+		</item>
+
+
+		<!-- taosihao -->
+		<item>
+			<usrid>52</usrid>
+			<siteid>3</siteid>
+			<roleid>10</roleid>
+			<catid>1126</catid>						
+		</item>
+
+
+
+		<!-- shaerqin -->
+		<item>
+			<usrid>54</usrid>
+			<siteid>3</siteid>
+			<roleid>10</roleid>
+			<catid>1128</catid>						
+		</item>
+
+		
+
+		<item>
+			<siteid>-1</siteid>
+			<roleid>-1</roleid>
+			<catid>-1</catid>
+			<usrid>-1</usrid>			
+		</item>
+	</auths>
+</root>

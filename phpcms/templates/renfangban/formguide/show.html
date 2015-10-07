@@ -1,0 +1,555 @@
+{template "content","header"}
+<?php 
+$dataid = $_GET['showdata'];
+if ($dataid > 0){
+  include(template("formguide" , "show_data"));                                        
+  exit();
+}
+?>
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	align="center">
+	<tbody>
+		<tr>
+			<td height="500" align="center" valign="top"
+				style="background: url(statics/images/nrbg.png) repeat-y center top; padding-top: 7px;"><table
+					width="998" border="0" cellspacing="0" cellpadding="0">
+					<tbody>
+						<tr>
+							<td width="217" valign="top">
+								<table width="217" border="0" cellspacing="0" cellpadding="0">
+									<tbody>
+										<tr>
+											<td><table width="217" border="0" cellspacing="0"
+													cellpadding="0">
+													<tbody>
+														<tr>
+															<td><img src="statics/images/wsbs_zytit.jpg"
+																style="width: 217px; height: 55px;"></td>
+														</tr>
+														<tr>
+															<td height="100"
+																style="border-left: 1px solid #d6d6d6; border-right: 1px solid #d6d6d6; background: url(statics/images/zy_lft_mid.jpg) repeat-x bottom; padding-bottom: 15px;">
+																<a
+																href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"
+																class="lftmn_cur">主任信箱</a> <a
+																href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=2"
+																class="lftmn_cur">监督投诉</a> <a
+																href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=3"
+																class="lftmn_cur">在线办事</a> <a
+																href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=4"
+																class="lftmn_cur">业务咨询</a> <a
+																href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=5"
+																class="lftmn_cur">公众留言</a> <a
+																href="?m=content&c=index&a=lists&catid=1481"
+																class="lftmn_cur">网上调查</a> <a
+																href="http://127.0.0.1/renfangban/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=1439"
+																class="lftmn_cur">在线访谈</a>
+
+
+															</td>
+														</tr>
+														<tr>
+															<td><img src="statics/images/zy_lft_btm.jpg"
+																width="217" height="13"></td>
+														</tr>
+													</tbody>
+												</table></td>
+										</tr>
+										<tr>
+											<td valign="top" style="padding-top: 10px;"><table
+													width="217" border="0" cellspacing="0" cellpadding="0">
+													<tbody>
+														<tr>
+															<td><a href="#"><img
+																	src="statics/images/zyrfcf_tit.jpg" width="217"
+																	height="31" border="0"></a></td>
+														</tr>
+														<tr>
+															<td height="171" align="center"
+																style="border-left: 1px solid #9fcede; border-right: 1px solid #9fcede; background: url(statics/images/syzxgg_bg.jpg) no-repeat bottom;"><table
+																	width="200" border="0" cellspacing="0" cellpadding="0">
+																	<tbody>
+																		{pc:content  action="lists"  catid="1457"   order="id DESC" num="5"}
+                                                                        {loop $data $v} 
+																		<tr>
+																			<td height="30" align="left"><img
+																				src="statics/images/zxgg_icon.png"> <a
+																				href="{$v[url]}"
+																				class="p12heihui">{str_cut($v[title],42)}</a></td>
+																		</tr>
+																		 {/loop}
+                                                                         {/pc} 																																				
+																	</tbody>
+																</table></td>
+														</tr>
+														<tr>
+															<td><img src="statics/images/syzxgg_btm.jpg"
+																width="217" height="14"></td>
+														</tr>
+													</tbody>
+												</table></td>
+										</tr>
+										<tr>
+											<td valign="top" style="padding-top: 10px;"><table
+													width="217" border="0" cellspacing="0" cellpadding="0">
+													<tbody>
+														<tr>
+															<td><table width="217" border="0" cellspacing="0"
+																	cellpadding="0">
+																	<tbody>
+																		<tr>
+																			<td width="115" height="25" align="center"
+																				style="background: url(statics/images/jrht_tit01.jpg) no-repeat; padding-top: 5px;"
+																				class="p14hei">今日<span class="p14hong">话题</span></td>
+																			<td align="right"
+																				style="background: url(statics/images/jrht_tit02.jpg) no-repeat; padding-right: 10px;"><a
+																				href="#" class="p12bai">更多&gt;&gt;</a></td>
+																		</tr>
+																	</tbody>
+																</table></td>
+														</tr>
+														<tr>
+															<td height="222" align="center" valign="top"
+																style="border: 1px solid #9fcede; border-top: none; padding-top: 9px; padding-bottom: 10px;"><table
+																	width="198" border="0" cellspacing="0" cellpadding="0">
+																	<tbody>
+																	 {pc:content action="lists" catid="1451"
+																				num="7"  order="listorder DESC" }
+																	{loop $data $v}
+																		<tr>
+																			<td height="32"
+																				style="background: url(statics/images/short_line.jpg) repeat-x bottom"
+																				align="left"><img
+																				src="statics/images/red_icon.jpg" width="3"
+																				height="3"> <a
+																				href="{$v[url]}"
+																				class="p12heihui">{str_cut($v[title],42)}</a></td>
+																		</tr>
+																		{/loop}
+																		{/pc}
+																		<!--  
+																		<tr>
+																			<td height="32"
+																				style="background: url(statics/images/short_line.jpg) repeat-x bottom"
+																				align="left"><img
+																				src="statics/images/red_icon.jpg" width="3"
+																				height="3"> <a
+																				href="http://127.0.0.1/renfangban/index.php?m=content&amp;c=index&amp;a=show&amp;catid=1451&amp;id=6665"
+																				class="p12heihui">不同阶段应采取哪些核辐射防护...</a></td>
+																		</tr>
+																		<tr>
+																			<td height="32"
+																				style="background: url(statics/images/short_line.jpg) repeat-x bottom"
+																				align="left"><img
+																				src="statics/images/red_icon.jpg" width="3"
+																				height="3"> <a
+																				href="http://127.0.0.1/renfangban/index.php?m=content&amp;c=index&amp;a=show&amp;catid=1451&amp;id=6664"
+																				class="p12heihui">浸泡清洗可清除蔬菜上的辐射</a></td>
+																		</tr>
+																		<tr>
+																			<td height="32"
+																				style="background: url(statics/images/short_line.jpg) repeat-x bottom"
+																				align="left"><img
+																				src="statics/images/red_icon.jpg" width="3"
+																				height="3"> <a
+																				href="http://127.0.0.1/renfangban/index.php?m=content&amp;c=index&amp;a=show&amp;catid=1451&amp;id=6663"
+																				class="p12heihui">核泄漏时该怎么做</a></td>
+																		</tr>
+																		<tr>
+																			<td height="32"
+																				style="background: url(statics/images/short_line.jpg) repeat-x bottom"
+																				align="left"><img
+																				src="statics/images/red_icon.jpg" width="3"
+																				height="3"> <a
+																				href="http://127.0.0.1/renfangban/index.php?m=content&amp;c=index&amp;a=show&amp;catid=1451&amp;id=6662"
+																				class="p12heihui">核电站安全吗？</a></td>
+																		</tr>
+																		<tr>
+																			<td height="32"
+																				style="background: url(statics/images/short_line.jpg) repeat-x bottom"
+																				align="left"><img
+																				src="statics/images/red_icon.jpg" width="3"
+																				height="3"> <a
+																				href="http://127.0.0.1/renfangban/index.php?m=content&amp;c=index&amp;a=show&amp;catid=1451&amp;id=6661"
+																				class="p12heihui">核电站安全吗？</a></td>
+																		</tr>
+																		-->
+
+																	</tbody>
+																</table></td>
+														</tr>
+													</tbody>
+												</table></td>
+										</tr>
+										<tr>
+											<td valign="top" style="padding-top: 10px;">
+											<a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"><img
+												src="statics/images/wsbs_icon.jpg" width="218" height="103">
+												
+												</a></td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+							<td valign="top"><table width="780" border="0"
+									cellspacing="0" cellpadding="0">
+									<tbody>
+										<tr>
+											<td height="38" align="left" class="p12huiwei"
+												style="background: url(images/zywz_bg.jpg) no-repeat top; padding-left: 45px; padding-bottom: 12px;">您当前的位置：<a
+												href="index.html" class="p12huiwei">内蒙古人防</a> &gt;<span
+												class="p12lan"> <?php 
+                                    $infotype=$_GET['infotype'];
+                                   switch($infotype)
+                                  {
+                                     case 1:
+                                       echo "主任信箱";
+                                       break;
+                                    case 2:
+                                       echo "监督投诉";
+                                       break;
+                                    case 3:
+                                       echo "在线办事";
+                                       break;       
+                                    case 4:
+                                       echo "业务咨询";
+                                       break;
+                                    case 5:
+                                       echo "公众留言";
+                                       break;
+	                                
+                                  }
+                          
+                              ?>
+											</span></td>
+										</tr>
+										<tr>
+											<td height="830" align="right" valign="top"
+												style="background: url(images/zy_midline.jpg) no-repeat left;"><table
+													width="753" border="0" cellspacing="0" cellpadding="0">
+													<tbody>
+														<tr>
+															<td height="32"
+																style="background: url(images/srh_titbg.jpg) repeat-x"><table
+																	width="753" border="0" cellspacing="0" cellpadding="0">
+																	<tbody>
+																		<tr>
+																			<td width="280" height="32" align="left"><table
+																					width="265" border="0" cellspacing="0"
+																					cellpadding="0">
+																					<tbody>
+																						<tr>
+																							<td width="92" height="32" align="center"><img
+																								src="statics/images/srh_tit.jpg" width="68"
+																								height="28"></td>
+																							<td width="173"><table width="100%"
+																									border="0" cellspacing="0" cellpadding="0">
+																									<tbody>
+																										<tr>
+																											<td><select name="select"
+																												style="height: 21px; width: 105px; text-align: center; color: #575656; margin-right: 5px;"
+																												class="txt-search">
+																													<option value="" selected="">工作动态</option>
+																													<!-- 栏目列表 -->
+																													<option value="13121214482510000692">政务公开</option>
+																													<option value="13121217533510000790">科技信息</option>
+																													<option value="13121217515310000788">政策法规</option>
+																													<option value="13121215515510000721">民俗风情</option>
+																													<option value="13121215515510000721">民俗风情</option>
+
+																											</select></td>
+																											<td><select name="select"
+																												style="height: 21px; width: 80px; text-align: center; color: #575656"
+																												class="txt-search">
+																													<option value="" selected="">文章标题</option>
+																													<!-- 栏目列表 -->
+																													<option value="13121214482510000692">搜索内容</option>
+																											</select></td>
+																										</tr>
+																									</tbody>
+																								</table></td>
+																						</tr>
+																					</tbody>
+																				</table></td>
+																			<td width="313" align="left">关键字： <input
+																				type="text" name="" value="填写您想搜索的关键词"
+																				onclick="if(this.value='填写您想搜索的关键词'){this.value=''}"
+																				style="width: 250px; height: 21px; line-height: 21px;"
+																				class="txt-search"></td>
+																			<td width="107" align="left"><img
+																				src="statics/images/search-bt.jpg" width="53"
+																				height="21"></td>
+																		</tr>
+																	</tbody>
+																</table></td>
+														</tr>
+														<tr>
+															<td><table width="753" border="0" cellspacing="0"
+																	cellpadding="0">
+																	<tbody>
+																		<tr>
+																			<td valign="top" style="padding-top: 5px;"><table
+																					width="753" border="0" cellspacing="0"
+																					cellpadding="0">
+																					<tbody>
+																						<tr>
+																							<td><table width="753" border="0"
+																									cellspacing="0" cellpadding="0">
+																									<tbody>
+																										<tr>
+																											<td width="26"><img
+																												src="statics/images/zytit_bg01.jpg"
+																												width="26" height="35"></td>
+																											<td align="left" class="p14hei"
+																												style="background: url(statics/images/zytit_bg02.jpg) repeat-x; padding-top: 9px;">
+																												<?php 
+                                    $infotype=$_GET['infotype'];
+                                   switch($infotype)
+                                  {
+                                     case 1:
+                                       echo "主任信箱";
+                                       break;
+                                    case 2:
+                                       echo "监督投诉";
+                                       break;
+                                    case 3:
+                                       echo "在线办事";
+                                       break;       
+                                    case 4:
+                                       echo "业务咨询";
+                                       break;
+                                    case 5:
+                                       echo "公众留言";
+                                       break;
+	                                
+                                  }
+                          
+                              ?>
+
+																											</td>
+																										</tr>
+																									</tbody>
+																								</table></td>
+																						</tr>
+																						<tr>
+																							<td><img src="statics/images/zytit_bg03.jpg"
+																								width="753" height="3"></td>
+																						</tr>
+																					</tbody>
+																				</table></td>
+																		</tr>
+																		<tr>
+																			<td align="center" valign="top"
+																				style="padding-top: 15px;">
+																				
+																				<table width="700" border="0" cellspacing="0"
+																					cellpadding="0">
+
+																					<tbody>
+																						<tr>
+																							<td align="center" style="padding-top: 35px;">
+																							<form method="post" action="?m=formguide&c=index&a=show&formid=15&siteid=1" name="myform" id="myform">
+																							<table
+																									border="0" cellspacing="0" cellpadding="0"
+																									width="100%">
+																									<tbody>
+																										<tr>
+																											<th height="30" align="right"
+																												style="WIDTH: 90px"><label for="poster">您的姓名：</label></th>
+																											<td align="left">
+																											<input id="poster"
+																												type="text" name="info[name]" id="name" class="txt-search">
+																												<span class="p12hongwei">*</span>
+																											</td>
+																											<th align="right" style="WIDTH: 90px"><label
+																												for="contact">联系电话：</label></th>
+																											<td align="left"><input id="contact"
+																												class="txt-search" type="text"
+																												name="info[phone]" id="phone"> <span
+																												class="p12hongwei">*</span></td>
+																										</tr>
+																										<tr>
+																											<th height="30" align="right"><label
+																												for="email">电子信箱：</label></th>
+																											<td align="left"><input id="email"
+																												class="txt-search" type="text" name="info[email]"></td>
+																											<th align="right"><label for="address">联系地址：</label></th>
+																											<td align="left"><input id="address"
+																												class="txt-search" type="text"
+																												name="info[address]"></td>
+																										</tr>
+																										<tr>
+																											<th height="30" align="right"><label
+																												for="title">标 题：</label></th>
+																											<td colspan="3" align="left"><input
+																												id="title" class="txt-search" size="60"
+																												type="text" name="info[title]"
+																												style="width: 500px;"> <span
+																												class="p12hongwei">*</span></td>
+																										</tr>
+																										<tr>
+																											<th height="30" align="right"><label
+																												for="cat_id">类 别：</label></th>
+																											<td colspan="3" align="left"><select
+																												id="infotype" name="info[infotyp]"
+																												class="txt-search">
+																													<option value="">请选择类别</option>
+																													<option value="1">主任信箱</option>
+																													<option value="2">监督投诉</option>
+																													<option value="3">在线办事</option>
+																													<option value="4">业务咨询</option>
+																													<option value="5">公众留言</option>
+																											</select></td>
+																										</tr>
+																										<tr>
+																											<th align="right" valign="top"
+																												style="padding-top: 5px;">内 容：</th>
+																											<td colspan="3" align="left"
+																												style="padding-top: 5px;"><textarea
+																													style="WIDTH: 500px; HEIGHT: 260px"
+																													id="content" name="info[content]"
+																													class="txt-search"></textarea></td>
+																										</tr>
+																										<tr>
+																											<th height="30" align="right"
+																												style="padding-top: 10px;"><label
+																												for="verify">验证码：</label></th>
+																											<td colspan="3" align="left"
+																												style="padding-top: 10px;">
+																												<input
+																												style="WIDTH: 50px;float:left;" id="code" name="code" type="text"
+																												class="txt-search"/> 
+																												<div style="width:84px;margin-top:1px;margin-left:5px;float:left;">{form::checkcode('code_img', '4', '14', 84, 24)}</div>
+																												
+																												</td>
+																										</tr>
+																									</tbody>
+																								</table>
+<!-- 																								</form> -->
+																								<div style="MARGIN-BOTTOM: 20px" class="page">
+																									<input type="hidden" name="back_url"/> 
+																									<input
+																										value="1" type="hidden" name="site_id"/>
+																										  <input type="submit" name="dosubmit" id="dosubmit" value=" 提交 "/>&nbsp;<input type="reset" value=" 取消 "/>
+																										
+																									<!--  	
+																									<a href="javascript:submit();"><img src="statics/images/sumit.png"/></a>
+																									<a> <img
+																										src="statics/images/reset.png"/></a>
+																										-->
+																										
+																								</div></td>
+																						</tr>
+																						<tr>
+																							<td align="center" style="padding-top: 15px;"><table
+																									width="700" border="0" cellspacing="0"
+																									cellpadding="0">
+																									<tbody>
+																										<tr>
+																											<td style="background: #eeeeee"><table
+																													width="700" border="0" cellspacing="0"
+																													cellpadding="0">
+																													<tbody>
+																														<tr>
+																															<td width="29" height="31" align="right"><img
+																																src="statics/images/lyhf_icon.png"
+																																width="13" height="13"></td>
+																															<td align="left" class="p14heicuti"
+																																style="padding-left: 10px;">留言回复</td>
+																														</tr>
+																													</tbody>
+																												</table></td>
+																										</tr>
+																										<tr>
+																											<td align="center" valign="top"
+																												style="padding-top: 15px;"><table
+																													width="700" border="0" cellspacing="0"
+																													cellpadding="0">
+																													<tbody>
+																														<tr>
+																															<td
+																																style="background: #ffffcc; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;"
+																																height="30"><table width="700"
+																																	border="0" cellspacing="0"
+																																	cellpadding="0">
+																																	<tbody>
+																																		<tr>
+																																			<td width="425" height="30"
+																																				align="left" class="p14huicuti"
+																																				style="padding-left: 5px;">标题</td>
+																																			<td width="129" align="left"
+																																				class="p14huicuti">状态</td>
+																																			<td width="146" align="left"
+																																				class="p14huicuti">提交日期</td>
+																																		</tr>
+																																	</tbody>
+																																</table></td>
+																														</tr>
+																														<tr>
+																															<td>{pc:get sql="select * from
+																																v9_form_network where (mark<>'' and
+																																infotyp=$infotype) order by dataid desc"
+																																num="5" page="$page" return="data"}
+																																{loop $data $v}
+                                                                                                                                <?php
+                                                                                                                                  $dataid = $v['dataid'];
+                                                                                                                                 ?>
+																																<table width="700" border="0"
+																																	cellspacing="0" cellpadding="0">
+																																	<tbody>
+																																		<tr
+																																			style="background: url(images/lyhf_line.jpg) repeat-x bottom">
+																																			<td width="425" height="30"
+																																				align="left" class="p12hui02"
+																																				style="padding-left: 5px;"><a
+																																				href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype={$infotype}&showdata={$dataid}" class="p12heihui">{$v[title]}</a></td>
+																																			<td width="129" align="left"
+																																				class="p12zong">已回复</td>
+																																			<td width="146" align="left"
+																																				class="p12hui02">
+																																				{date('Y-m-d h:m:s',$v[datetime])}
+																																				</td>
+																																		</tr>
+																																	</tbody>
+																																</table> {/loop} {/pc}
+																															</td>
+																														</tr>
+																														<tr>
+																															<td align="center"
+																																style="padding-top: 20px; padding-bottom: 20px;">
+																																{$pages}</td>
+																														</tr>
+																													</tbody>
+																												</table></td>
+																										</tr>
+																									</tbody>
+																								</table></td>
+																						</tr>
+																					</tbody>
+																				</table>
+																				
+																			</td>
+																		</tr>
+																	</tbody>
+																</table></td>
+														</tr>
+
+													</tbody>
+												</table></td>
+										</tr>
+									</tbody>
+								</table></td>
+						</tr>
+					</tbody>
+				</table></td>
+		</tr>
+	</tbody>
+</table>
+{template "content","footer"}
+<script type="text/javascript">
+var infotyp='<?php $infotype=$_GET['infotype']; echo $infotype ?>';
+$('#infotype').val(infotyp);
+var submit=function(){
+	$('#myform').submit();
+}
+</script>

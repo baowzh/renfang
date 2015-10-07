@@ -1,0 +1,46 @@
+﻿ <div class="box">
+            <h5 class="title-2"><?php echo $setting[$siteid]['sz5']; ?></h5>
+            <div class="tag_a">
+ <table width=100% height=50px>
+<tr>
+<td  style="text-align: center"><a href="?m=yijianzhengji&c=index&a=register&siteid=1" ><img src="statics/Images/yijianzhengji/a.jpg" width="142" height="47" border="0"></a> </td>
+</tr>
+<tr>
+<td  style="text-align: center"><a href="?m=yijianzhengji&c=index&siteid=1" ><img src="statics/Images/yijianzhengji/b.jpg" width="142" height="47" border="0"></a> </td>
+   </tr>
+</table>       
+                        </div>
+        </div>
+        <div class="bk10"></div>
+
+    	 <div class="box">
+            <h5 class="title-2">回复查询</h5>
+            <div class="tag_a">
+  <form action="{APP_PATH}index.php?m=yijianzhengji&c=index&a=sg&siteid={$siteid}" method="post" name="mys" id="mys">
+<table cellspacing="1" cellpadding="0" class="table_form">
+<tbody>
+<tr> 
+<th>信息编号</th>
+<td><input type="text" size="20" value="" name="bh" id="bh" class="input-text"></td>
+</tr>
+<tr> 
+<th></th>
+<td><input type="submit" value=" 提交查询 " name="dosubmit" class="button"> <input type="reset" value=" 取 消 " name="reset" class="button"> </td>
+</tr> 
+</tbody></table>
+</form>
+        
+                        </div>
+        </div>
+        <div class="bk10"></div>
+ <div class="box">
+            <h5 class="title-2">投诉分类</h5>
+            <div class="tag_a">
+
+{loop $types $type_v}
+ &nbsp;&nbsp;  
+<a href="{APP_PATH}index.php?m=yijianzhengji&c=index&a=list_type&type_id={$type_v[typeid]}&siteid={$siteid}" title="{$type_v[name]}">{$type_v[name]}</a>
+{/loop}
+
+                        </div>
+        </div>

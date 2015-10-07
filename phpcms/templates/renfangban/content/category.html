@@ -1,0 +1,19 @@
+{template "content","header"}
+<?php
+switch($catid){
+    case 1459:
+        include(template("content" , "dmyx"));
+        break; 
+    case 1486:
+        include(template("content" , "dmyx"));
+        break;
+    case 1457:
+        include(template("content" , "rfpicture"));
+        break;       
+    default:
+        include(template("content" , "list_mod"));
+        break;
+}
+?>
+
+{template "content","footer"}

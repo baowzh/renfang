@@ -1,0 +1,159 @@
+﻿{template "content","header"}
+<link href="{CSS_PATH}member.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}table_form.css" rel="stylesheet" type="text/css" /> 
+<table width="1004" border="0" align="center" cellpadding="0" cellspacing="0" class="sg_a_boder">
+  <tr>
+    <td height="30" background="../../../../statics/images/ybsds/menu_bg2.jpg" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>&nbsp;<strong>您的位置:</strong><a href="{siteurl($siteid)}">首页</a><span> > </span><a href="/index.php?m=yijianzhengji">意见征集</a><span> > </span>查看</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="1004" border="0" align="center" cellpadding="0" cellspacing="0" class="sg_a_boder" style="border-bottom:solid 3px #FFFFFF">
+  <tr>
+    <td background="../../../../statics/images/ybsds/menu_bg3.jpg" bgcolor="#FFFFFF"><img src="../../../../statics/images/ybsds/menu_bg3.jpg" width="1" height="4" /></td>
+  </tr>
+</table>
+<table width="1004" border="0" align="center" cellpadding="0" cellspacing="0" class="sg_a_boder" style="border-bottom:solid 5px #FFFFFF">
+  <tr>
+    <td bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="190" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td><table width="160" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:10px;">
+                      <tr>
+                        <td width="50"><img src="../../../../statics/images/ybsds/x_1.jpg" width="50" height="32" /></td>
+                        <td align="center" background="../../../../statics/images/ybsds/x_2.jpg"><a href="?m=yijianzhengji&c=index&a=register&siteid=1" ><strong><span style="font-size:13px; color:#333333;">点此发言</span></strong></a></td>
+                        <td width="7"><img src="../../../../statics/images/ybsds/x_3.jpg" width="7" height="32" /></td>
+                      </tr>
+                    </table>
+                      <table width="160" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:10px;">
+                        <tr>
+                          <td width="50"><img src="../../../../statics/images/ybsds/x_1.jpg" width="50" height="32" /></td>
+                          <td align="center" background="../../../../statics/images/ybsds/x_2.jpg"><a href="?m=yijianzhengji&c=index&siteid=1" ><span style="font-size:13px; color:#333333;">回复查询</span></a></td>
+                          <td width="7"><img src="../../../../statics/images/ybsds/x_3.jpg" width="7" height="32" /></td>
+                        </tr>
+                      </table>
+                      </td>
+                </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td width="10" align="center" valign="top"><img src="../../../../statics/images/ybsds/xian_1.jpg" width="6" height="308" /></td>
+        <td valign="top"><table width="100%" border="0" cellspacing="10" cellpadding="0">
+          <tr>
+            <td><table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td background="../../../../statics/images/ybsds/class_2.jpg"><table border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td height="18" class="ybs_a_a1" style="padding-top:3px;"><a href="/index.php?m=yijianzhengji">意见征集</a></td>
+					<td>&nbsp;</td>
+                  </tr>
+                </table></td>
+                <td><img src="../../../../statics/images/ybsds/class_3.jpg" width="10" height="21" /></td>
+                <td><img src="../../../../statics/images/ybsds/class_4.jpg" width="314" height="21" /></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+            </table></td>
+          </tr>
+        </table>
+          <table width="100%" border="0" cellspacing="10" cellpadding="0">
+            <tr>
+              <td>{loop $types $t}
+<?php
+$ty=$t[typeid];
+$tyname[$ty]=$t[name];
+?>
+{/loop}
+{php $tyname[0]=$setting[$siteid]['sz6'];}
+
+    <div class="box boxsbg cboxs">
+    <h5>回复信息查看 </h5>
+     <div class="tag_a">
+<table width="100%" cellspacing="0"  class="table_form">
+     <tbody>
+{if $_GET[yijianzhengjiid]!=''}
+{pc:yijianzhengji action="sg"  yijianzhengjiid="$_GET[yijianzhengjiid]"  siteid="$siteid" order="desc" num="1" return="dat"}
+{elseif $_GET[bh]!=''}
+{pc:yijianzhengji action="sg"  bh="$_GET[bh]"  siteid="$siteid" order="desc" num="1" return="dat"}	
+{elseif $_POST[bh]!='' and $_POST[pass]==''}
+{pc:yijianzhengji action="sg"  bh="$_POST[bh]"  siteid="$siteid" order="desc" num="1" return="dat"}
+{else}
+{pc:yijianzhengji action="sg"  yijianzhengjiid="$_POST[yijianzhengjiid]" pass="$_POST[pass]"  siteid="$siteid" order="desc" num="1" return="dat"}	
+{/if}			{loop $dat $v}
+<?php $sh=1; //判断是否查询到结果; ?>
+            
+            <tr>
+            <th align="right"><b>信息编号：</b></th>
+            <td align="left">&nbsp;&nbsp;&nbsp; {$v[bh]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<font color="red"><?php if($v['passed']=='0'){?>正在审核<?php }elseif($v[hgcontent]==''){echo '正在处理...';}elseif($v[hgcontent]!='' and $v['passed']=='1'){echo 已审回复;}else{echo 正在处理;}?></font>]</td>
+                      </tr>
+            <tr>
+            <th align="right"><b>主题征集：</b></th>
+            <td align="left">&nbsp;&nbsp;&nbsp;<?php echo $tyname[$v['typeid']];?></td>
+                      </tr>
+
+<?php if ($_POST[dosubmita]){ 
+$v[ps]='0'; //改变状态为非加密直接查看 
+ }?>
+<?php
+if($v[ps]=='1'){ ?>
+
+        <form action="{APP_PATH}index.php?m=yijianzhengji&c=index&a=sg&siteid={$siteid}" method="post" name="mys" id="mys">
+<input type="hidden" name="yijianzhengjiid" value="{$v[yijianzhengjiid]}" class="input-text">
+      <th align="right"><b>查询密码：</b></th>
+<td><input type="password" size="20" value="" name="pass" id="pass" class="input-text">  
+&nbsp;&nbsp;&nbsp;该问题咨询人设置为保密，需输入密码查询回复信息。</td>
+</tr>
+<tr> 
+            <th align="right"><b>确定查询：</b></th>
+<td><input type="submit" value=" 提交查询 " name="dosubmita" class="button"> <input type="reset" value=" 取 消 " name="reset" class="button"> </td>
+</tr> 
+</form>
+<?php }else{ ?>
+					  <tr>
+            <th width="100" align="right"><b>意见：</b></th>
+            <td align="left">&nbsp;&nbsp;  {$v[title]}</td>
+                      </tr>
+            <tr>
+            <th align="right"><b>详细说明：</b></th>
+            <td align="left">&nbsp;&nbsp;&nbsp; {$v[content]}</td>
+                      </tr>
+            <tr>
+            <th align="right"><b>回复情况：</b></th>
+            <td align="left">&nbsp;&nbsp;&nbsp; <?php if($v[hgcontent]==''){echo '<font color="red">邮件还没有回复.请耐心等待......</font>';}else{echo $v[hgcontent];}?></td>
+                      </tr>
+            <tr>
+            <th align="right"><b>回复时间：</b></th>
+            <td align="left">&nbsp;&nbsp;&nbsp;<?php if($v[hftime]!='0'){ echo date("Y-m-d",$v[hftime]);}?></td>
+                      </tr>
+<?php } ?>
+         </tbody>
+</table>
+{/loop}
+{/pc}
+<?php if($sh==''  and $_POST[dosubmita]!=''){  //判断是否输入密码查询提示
+?>
+            <tr>
+            <th align="right"><b>错误提示：</b></th>
+            <td align="left">&nbsp;&nbsp;&nbsp你输入的查询密码错误；</td>
+                    </tr>
+{/if}
+         </tbody>
+</table>
+
+     	      </div>
+         </div></td>
+            </tr>
+          </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+
+{template "content","footer"}

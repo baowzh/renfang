@@ -1,0 +1,337 @@
+﻿{template "content","header"}
+
+<script type="text/javascript">
+  function setTab(idx)
+  {
+  if (idx == 1)
+  {
+    $("#gongmin").css('display','inline');
+    $("#faren").css('display','none');
+  }
+
+  if (idx == 2)
+  {
+    $("#gongmin").css('display','none');
+    $("#faren").css('display','inline');
+  }
+  }
+</script>
+<style type="text/css">
+ .onShow,.onError,.onFocus {font-size: 12px;}
+ .onError{colr:red;}
+
+</style>
+<div style="width:982px; padding:0 10px; margin: 0 auto;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td style="text-align:center"><table width="980" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="left" valign="top" style="padding-top:25px;"><table width="228" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><img src="{$P}images/zwxx_lftmn.jpg" width="228" height="36" /></td>
+      </tr>
+
+
+{template "content","zwgk_menu"}
+
+
+    </table></td>
+    <td align="right" valign="top" style="padding-top:18px;"><table width="739" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="left" style="background:url({$P}images/xxgk_rtbg.jpg) no-repeat right bottom"><img src="{$P}images/zfxxgk_tit.jpg" width="222" height="46" /></td>
+      </tr>
+      <tr>
+        <td style="background:url({$P}images/zwxxgk_nrbg.jpg) repeat-x top; padding-top:15px;">
+
+
+        <table width="739" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+          </tr>      
+        </table>
+
+
+         <table width="720" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="710">
+                  <table width="650" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td width="538" align="right" class="p12hui">您现在所在的位置是：首页 &gt; 政府信息公开 &gt; 依审请公开 &gt; 网上审请</td>
+                          </tr>
+                        </table></td>
+                      </tr>
+                    </table>
+
+
+          <table width="720" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="7"></td>
+            </tr>
+          </table>
+
+
+          <table width="720" border="0" cellspacing="0" cellpadding="0" class="p12hei">
+            <tr>
+              <td height="873" align="center" valign="top" style="background:url({IMG_PATH}about_r16_c7.jpg) repeat-y;">
+        <table width="700" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td height="35" bgcolor="#e8e8e8">　　　<A class="p12hui" onFocus="undefined">申请人基本信息</A> <A onFocus="undefined"></A></td>
+                </tr>
+              </table>
+        <form action="{APP_PATH}index.php?m=ysqgk&c=index&a=register&siteid={$siteid}" method="post" name="myform" id="myform">
+                
+        
+        <table width="700" border="0" cellspacing="0" cellpadding="0" style="border:1px #CCC solid;">
+                  <tr>
+                    <td width="137" align="right" bgcolor="#fff2f2" class="p12hui" style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">申请人类型：</td>                    
+                    <td width="434" style="border-bottom:1px #CCC solid;"><span class="p12hui"><input type="radio" onclick="setTab(1);" checked="checked" value="0" name="ysqgktype" class="radio_style"> 公民
+<input type="radio" onclick="setTab(2);" value="1" name="ysqgktype" class="radio_style"> 法人/其他组织</span></td>
+                  </tr>
+          <tr>
+          <td width="137" align="right" bgcolor="#fff2f2" class="p12hui" style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">受理部门：</td>
+          <td width="434" style="border-bottom:1px #CCC solid;">
+          <select  style="width:160px;" id="typeid" name="typeid">
+             <OPTION selected  value=0><?php echo $setting[$siteid]['sz6']; ?></OPTION> 
+            {loop $types $type_arr}
+            <option value="{$type_arr['typeid']}">{$type_arr['name']}</option>
+            {/loop}
+          </select>
+          </td>
+          </tr>
+          </table>
+
+        <table width="700" border="0" cellspacing="0" cellpadding="0" style="border:1px #CCC solid;">
+        <tr id="gongmin">
+                    <td align="right" bgcolor="#fff2f2" class="p12hui" style="border-right:1px #CCC solid;">公民：</td>
+                    <td colspan="4">
+          <table width="543" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="75" align="right" bgcolor="#fff2f2" class="p12hui"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">姓名：</td>
+                        <td width="203" align="center"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;"><label for="textfield"></label>
+                          <input type="text" size="20" value="" name="name" id="name" class="input-text" style="height:22px; line-height:22px; background-color:#FFFFFF">
+                          <span class="p12hong">*</span></td>
+                        <td width="67" align="right" bgcolor="#fff2f2" class="p12hui"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">工作单位：</td>
+                        <td width="198" align="center"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;"><input type="text" value="" name="danwei" id="danwei" class="input-text" style="height:22px; line-height:22px; background-color:#FFFFFF">
+                          <span class="p12hong">*</span></td>
+                      </tr>
+                      <tr>
+                        <td align="right" bgcolor="#fff2f2" class="p12hui" style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">证件名称：</td>
+                        <td align="center"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;"><input type="text" size="20" value="身份证" name="zhengjianming" id="zhengjianming" class="input-text" style="height:22px; line-height:22px;background-color:#FFFFFF">
+                          <span class="p12hong">*</span></td>
+                        <td align="right" bgcolor="#fff2f2" class="p12hui"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">证件号码：</td>
+                        <td align="center"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;"><input type="text" value="" name="zhengjianhao" id="zhengjianhao" class="input-text" style="height:22px; line-height:22px;background-color:#FFFFFF">
+                          <span class="p12hong">*</span></td>
+                      </tr>
+                      <tr>
+                        <td align="right" bgcolor="#fff2f2" class="p12hui"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">联系电话：</td>
+                        <td align="center"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;"><input type="text" size="20" value="" name="tel" id="tel" class="input-text" style="height:22px; line-height:22px;background-color:#FFFFFF">
+                          <span class="p12hong">*</span></td>
+                        <td align="right" bgcolor="#fff2f2" class="p12hui"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">邮政编码：</td>
+                        <td align="center"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;"><input type="text" size="20" value="" name="youbian" id="youbian" class="input-text" style="height:22px; line-height:22px;background-color:#FFFFFF">
+                          <span class="p12hong">*</span></td>
+                      </tr>
+                      <tr>
+                        <td align="right" bgcolor="#fff2f2" class="p12hui"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">联系地址：</td>
+                        <td align="center"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;"><input type="text" value="" name="dizhi" id="dizhi" class="input-text" style="height:22px; line-height:22px;background-color:#FFFFFF">
+                          <span class="p12hong">*</span></td>
+                        <td align="right" bgcolor="#fff2f2" class="p12hui"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">传真：</td>
+                        <td align="center"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;"><input type="text" size="20" value="" name="fax" id="fax" class="input-text" style="height:22px; line-height:22px;background-color:#FFFFFF">
+                          <span class="p12hong">*</span></td>
+                      </tr>
+                      <tr>
+                        <td align="right" bgcolor="#fff2f2" class="p12hui"  style="border-right:1px #CCC solid;">电子邮件：</td>
+                        <td align="center"  style="border-right:1px #CCC solid; "><input type="text" size="20" value="" name="email" id="email" class="input-text" style="height:22px; line-height:22px;background-color:#FFFFFF">
+                          <span class="p12hong">*</span></td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                      </tr>
+          </table>
+                    </td>         
+                  </tr>
+
+
+        <tr id="faren" style="display:none">
+                    <td align="right" bgcolor="#fff2f2" class="p12hui" style="border-right:1px #CCC solid;">法人/其他组织：</td>
+                    <td colspan="4">
+          <table width="543" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="75" align="right" bgcolor="#fff2f2" class="p12hui"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">
+            机构名称：</td>
+                        <td width="203" align="center"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;"><label for="textfield"></label>
+                          <input type="text" size="20" value="" name="gsmz" id="gsmz" class="input-text" style="height:22px; line-height:22px;background-color:#FFFFFF">
+                          <span class="p12hong">*</span></td>
+                        <td width="198" align="right" bgcolor="#fff2f2" class="p12hui"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">营业执照信息：</td>
+                        <td width="198" align="center"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;"><input type="text" size="20" value="" name="zhizhao" id="zhizhao" class="input-text" style="height:22px; line-height:22px;background-color:#FFFFFF">
+                          <span class="p12hong">*</span></td>
+                      </tr>
+                      <tr>
+                        <td align="right" bgcolor="#fff2f2" class="p12hui" style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">法人代表：</td>
+                        <td align="center"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;"><input type="text" size="20" value="" name="frdaibiao" id="frdaibiao" class="input-text" style="height:22px; line-height:22px;background-color:#FFFFFF">
+                          <span class="p12hong">*</span></td>
+                        <td align="right" bgcolor="#fff2f2" class="p12hui"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">组织机构代码：</td>
+                        <td align="center"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;"><input type="text" size="20" value="" name="zzjg" id="zzjg" class="input-text" style="height:22px; line-height:22px;background-color:#FFFFFF">
+                          <span class="p12hong">*</span></td>
+                      </tr>
+                      <tr>
+                        <td align="right" bgcolor="#fff2f2" class="p12hui"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">联 系 人：</td>
+                        <td align="center"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;"><input type="text" size="20" value="" name="lianxiren" id="lianxiren" class="input-text" style="height:22px; line-height:22px;background-color:#FFFFFF">
+                          <span class="p12hong">*</span></td>
+                        <td align="right" bgcolor="#fff2f2" class="p12hui"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">联系地址：</td>
+                        <td align="center"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;"><input type="text" size="20" value="" name="dizhib" id="dizhib" class="input-text" style="height:22px; line-height:22px;background-color:#FFFFFF">
+                          <span class="p12hong">*</span></td>
+                      </tr>
+                      <tr>
+                        <td align="right" bgcolor="#fff2f2" class="p12hui"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">邮政编码：</td>
+                        <td align="center"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;"><input type="text" size="20" value="" name="youbianb" id="youbianb" class="input-text" style="height:22px; line-height:22px;background-color:#FFFFFF">
+                          <span class="p12hong">*</span></td>
+                        <td align="right" bgcolor="#fff2f2" class="p12hui"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">联系电话：</td>
+                        <td align="center"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;"><input type="text" size="20" value="" name="telb" id="telb" class="input-text" style="height:22px; line-height:22px;background-color:#FFFFFF">
+                          <span class="p12hong">*</span></td>
+                      </tr>
+                      <tr>
+                        <td align="right" bgcolor="#fff2f2" class="p12hui"  style="border-right:1px #CCC solid;">传  真：</td>
+                        <td align="center"  style="border-right:1px #CCC solid; "> <input type="text" size="20" value="" name="faxb" id="faxb" class="input-text" style="height:22px; line-height:22px;background-color:#FFFFFF">
+                          <span class="p12hong">*</span></td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                      </tr>
+          </table>
+                    </td>         
+                  </tr>
+
+                </table>
+
+
+                <table width="700" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="35" bgcolor="#e8e8e8">　　　<A class="p14hong" onFocus="undefined">所需信息</A> <A onFocus="undefined"></A><A class="p14hong" onFocus="undefined"></A> <A onFocus="undefined"></A></td>
+                  </tr>
+                </table>
+                <table width="700" border="0" cellspacing="0" cellpadding="0" style="border:1px #CCC solid;">
+                  <tr>
+                    <td width="112" height="111" align="right" bgcolor="#fff2f2" class="p12hui"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">标题：</td>
+                    <td colspan="4"  style="border-bottom:1px #CCC solid;"><label for="textarea"></label>
+                      <input type="text" value="" size="60" id="title" name="title" class="input-text" style="height:25px; line-height:25px;background-color:#FFFFFF"></textarea>
+                      <span class="p12hong">                      *</span></td>
+                  </tr>
+                  <tr>
+                    <td width="112" height="111" align="right" bgcolor="#fff2f2" class="p12hui"  style="border-right:1px #CCC solid; border-bottom:1px #CCC solid;">所需信息内容描述：</td>
+                    <td colspan="4"  style="border-bottom:1px #CCC solid;"><label for="textarea"></label>
+                      <textarea name='content'  id='content'  style='width:535px;height:80px; margin:10px 0px;background-color:#FFFFFF' ></textarea>
+                      <span class="p12hong">                      *</span></td>
+                  </tr>
+                  <tr>
+                    <td height="106" align="right" bgcolor="#fff2f2" class="p12hui"  style="border-bottom:1px #CCC solid;">所需信息的用途：</td>
+                    <td colspan="4"  style="border-bottom:1px #CCC solid;"><textarea name='yongtu'  id='yongtu'  style='width:535px;height:60px; margin:10px 0px;background-color:#FFFFFF' ></textarea>
+                      <span class="p12hong">                      *</span></td>
+          </div>
+                  </tr>
+
+
+
+
+                  <tr>
+                    <td height="106" align="right" bgcolor="#fff2f2" class="p12hui"  style="border-bottom:1px #CCC solid;">是否保密：</td>
+                    <td colspan="4"  style="border-bottom:1px #CCC solid;">         <input type="radio" value="0" name="ps"> 公开
+<input type="radio"  value="1" name="ps"  checked="checked"> 保密
+                      <span class="p12hong">                      *</span></td>
+                  </tr>
+
+
+
+
+
+                  <tr>
+                    <td align="right" bgcolor="#fff2f2" class="p12hui"  style="border-bottom:1px #CCC solid; border-right:1px #CCC solid;">获取信息方式：</td>
+                    <td colspan="4"  style="border-bottom:1px #CCC solid;"><table width="400" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="187" align="left" class="p12hui">
+<input type="radio" value="0" name="huoqufangshi"  checked="checked"> 电子邮件
+<input type="radio"  value="1" name="huoqufangshi"> 电话告知
+<input type="radio"  value="2" name="huoqufangshi"> 信函邮寄
+<input type="radio"  value="3" name="huoqufangshi"> 传真
+<input type="radio"  value="4" name="huoqufangshi"> 自行领取
+<input type="radio"  value="5" name="huoqufangshi"> 其他方式            
+            </td>
+                      </tr>
+                    </table></td>
+                  </tr>
+
+                  <tr>
+                    <td align="right" bgcolor="#fff2f2" class="p12hui"  style="border-bottom:1px #CCC solid; border-right:1px #CCC solid;"">设置查询密码</td>
+                    <td width="505" class="p12hui"  style="border-bottom:1px #CCC solid;"> 
+          <input type="password"  value="" size="20" name="pass" id="pass" style="height:22px; line-height:22px;background-color:#FFFFFF">
+          </td>
+                  </tr>
+                  <tr>
+                    <td align="right" bgcolor="#fff2f2" class="p12hui"  style="border-bottom:1px #CCC solid; border-right:1px #CCC solid;"">请输入验证码：</td>
+                    <td colspan="4"  style="border-bottom:1px #CCC solid;">
+          <input name="code" type="text" id="code" size="10"  class="input-text"/> {form::checkcode('code_img','4','14',110,30)}
+          </td>
+                  </tr>
+                  <tr>
+                    <td height="49">&nbsp;</td>
+                    <td colspan="4" align="left"><table width="200" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td>
+            <input type="submit" value="发送申请" name="dosubmit"/>
+            </td>
+                        <td>
+            <input type="reset" value="重新填写" />
+            </form>
+            </td>
+                      </tr>
+                    </table></td>
+                  </tr>
+                </table></td>
+            </tr>
+
+          </table></td>
+      </tr>       
+
+        </td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</td>
+  </tr>
+</table>
+
+
+
+<script type="text/javascript" src="{JS_PATH}formvalidator.js" charset="UTF-8"></script> 
+<script type="text/javascript" src="{JS_PATH}formvalidatorregex.js" charset="UTF-8"></script>
+<!--main-->
+
+<script type="text/javascript">
+<!--
+	$(function(){
+	$.formValidator.initConfig({autotip:true,formid:"myform",onerror:function(msg){}});
+	$("#pass").formValidator({onshow:"输入查询密码",onfocus:"请输入查询密码"}).inputValidator({min:1,max:999,onerror:"请设置查询密码，该密码用于查询处理状态及回复信息。"});
+	$("#title").formValidator({onshow:"请输入标题",onfocus:"请输入标题"}).inputValidator({min:1,max:999,onerror:"标题不能为空"});
+	$("#content").formValidator({onshow:"请输入所需内容描述",onfocus:"请输入所需内容描述"}).inputValidator({min:1,max:999,onerror:"内容描述不能为空"});
+	$("#yongtu").formValidator({onshow:"请输入所需信息的用途",onfocus:"请输入所需信息的用途"}).inputValidator({min:1,max:999,onerror:"信息的用途不能为空"});
+ 	$("#code").formValidator({onshow:"请输入验证码",onfocus:"验证码不能为空"}).inputValidator({min:1,max:999,onerror:"验证码不能为空"}).ajaxValidator({
+	    type : "get",
+		url : "",
+		data :"m=pay&c=deposit&a=public_checkcode",
+		datatype : "html",
+		async:'false',
+		success : function(data){	
+            if(data == 1)
+			{
+                return true;
+			}
+            else
+			{
+                return false;
+			}
+		},
+		buttons: $("#dosubmit"),
+		onerror : "验证码错误",
+		onwait : "验证中"
+	});
+ 	})
+//-->
+</script>
+{template "content","footer"}

@@ -1,0 +1,1 @@
+﻿INSERT INTO `v9_module` (`module`, `name`, `url`, `iscore`, `version`, `description`, `setting`, `listorder`, `disabled`, `installdate`, `updatedate`) VALUES ('yijianzhengji', 'yijianzhengji', '', '0', '1', '1', '1', '1', '1', '2015-02-17', '2015-02-17');

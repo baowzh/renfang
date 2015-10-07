@@ -1,0 +1,86 @@
+﻿{template "content","header"}
+
+
+<div style="width:982px; padding:0 10px; margin: 0 auto;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td style="text-align:center"><table width="980" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="left" valign="top" style="padding-top:25px;"><table width="228" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><img src="{$P}images/zwxx_lftmn.jpg" width="228" height="36" /></td>
+      </tr>
+
+
+
+{template "content","zwgk_menu"}
+
+
+    </table></td>
+    <td align="right" valign="top" style="padding-top:18px;"><table width="739" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="left" style="background:url({$P}images/xxgk_rtbg.jpg) no-repeat right bottom"><img src="{$P}images/zfxxgk_tit.jpg" width="222" height="46" /></td>
+      </tr>
+      <tr>
+        <td style="background:url({$P}images/zwxxgk_nrbg.jpg) repeat-x top; padding-top:15px;"><table width="739" border="0" cellspacing="0" cellpadding="0">
+         
+
+
+
+
+
+
+
+          <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td style="line-height:180%; color:#CC0000">{loop $types $t}
+                <?php
+$ty=$t[typeid];
+$tyname[$ty]=$t[name];
+?>
+                {/loop}
+                {php $tyname[0]=$setting[$siteid]['sz6'];}
+                说明：依申请公开的反馈结果是针对申请人的，为保护个人信息隐私权，本网只公开办事状态和基本信息，方便申请人及时了解依申请公开办理进度，如需要查看回复内容，请输入申请时设置的查询密码进行查询。 
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td><form action="{APP_PATH}index.php?m=ysqgk&c=index&a=sg&siteid={$siteid}" method="post" name="mys" id="mys">
+<table cellpadding="0" cellspacing="1" class="table_form">
+<tbody>
+<tr>
+  <td height="30" align="center"><strong>结果反馈查询：</strong></td>
+  <td align="center"><input name="bh" type="text" id="bh"  style="font-size:12px; color:#999999; height:22px; line-height:22px;" value="输入提交申请时系统生成的信息编号" size="35" /></td>
+  <td align="center"><span style="line-height:160%; color:#CC0000">
+    <input type="submit" value=" 查询 " name="dosubmit" class="button" />
+  </span></td>
+</tr> 
+</tbody></table>
+</form></td> </tr>
+                </table>
+                   
+
+
+                    </div>
+         </div></td></tr>
+          </table>
+          </td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+
+
+
+
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</td>
+  </tr>
+</table>
+
+
+
+
+{template "content","footer"}

@@ -1,0 +1,167 @@
+<div style="width:982px; padding:0 10px; margin: 0 auto;">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr>
+      <td style="text-align:center"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td height="800" valign="top" style="padding-top:25px;"><table width="251" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td><table width="251" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td align="left" style="background:url({$P}images/lft-gzdt-bg.jpg) no-repeat right"><img src="{$P}images/bszn_lftmn.jpg" width="128" height="34" /></td>
+                      </tr>
+                      <tr>
+                        <td><table width="251" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td height="31" align="right" style="background:url({$P}images/lftmn-bg.jpg) no-repeat"><table width="210" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td width="30" height="30" align="left"><img src="{$P}images/lftmn-icon01.jpg" width="16" height="14" /></td>
+                                    <td width="93" align="left"><a href="#" class="p14heicuti">个人办事</a></td>
+                                    <td width="77" align="left"><img src="{$P}images/lftmn-icon02.jpg" width="5" height="9" /></td>
+                                  </tr>
+                                </table></td>
+                            </tr>
+                            <tr>
+                              <td align="right" style="border:1px solid #eacdad; border-top:none; padding-bottom:10px;">
+                                <table width="200" border="0" cellpadding="0" cellspacing="0" align="center">
+                                  {loop subcat(1406) $r}
+                                  <tr>
+                                    <td height="28" align="left" class="p12zongcu" style=" border-bottom:1px dashed #e8cead; padding-left:30px;"><img src="{$P}images/list_icon.png" width="6" height="6" /> <a href="{$r[url]}" class="p12zongcu">{$r[catname]}</a></td>
+                                  </tr>
+                                  {/loop}
+                                  
+                                </table>                </td>
+                            </tr>
+                            <tr>
+                              <td height="31" align="right" style="background:url({$P}images/lftmn-bg.jpg) no-repeat"><table width="210" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td width="30" height="30" align="left"><img src="{$P}images/lftmn-icon01.jpg" width="16" height="14" /></td>
+                                    <td width="93" align="left" class="p14heicuti">法人办事</td>
+                                    <td width="77" align="left"><img src="{$P}images/lftmn-icon02.jpg" width="5" height="9" /></td>
+                                  </tr>
+                  
+                                </table></td>
+                            </tr>
+                                          <tr>
+                              <td align="center" style="border:1px solid #eacdad; border-top:none;"><table width="200" border="0" cellpadding="0" cellspacing="0">
+                                {loop subcat(1407) $r}
+                                  <tr>
+                                                                       <td height="28" align="left" style=" border-bottom:1px dashed #e8cead; padding-left:30px;"><img src="{$P}images/list_icon.png" width="6" height="6" /> <a class="p12hei02" href="{$r[url]}">{$r[catname]}</a></td>
+                                  </tr>
+                                 {/loop}                                     
+                  
+                                </table></td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                    </table></td>
+                </tr>
+                
+                
+                <tr>
+                  <td>
+                    {template "content","plugin_buttons"}
+                  </td>
+                </tr>
+              </table></td>
+            <td width="662" align="right" valign="top" style="padding-top:25px;"><table width="720" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td><table width="720" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="5"><img src="{$P}images/zy_wz01.jpg" width="5" height="32" /></td>
+                        <td style="background:url({$P}images/zy_wz02.jpg) repeat-x"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td width="5%" align="center"><img src="{$P}images/wz_icon.jpg" width="17" height="17" /> </td>
+                              <td width="95%" height="32" align="left" class="p12hui02">您当前的位置：清水河首页 > {catpos($catid)}</td>
+                            </tr>
+                          </table></td>
+                        <td width="5"><img src="{$P}images/zy_wz03.jpg" width="5" height="32" /></td>
+                      </tr>
+                    </table></td>
+                </tr>
+                <tr>
+                  <td align="center" valign="top" style="padding-top:13px; border:1px solid #dbdbdb; border-top:none;" height="774"><table width="700" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td height="32" style="background:url({$P}images/srh_titbg.jpg) repeat-x">
+                          <table width="700" border="0" cellspacing="0" cellpadding="0">
+
+
+{template "content","plugin_search"}
+
+
+
+                          </table></td>
+                      </tr>
+                      <tr>
+                        <td valign="top" style="padding-top:10px;"><table width="700" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td><table width="700" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td height="31" style="background:url({$P}images/zy_tit02.jpg) repeat-x"><table width="700" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                          <td width="34" align="left"><img src="{$P}images/zy_tit01.jpg" width="29" height="31" /></td>
+                                          <td width="666" align="left" class="p14heicuti">{$catname}</td>
+                                        </tr>
+                                      </table></td>
+                                  </tr>
+                                  <tr>
+                                    <td><img src="{$P}images/zy_titbg.jpg" width="700" height="3" /></td>
+                                  </tr>
+                                </table></td>
+                            </tr>
+                            <tr>
+                              <td style="padding-top:15px; padding-bottom:15px;">
+
+{pc:content action="lists" catid="$catid" num="25" order="is_top desc  , id desc " page="$page"}
+{loop $data $v}
+<table width="700" border="0" cellspacing="0" cellpadding="0">                                
+                                  <tr>
+                                    <td height="30" align="center" style="background:url({$P}images/zy_xwline.jpg) repeat-x bottom"><table width="690" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                          <td width="610" height="30" align="left" class="p12hui02"><img src="{$P}images/zyxw_icon.jpg" width="9" height="11" /> 
+                                            <a href="{$v[url]}" class="p12hui02">{$v[title]}</a></td>
+                               <td width="80" align="left" class="p12hui">[ {date('Y-m-d',$v[inputtime])}]</td>
+                                             
+                                      <!--
+                                          <td width="80" align="left" class="p12hui">[2013-12-12]</td>
+                                          -->
+                                        </tr>
+                                      </table></td>
+                                  </tr>
+                                </table>
+
+{/loop}
+{/pc}                          
+                               
+                              
+</td>
+                            </tr>
+
+
+
+              <tr>
+                <td align="center" style="padding-top:25px;">
+                <div id="pages">
+                {$pages}
+                </div>
+                
+
+                      </td>
+              </tr>
+
+
+
+
+                                </table></td>
+                
+
+                      </td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table></td>
+          </tr>
+        </table></td>
+    </tr>
+  </table>

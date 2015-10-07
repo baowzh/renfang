@@ -1,0 +1,135 @@
+{template "content","header"}<table width="1004" border="0" align="center" cellpadding="0" cellspacing="0" class="sg_a_boder">
+  <tr>
+    <td height="30" background="../../../../statics/images/ybsds/menu_bg2.jpg" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>&nbsp;<strong>您的位置:</strong><a href="{siteurl($siteid)}">首页</a><span> > </span>依申请公开</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="1004" border="0" align="center" cellpadding="0" cellspacing="0" class="sg_a_boder" style="border-bottom:solid 3px #FFFFFF">
+  <tr>
+    <td background="../../../../statics/images/ybsds/menu_bg3.jpg" bgcolor="#FFFFFF"><img src="../../../../statics/images/ybsds/menu_bg3.jpg" width="1" height="4" /></td>
+  </tr>
+</table>
+<table width="1004" border="0" align="center" cellpadding="0" cellspacing="0" class="sg_a_boder" style="border-bottom:solid 5px #FFFFFF">
+  <tr>
+    <td bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="190" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td><table width="160" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:10px;">
+                      <tr>
+                        <td width="50"><img src="../../../../statics/images/ybsds/x_1.jpg" width="50" height="32" /></td>
+                        <td align="center" background="../../../../statics/images/ybsds/x_2.jpg">&nbsp;<a href="?m=ysqgk&c=index&a=register&siteid=1" ><strong><span style="font-size:14px; color:#333333;">在线申请</span></strong></a></td>
+                        <td width="7"><img src="../../../../statics/images/ybsds/x_3.jpg" width="7" height="32" /></td>
+                      </tr>
+                    </table>
+                      <table width="160" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:10px;">
+                        <tr>
+                          <td width="50"><img src="../../../../statics/images/ybsds/x_1.jpg" width="50" height="32" /></td>
+                          <td align="center" background="../../../../statics/images/ybsds/x_2.jpg">&nbsp;<a href="?m=ysqgk&c=index&siteid=1" ><span style="font-size:14px; color:#333333;">结果反馈</span></a></td>
+                          <td width="7"><img src="../../../../statics/images/ybsds/x_3.jpg" width="7" height="32" /></td>
+                        </tr>
+                      </table>
+                      <table width="160" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:10px;">
+                        <tr>
+                          <td width="50"><img src="../../../../statics/images/ybsds/x_1.jpg" width="50" height="32" /></td>
+                          <td align="center" background="../../../../statics/images/ybsds/x_2.jpg">&nbsp;<a href="/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=92" ><span style="font-size:14px; color:#333333;">申请人须知</span></a></td>
+                          <td width="7"><img src="../../../../statics/images/ybsds/x_3.jpg" width="7" height="32" /></td>
+                        </tr>
+                      </table></td>
+                </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td width="10" align="center" valign="top"><img src="../../../../statics/images/ybsds/xian_1.jpg" width="6" height="308" /></td>
+        <td valign="top"><table width="100%" border="0" cellspacing="10" cellpadding="0">
+          <tr>
+            <td><table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td background="../../../../statics/images/ybsds/class_2.jpg"><table border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td height="18" class="ybs_a_a1" style="padding-top:3px;"><a href="#">结果反馈
+</a></td>
+					<td>&nbsp;</td>
+                  </tr>
+                </table></td>
+                <td><img src="../../../../statics/images/ybsds/class_3.jpg" width="10" height="21" /></td>
+                <td><img src="../../../../statics/images/ybsds/class_4.jpg" width="314" height="21" /></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+            </table></td>
+          </tr>
+        </table>
+          <table width="780" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td style="line-height:180%; color:#CC0000">{loop $types $t}
+                <?php
+$ty=$t[typeid];
+$tyname[$ty]=$t[name];
+?>
+                {/loop}
+                {php $tyname[0]=$setting[$siteid]['sz6'];}
+                说明：依申请公开的反馈结果是针对申请人的，为保护个人信息隐私权，本网只公开办事状态和基本信息，方便申请人及时了解依申请公开办理进度，如需要查看回复内容，请输入申请时设置的查询密码进行查询。 
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td><form action="{APP_PATH}index.php?m=ysqgk&c=index&a=sg&siteid={$siteid}" method="post" name="mys" id="mys">
+<table cellpadding="0" cellspacing="1" class="table_form">
+<tbody>
+<tr>
+  <td height="30" align="center"><strong>结果反馈查询：</strong></td>
+  <td align="center"><input name="bh" type="text" id="bh"  style="font-size:12px; color:#999999; height:22px; line-height:22px;" value="输入提交申请时系统生成的信息编号" size="35" /></td>
+  <td align="center"><span style="line-height:160%; color:#CC0000">
+    <input type="submit" value=" 查询 " name="dosubmit" class="button" />
+  </span></td>
+</tr> 
+</tbody></table>
+</form></td> </tr>
+                </table>
+                    <table width="100%" cellspacing="1" bgcolor="#EBEBEB">
+                      <thead>
+                        <tr>
+                          <th width="160" height="26" align="center" bgcolor="#EEF3F7">受理编号</th>
+              <th align="center" bgcolor="#EEF3F7">标　题</th>
+                <th width="120" align="center" bgcolor="#EEF3F7">受理单位</th>
+              <th width="90" align="center" bgcolor="#EEF3F7">申请时间</th>
+                <th width="90" align="center" bgcolor="#EEF3F7">受理状态</th>
+              </tr>
+                      </thead>
+                      <tbody>
+                      {loop $datas $v} 
+                      
+                      <tr>
+                        <td  width="160" height="30" align="center" bgcolor="#FFFFFF">{$v[bh]}</td>
+                  <td align="left" bgcolor="#FFFFFF">&nbsp;<img src="/statics/images/ybsds/ico_1.jpg" width="10" height="11" />&nbsp;<a href="index.php?m=ysqgk&a=sg&ysqgkid={$v[ysqgkid]}&siteid={$v[siteid]}" title="{$v[title]}" target="_blank">{str_cut($v[title],40,'..')}</a> </td>
+	    <td  width="120" align="center" bgcolor="#FFFFFF"><a href="{APP_PATH}index.php?m=ysqgk&c=index&a=list_type&type_id={$v[typeid]}&siteid={$v[siteid]}"><?php echo $tyname[$v['typeid']];?></a></td>
+	  <td  width="90" align="center" bgcolor="#FFFFFF"><?php echo date("Y-m-d",$v[addtime]);?></td>
+	    <td  width="90" align="center" bgcolor="#FFFFFF"><font color="#1D94C7"><?php if($v['passed']=='0'){?>正在审核<?php }elseif($v[hgcontent]==''){echo 正在处理;}elseif($v[hgcontent]!='' and $v['passed']=='1'){echo '<font color="red">已审回复</font>';}else{echo 正在处理;}?></font></td>
+	  </tr> 
+                      {/loop}
+                      <tr>
+                        <td colspan="5" align="center" bgcolor="#FFFFFF"><div id="pages"> {$pages}</div> </td>
+	    </tr> 
+                      
+                      <!--pages-->
+                      
+                      </tbody>
+                  </table>
+   	                </div>
+         </div></td></tr>
+          </table>
+          </td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<link href="{CSS_PATH}member.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}table_form.css" rel="stylesheet" type="text/css" /> 
+<!--main-->
+{template "content","footer"}

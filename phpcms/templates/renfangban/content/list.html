@@ -1,0 +1,45 @@
+{template "content","header"}
+<?php
+$parentid = $CATEGORYS[$catid][parentid];
+?>
+<?php
+if ( ($parentid == 1406) or ($parentid == 1407) ){
+    include(template("content" , "bszn"));  
+}
+else
+{
+switch($catid){
+   case 1450:
+        include(template("content" , "list_modnochild"));                                               
+        break;
+   case 1451:
+        include(template("content" , "list_modnochild"));                                               
+        break;
+ case 1455:
+        include(template("content" , "list_modnochild"));                                               
+        break;
+   case 1485:
+        include(template("content" , "rfpicture"));                                               
+        break;
+  case 1486:
+        include(template("content" , "rfvideo"));                                               
+        break;
+   case 1463:
+        include(template("content" , "rfpicture"));                                               
+        break; 
+   case 1464:
+        include(template("content" , "rfpicture"));                                               
+        break; 
+   case 1461:
+        include(template("content" , "rfpicture"));                                               
+        break; 
+  case 1462:
+        include(template("content" , "rfpicture"));                                               
+        break;
+    default:
+        include(template("content" , "list_mod"));
+        break;
+}
+}
+?>
+{template "content","footer"}

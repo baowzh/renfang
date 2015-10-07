@@ -1,0 +1,26 @@
+<?php
+$fid = $_GET['fid'];
+
+switch ($fid)
+{
+	case 'leader':
+		include(template("content" , "form-ldxx"));
+		break;		
+	case 'ldxx':
+		include(template("content" , "form-ldxx"));
+		break;	
+	case 'jyxc':
+		include(template("content" , "form-jyxc"));
+		break;
+	case 'tzh':
+		include(template("content" , "form-tzh"));
+		break;
+	case 'wsxf':
+		include(template("content" , "form-wsxf"));
+		break;
+	case 'sqb':
+		include(template("content" , "form-sqb"));
+		break;		
+	default:
+		break;
+}

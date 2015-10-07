@@ -1,0 +1,145 @@
+{template "content","header"}
+<div style="width:982px; padding:0 10px; margin: 0 auto;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td align="center" valign="top" style="padding-top:20px;">
+	<table width="980" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><table width="980" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="51" align="left" class="p12hui02" style="background:url({$P}images/xwxx-wzbg.jpg) no-repeat; padding-left:90px;"><div class="p12hui02">您当前的位置：{catpos($catid)}</div></span></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="460" align="center" valign="top" style=" border-left:1px solid #f3aa5b; border-right:1px solid #f3aa5b; padding-top:20px; padding-bottom:20px;">
+		 <table width="922" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>
+
+<?php
+   //获取父级id
+   $parents = $CATEGORYS[$catid][arrparentid];
+
+   $pararr = explode(",",$parents);   
+   if (count($pararr) == 1){
+      $finalid = $catid;
+      $imgid = $catid;      
+   }
+   if (count($pararr) == 2){
+      $finalid = $pararr[1];
+      $imgid = $pararr[1];
+   } 
+   if (count($pararr) == 3){
+      $finalid = $pararr[2];
+      $imgid = $pararr[1];
+   }      
+?>   
+
+<?php
+$siteids = getcache('category_content','commons');
+$siteid = $siteids[$catid];
+$CATEGORYS = getcache('category_content_'.$siteid,'commons');
+$catname=$CATEGORYS[$catid]['catname'];
+?>
+
+<?php if ($imgid == 1210) :?>     
+
+        <table width="922" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><img src="{$P}images/zwxx_xxtp.jpg" width="922" height="35" /></td>
+          </tr>
+          <tr>
+            <td><table width="922" border="0" cellspacing="0" cellpadding="0" class="table1">
+              <tr>
+                <td width="122" align="right" bgcolor="#eef9fb">萦引号：</td>
+                <td width="445"><label for="textfield">{$xxgk_index}</label></td>
+                <td width="123" align="right" bgcolor="#eef9fb">信息产生日期：</td>
+                <td width="232">{$inputtime}</td>
+              </tr>
+              <tr>
+                <td width="122" align="right" bgcolor="#eef9fb">归属部门：</td>
+                <td align="left">{$xxgk_department}</td>
+                <td align="right" bgcolor="#eef9fb">备注文号：</td>
+                <td align="left">{$xxgk_bzwh}</td>
+              </tr>
+              <tr>
+                <td width="122" align="right" bgcolor="#eef9fb">公开目录分类：</td>
+                <td align="left">{$catname}</td>
+                <td align="right" bgcolor="#eef9fb">&nbsp;</td>
+                <td align="left">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="122" align="right" bgcolor="#eef9fb">公开时限：</td>
+                <td colspan="3" align="left">{$xxgk_gkss}</td>
+                </tr>
+              <tr>
+                <td width="122" align="right" bgcolor="#eef9fb">数据报送：</td>
+                <td colspan="3" align="left">{$xxgk_sjbs}</td>
+                </tr>
+              <tr>
+                <td width="122" align="right" bgcolor="#eef9fb">公开信息标题：</td>
+                <td colspan="3" align="left">{$title}</td>
+                </tr>
+              <tr>
+                <td width="122" align="right" bgcolor="#eef9fb">内容概要：</td>
+                <td colspan="3" align="left">{$description}</td>
+                </tr>			  
+            </table></td>
+          </tr>
+        </table>
+
+<?php endif;?>
+
+        </td>
+      </tr>
+      <tr>
+        <td valign="top" style="padding-top:30px;"><table width="922" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="60" align="center" class="lan_24">{$title}</td>
+          </tr>
+          <tr>
+            <td height="28" align="center" class="p12bai" style="background:#ef4200;">{$inputtime} 　 【字号 大 中 小】【<A href="javascript:void(0)" class="p12bai"><SPAN onclick="javascript:window.print()">打印本页</SPAN></A>】【来源：{$copyfrom}】【<A>返回列表</A>】</td>
+          </tr>
+          <tr>
+            <td style="padding:15px; padding-top:25px;" align="left" class="p14huizhengwen">
+            	{$content}
+            </td>
+          </tr>
+          <tr>
+            <td style="background:url({$P}images/xwxx-btmline.jpg) repeat-x top; padding-top:15px;">
+			 <table width="922" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td><table width="922" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="78"><img src="{$P}images/sypicon.jpg" width="73" height="25"></td>
+                        <td align="left" bgcolor="#fbf6f3" class="p12hei" style="padding-left:10px;"><a href="{$previous_page[url]}" class="p12huilk">{$previous_page[title]}</a></td>
+                      </tr>
+                    </table></td>
+                  </tr>
+                  <tr>
+                    <td valign="top" style="padding-top:3px;"><table width="922" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="78"><img src="{$P}images/xypicon.jpg" width="73" height="25"></td>
+                        <td align="left" bgcolor="#fbf6f3" class="p12hei" style="padding-left:10px;"><a href="{$next_page[url]}" class="p12huilk">{$next_page[title]}</a></td>
+                      </tr>
+                    </table></td>
+                  </tr>
+                </table>
+			</td>
+          </tr>
+        </table></td>
+      </tr>
+    </table>
+		</td>
+      </tr>
+      <tr>
+        <td align="center" valign="top"><img src="{$P}images/xwxx-btm.jpg" width="980" height="41" /></td>
+      </tr>	  
+    </table>
+	 
+	</td>
+  </tr>
+</table>
+
+{template "content","footer"}

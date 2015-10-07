@@ -1,0 +1,10 @@
+<?php 
+defined('IN_PHPCMS') or exit('Access Denied');
+defined('INSTALL') or exit('Access Denied');
+$module = 'ysqgk';
+$modulename = '»¥¶¯-ÒÀÉêÇë¹«¿ª';
+$introduce = 'QQ:9830878 15247659876';
+$author = '¹þÀÖ¶º';
+$authorsite = 'http://www.520476.com';
+$authoremail = '9830878@qq.com';
+?>

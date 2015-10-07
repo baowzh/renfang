@@ -1,0 +1,249 @@
+<?php
+   //获取父级id
+   $parents = $CATEGORYS[$catid][arrparentid];
+
+   $pararr = explode(",",$parents); 
+   if (count($pararr) == 1){
+      $finalid = $catid;
+      $imgid = $catid;      
+   }
+   if (count($pararr) == 2){
+      $finalid = $pararr[1];
+      $imgid = $pararr[1];
+   } 
+   if (count($pararr) == 3){
+      $finalid = $pararr[2];
+      $imgid = $pararr[1];
+   }  
+   if (count($pararr) == 4){
+      $finalid = $pararr[3];
+      $imgid = $pararr[1];
+   }         
+?>
+
+<?php 
+  $didnotloop = false;
+  $style="p14hui";
+  switch($catid){
+     case 1164:
+         $looparr = array($CATEGORYS[1164]);
+         break;
+     case 1202:
+         $looparr = array($CATEGORYS[1202]);         
+         break;
+     case 1201:
+         $looparr = array($CATEGORYS[1201]);   
+         break;    
+     case 1211:
+         $looparr = array($CATEGORYS[1211]);   
+         break;           
+     case 1165:
+         //$looparr = array($CATEGORYS[1386],$CATEGORYS[1375],$CATEGORYS[1387]);
+         //$didnotloop = true;
+         break; 
+     //专题专栏    
+     case 1209:
+         $looparr = array($CATEGORYS[1395],$CATEGORYS[1328],$CATEGORYS[1329],$CATEGORYS[1330],$CATEGORYS[1331],$CATEGORYS[1332]);
+         $didnotloop = true;
+         $style="p12hei02";
+         break; 
+     case 1216:
+         $looparr =  subcat(1216);
+         $didnotloop = true;
+         $imgid=1216;
+         break;   
+     case 1217:
+         $looparr =  subcat(1217);
+         $didnotloop = true;
+         $imgid=1217;
+         break;    
+     case 1218:
+         $looparr =  subcat(1218);
+         $didnotloop = true;
+         $imgid=1218;
+         break;   
+     case 1219:
+         $looparr =  subcat(1219);
+         $didnotloop = true;
+         $imgid=1219;
+         break;                                               
+     default:
+         $looparr= null;
+  }
+
+  switch($imgid){
+     case 1209:
+         $looparr = array($CATEGORYS[1239],$CATEGORYS[1328],$CATEGORYS[1329],$CATEGORYS[1330],$CATEGORYS[1331],$CATEGORYS[1332]);
+         $didnotloop = true;
+         $style="p12hei02";
+         break;
+     case 1161:
+         $looparr = array($CATEGORYS[1284],$CATEGORYS[1382],$CATEGORYS[1383],$CATEGORYS[1384],$CATEGORYS[1300],$CATEGORYS[1428]);
+         $didnotloop = true;
+         $style="p14hui";
+         break;     
+     case 1355:
+         $style="p12hei02";
+         break;  
+     case 1214:
+         $style="p14hui";
+         break;      
+  }
+  if( ($parentid == 1216)  ) $imgid = $parentid;
+  if( ($parentid == 1217)  ) $imgid = $parentid;
+  if( ($parentid == 1218)  ) $imgid = $parentid;
+  if( ($parentid == 1219)  ) $imgid = $parentid;
+?>
+<div style="width:982px; padding:0 10px; margin: 0 auto;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td style="text-align:center"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="800" valign="top" style="padding-top:25px;"><table width="251" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><table width="251" border="0" cellspacing="0" cellpadding="0">
+          
+		
+	
+		  <tr>
+            <td align="left" style="background:url({$P}images/lft-gzdt-bg.jpg) no-repeat right"><img src="{$P}images/lftmn-{$imgid}.jpg" /></td>
+          </tr>
+		 
+          <tr>
+            <td><table width="251" border="0" cellspacing="0" cellpadding="0">
+
+
+
+
+{loop $looparr $v}
+              <tr>
+                <td height="31" align="right" style="background:url({$P}images/lftmn-bg.jpg) no-repeat">
+
+                <table width="210" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="30" height="30" align="left"><img src="{$P}images/lftmn-icon01.jpg" width="16" height="14" /></td>
+                    <td width="160" align="left" class="{$style}"><a href="{$v[url]}" class="{$style}">{$v[catname]}</a></td>
+                    <td width="20" align="left"><img src="{$P}images/lftmn-icon02.jpg" width="5" height="9" /></td>
+                  </tr>
+                </table></td>
+              </tr>
+{/loop}
+<?php if ($didnotloop == false):?>
+{loop subcat($finalid) $v}
+              <tr>
+                <td height="31" align="right" style="background:url({$P}images/lftmn-bg.jpg) no-repeat"><table width="210" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="30" height="30" align="left"><img src="{$P}images/lftmn-icon01.jpg" width="16" height="14" /></td>
+                    <td width="160" align="left" class="{$style}"><a href="{$v[url]}" class="{$style}">{$v[catname]}</a></td>
+                    <td width="20" align="left"><img src="{$P}images/lftmn-icon02.jpg" width="5" height="9" /></td>
+                  </tr>
+                </table></td>
+              </tr>
+{/loop}
+<?php endif;?>                 
+        
+        
+            </table></td>
+          </tr>
+        </table></td>
+      </tr>
+
+
+{template "content","leftinfobar"}
+
+
+    </table></td>
+    <td width="662" align="right" valign="top" style="padding-top:25px;"><table width="720" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><table width="720" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="5"><img src="{$P}images/zy_wz01.jpg" width="5" height="32" /></td>
+            <td style="background:url({$P}images/zy_wz02.jpg) repeat-x"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="5%" align="center"><img src="{$P}images/wz_icon.jpg" width="17" height="17" /> </td>
+                <td width="95%" height="32" align="left" class="p12hui02">您当前的位置：清水河首页 >
+                <span class="p12lansecu"> 
+                {catpos($catid)}
+              </span>
+                </td>
+              </tr>
+            </table></td>
+            <td width="5"><img src="{$P}images/zy_wz03.jpg" width="5" height="32" /></td>
+          </tr>
+        </table></td>
+      </tr>
+      {template "content","plugin_search"}
+          <tr>
+            <td valign="top" style="padding-top:10px;"><table width="700" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><table width="700" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="31" style="background:url({$P}images/zy_tit02.jpg) repeat-x"><table width="700" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="34" align="left"><img src="{$P}images/zy_tit01.jpg" width="29" height="31" /></td>
+                        <td width="666" align="left" class="p14heicuti">{$CATEGORYS[$catid][catname]}</td>
+                      </tr>
+                    </table></td>
+                  </tr>
+                  <tr>
+                    <td><img src="{$P}images/zy_titbg.jpg" width="700" height="3" /></td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td style="padding-top:15px; padding-bottom:15px;">
+<?php if($catid == 1284):?>
+{template "content","plugin_area"}
+<?php endif;?>
+
+{pc:content action="lists" catid="$catid" num="25" order="is_top desc  , id desc " page="$page"}
+{loop $data $v}
+
+<table width="700" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="30" align="center" style="background:url({$P}images/zy_xwline.jpg) repeat-x bottom"><table width="690" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="610" height="30" align="left" class="p12hui02"><img src="{$P}images/zyxw_icon.jpg" width="9" height="11" /> <a href="{$v[url]}" class="p12hui02" title="{$v[title]}">
+          {$v[title]}
+        </a></td>
+<td width="80" align="left" class="p12hui">[{date('Y-m-d',$v[inputtime])}]</td>
+       <!-- <td width="80" align="left" class="p12hui">[{date('Y-m-d',$v[inputtime])}]</td>
+         -->
+      </tr>
+    </table></td>
+  </tr>
+</table>
+{/loop}
+
+        
+        
+        
+        
+        
+        
+        
+        
+        </td>
+              </tr>
+
+              
+              <tr>
+                <td align="center" style="padding-top:25px;">
+                <div id="pages">
+                {$pages}
+                </div>
+                
+
+                      </td>
+              </tr>
+{/pc}              
+            </table></td>
+          </tr>
+          
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table></td>
+  </tr>
+</table>

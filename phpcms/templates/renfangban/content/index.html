@@ -1,0 +1,2679 @@
+{template "content","header"}
+<link href="statics/css/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript"
+	src="statics/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="statics/js/index.js"></script>
+<script type="text/javascript">
+	var tablink_idname = new Array("tablink", "anotherlink")
+	var tabcontent_idname = new Array("tabcontent", "anothercontent")
+	var tabcount = new Array("4", "6")
+	var loadtabs = new Array("1", "5")
+	var autochangemenu = 2;
+	var changespeed = 3;
+	var stoponhover = 0;
+	function easytabs(menunr, active) {
+		if (menunr == autochangemenu) {
+			currenttab = active;
+		}
+		if ((menunr == autochangemenu) && (stoponhover == 1)) {
+			stop_autochange()
+		} else if ((menunr == autochangemenu) && (stoponhover == 0)) {
+			counter = 0;
+		}
+		menunr = menunr - 1;
+		for (i = 1; i <= tabcount[menunr]; i++) {
+			// console.log(menunr);
+			if (menunr == 1) {
+				return;
+			}
+			document.getElementById(tablink_idname[menunr] + i).className = 'tab'
+					+ i;
+			document.getElementById(tabcontent_idname[menunr] + i).style.display = 'none';
+		}
+		document.getElementById(tablink_idname[menunr] + active).className = 'tab'
+				+ active + ' tabactive';
+		document.getElementById(tabcontent_idname[menunr] + active).style.display = 'block';
+	}
+	var timer;
+	counter = 0;
+	var totaltabs = tabcount[autochangemenu - 1];
+	var currenttab = loadtabs[autochangemenu - 1];
+	function start_autochange() {
+		counter = counter + 1;
+		timer = setTimeout("start_autochange()", 1000);
+		if (counter == changespeed + 1) {
+			currenttab++;
+			if (currenttab > totaltabs) {
+				currenttab = 1
+			}
+			easytabs(autochangemenu, currenttab);
+			restart_autochange();
+		}
+	}
+	function restart_autochange() {
+		clearTimeout(timer);
+		counter = 0;
+		start_autochange();
+	}
+	function stop_autochange() {
+		clearTimeout(timer);
+		counter = 0;
+	}
+	window.onload = function() {
+		var menucount = loadtabs.length;
+		var a = 0;
+		var b = 1;
+		do {
+			easytabs(b, loadtabs[a]);
+			a++;
+			b++;
+		} while (b <= menucount);
+		if (autochangemenu != 0) {
+			start_autochange();
+		}
+	}
+</script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	align="center">
+	<tr>
+		<td height="500" align="center" valign="top"
+			style="background: url(statics/images/nrbg.png) repeat-y center top; padding-top: 7px;"><table
+				width="1000" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td><table width="1000" border="0" cellspacing="0"
+							cellpadding="0">
+							<tr>
+								<td width="217" align="left" valign="top"><table
+										width="217" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td><table width="217" border="0" cellspacing="0"
+													cellpadding="0">
+													<tr>
+														<td><a href="{$CATEGORYS[1450][url]}"><img
+																src="statics/images/sy_zxgg_tit.jpg" width="217"
+																height="31" border="0" /></a></td>
+													</tr>
+													<tr>
+														<td height="171" align="center"
+															style="border-left: 1px solid #9fcede; border-right: 1px solid #9fcede; background: url(statics/images/syzxgg_bg.jpg) no-repeat bottom;"><table
+																width="200" border="0" cellspacing="0" cellpadding="0">
+																{pc:content action="lists" catid="1450"
+																													 num="5"  order="listorder DESC" }
+																													{loop $data $v}
+																<tr>
+																	<td height="30" align="left"><img
+																		src="statics/images/zxgg_icon.png" /> <a href="{$v[url]}"
+																		class="p12heihui">{str_cut($v[title],52)}</a></td>
+																</tr>
+																{/loop} {/pc}
+																																
+															</table></td>
+													</tr>
+													<tr>
+														<td><img src="statics/images/syzxgg_btm.jpg"
+															width="217" height="14" /></td>
+													</tr>
+												</table></td>
+										</tr>
+										<tr>
+											<td valign="top" style="padding-top: 8px;"><table
+													width="217" border="0" cellspacing="0" cellpadding="0">
+													<tr>
+														<td><table width="217" border="0" cellspacing="0"
+																cellpadding="0">
+																<tr>
+																	<td width="115" height="25" align="center"
+																		style="background: url(statics/images/jrht_tit01.jpg) no-repeat; padding-top: 5px;"
+																		class="p14hei">今日<span class="p14hong">话题</span></td>
+																	<td align="right"
+																		style="background: url(statics/images/jrht_tit02.jpg) no-repeat; padding-right: 10px;"><a
+																		href="{$CATEGORYS[1451][url]}" class="p12bai">更多&gt;&gt;</a></td>
+																</tr>
+															</table></td>
+													</tr>
+													<tr>
+														<td height="222" align="center" valign="top"
+															style="border: 1px solid #9fcede; border-top: none; padding-top: 9px; padding-bottom: 10px;"><table
+																width="198" border="0" cellspacing="0" cellpadding="0">
+																{pc:content action="lists" catid="1451"
+																				num="5"  order="listorder DESC" }
+																	{loop $data $v}
+																<tr>
+																	<td height="32"
+																		style="background: url(statics/images/short_line.jpg) repeat-x bottom"
+																		align="left"><img
+																		src="statics/images/red_icon.jpg" width="3" height="3" />
+																		<a href="{$v[url]}" class="p12heihui">{str_cut($v[title],48)}</a></td>
+																</tr>
+																{/loop}
+																{/pc}
+																
+															</table></td>
+													</tr>
+												</table></td>
+										</tr>
+									</table></td>
+								<td align="right" valign="top"><table width="772"
+										border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td><table width="772" border="0" cellspacing="0"
+													cellpadding="0">
+													<tr>
+														<td align="left"
+															style="background: url(statics/images/rfxw_tit02.jpg) no-repeat right"><img
+															src="statics/images/rfxw_tit01.jpg" width="227"
+															height="33" /></td>
+													</tr>
+													<tr>
+														<td valign="top" style="padding-top: 8px;"><table
+																width="772" border="0" cellspacing="0" cellpadding="0">
+																<tr>
+																	<td width="374"><table width="374" border="0"
+																			cellspacing="0" cellpadding="0">
+																			<tr>
+																				<td height="283" valign="top"
+																					style="border: 1px solid #9ed2df; border-top: none; border-bottom: none; background: url(statics/images/rfxw_nrbg.jpg) repeat-x bottom;"><table
+																						width="372" border="0" cellspacing="0"
+																						cellpadding="0">
+																						<tr>
+																							<td height="29"><table cellpadding="0"
+																									cellspacing="0" border="0" width="372">
+																									<tr>
+																										<td
+																											style="background: url(statics/images/newbg_01.jpg) no-repeat"
+																											id="1" height="40" align="left" valign="top">
+																											<div class="news_tab">
+																												<ul>
+																													<li><a href="#"
+																														onmouseover="easytabs('1', '1');"
+																														onfocus="easytabs('1', '1');"
+																														onclick="return false;" title=""
+																														id="tablink1">工作动态</a></li>
+																													<li><a href="#"
+																														onmouseover="easytabs('1', '2');"
+																														onfocus="easytabs('1', '2');"
+																														onclick="return false;" title=""
+																														id="tablink2">旗县快讯</a></li>
+																													<li><a href="#"
+																														onmouseover="easytabs('1', '3');"
+																														onfocus="easytabs('1', '3');"
+																														onclick="return false;" title=""
+																														id="tablink3">图片传真</a></li>
+																													<li><a href="#"
+																														onmouseover="easytabs('1', '4');"
+																														onfocus="easytabs('1', '4');"
+																														onclick="return false;" title=""
+																														id="tablink4">信息专递</a></li>
+																												</ul>
+																											</div>
+																										</td>
+																									</tr>
+																								</table></td>
+																						</tr>
+																						<tr>
+																							<td align="center" valign="top"
+																								style="padding-top: 7px;">
+																								<div id="tabcontent1">
+																									<table width="353" border="0" cellspacing="0"
+																										cellpadding="0">
+																										<tr>
+																											<td height="88" align="center"
+																												style="background: url(statics/images/rfxw_tjbg.jpg) no-repeat"><table
+																													width="335" border="0" cellspacing="0"
+																													cellpadding="0">
+																													{pc:content action="position" catid="1436"
+																													posid="17" num="1" order="listorder DESC" }
+																													{loop $data $v}
+																													<tr>
+																														<td height="30" class="p14hong">{str_cut($v[title],60)}</td>
+																													</tr>
+																													<tr>
+																														<td class="p12qianhui"
+																															style="line-height: 20px;" align="left"><a
+																															href="" class="p12qianhui">
+																															 {pc:get sql="select * from v9_news_data where id=$v[id]" return="data1"} 
+																															 {loop $data1 $r}
+																															 {str_cut(strip_tags($r[content]),150)}
+																															 {/loop} 
+																															 {/pc}
+																																
+																														</a></td>
+																													</tr>
+																													{/loop} {/pc}
+																												</table></td>
+																										</tr>
+																										<tr>
+																											<td valign="top" style="padding-top: 5px;"><table
+																													width="353" border="0" cellspacing="0"
+																													cellpadding="0">
+																													{pc:content action="lists" catid="1436"
+																													 num="5" where="posids=0 and catid=1436" order="listorder DESC" }
+																													{loop $data $v}
+																													<tr>
+																														<td align="center"><table width="348"
+																																border="0" cellspacing="0"
+																																cellpadding="0">
+																																<tr>
+																																	<td width="283" height="30"
+																																		align="left"><img
+																																		src="statics/images/red_arrow.jpg"
+																																		width="7" height="9" /> <a href="{$v[url]}"
+																																		class="p12heihui">{str_cut($v[title],68)}</a></td>
+																																	<td width="65" align="left"
+																																		class="p12qianhui">{date('Y-m-d',$v[inputtime])}</td>
+																																</tr>
+																															</table></td>
+																													</tr>
+																													{/loop} {/pc}																													
+																												</table></td>
+																										</tr>
+																									</table>
+																								</div> 
+																								<div id="tabcontent2">
+																									<table width="353" border="0" cellspacing="0"
+																										cellpadding="0">
+																										<tr>
+																											<td height="88" align="center"
+																												style="background: url(statics/images/rfxw_tjbg.jpg) no-repeat"><table
+																													width="335" border="0" cellspacing="0"
+																													cellpadding="0">
+																													{pc:content action="position" catid="1437"
+																													posid="17" num="1" order="listorder DESC" }
+																													{loop $data $v}
+																													<tr>
+																														<td height="30" class="p14hong">{str_cut($v[title],60)}</td>
+																													</tr>
+																													<tr>
+																														<td class="p12qianhui"
+																															style="line-height: 20px;" align="left"><a
+																															href="" class="p12qianhui">
+																															 {pc:get sql="select * from v9_news_data where id=$v[id]" return="data1"} 
+																															 {loop $data1 $r}
+																															 {str_cut(strip_tags($r[content]),150)}
+																															 {/loop} 
+																															 {/pc}
+																																
+																														</a></td>
+																													</tr>
+																													{/loop} {/pc}
+																												</table></td>
+																										</tr>
+																										<tr>
+																											<td valign="top" style="padding-top: 5px;"><table
+																													width="353" border="0" cellspacing="0"
+																													cellpadding="0">
+																													{pc:content action="lists" catid="1437"
+																													 num="5" where="posids=0 and catid=1437" order="listorder DESC" }
+																													{loop $data $v}
+																													<tr>
+																														<td align="center"><table width="348"
+																																border="0" cellspacing="0"
+																																cellpadding="0">
+																																<tr>
+																																	<td width="283" height="30"
+																																		align="left"><img
+																																		src="statics/images/red_arrow.jpg"
+																																		width="7" height="9" /> <a href="{$v[url]}"
+																																		class="p12heihui">{str_cut($v[title],68)}</a></td>
+																																	<td width="65" align="left"
+																																		class="p12qianhui">{date('Y-m-d',$v[inputtime])}</td>
+																																</tr>
+																															</table></td>
+																													</tr>
+																													{/loop} {/pc}
+																													
+																												</table></td>
+																										</tr>
+																									</table>
+																								</div> <!--End Tabcontent 2 --> <!--Start Tabcontent 3-->
+																								<div id="tabcontent3">
+																									<table width="353" border="0" cellspacing="0"
+																										cellpadding="0">
+																										<tr>
+																											<td height="88" align="center"
+																												style="background: url(statics/images/rfxw_tjbg.jpg) no-repeat"><table
+																													width="335" border="0" cellspacing="0"
+																													cellpadding="0">
+																													{pc:content action="position" catid="1438"
+																													posid="17" num="1" order="listorder DESC" }
+																													{loop $data $v}
+																													<tr>
+																														<td height="30" class="p14hong">{str_cut($v[title],60)}</td>
+																													</tr>
+																													<tr>
+																														<td class="p12qianhui"
+																															style="line-height: 20px;" align="left"><a
+																															href="" class="p12qianhui">
+																															 {pc:get sql="select * from v9_news_data where id=$v[id]" return="data1"} 
+																															 {loop $data1 $r}
+																															 {str_cut(strip_tags($r[content]),150)}
+																															 {/loop} 
+																															 {/pc}
+																																
+																														</a></td>
+																													</tr>
+																													{/loop} {/pc}
+																												</table></td>
+																										</tr>
+																										<tr>
+																											<td valign="top" style="padding-top: 5px;"><table
+																													width="353" border="0" cellspacing="0"
+																													cellpadding="0">
+																													 {pc:content action="lists" catid="1438"
+																													 num="5" where="posids=0 and catid=1438" order="listorder DESC" }
+																													{loop $data $v}
+																													<tr>
+																														<td align="center"><table width="348"
+																																border="0" cellspacing="0"
+																																cellpadding="0">
+																																<tr>
+																																	<td width="283" height="30"
+																																		align="left"><img
+																																		src="statics/images/red_arrow.jpg"
+																																		width="7" height="9" /> <a href="{$v[url]}"
+																																		class="p12heihui">{str_cut($v[title],68)}</a></td>
+																																	<td width="65" align="left"
+																																		class="p12qianhui">{date('Y-m-d',$v[inputtime])}</td>
+																																</tr>
+																															</table></td>
+																													</tr>
+																													{/loop} {/pc}																													
+																												</table></td>
+																										</tr>
+																									</table>
+																								</div> <!--End Tabcontent 3--> <!--Start Tabcontent 4-->
+																								<div id="tabcontent4">
+																									<table width="353" border="0" cellspacing="0"
+																										cellpadding="0">
+																										<tr>
+																											<td height="88" align="center"
+																												style="background: url(statics/images/rfxw_tjbg.jpg) no-repeat"><table
+																													width="335" border="0" cellspacing="0"
+																													cellpadding="0">
+																													{pc:content action="position" catid="1439"
+																													posid="17" num="1" order="listorder DESC" }
+																													{loop $data $v}
+																													<tr>
+																														<td height="30" class="p14hong">{str_cut($v[title],60)}</td>
+																													</tr>
+																													<tr>
+																														<td class="p12qianhui"
+																															style="line-height: 20px;" align="left"><a
+																															href="" class="p12qianhui">
+																															 {pc:get sql="select * from v9_news_data where id=$v[id]" return="data1"} 
+																															 {loop $data1 $r}
+																															 {str_cut(strip_tags($r[content]),150)}
+																															 {/loop} 
+																															 {/pc}
+																																
+																														</a></td>
+																													</tr>
+																													{/loop} {/pc}
+																												</table></td>
+																										</tr>
+																										<tr>
+																											<td valign="top" style="padding-top: 5px;"><table
+																													width="353" border="0" cellspacing="0"
+																													cellpadding="0">
+																													{pc:content action="lists" catid="1439"
+																													 num="5" where="posids=0 and catid=1438" order="listorder DESC" }
+																													{loop $data $v}
+																													<tr>
+																														<td align="center"><table width="348"
+																																border="0" cellspacing="0"
+																																cellpadding="0">
+																																<tr>
+																																	<td width="283" height="30"
+																																		align="left"><img
+																																		src="statics/images/red_arrow.jpg"
+																																		width="7" height="9" /> <a href="{$v[url]}"
+																																		class="p12heihui">{str_cut($v[title],68)}</a></td>
+																																	<td width="65" align="left"
+																																		class="p12qianhui">{date('Y-m-d',$v[inputtime])}</td>
+																																</tr>
+																															</table></td>
+																													</tr>
+																													{/loop} {/pc}
+																													
+																												</table></td>
+																										</tr>
+																									</table>
+																								</div>
+																							</td>
+																						</tr>
+																					</table></td>
+																			</tr>
+																			<tr>
+																				<td><img src="statics/images/rfxw_btm.jpg"
+																					width="374" height="17" /></td>
+																			</tr>
+																		</table></td>
+																	<td align="right" valign="top"><table width="390"
+																			border="0" cellspacing="0" cellpadding="0">
+																			<tr>
+																				<td height="298">
+																					<div id="fsD1" class="focus">
+																						<div id="D1pic1" class="fPic">
+																						   {pc:content action="lists" catid="1452"
+																													 num="5"  order="listorder DESC" }
+																													{loop $data $v}
+																							<div class="fcon" style="display: none;">
+																								<a target="_blank"
+																									href="{$v[url]}">
+																									<img
+																									src="{$v[thumb]}" style="opacity: 1;"></a>
+																								<span class="shadow"><a target="_blank"
+																									href="{$v[url]}">
+																									{str_cut($v[title],52)}
+																									</a></span>
+																							</div>
+																							{/loop} {/pc}                                                                                         
+																						</div>
+																						<div class="fbg">
+																							<div class="D1fBt" id="D1fBt">
+																								<a href="javascript:void(0)" hidefocus="true"
+																									target="_self" class=""><i>1</i></a> <a
+																									href="javascript:void(0)" hidefocus="true"
+																									target="_self" class=""><i>2</i></a> <a
+																									href="javascript:void(0)" hidefocus="true"
+																									target="_self" class="current"><i>3</i></a> <a
+																									href="javascript:void(0)" hidefocus="true"
+																									target="_self" class=""><i>4</i></a>
+																							</div>
+																						</div>
+																				</td>
+																			</tr>
+																		</table></td>
+																</tr>
+															</table></td>
+													</tr>
+												</table></td>
+										</tr>
+										<tr>
+											<td valign="top" style="padding-top: 8px;"><table
+													width="772" border="0" cellspacing="0" cellpadding="0">
+													<tr>
+														<td><table width="772" border="0" cellspacing="0"
+																cellpadding="0">
+																<tr>
+																	<td width="208" height="33" align="center"
+																		style="background: url(statics/images/zfxxgk_tit01.jpg) no-repeat left;"
+																		class="p14bai">政府信息公开</td>
+																	<td
+																		style="background: url(statics/images/zfxxgk_tit02.jpg) repeat-x">&nbsp;</td>
+																	<td width="94" align="center" class="p12shenglan"
+																		style="background: url(statics/images/zfxxgk_tit03.jpg) no-repeat"><a
+																		href="{$CATEGORYS[1440][url]}" class="p12shenglan">点击进入&gt;&gt;</a></td>
+																</tr>
+															</table></td>
+													</tr>
+													<tr>
+														<td height="99" align="center"
+															style="border-left: 1px solid #c1ccd1; border-right: 1px solid #c1ccd1;"><table
+																width="750" border="0" cellspacing="0" cellpadding="0">
+																<tr>
+																	<td width="477"><table width="477" border="0"
+																			cellspacing="0" cellpadding="0">
+																			<tr>
+																				<td height="80" align="center"
+																					style="border: 1px solid #f2cece;"><table
+																						width="466" border="0" cellspacing="0"
+																						cellpadding="0">
+																						<tr>
+																							<td align="center"><table width="107"
+																									border="0" cellspacing="0" cellpadding="0">
+																									<tr>
+																										<td height="28" align="center"
+																											class="zfxxgk_list01"><a href="{$CATEGORYS[1441][url]}"
+																											class="current">信息公开制度</a></td>
+																									</tr>
+																								</table></td>
+																							<td align="center"><table width="107"
+																									border="0" cellspacing="0" cellpadding="0">
+																									<tr>
+																										<td height="28" align="center"
+																											class="zfxxgk_list02"><a href="{$CATEGORYS[1442][url]}"
+																											class="zfxxgk_li">信息公开指南</a></td>
+																									</tr>
+																								</table></td>
+																							<td align="center"><table width="107"
+																									border="0" cellspacing="0" cellpadding="0">
+																									<tr>
+																										<td height="28" align="center"
+																											class="zfxxgk_list03"><a href="{$CATEGORYS[1443][url]}"
+																											class="zfxxgk_li">信息公开目录</a></td>
+																									</tr>
+																								</table></td>
+																							<td align="center"><table width="107"
+																									border="0" cellspacing="0" cellpadding="0">
+																									<tr>
+																										<td height="28" align="center"
+																											class="zfxxgk_list04"><a href="{$CATEGORYS[1444][url]}"
+																											class="zfxxgk_li">机构简介</a></td>
+																									</tr>
+																								</table></td>
+																						</tr>
+																						<tr>
+																							<td align="center" valign="top"
+																								style="padding-top: 6px;"><table
+																									width="107" border="0" cellspacing="0"
+																									cellpadding="0">
+																									<tr>
+																										<td height="28" align="center"
+																											class="zfxxgk_list05"><a href="{$CATEGORYS[1445][url]}"
+																											class="zfxxgk_li">信息公开年报</a></td>
+																									</tr>
+																								</table></td>
+																							<td align="center" valign="top"
+																								style="padding-top: 6px;"><table
+																									width="107" border="0" cellspacing="0"
+																									cellpadding="0">
+																									<tr>
+																										<td height="28" align="center"
+																											class="zfxxgk_list06"><a href="{$CATEGORYS[1446][url]}"
+																											class="zfxxgk_li">依申请公开</a></td>
+																									</tr>
+																								</table></td>
+																							<td align="center" valign="top"
+																								style="padding-top: 6px;"><table
+																									width="107" border="0" cellspacing="0"
+																									cellpadding="0">
+																									<tr>
+																										<td height="28" align="center"
+																											class="zfxxgk_list07"><a href="{$CATEGORYS[1447][url]}"
+																											class="zfxxgk_li">预决算公开 </a></td>
+																									</tr>
+																								</table></td>
+																							<td align="center" valign="top"
+																								style="padding-top: 6px;"><table
+																									width="107" border="0" cellspacing="0"
+																									cellpadding="0">
+																									<tr>
+																										<td height="28" align="center"
+																											class="zfxxgk_list08"><a href="{$CATEGORYS[1448][url]}"
+																											class="zfxxgk_li">领导介绍</a></td>
+																									</tr>
+																								</table></td>
+																						</tr>
+																					</table></td>
+																			</tr>
+																		</table></td>
+																	<td align="right"><table width="260" border="0"
+																			cellspacing="0" cellpadding="0">
+																			<tr>
+																				<td height="80" align="center"
+																					style="border: 1px solid #dee6eb;"><table
+																						width="250" border="0" cellspacing="0"
+																						cellpadding="0">
+																						<tr>
+																							<td width="37" align="left"><img
+																								src="statics/images/zfxxgk_ghjh.jpg" width="31"
+																								height="68" /></td>
+																							<td><table width="212" border="0"
+																									cellspacing="0" cellpadding="0">
+																									 {pc:content action="lists" catid="1449"
+																													 num="3"  order="listorder DESC" }
+																													{loop $data $v}
+																									<tr>
+																										<td height="24" align="left" class="p12heihui"><a
+																											href="{$v[url]}" class="p12heihui">{str_cut($v[title],56)}</a></td>
+																									</tr>
+																									{/loop}
+																									{/pc}																																																		
+																								</table></td>
+																						</tr>
+																					</table></td>
+																			</tr>
+																		</table></td>
+																</tr>
+															</table></td>
+													</tr>
+													<tr>
+														<td><img src="statics/images/zfxxgk_btm.jpg"
+															width="771" height="10" /></td>
+													</tr>
+												</table></td>
+										</tr>
+									</table></td>
+							</tr>
+						</table></td>
+				</tr>
+				<tr>
+					<td height="140px" valign="bottom"><img
+						src="statics/images/zt_adv01.jpg" width="1000" height="130" /></td>
+				</tr>
+			</table></td>
+	</tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	align="center">
+	<tr>
+		<td align="center" valign="top"
+			style="background: url(statics/images/nrbg.png) repeat-y center top; padding-top: 13px; padding-bottom: 12px;"><table
+				width="1000" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td><img src="statics/images/xxgkal_tit.jpg" width="1000"
+						height="32" /></td>
+				</tr>
+				<tr>
+					<td height="416" align="center" valign="top"
+						style="border-left: 1px solid #c5c5c5; border-right: 1px solid #c5c5c5; background: url(statics/images/xxgkzl_nrbg.jpg) repeat-x bottom; padding-top: 12px;"><table
+							width="982" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="218" valign="top"><table width="218" border="0"
+										cellspacing="0" cellpadding="0">
+										<tr>
+											<td>
+												<table width="218" border="0" cellspacing="0"
+													cellpadding="0">
+													<tr>
+														<td><img src="statics/images/bsxt_tit.jpg"
+															width="218" height="28" /></td>
+													</tr>
+													<tr>
+														<td height="111" align="center" valign="top"
+															style="border-left: 1px solid #d0e2e2; border-right: 1px solid #d0e2e2; background: url(statics/images/bsxt_bg.jpg) no-repeat right bottom; padding-top: 20px;"><table
+																width="195" border="0" cellspacing="0" cellpadding="0">
+																<tr>
+																	<td><table width="195" border="0" cellspacing="0"
+																			cellpadding="0">
+																			<tr>
+																				<td height="32">用户名：</td>
+																				<td align="left"><input name="" type="text"
+																					class="txt_login" /></td>
+																			</tr>
+																		</table></td>
+																</tr>
+																<tr>
+																	<td><table width="195" border="0" cellspacing="0"
+																			cellpadding="0">
+																			<tr>
+																				<td height="36">密 码：</td>
+																				<td align="left"><input name="" type="text"
+																					class="txt_login" /></td>
+																			</tr>
+																		</table></td>
+																</tr>
+																<tr>
+																	<td height="35" align="center" valign="bottom"><table
+																			width="112" border="0" cellspacing="0"
+																			cellpadding="0">
+																			<tr>
+																				<td align="left"><img
+																					src="statics/images/login_bt.png" width="55"
+																					height="24" /></td>
+																				<td align="right"><img
+																					src="statics/images/reset_bt.png" width="53"
+																					height="24" /></td>
+																			</tr>
+																		</table></td>
+																</tr>
+															</table></td>
+													</tr>
+													<tr>
+														<td><img src="statics/images/bsxt_btm.jpg" /></td>
+													</tr>
+												</table>
+
+											</td>
+										</tr>
+										<tr>
+											<td valign="top" style="padding-top: 15px;"><table
+													width="218" border="0" cellspacing="0" cellpadding="0">
+													<tr>
+														<td style="border: 1px solid #d5d5d5; border-top: none;"
+															id="tabs-4">
+															<table width="216" border="0" cellspacing="0"
+																cellpadding="0">
+																<tr>
+																	<td height="29">
+																		<ul class="xxcy_tab">
+																			<li><a href="#tab-41" class="xxcy_cur">信息采用统计</a></li>
+																			<li><a href="#tab-42" class="xxcy_list">人事信息</a></li>
+																		</ul> 
+																	</td>
+																</tr>
+																<tr>
+																	<td align="center">
+																		<div id="tab-41">
+																			<table width="205" border="0" cellspacing="0"
+																				cellpadding="0">
+																				<tr>
+																					<td height="26" style="background: #ececec"
+																						class="p12heihui"><table width="205"
+																							border="0" cellspacing="0" cellpadding="0">
+																							<tr>
+																								<td width="45" height="26" align="center"><b>排名</b></td>
+																								<td width="106" align="center"><b>单位</b></td>
+																								<td width="54" align="center"><b>信息量</b></td>
+																							</tr>
+																						</table></td>
+																				</tr>
+																				<tr>
+																					<td valign="top"
+																						style="padding-top: 5px; padding-bottom: 7px;">
+																						<table width="205" border="0" cellspacing="0"
+																							cellpadding="0">
+																							<tr>
+																								<td
+																									style="background: url(statics/images/short_line.jpg) repeat-x bottom;"
+																									height="30" class="p12heihui"><table
+																										width="205" border="0" cellspacing="0"
+																										cellpadding="0">
+																										<tr>
+																											<td width="35" height="30">01</td>
+																											<td width="132"><a href="#"
+																												class="p12heihui">内蒙人防办公室</a></td>
+																											<td>188</td>
+																										</tr>
+																									</table></td>
+																							</tr>
+																							<tr>
+																								<td
+																									style="background: url(statics/images/short_line.jpg) repeat-x bottom;"
+																									height="30" class="p12heihui"><table
+																										width="205" border="0" cellspacing="0"
+																										cellpadding="0">
+																										<tr>
+																											<td width="35" height="30">02</td>
+																											<td width="132"><a href="#"
+																												class="p12heihui">内蒙人防办公室</a></td>
+																											<td>188</td>
+																										</tr>
+																									</table>
+																							</tr>
+																							<tr>
+																								<td
+																									style="background: url(statics/images/short_line.jpg) repeat-x bottom;"
+																									height="30" class="p12heihui"><table
+																										width="205" border="0" cellspacing="0"
+																										cellpadding="0">
+																										<tr>
+																											<td width="35" height="30">03</td>
+																											<td width="132"><a href="#"
+																												class="p12heihui">内蒙人防办公室</a></td>
+																											<td>188</td>
+																										</tr>
+																									</table>
+																							</tr>
+																							<tr>
+																								<td
+																									style="background: url(statics/images/short_line.jpg) repeat-x bottom;"
+																									height="30" class="p12heihui"><table
+																										width="205" border="0" cellspacing="0"
+																										cellpadding="0">
+																										<tr>
+																											<td width="35" height="30">04</td>
+																											<td width="132"><a href="#"
+																												class="p12heihui">内蒙人防办公室</a></td>
+																											<td>188</td>
+																										</tr>
+																									</table>
+																							</tr>
+																							<tr>
+																								<td height="30" class="p12heihui"><table
+																										width="205" border="0" cellspacing="0"
+																										cellpadding="0">
+																										<tr>
+																											<td width="35" height="30">05</td>
+																											<td width="132"><a href="#"
+																												class="p12heihui">内蒙人防办公室</a></td>
+																											<td>188</td>
+																										</tr>
+																									</table>
+																							</tr>
+																						</table>
+
+																					</td>
+																				</tr>
+																			</table>
+																		</div>
+																		<div id="tab-42">
+																			<table width="205" border="0" cellspacing="0"
+																				cellpadding="0">
+																				<!-- 
+																				<tr>
+																					<td height="26" style="background: #ececec"
+																						class="p12heihui"><table width="205"
+																							border="0" cellspacing="0" cellpadding="0">
+																							<tr>
+																								<td width="45" height="26" align="center"><b>排名1</b></td>
+																								<td width="106" align="center"><b>单位1</b></td>
+																								<td width="54" align="center"><b>信息量1</b></td>
+																							</tr>
+																						</table></td>
+																				</tr>
+																				 -->
+																				<tr>
+																					<td valign="top"
+																						style="padding-top: 5px; padding-bottom: 7px;">
+																						<table width="205" border="0" cellspacing="0"
+																							cellpadding="0">
+																							{pc:content  action="lists" catid="1480"   order="listorder DESC" num="5"}
+                                                                                            {loop $data $v} 
+																							<tr>
+																								<td
+																									style="background: url(statics/images/short_line.jpg) repeat-x bottom;"
+																									height="30" class="p12heihui"><table
+																										width="205" border="0" cellspacing="0"
+																										cellpadding="0">
+																										<tr>
+																											
+																											<td><a href="{$v[url]}"
+																												class="p12heihui">{str_cut($v[title],32)}</a></td>
+																											
+																										</tr>
+																									</table></td>
+																							</tr>
+																							{/loop}
+																							{/pc}																																														
+																						</table>
+
+																					</td>
+																				</tr>
+																			</table>
+																		</div>
+																	</td>
+																</tr>
+															</table>
+
+														</td>
+													</tr>
+												</table></td>
+										</tr>
+									</table></td>
+								<td width="500" align="right" valign="top">
+									<table width="490" border="0" cellspacing="0" cellpadding="0"
+										id="tabs-3">
+										<tr>
+											<td><table width="490" border="0" cellspacing="0"
+													cellpadding="0">
+													<tr>
+														<td width="134" height="33" align="left" class="p14bai"
+															style="background: url(statics/images/jcck_titbg01.jpg) no-repeat; padding-bottom: 10px; padding-left: 40px;">决策参考</td>
+														<td
+															style="background: url(statics/images/jcck_titbg02.jpg); padding-left: 63px;">
+															<ul class="jcck_tab">
+																<li><a href="#tabs-31" class="cur_jcck">文章摘登</a></li>
+																<li><a href="#tabs-32" class="jcck_list">专家观点</a></li>
+																<li><a href="#tabs-33" class="jcck_list">大众视点</a></li>
+															</ul> 
+														</td>
+														<td width="6" align="right"><img
+															src="statics/images/jcck_titbg03.jpg" /></td>
+													</tr>
+												</table></td>
+										</tr>
+										<tr>
+											<td height="355" align="center" valign="top"
+												style="border: 1px solid #d4e0de; border-top: none;">
+												<div id="tabs-31">
+													<table width="460" border="0" cellspacing="0"
+														cellpadding="0">
+														<tr>
+															<td
+																style="padding-top: 20px; background: url(statics/images/short_line.jpg) repeat-x bottom; padding-bottom: 10px;"><table
+																	width="460" border="0" cellspacing="0" cellpadding="0">
+																	{pc:content action="position" catid="1477"
+																													posid="17" num="1" order="listorder DESC" }
+																													{loop $data $v}
+																													<tr>
+																		<td height="34" align="left"><span
+																			class="p14hong">{str_cut($v[title],60)}</span> <span
+																			class="p12qianlan">发布时间：{date('Y-m-d',$v[inputtime])}</span></td>
+																	</tr>
+																	 <tr>
+																		<td><table width="460" border="0" cellspacing="0"
+																				cellpadding="0">
+																				{pc:get sql="select * from v9_news_data where id=$v[id]" return="data1"} 
+																															 {loop $data1 $r}
+																															 <tr>
+																					<td width="380" height="30" align="left"><a
+																						href="" class="p12heihui"> {str_cut(strip_tags($r[content]),150)}</a></td>
+																					<td width="80"><a href="{$v[url]}" class="p12hongse">【查看更多】</a></td>
+																				</tr>
+																															
+																															 {/loop} 
+																															 {/pc}
+																				
+																			</table></td>
+																	</tr>
+																													
+																													
+																													{/loop} {/pc}													
+																</table></td>
+														</tr>
+														<tr>
+															<td align="center" style="padding-top: 10px;"
+																valign="top"><table width="455" border="0"
+																	cellspacing="0" cellpadding="0">
+																	{pc:content action="lists" catid="1477" where="catid=1477 and posids=0"
+																													 num="8"  order="listorder DESC" }
+																													{loop $data $v}
+																	<tr>
+																		<td height="30"><table width="455" border="0"
+																				cellspacing="0" cellpadding="0">
+																				<tr>
+																					<td width="375" height="28" align="left"><img
+																						src="statics/images/red_icon02.jpg" width="9"
+																						height="9" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																					</td>
+																					<td width="80" class="p12qianlan">{date('Y-m-d',$v[inputtime])}</td>
+																				</tr>
+																			</table></td>
+																	</tr>
+																	{/loop}
+																	{/pc}
+																	
+																	
+																</table></td>
+														</tr>
+													</table>
+												</div>
+												<div id="tabs-32">
+													<table width="460" border="0" cellspacing="0"
+														cellpadding="0">
+														<tr>
+															<td
+																style="padding-top: 20px; background: url(statics/images/short_line.jpg) repeat-x bottom; padding-bottom: 10px;"><table
+																	width="460" border="0" cellspacing="0" cellpadding="0">
+																	{pc:content action="position" catid="1478"
+																													posid="17" num="1" order="listorder DESC" }
+																													{loop $data $v}
+																													<tr>
+																		<td height="34" align="left"><span
+																			class="p14hong">{str_cut($v[title],60)}</span> <span
+																			class="p12qianlan">发布时间：{date('Y-m-d',$v[inputtime])}</span></td>
+																	</tr>
+																	 <tr>
+																		<td><table width="460" border="0" cellspacing="0"
+																				cellpadding="0">
+																				{pc:get sql="select * from v9_news_data where id=$v[id]" return="data1"} 
+																															 {loop $data1 $r}
+																															 <tr>
+																					<td width="380" height="30" align="left"><a
+																						href="" class="p12heihui"> {str_cut(strip_tags($r[content]),150)}</a></td>
+																					<td width="80"><a href="{$v[url]}" class="p12hongse">【查看更多】</a></td>
+																				</tr>
+																															
+																															 {/loop} 
+																															 {/pc}
+																				
+																			</table></td>
+																	</tr>
+																													
+																													
+																													{/loop} {/pc}
+																</table></td>
+														</tr>
+														<tr>
+															<td align="center" style="padding-top: 10px;"
+																valign="top"><table width="455" border="0"
+																	cellspacing="0" cellpadding="0">
+																	{pc:content action="lists" catid="1478" where="catid=1478 and posids=0"
+																													 num="8"  order="listorder DESC" }
+																													{loop $data $v}
+																	<tr>
+																		<td height="30"><table width="455" border="0"
+																				cellspacing="0" cellpadding="0">
+																				<tr>
+																					<td width="375" height="28" align="left"><img
+																						src="statics/images/red_icon02.jpg" width="9"
+																						height="9" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																					</td>
+																					<td width="80" class="p12qianlan">{date('Y-m-d',$v[inputtime])}</td>
+																				</tr>
+																			</table></td>
+																	</tr>
+																	{/loop}
+																	{/pc}
+																	
+																</table></td>
+														</tr>
+													</table>
+												</div>
+												<div id="tabs-33">
+													<table width="460" border="0" cellspacing="0"
+														cellpadding="0">
+														<tr>
+															<td
+																style="padding-top: 20px; background: url(statics/images/short_line.jpg) repeat-x bottom; padding-bottom: 10px;"><table
+																	width="460" border="0" cellspacing="0" cellpadding="0">
+																	{pc:content action="position" catid="1479"
+																													posid="17" num="1" order="listorder DESC" }
+																													{loop $data $v}
+																													<tr>
+																		<td height="34" align="left"><span
+																			class="p14hong">{str_cut($v[title],60)}</span> <span
+																			class="p12qianlan">发布时间：{date('Y-m-d',$v[inputtime])}</span></td>
+																	</tr>
+																	 <tr>
+																		<td><table width="460" border="0" cellspacing="0"
+																				cellpadding="0">
+																				{pc:get sql="select * from v9_news_data where id=$v[id]" return="data1"} 
+																															 {loop $data1 $r}
+																															 <tr>
+																					<td width="380" height="30" align="left"><a
+																						href="" class="p12heihui"> {str_cut(strip_tags($r[content]),150)}</a></td>
+																					<td width="80"><a href="{$v[url]}" class="p12hongse">【查看更多】</a></td>
+																				</tr>
+																															
+																															 {/loop} 
+																															 {/pc}
+																				
+																			</table></td>
+																	</tr>
+																													
+																													
+																													{/loop} {/pc}
+																</table></td>
+														</tr>
+														<tr>
+															<td align="center" style="padding-top: 10px;"
+																valign="top"><table width="455" border="0"
+																	cellspacing="0" cellpadding="0">
+																	{pc:content action="lists" catid="1479" where="catid=1479 and posids=0"
+																													 num="8"  order="listorder DESC" }
+																													{loop $data $v}
+																	<tr>
+																		<td height="30"><table width="455" border="0"
+																				cellspacing="0" cellpadding="0">
+																				<tr>
+																					<td width="375" height="28" align="left"><img
+																						src="statics/images/red_icon02.jpg" width="9"
+																						height="9" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																					</td>
+																					<td width="80" class="p12qianlan">{date('Y-m-d',$v[inputtime])}</td>
+																				</tr>
+																			</table></td>
+																	</tr>
+																	{/loop}
+																	{/pc}
+																	
+																</table></td>
+														</tr>
+													</table>
+												</div>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td align="right" valign="top">
+									<table width="251" border="0" cellspacing="0" cellpadding="0"
+										id="tabs-5">
+										<tr>
+											<td
+												style="border: 1px solid #ff5558; border-top: none; border-bottom: none;"><table
+													width="249" border="0" cellspacing="0" cellpadding="0">
+													<tr>
+														<td
+															style="background: url(statics/images/zcfg_titbg.png) no-repeat"
+															height="35">															
+															<ul class="zcfg_tabout">
+																<li><a href="#tabs-51" class="zcfg_cur">政策法规</a></li>
+																<li><a href="#tabs-52" class="zcfg_tab">交流研讨</a></li>
+															</ul>
+														</td>
+													</tr>
+													<tr>
+														<td align="center">
+															<div id="tabs-51" style="min-height:343px;">
+																<table width="226" border="0" cellspacing="0"
+																	cellpadding="0">
+																	<tr>
+																		<td style="padding-top: 15px;"><img
+																			src="statics/images/zcfg_img.jpg" width="226"
+																			height="88" /></td>
+																	</tr>
+																	<tr>
+																		<td><table width="226" border="0" cellspacing="0"
+																				cellpadding="0">
+																				
+																				{pc:content action="lists" catid="1469" where="catid=1469 and posids=0"
+																													 num="8"  order="listorder DESC" }
+																													{loop $data $v}
+																				<tr>
+																					<td height="30"
+																						style="background: url(statics/images/short_line.jpg) repeat-x bottom"
+																						align="left"><img
+																						src="statics/images/red_icon.jpg" width="3"
+																						height="3" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																					</td>
+																				</tr>
+																				{/loop}
+																				{/pc}
+																				
+																			</table></td>
+																	</tr>
+
+																</table>
+															</div>
+															<div id="tabs-52" style="min-height:343px;">
+																<table width="226" border="0" cellspacing="0"
+																	cellpadding="0">
+																	<tr>
+																		<td style="padding-top: 15px;"><img
+																			src="statics/images/zcfg_img.jpg" width="226"
+																			height="88" /></td>
+																	</tr>
+																	<tr>
+																		<td><table width="226" border="0" cellspacing="0"
+																				cellpadding="0">
+																				
+																				{pc:content action="lists" catid="1470" where="catid=1470 and posids=0"
+																													 num="8"  order="listorder DESC" }
+																													{loop $data $v}
+																				<tr>
+																					<td height="30"
+																						style="background: url(statics/images/short_line.jpg) repeat-x bottom"
+																						align="left"><img
+																						src="statics/images/red_icon.jpg" width="3"
+																						height="3" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																					</td>
+																				</tr>
+																				{/loop}
+																				{/pc}																		
+																			</table></td>
+																	</tr>
+
+																</table>
+															</div>
+														</td>
+													</tr>
+												</table></td>
+										</tr>
+										<tr>
+											<td><img src="statics/images/zcfg_btm.jpg" width="251"
+												height="21" /></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+				<tr>
+					<td><img src="statics/images/xxgkzl_btm.jpg" width="1000"
+						height="11" /></td>
+				</tr>
+			</table></td>
+	</tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	align="center">
+	<tr>
+		<td align="center" valign="top"
+			style="background: url(statics/images/nrbg.png) repeat-y center top;"><table
+				width="1000" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td><table width="1000" border="0" cellspacing="0"
+							cellpadding="0">
+							<tr>
+								<td><img src="statics/images/rfzl_tit.jpg" width="1000"
+									height="31" /></td>
+							</tr>
+							<tr>
+								<td height="340" align="center" valign="top"
+									style="border-left: 1px solid #c5c5c5; border-right: 1px solid #c5c5c5; background: url(statics/images/rfzl_bg.jpg) repeat-x bottom; padding-top: 15px;"><table
+										width="982" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td width="227" valign="top" id="lefttabs1">
+												<table width="218" border="0" cellspacing="0"
+													cellpadding="0">
+
+													<tr>
+														<td
+															style="border-left: 1px solid #dfdfdf; border-right: 1px solid #dfdfdf;">
+															<table width="216" border="0" cellspacing="0"
+																cellpadding="0">
+																<tr>
+																	<td><table width="216" border="0" cellspacing="0"
+																			cellpadding="0">
+																			<tr>
+																				<td
+																					style="background: url(statics/images/zzcx_titbg.jpg) repeat-x">
+																					<ul class="zzcx_tab_out">
+																						<li><a href="#tabs-21" id="zzcx_tab_first"
+																							class="zzcx_cur zzcx_tab">资质查询 </a></li>
+																						<li><a href="#tabs-22" class="zzcx_tab">成果推介
+																						</a></li>
+																					</ul> 
+																				</td>
+																				<td width="9"><img
+																					src="statics/images/zzcx_titbg02.jpg" width="9"
+																					height="31" /></td>
+																			</tr>
+																		</table></td>
+																</tr>
+																<tr>
+																	<td height="262" align="center" valign="top"
+																		style="padding-top: 8px;">
+																		<div id="tabs-21">
+																			<table width="202" border="0" cellspacing="0"
+																				cellpadding="0">
+																				<tr>
+																					<td><img src="statics/images/zzcx_img.jpg"
+																						width="202" height="77" /></td>
+																				</tr>
+																				<tr>
+																					<td valign="top" style="padding-top: 10px;"
+																						align="center">
+																						<table width="198" border="0" cellspacing="0"
+																							cellpadding="0">
+																							{pc:content  action="lists" catid="1483"   order="listorder DESC" num="6"}
+                                                                                            {loop $data $v} 
+																							<tr>
+																								<td height="28" align="left"><img
+																									src="statics/images/zzcx_icon.jpg" width="6"
+																									height="5" /><a href="{$v[url]}" class="p12heihui">
+																										{str_cut($v[title],52)}
+																										</a></td>
+																							</tr>
+																							{/loop}
+																							{/pc}																		
+																						</table>
+																					</td>
+																				</tr>
+																			</table>
+																		</div>
+																		<div id="tabs-22">
+																			<table width="202" border="0" cellspacing="0"
+																				cellpadding="0">
+																				<tr>
+																					<td><img src="statics/images/zzcx_img.jpg"
+																						width="202" height="77" /></td>
+																				</tr>
+																				<tr>
+																					<td valign="top" style="padding-top: 10px;"
+																						align="center">
+																						<table width="198" border="0" cellspacing="0"
+																							cellpadding="0">
+																							{pc:content  action="lists" catid="1483"   order="listorder DESC" num="6"}
+                                                                                            {loop $data $v} 
+																							<tr>
+																								<td height="28" align="left"><img
+																									src="statics/images/zzcx_icon.jpg" width="6"
+																									height="5" /><a href="{$v[url]}" class="p12heihui">
+																										{str_cut($v[title],52)}
+																										</a></td>
+																							</tr>
+																							{/loop}
+																							{/pc}	
+																							
+																							
+																						</table>
+																					</td>
+																				</tr>
+																			</table>
+																		</div>
+																	</td>
+																</tr>
+															</table>
+
+														</td>
+													</tr>
+													<tr>
+														<td><img src="statics/images/zzcx_btm.jpg"
+															width="218" height="12" /></td>
+													</tr>
+												</table>
+											</td>
+											<td width="494" valign="top" id="tabs-7">
+												<div style="width: 90px; height: 35px; float: left;">
+													<img src="statics/images/fkfz_tit.jpg" width="90"
+														height="35">
+												</div>
+												<div class="fkfz_tabout" style="float: left;">
+													<ul style="padding-top: 3px;">
+														<li><a href="#tabs-71" class="fkfz_cur">人民防空</a></li>
+														<li><a href="#tabs-72" class="fkfz_tab">兵器档案 </a></li>
+														<li><a href="#tabs-73" class="fkfz_tab">空袭案例</a></li>
+														<li><a href="#tabs-74" class="fkfz_tab">防灾常识</a></li>
+														<li><a href="#tabs-75" class="fkfz_tab">化学救援</a></li>
+													</ul>
+												</div>
+												<div id="tabs-71">
+													<table width="494" border="0" cellspacing="0"
+														cellpadding="0">
+														<tr>
+															<td height="260" align="center" valign="top"
+																style="border-left: 1px solid #e7b4bd; border-right: 1px solid #e7b4bd; padding-top: 10px;">
+																<div id="tabcontent">
+																	<table width="470" border="0" cellspacing="0"
+																		cellpadding="0">
+																		<tr>
+																			<td
+																				style="background: url(statics/images/long_line.jpg) repeat-x bottom; padding-bottom: 15px;"><table
+																					width="470" border="0" cellspacing="0"
+																					cellpadding="0">
+																					<tr>
+																					  {pc:content action="position" catid="1471"
+																													posid="17" num="1" order="listorder DESC" }
+																													{loop $data $v}
+																						<td width="155" align="left"><img
+																							src="{$v[thumb]}" width="144"
+																							height="118" /></td>
+																						<td valign="top"><table width="314"
+																								border="0" cellspacing="0" cellpadding="0">																																														
+																								
+																								<tr>
+																									<td height="32" align="left" class="p14hong"
+																										style="background: #fff8e6; padding-left: 10px;">{str_cut($v[title],60)}
+																									</td>
+																								</tr>
+																								<tr>
+																									<td height="30" align="left" class="p12qianlan"
+																										style="padding-left: 10px;"><span
+																										class="p12heihui">时间：</span>{date('Y-m-d',$v[inputtime])}</td>
+																								</tr>
+																								{pc:get sql="select * from v9_news_data where id=$v[id]" return="data1"} 
+																															 {loop $data1 $r}
+																								<tr>
+																									<td align="left" class="p12qianlan"
+																										style="padding-left: 10px; line-height: 22px;"><span
+																										class="p12heihui">摘要：</span>{str_cut(strip_tags($r[content]),150)}
+																										<a href="{$v[url]}" class="p12hongse">【详细】</a></td>
+																								</tr>
+																							
+																							</table></td>
+																							{/loop}
+																							{/pc}
+																							{/loop}
+																							{/pc}
+																					</tr>
+																				</table></td>
+																		</tr>
+																		<tr>
+																			<td valign="top" style="padding-top: 7px;"><table
+																					width="470" border="0" cellspacing="0"
+																					cellpadding="0">
+																					{pc:content action="lists" catid="1471"
+																													 num="4" order="listorder DESC" }
+																													{loop $data $v}
+																					<tr>
+																						<td><table width="470" border="0"
+																								cellspacing="0" cellpadding="0">
+																								<tr>
+																									<td width="385" height="30" align="left"><img
+																										src="statics/images/red_icon02.jpg" width="9"
+																										height="9" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																									</td>
+																									<td width="85" class="p12qianlan">{date('Y-m-d',$v[inputtime])}</td>
+																								</tr>
+																							</table></td>
+																					</tr>
+																					{/loop}
+																					{/pc}																																										
+																				</table></td>
+																		</tr>
+																	</table>
+																</div>
+															</td>
+														</tr>
+														<tr>
+															<td><img src="statics/images/fkfz_btm.jpg"
+																width="494" height="8" /></td>
+														</tr>
+													</table>
+												</div>
+												<div id="tabs-72">
+													<table width="494" border="0" cellspacing="0"
+														cellpadding="0">
+														<tr>
+															<td height="260" align="center" valign="top"
+																style="border-left: 1px solid #e7b4bd; border-right: 1px solid #e7b4bd; padding-top: 10px;">
+																<div id="tabcontent">
+																	<table width="470" border="0" cellspacing="0"
+																		cellpadding="0">
+																		<tr>
+																			<td
+																				style="background: url(statics/images/long_line.jpg) repeat-x bottom; padding-bottom: 15px;"><table
+																					width="470" border="0" cellspacing="0"
+																					cellpadding="0">
+																					<tr>
+																					  {pc:content action="position" catid="1472"
+																													posid="17" num="1" order="listorder DESC" }
+																													{loop $data $v}
+																						<td width="155" align="left"><img
+																							src="{$v[thumb]}" width="144"
+																							height="118" /></td>
+																						<td valign="top"><table width="314"
+																								border="0" cellspacing="0" cellpadding="0">																																														
+																								
+																								<tr>
+																									<td height="32" align="left" class="p14hong"
+																										style="background: #fff8e6; padding-left: 10px;">{str_cut($v[title],60)}
+																									</td>
+																								</tr>
+																								<tr>
+																									<td height="30" align="left" class="p12qianlan"
+																										style="padding-left: 10px;"><span
+																										class="p12heihui">时间：</span>{date('Y-m-d',$v[inputtime])}</td>
+																								</tr>
+																								{pc:get sql="select * from v9_news_data where id=$v[id]" return="data1"} 
+																															 {loop $data1 $r}
+																								<tr>
+																									<td align="left" class="p12qianlan"
+																										style="padding-left: 10px; line-height: 22px;"><span
+																										class="p12heihui">摘要：</span>{str_cut(strip_tags($r[content]),150)}
+																										<a href="{$v[url]}" class="p12hongse">【详细】</a></td>
+																								</tr>
+																							
+																							</table></td>
+																							{/loop}
+																							{/pc}
+																							{/loop}
+																							{/pc}
+																					</tr>
+																				</table></td>
+																		</tr>
+																		<tr>
+																			<td valign="top" style="padding-top: 7px;"><table
+																					width="470" border="0" cellspacing="0"
+																					cellpadding="0">
+																					{pc:content action="lists" catid="1472"
+																													 num="4" order="listorder DESC" }
+																													{loop $data $v}
+																					<tr>
+																						<td><table width="470" border="0"
+																								cellspacing="0" cellpadding="0">
+																								<tr>
+																									<td width="385" height="30" align="left"><img
+																										src="statics/images/red_icon02.jpg" width="9"
+																										height="9" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																									</td>
+																									<td width="85" class="p12qianlan">{date('Y-m-d',$v[inputtime])}</td>
+																								</tr>
+																							</table></td>
+																					</tr>
+																					{/loop}
+																					{/pc}																																										
+																				</table></td>
+																		</tr>
+																	</table>
+																</div>
+															</td>
+														</tr>
+														<tr>
+															<td><img src="statics/images/fkfz_btm.jpg"
+																width="494" height="8" /></td>
+														</tr>
+													</table>
+												</div>
+												<div id="tabs-73">
+													<table width="494" border="0" cellspacing="0"
+														cellpadding="0">
+														<tr>
+															<td height="260" align="center" valign="top"
+																style="border-left: 1px solid #e7b4bd; border-right: 1px solid #e7b4bd; padding-top: 10px;">
+																<div id="tabcontent">
+																	<table width="470" border="0" cellspacing="0"
+																		cellpadding="0">
+																		<tr>
+																			<td
+																				style="background: url(statics/images/long_line.jpg) repeat-x bottom; padding-bottom: 15px;"><table
+																					width="470" border="0" cellspacing="0"
+																					cellpadding="0">
+																					<tr>
+																					  {pc:content action="position" catid="1473"
+																													posid="17" num="1" order="listorder DESC" }
+																													{loop $data $v}
+																						<td width="155" align="left"><img
+																							src="{$v[thumb]}" width="144"
+																							height="118" /></td>
+																						<td valign="top"><table width="314"
+																								border="0" cellspacing="0" cellpadding="0">																																														
+																								
+																								<tr>
+																									<td height="32" align="left" class="p14hong"
+																										style="background: #fff8e6; padding-left: 10px;">{str_cut($v[title],60)}
+																									</td>
+																								</tr>
+																								<tr>
+																									<td height="30" align="left" class="p12qianlan"
+																										style="padding-left: 10px;"><span
+																										class="p12heihui">时间：</span>{date('Y-m-d',$v[inputtime])}</td>
+																								</tr>
+																								{pc:get sql="select * from v9_news_data where id=$v[id]" return="data1"} 
+																															 {loop $data1 $r}
+																								<tr>
+																									<td align="left" class="p12qianlan"
+																										style="padding-left: 10px; line-height: 22px;"><span
+																										class="p12heihui">摘要：</span>{str_cut(strip_tags($r[content]),150)}
+																										<a href="{$v[url]}" class="p12hongse">【详细】</a></td>
+																								</tr>
+																							
+																							</table></td>
+																							{/loop}
+																							{/pc}
+																							{/loop}
+																							{/pc}
+																					</tr>
+																				</table></td>
+																		</tr>
+																		<tr>
+																			<td valign="top" style="padding-top: 7px;"><table
+																					width="470" border="0" cellspacing="0"
+																					cellpadding="0">
+																					{pc:content action="lists" catid="1473"
+																													 num="4" order="listorder DESC" }
+																													{loop $data $v}
+																					<tr>
+																						<td><table width="470" border="0"
+																								cellspacing="0" cellpadding="0">
+																								<tr>
+																									<td width="385" height="30" align="left"><img
+																										src="statics/images/red_icon02.jpg" width="9"
+																										height="9" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																									</td>
+																									<td width="85" class="p12qianlan">{date('Y-m-d',$v[inputtime])}</td>
+																								</tr>
+																							</table></td>
+																					</tr>
+																					{/loop}
+																					{/pc}																																										
+																				</table></td>
+																		</tr>
+																	</table>
+																</div>
+															</td>
+														</tr>
+														<tr>
+															<td><img src="statics/images/fkfz_btm.jpg"
+																width="494" height="8" /></td>
+														</tr>
+													</table>
+												</div>
+												<div id="tabs-74">
+													<table width="494" border="0" cellspacing="0"
+														cellpadding="0">
+														<tr>
+															<td height="260" align="center" valign="top"
+																style="border-left: 1px solid #e7b4bd; border-right: 1px solid #e7b4bd; padding-top: 10px;">
+																<div id="tabcontent">
+																	<table width="470" border="0" cellspacing="0"
+																		cellpadding="0">
+																		<tr>
+																			<td
+																				style="background: url(statics/images/long_line.jpg) repeat-x bottom; padding-bottom: 15px;"><table
+																					width="470" border="0" cellspacing="0"
+																					cellpadding="0">
+																					<tr>
+																					  {pc:content action="position" catid="1474"
+																													posid="17" num="1" order="listorder DESC" }
+																													{loop $data $v}
+																						<td width="155" align="left"><img
+																							src="{$v[thumb]}" width="144"
+																							height="118" /></td>
+																						<td valign="top"><table width="314"
+																								border="0" cellspacing="0" cellpadding="0">																																														
+																								
+																								<tr>
+																									<td height="32" align="left" class="p14hong"
+																										style="background: #fff8e6; padding-left: 10px;">{str_cut($v[title],60)}
+																									</td>
+																								</tr>
+																								<tr>
+																									<td height="30" align="left" class="p12qianlan"
+																										style="padding-left: 10px;"><span
+																										class="p12heihui">时间：</span>{date('Y-m-d',$v[inputtime])}</td>
+																								</tr>
+																								{pc:get sql="select * from v9_news_data where id=$v[id]" return="data1"} 
+																															 {loop $data1 $r}
+																								<tr>
+																									<td align="left" class="p12qianlan"
+																										style="padding-left: 10px; line-height: 22px;"><span
+																										class="p12heihui">摘要：</span>{str_cut(strip_tags($r[content]),150)}
+																										<a href="{$v[url]}" class="p12hongse">【详细】</a></td>
+																								</tr>
+																							
+																							</table></td>
+																							{/loop}
+																							{/pc}
+																							{/loop}
+																							{/pc}
+																					</tr>
+																				</table></td>
+																		</tr>
+																		<tr>
+																			<td valign="top" style="padding-top: 7px;"><table
+																					width="470" border="0" cellspacing="0"
+																					cellpadding="0">
+																					{pc:content action="lists" catid="1474"
+																													 num="4" order="listorder DESC" }
+																													{loop $data $v}
+																					<tr>
+																						<td><table width="470" border="0"
+																								cellspacing="0" cellpadding="0">
+																								<tr>
+																									<td width="385" height="30" align="left"><img
+																										src="statics/images/red_icon02.jpg" width="9"
+																										height="9" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																									</td>
+																									<td width="85" class="p12qianlan">{date('Y-m-d',$v[inputtime])}</td>
+																								</tr>
+																							</table></td>
+																					</tr>
+																					{/loop}
+																					{/pc}																																										
+																				</table></td>
+																		</tr>
+																	</table>
+																</div>
+															</td>
+														</tr>
+														<tr>
+															<td><img src="statics/images/fkfz_btm.jpg"
+																width="494" height="8" /></td>
+														</tr>
+													</table>
+												</div>
+												<div id="tabs-75">
+													<table width="494" border="0" cellspacing="0"
+														cellpadding="0">
+														<tr>
+															<td height="260" align="center" valign="top"
+																style="border-left: 1px solid #e7b4bd; border-right: 1px solid #e7b4bd; padding-top: 10px;">
+																<div id="tabcontent">
+																	<table width="470" border="0" cellspacing="0"
+																		cellpadding="0">
+																		<tr>
+																			<td
+																				style="background: url(statics/images/long_line.jpg) repeat-x bottom; padding-bottom: 15px;"><table
+																					width="470" border="0" cellspacing="0"
+																					cellpadding="0">
+																					<tr>
+																					  {pc:content action="position" catid="1475"
+																													posid="17" num="1" order="listorder DESC" }
+																													{loop $data $v}
+																						<td width="155" align="left"><img
+																							src="{$v[thumb]}" width="144"
+																							height="118" /></td>
+																						<td valign="top"><table width="314"
+																								border="0" cellspacing="0" cellpadding="0">																																														
+																								
+																								<tr>
+																									<td height="32" align="left" class="p14hong"
+																										style="background: #fff8e6; padding-left: 10px;">{str_cut($v[title],60)}
+																									</td>
+																								</tr>
+																								<tr>
+																									<td height="30" align="left" class="p12qianlan"
+																										style="padding-left: 10px;"><span
+																										class="p12heihui">时间：</span>{date('Y-m-d',$v[inputtime])}</td>
+																								</tr>
+																								{pc:get sql="select * from v9_news_data where id=$v[id]" return="data1"} 
+																															 {loop $data1 $r}
+																								<tr>
+																									<td align="left" class="p12qianlan"
+																										style="padding-left: 10px; line-height: 22px;"><span
+																										class="p12heihui">摘要：</span>{str_cut(strip_tags($r[content]),150)}
+																										<a href="{$v[url]}" class="p12hongse">【详细】</a></td>
+																								</tr>
+																							
+																							</table></td>
+																							{/loop}
+																							{/pc}
+																							{/loop}
+																							{/pc}
+																					</tr>
+																				</table></td>
+																		</tr>
+																		<tr>
+																			<td valign="top" style="padding-top: 7px;"><table
+																					width="470" border="0" cellspacing="0"
+																					cellpadding="0">
+																					{pc:content action="lists" catid="1475"
+																													 num="4" order="listorder DESC" }
+																													{loop $data $v}
+																					<tr>
+																						<td><table width="470" border="0"
+																								cellspacing="0" cellpadding="0">
+																								<tr>
+																									<td width="385" height="30" align="left"><img
+																										src="statics/images/red_icon02.jpg" width="9"
+																										height="9" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																									</td>
+																									<td width="85" class="p12qianlan">{date('Y-m-d',$v[inputtime])}</td>
+																								</tr>
+																							</table></td>
+																					</tr>
+																					{/loop}
+																					{/pc}																																										
+																				</table></td>
+																		</tr>
+																	</table>
+																</div>
+															</td>
+														</tr>
+														<tr>
+															<td><img src="statics/images/fkfz_btm.jpg"
+																width="494" height="8" /></td>
+														</tr>
+													</table>
+												</div>
+												 
+											</td>
+											<td align="right" valign="top"><table width="253"
+													border="0" cellspacing="0" cellpadding="0">
+													<tr>
+														<td><table width="253" border="0" cellspacing="0"
+																cellpadding="0">
+																<tr>
+																	<td width="123" height="33" align="center"
+																		class="p14hei"
+																		style="background: url(statics/images/dmyx_tit.jpg) no-repeat">动漫<span
+																		class="p14hong">影像</span></td>
+																	<td align="right"
+																		style="background: url(statics/images/dmyx_tit02.jpg) no-repeat; padding-right: 10px;"><a
+																		href="{$CATEGORYS[1459][url]}" class="p12bai">更多&gt;&gt;</a></td>
+																</tr>
+															</table></td>
+													</tr>
+													<tr>
+														<td height="254" align="center" valign="top"
+															style="border-left: 1px solid #c3dafa; border-right: 1px solid #c3dafa; background: url(statics/images/dmyx_bg.jpg) no-repeat bottom; padding-top: 15px;"><table
+																width="235" border="0" cellspacing="0" cellpadding="0">
+																  {pc:content  action="lists" catid="1459" posid="17"  order="listorder DESC" num="1"}                                                                 
+                                                                  {loop $data $v} 
+																<tr>
+																	<td>
+																	<img src="{$v[thumb]}"
+																		width="235" height="143" />
+																	</td>
+																</tr>
+																{/loop}
+																{/pc}
+																
+																<tr>
+																	<td valign="top" style="padding-top: 15px;"><table
+																			width="235" border="0" cellspacing="0"
+																			cellpadding="0">
+																			 {pc:content  action="lists" catid="1459"  thumb="1" order="listorder DESC" num="4"}
+                                                                             {loop $data $v} 
+																			<tr>
+																				<td height="30" align="left"><img
+																					src="statics/images/dmyx_icon.jpg" width="16"
+																					height="10" /> <a href="{$v[url]}" class="p12heihui">
+																						{str_cut($v[title],52)}
+																						</a></td>
+																			</tr>
+																			{/loop}
+																			{/pc}
+																																					
+																		</table></td>
+																</tr>
+															</table></td>
+													</tr>
+													<tr>
+														<td><img src="statics/images/dmyx_btm.jpg"
+															width="253" height="10" /></td>
+													</tr>
+												</table></td>
+										</tr>
+									</table></td>
+							</tr>
+							<tr>
+								<td><img src="statics/images/rfzl_btm.jpg" width="1000"
+									height="10" /></td>
+							</tr>
+						</table></td>
+				</tr>
+				<tr>
+					<td valign="top" style="padding-top: 10px;"><table
+							width="1000" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="40"><img src="statics/images/jbst_tit.jpg"
+									width="40" height="106" /></td>
+								<td align="center"
+									style="background: url(statics/images/jbst_bg.jpg) repeat-x bottom;"><table
+										width="930" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td height="83" align="center"
+												style="background: url(statics/images/jbst_line.jpg) no-repeat right"><table
+													width="230" border="0" cellspacing="0" cellpadding="0">
+													<tr>
+														<td width="65" height="83" align="center"><img
+															src="statics/images/jbst_icon01.jpg" width="47"
+															height="48" /></td>
+														<td align="right" valign="top" style="padding-top: 10px;"><table
+																width="159" border="0" cellspacing="0" cellpadding="0">
+																<tr>
+																	<td><table width="159" border="0" cellspacing="0"
+																			cellpadding="0">
+																			<tr>
+																				<td width="60" height="28" align="left"
+																					class="p12heiwei">预先警报</td>
+																				<td><table width="56" border="0"
+																						cellspacing="0" cellpadding="0">
+																						<tr>
+																							<td height="18"
+																								style="background: url(statics/images/jbst_bg01.jpg) no-repeat"><table
+																									width="56" border="0" cellspacing="0"
+																									cellpadding="0">
+																									<tr>
+																										<td width="20" height="18" align="center"><img
+																											src="statics/images/play_icon.png" width="11"
+																											height="11" /></td>
+																										<td width="36" align="left" class="p12baiwei">试听</td>
+																									</tr>
+																								</table></td>
+																						</tr>
+																					</table></td>
+																			</tr>
+																		</table></td>
+																</tr>
+																<tr>
+																	<td align="left" class="p12huiwei"
+																		style="padding-right: 5px;">鸣36秒、停24秒，反复循环持续180秒为一个周期。</td>
+																</tr>
+															</table></td>
+													</tr>
+												</table></td>
+											<td height="83" align="center"
+												style="background: url(statics/images/jbst_line.jpg) no-repeat right"
+												valign="top"><table width="230" border="0"
+													cellspacing="0" cellpadding="0">
+													<tr>
+														<td width="65" height="83" align="center"><img
+															src="statics/images/jbst_icon02.jpg" width="47"
+															height="48" /></td>
+														<td align="right" valign="top" style="padding-top: 10px;"><table
+																width="159" border="0" cellspacing="0" cellpadding="0">
+																<tr>
+																	<td><table width="159" border="0" cellspacing="0"
+																			cellpadding="0">
+																			<tr>
+																				<td width="60" height="28" align="left"
+																					class="p12heiwei">空袭警报</td>
+																				<td><table width="56" border="0"
+																						cellspacing="0" cellpadding="0">
+																						<tr>
+																							<td height="18"
+																								style="background: url(statics/images/jbst_bg02.jpg) no-repeat"><table
+																									width="56" border="0" cellspacing="0"
+																									cellpadding="0">
+																									<tr>
+																										<td width="20" height="18" align="center"><img
+																											src="statics/images/play_icon.png" width="11"
+																											height="11" /></td>
+																										<td width="36" align="left" class="p12baiwei">试听</td>
+																									</tr>
+																								</table></td>
+																						</tr>
+																					</table></td>
+																			</tr>
+																		</table></td>
+																</tr>
+																<tr>
+																	<td align="left" class="p12huiwei"
+																		style="padding-right: 5px;">鸣6秒、停6秒，反复循环持续180秒为一个周期。</td>
+																</tr>
+															</table></td>
+													</tr>
+												</table></td>
+											<td height="83" align="center"
+												style="background: url(statics/images/jbst_line.jpg) no-repeat right"><table
+													width="230" border="0" cellspacing="0" cellpadding="0">
+													<tr>
+														<td width="65" height="83" align="center"><img
+															src="statics/images/jbst_icon03.jpg" width="47"
+															height="48" /></td>
+														<td align="right" valign="top" style="padding-top: 10px;"><table
+																width="159" border="0" cellspacing="0" cellpadding="0">
+																<tr>
+																	<td><table width="159" border="0" cellspacing="0"
+																			cellpadding="0">
+																			<tr>
+																				<td width="60" height="28" align="left"
+																					class="p12heiwei">解除警报</td>
+																				<td><table width="56" border="0"
+																						cellspacing="0" cellpadding="0">
+																						<tr>
+																							<td height="18"
+																								style="background: url(statics/images/jbst_bg03.jpg) no-repeat"><table
+																									width="56" border="0" cellspacing="0"
+																									cellpadding="0">
+																									<tr>
+																										<td width="20" height="18" align="center"><img
+																											src="statics/images/play_icon.png" width="11"
+																											height="11" /></td>
+																										<td width="36" align="left" class="p12baiwei">试听</td>
+																									</tr>
+																								</table></td>
+																						</tr>
+																					</table></td>
+																			</tr>
+																		</table></td>
+																</tr>
+																<tr>
+																	<td align="left" class="p12huiwei">长鸣180秒</td>
+																</tr>
+															</table></td>
+													</tr>
+												</table></td>
+											<td height="83" align="center"><table width="230"
+													border="0" cellspacing="0" cellpadding="0">
+													<tr>
+														<td width="65" height="83" align="center"><img
+															src="statics/images/jbst_icon04.jpg" width="48"
+															height="47" /></td>
+														<td align="right" valign="top" style="padding-top: 10px;"><table
+																width="159" border="0" cellspacing="0" cellpadding="0">
+																<tr>
+																	<td><table width="159" border="0" cellspacing="0"
+																			cellpadding="0">
+																			<tr>
+																				<td width="60" height="28" align="left"
+																					class="p12heiwei">灾害警报</td>
+																				<td><table width="56" border="0"
+																						cellspacing="0" cellpadding="0">
+																						<tr>
+																							<td height="18"
+																								style="background: url(statics/images/jbst_bg04.jpg) no-repeat"><table
+																									width="56" border="0" cellspacing="0"
+																									cellpadding="0">
+																									<tr>
+																										<td width="20" height="18" align="center"><img
+																											src="statics/images/play_icon.png" width="11"
+																											height="11" /></td>
+																										<td width="36" align="left" class="p12baiwei">试听</td>
+																									</tr>
+																								</table></td>
+																						</tr>
+																					</table></td>
+																			</tr>
+																		</table></td>
+																</tr>
+																<tr>
+																	<td align="left" class="p12huiwei">鸣6秒、停6秒，反复循环持</td>
+																</tr>
+															</table></td>
+													</tr>
+												</table></td>
+										</tr>
+									</table></td>
+								<td width="17"><img src="statics/images/jbst_rt.jpg"
+									width="17" height="106" /></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></td>
+	</tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	align="center">
+	<tr>
+		<td align="center" valign="top"
+			style="background: url(statics/images/nrbg.png) repeat-y center top; padding-top: 13px;">
+			<table width="1000" border="0" cellspacing="0" cellpadding="0"
+				align="center">
+				<tr>
+					<td><table width="1000" border="0" cellspacing="0"
+							cellpadding="0">
+							<tr>
+								<td width="218" align="left" valign="top"><table
+										width="218" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td><table width="218" border="0" cellspacing="0"
+													cellpadding="0">
+													<tr>
+														<td><table width="218" border="0" cellspacing="0"
+																cellpadding="0">
+																<tr>
+																	<td width="116" height="25" align="center"
+																		class="p14hei"
+																		style="background: url(statics/images/yytd_tit.jpg) no-repeat; padding-top: 5px;">艺苑<span
+																		class="p14hong">天地</span></td>
+																	<td align="right"
+																		style="background: url(statics/images/jrht_tit02.jpg) no-repeat; padding-right: 10px;"><a
+																		href="{$CATEGORYS[1458][url]}" class="p12bai">更多&gt;&gt;</a></td>
+																</tr>
+															</table></td>
+													</tr>
+													<tr>
+														<td height="269" align="center" valign="top"
+															style="border-left: 1px solid #9fcede; border-right: 1px solid #9fcede; background: url(statics/images/yytd_bg.jpg) repeat-x bottom; padding-top: 5px;"><table
+																width="201" border="0" cellspacing="0" cellpadding="0">
+																<tr>
+																	<td height="82"
+																		style="border-bottom: 1px solid #e9e9e9;"><table
+																			width="201" border="0" cellspacing="0"
+																			cellpadding="0">
+																			
+																			{pc:content action="position" catid="1439"
+																													posid="17" num="1" order="listorder DESC" }
+																			    {loop $data $v}
+																			<tr>
+																				<td width="95" height="60" align="center"><img
+																					src="{$v[thumb]}" width="87"
+																					height="60" /></td>
+																				<td align="right"><table width="104" border="0"
+																						cellspacing="0" cellpadding="0">
+																						{pc:get sql="select * from v9_news_data where id=$v[id]" return="data1"} 
+																								{loop $data1 $r}
+																						<tr>
+																							<td height="28" align="left" class="p12lancu">{str_cut($v[title],32)}</td>
+																						</tr>
+																						<tr>
+																							<td align="left" class="p12qianlan"
+																								style="line-height: 18px"><a href="{$v[url]}"
+																								class="p12qianhui">
+																								{str_cut(strip_tags($r[content]),34)}
+																							</a></td>
+																						</tr>
+																						{/loop}
+																						{/pc}
+																					</table></td>
+																			</tr>
+																			{/loop}
+																			{/pc}
+																			
+																		</table></td>
+																</tr>
+																<tr>
+																	<td valign="top"
+																		style="padding-top: 10px; padding-bottom: 10px;"><table
+																			width="206" border="0" cellspacing="0"
+																			cellpadding="0">
+																			 {pc:content  action="lists" catid="1458"   order="listorder DESC" num="6"}
+                                                                              {loop $data $v} 
+																			<tr>
+																				<td height="30"
+																					style="background: url(statics/images/short_line.jpg) repeat-x bottom"
+																					align="left"><img
+																					src="statics/images/xjhf_icon.jpg" width="4"
+																					height="7" /><a href="{$v[url]}" class="p12heihui">
+																						{str_cut($v[title],48)}</a></td>
+																			</tr>
+																			{/loop}
+																			{/pc}
+																			
+																		</table></td>
+																</tr>
+															</table></td>
+													</tr>
+													<tr>
+														<td><img src="statics/images/yytd_btm.jpg"
+															width="218" height="6" /></td>
+													</tr>
+												</table></td>
+										</tr>
+										<tr>
+											<td valign="top" style="padding-top: 10px;"><table
+													width="218" border="0" cellspacing="0" cellpadding="0">
+													<tr>
+														<td><img src="statics/images/rfxh_tit.jpg"
+															width="218" height="43" /></td>
+													</tr>
+													<tr>
+														<td><a href="{$CATEGORYS[1465][url]}"><img src="statics/images/rfxh_list01.jpg"
+															width="218" height="29" /></a></td>
+													</tr>
+													<tr>
+														<td><a href="{$CATEGORYS[1466][url]}"><img src="statics/images/rfxh_list02.jpg"
+															width="218" height="27" /></a></td>
+													</tr>
+													<tr>
+														<td><a href="{$CATEGORYS[1467][url]}"><img src="statics/images/rfxh_list03.jpg"
+															width="218" height="30" /></a></td>
+													</tr>
+													<tr>
+														<td
+															style="background: url(statics/images/rfxh_list05.jpg) no-repeat bottom; padding-bottom: 27px;">
+															<a href="{$CATEGORYS[1468][url]}"><img
+															src="statics/images/rfxh_list04.jpg" width="218"
+															height="29" /></a></td>
+													</tr>
+												</table></td>
+										</tr>
+									</table></td>
+								<td align="right" valign="top"><table width="773"
+										border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td valign="top" align="right"><table width="773"
+													border="0" cellspacing="0" cellpadding="0">
+													<tr>
+														<td><a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"><img
+																src="statics/images/wsbs_tit.jpg" width="773"
+																height="33" border="0" /></a></td>
+													</tr>
+													<tr>
+														<td height="362" align="center" valign="top"
+															style="border-left: 1px solid #9fcede; border-right: 1px solid #9fcede; background: url(statics/images/wsbs_bg.jpg) repeat-x bottom">
+															<table width="753" border="0" cellspacing="0"
+																cellpadding="0" id="tabs-6">
+																<tr>
+																	<td valign="top" style="padding-top: 15px;">
+																		<table width="753" border="0" cellspacing="0"
+																			cellpadding="0">
+																			<tr>
+																				<td width="190"><a href="{APP_PATH}index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"><img
+																						src="statics/images/wyxx_tit.jpg" width="190"
+																						height="58" border="0" /></a></td>
+																				<td
+																					style="background: url(statics/images/wyxx_tit02.jpg) no-repeat">
+																					<ul style="width: 557px;">
+																						<li><a href="#tabs-61"><img
+																								src="statics/images/wyxx_list01.jpg" width="104"
+																								height="33" /></a></li>
+																						<li><a href="#tabs-62"><img
+																								src="statics/images/wyxx_list02.jpg" width="104"
+																								height="33" /></a></li>
+																						<li><a href="#tabs-63"><img
+																								src="statics/images/wyxx_list03.jpg" width="104"
+																								height="33" /></a></li>
+																						<li><a href="#tabs-64"><img
+																								src="statics/images/wyxx_list04.jpg" width="105"
+																								height="33" /></a></li>
+																						<li><a href="#tabs-65"><img
+																								src="statics/images/wyxx_list05.jpg" width="105"
+																								height="33" /></a></li>
+																					</ul> 
+																				</td>
+																				<td width="5"><img
+																					src="statics/images/wyxx_tit03.jpg" width="5"
+																					height="58" /></td>
+																			</tr>
+																		</table>
+																	</td>
+																</tr>
+																<tr>
+																	<td valign="top" style="padding-top: 15px;"><table
+																			width="753" border="0" cellspacing="0"
+																			cellpadding="0">
+																			<tr>
+																				<td width="484" valign="top">
+																					<div id="tabs-61">
+																						<table width="484" border="0" cellspacing="0"
+																							cellpadding="0">
+																							<tr>
+																								<td><table width="484" border="0"
+																										cellspacing="0" cellpadding="0">
+																										<tr>
+																											<td class="p12hongwei"
+																												style="background: url(statics/images/xjhf_tit.jpg) no-repeat; padding-left: 40px;"
+																												align="left">信件回复</td>
+																											<td width="33"><a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"><img
+																												src="statics/images/xjhf_gd.jpg" width="60"
+																												height="33" /></a></td>
+																										</tr>
+																									</table></td>
+																							</tr>
+																							<tr>
+																								<td align="center" valign="top"
+																									style="padding-top: 15px;">
+																									<table
+																										width="465" border="0" cellspacing="0"
+																										cellpadding="0">
+																									{pc:get sql="select * from
+																																v9_form_network where (mark<>'' and
+																																infotyp=1) order by dataid desc"
+																																num="7" page="$page" return="data"}
+																																{loop $data $v}
+																									  <?php
+                                                                                                       $dataid = $v['dataid'];
+                                                                                                       ?>
+																										<tr>
+																											<td
+																												style="background: url(statics/images/short_line.jpg) repeat-x bottom;"><table
+																													width="470" border="0" cellspacing="0"
+																													cellpadding="0">
+																													<tr>
+																														<td width="385" height="30" align="left"><img
+																															src="statics/images/xjhf_icon.jpg"
+																															width="4" height="7" /> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"
+																															class="p12zong">[主任信箱]</a> 
+																															<a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1&showdata=$dataid"
+																															class="p12heihui">{str_cut($v[title],48)}</a>
+																															
+																														</td>
+																														<td width="85" class="p12qianlan">{date('Y-m-d',$v[datetime])}</td>
+																													</tr>
+																												</table></td>
+																										</tr>
+																									 {/loop}
+																									 {/pc}																								
+																									</table></td>
+																							</tr>
+																						</table>
+																					</div>
+																					<div id="tabs-62">
+																						<table width="484" border="0" cellspacing="0"
+																							cellpadding="0">
+																							<tr>
+																								<td><table width="484" border="0"
+																										cellspacing="0" cellpadding="0">
+																										<tr>
+																											<td class="p12hongwei"
+																												style="background: url(statics/images/xjhf_tit.jpg) no-repeat; padding-left: 40px;"
+																												align="left">监督投诉</td>
+																											<td width="33">
+																											<a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=2"><img
+																												src="statics/images/xjhf_gd.jpg" width="60"
+																												height="33" /></a></td>
+																										</tr>
+																									</table></td>
+																							</tr>
+																							<tr>
+																								<td align="center" valign="top"
+																									style="padding-top: 15px;"><table
+																										width="465" border="0" cellspacing="0"
+																										cellpadding="0">
+																										{pc:get sql="select * from
+																																v9_form_network where (mark<>'' and
+																																infotyp=2) order by dataid desc"
+																																num="7" page="$page" return="data"}
+																																{loop $data $v}
+																																<?php
+                                                                                                       $dataid = $v['dataid'];
+                                                                                                       ?>
+																										<tr>
+																											<td
+																												style="background: url(statics/images/short_line.jpg) repeat-x bottom;"><table
+																													width="470" border="0" cellspacing="0"
+																													cellpadding="0">
+																													<tr>
+																														<td width="385" height="30" align="left"><img
+																															src="statics/images/xjhf_icon.jpg"
+																															width="4" height="7" /> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=2"
+																															class="p12zong">[监督投诉]</a> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=2&showdata=$dataid"
+																															class="p12heihui">{str_cut($v[title],48)}</a>
+																														</td>
+																														<td width="85" class="p12qianlan">{date('Y-m-d',$v[datetime])}</td>
+																													</tr>
+																												</table></td>
+																										</tr>
+																									 {/loop}
+																									 {/pc}																																																					
+																									</table></td>
+																							</tr>
+																						</table>
+																					</div>
+																					<div id="tabs-63">
+																						<table width="484" border="0" cellspacing="0"
+																							cellpadding="0">
+																							<tr>
+																								<td><table width="484" border="0"
+																										cellspacing="0" cellpadding="0">
+																										<tr>
+																											<td class="p12hongwei"
+																												style="background: url(statics/images/xjhf_tit.jpg) no-repeat; padding-left: 40px;"
+																												align="left">在线办事</td>
+																											<td width="33"><a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=3"><img
+																												src="statics/images/xjhf_gd.jpg" width="60"
+																												height="33" /></a></td>
+																										</tr>
+																									</table></td>
+																							</tr>
+																							<tr>
+																								<td align="center" valign="top"
+																									style="padding-top: 15px;"><table
+																										width="465" border="0" cellspacing="0"
+																										cellpadding="0">
+																										{pc:get sql="select * from
+																																v9_form_network where (mark<>'' and
+																																infotyp=3) order by dataid desc"
+																																num="7" page="$page" return="data"}
+																																{loop $data $v}
+																										<?php
+                                                                                                       $dataid = $v['dataid'];
+                                                                                                       ?>
+																										<tr>
+																											<td
+																												style="background: url(statics/images/short_line.jpg) repeat-x bottom;"><table
+																													width="470" border="0" cellspacing="0"
+																													cellpadding="0">
+																													<tr>
+																														<td width="385" height="30" align="left"><img
+																															src="statics/images/xjhf_icon.jpg"
+																															width="4" height="7" /> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=3"
+																															class="p12zong">[在线办事]</a> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=3&showdata=$dataid"
+																															class="p12heihui">{str_cut($v[title],48)}</a>
+																														</td>
+																														<td width="85" class="p12qianlan">{date('Y-m-d',$v[datetime])}</td>
+																													</tr>
+																												</table></td>
+																										</tr>
+																									 {/loop}
+																									 {/pc}	
+																										
+																									</table></td>
+																							</tr>
+																						</table>
+																					</div>
+																					<div id="tabs-64">
+																						<table width="484" border="0" cellspacing="0"
+																							cellpadding="0">
+																							<tr>
+																								<td><table width="484" border="0"
+																										cellspacing="0" cellpadding="0">
+																										<tr>
+																											<td class="p12hongwei"
+																												style="background: url(statics/images/xjhf_tit.jpg) no-repeat; padding-left: 40px;"
+																												align="left">业务咨询</td>
+																											<td width="33"><a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=4"><img
+																												src="statics/images/xjhf_gd.jpg" width="60"
+																												height="33" /></a></td>
+																										</tr>
+																									</table></td>
+																							</tr>
+																							<tr>
+																								<td align="center" valign="top"
+																									style="padding-top: 15px;"><table
+																										width="465" border="0" cellspacing="0"
+																										cellpadding="0">
+																										{pc:get sql="select * from
+																																v9_form_network where (mark<>'' and
+																																infotyp=4) order by dataid desc"
+																																num="7" page="$page" return="data"}
+																																{loop $data $v}
+																																<?php
+                                                                                                       $dataid = $v['dataid'];
+                                                                                                       ?>
+																										<tr>
+																											<td
+																												style="background: url(statics/images/short_line.jpg) repeat-x bottom;"><table
+																													width="470" border="0" cellspacing="0"
+																													cellpadding="0">
+																													<tr>
+																														<td width="385" height="30" align="left"><img
+																															src="statics/images/xjhf_icon.jpg"
+																															width="4" height="7" /> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=4"
+																															class="p12zong">[业务咨询]</a> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=4&showdata=$dataid"
+																															class="p12heihui">{str_cut($v[title],48)}</a>
+																														</td>
+																														<td width="85" class="p12qianlan">{date('Y-m-d',$v[datetime])}</td>
+																													</tr>
+																												</table></td>
+																										</tr>
+																									 {/loop}
+																									 {/pc}																																																						
+																									</table></td>
+																							</tr>
+																						</table>
+																					</div>
+																					<div id="tabs-65">
+																						<table width="484" border="0" cellspacing="0"
+																							cellpadding="0">
+																							<tr>
+																								<td><table width="484" border="0"
+																										cellspacing="0" cellpadding="0">
+																										<tr>
+																											<td class="p12hongwei"
+																												style="background: url(statics/images/xjhf_tit.jpg) no-repeat; padding-left: 40px;"
+																												align="left">公众留言</td>
+																											<td width="33"><a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=5"><img
+																												src="statics/images/xjhf_gd.jpg" width="60"
+																												height="33" />
+																												</a></td>
+																										</tr>
+																									</table></td>
+																							</tr>
+																							<tr>
+																								<td align="center" valign="top"
+																									style="padding-top: 15px;"><table
+																										width="465" border="0" cellspacing="0"
+																										cellpadding="0">
+																											{pc:get sql="select * from
+																																v9_form_network where (mark<>'' and
+																																infotyp=5) order by dataid desc"
+																																num="7" page="$page" return="data"}
+																																{loop $data $v}
+																															<?php
+                                                                                                       $dataid = $v['dataid'];
+                                                                                                       ?>
+																										<tr>
+																											<td
+																												style="background: url(statics/images/short_line.jpg) repeat-x bottom;"><table
+																													width="470" border="0" cellspacing="0"
+																													cellpadding="0">
+																													<tr>
+																														<td width="385" height="30" align="left"><img
+																															src="statics/images/xjhf_icon.jpg"
+																															width="4" height="7" /> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=5"
+																															class="p12zong">[公众留言]</a> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=5&showdata=$dataid"
+																															class="p12heihui">{str_cut($v[title],48)}</a>
+																														</td>
+																														<td width="85" class="p12qianlan">{date('Y-m-d',$v[datetime])}</td>
+																													</tr>
+																												</table></td>
+																										</tr>
+																									 {/loop}
+																									 {/pc}	
+																										
+																									</table></td>
+																							</tr>
+																						</table>
+																					</div>
+																				</td>
+																				<td align="right" valign="top"><table
+																						width="250" border="0" cellspacing="0"
+																						cellpadding="0">
+																						<tr>
+																							<td
+																								style="background: url(statics/images/zxft_tit.jpg) no-repeat"
+																								height="41"><table width="250" border="0"
+																									cellspacing="0" cellpadding="0">
+																									<tr>
+																										<td height="31" align="left" class="p16huiwei"
+																											style="padding-left: 18px; padding-top: 10px;">在线访谈</td>
+																										<td align="right"
+																											style="padding-right: 8px; padding-top: 10px;"><a
+																											href="{$CATEGORYS[1481][url]}" class="p12shenglan">更多>></a></td>
+																									</tr>
+																								</table></td>
+																						</tr>
+																						<tr>
+																							<td
+																								style="border: 1px solid #d6d6d6; border-top: none;"
+																								height="216" valign="top"><table
+																									width="248" border="0" cellspacing="0"
+																									cellpadding="0">
+																									<tr>
+																										<td align="center"><table width="225"
+																												border="0" cellspacing="0" cellpadding="0">
+																												<tr>
+																													<td
+																														style="background: url(statics/images/short_line02.jpg) repeat-x bottom; padding-bottom: 15px; padding-top: 10px;"
+																														valign="top"><table width="225"
+																															border="0" cellspacing="0"
+																															cellpadding="0">
+																															{pc:content  action="position" catid="1481" posid="17"  order="id DESC" num="1"}
+                                                                                                                            {loop $data $v} 
+																															<tr>
+																																<td width="74" align="center"><table
+																																		width="64" border="0" cellspacing="0"
+																																		cellpadding="0">
+																																		<tr>
+																																			<td height="35" align="center"
+																																				class="p20baiwei"
+																																				style="background: url(statics/images/date_year.jpg) no-repeat;">{date('Y',$v[inputtime])}</td>
+																																		</tr>
+																																		<tr>
+																																			<td height="28" align="center"
+																																				class="p14huiwei"
+																																				style="background: url(statics/images/date_mouth.jpg) no-repeat;">{date('m月d日',$v[inputtime])}</td>
+																																		</tr>
+																																	</table></td>
+																																<td align="center"><table
+																																		width="140" border="0" cellspacing="0"
+																																		cellpadding="0">
+																																		<tr>
+																																			<td height="32" align="left"
+																																				class="p14hei">[本期访谈]</td>
+																																		</tr>
+																																		<tr>
+																																			<td align="left" class="p12huiwei"><a
+																																				href="{$v[url]}" class="p12huiwei">
+																																				{str_cut($v[title],52)}
+<!-- 																																				锡林郭勒盟人防办陈主任一行来到正镶白旗 -->
+																																				</a></td>
+																																		</tr>
+																																	</table></td>
+																															</tr>
+																															{/loop}
+                                                                                                                            {/pc} 
+																														</table></td>
+																												</tr>
+																											</table></td>
+																									</tr>
+																									<tr>
+																										<td valign="top" style="padding-top: 10px;"><table
+																												width="248" border="0" cellspacing="0"
+																												cellpadding="0">
+																												<tr>
+																													<td
+																														style="background: url(statics/images/zxft_tit02.jpg) no-repeat left; padding-left: 18px;"
+																														class="p16huiwei" align="left">网上调查</td>
+																												</tr>
+																												{pc:content  action="position" catid="1484" posid="17"  order="id DESC" num="1"}
+                                                                                                                            {loop $data $v} 
+																												<tr>
+																													<td align="center" valign="top"
+																														style="padding-top: 5px;"><table
+																															width="223" border="0" cellspacing="0"
+																															cellpadding="0">
+																															
+																															<tr>
+																																<td height="36" class="p12heihui"
+																																	align="left">调查问卷：{str_cut($v[title],52)}</td>
+																															</tr>
+																															<tr>
+																																<td valign="top"
+																																	style="padding-top: 5px;"><table
+																																		width="133" border="0" cellspacing="0"
+																																		cellpadding="0">
+																																		<tr>
+																																			<td align="left"><table
+																																					width="60" border="0"
+																																					cellspacing="0" cellpadding="0">
+																																					<tr>
+																																						<td height="18" align="center"
+																																							class="p12baiwei"
+																																							style="background: url(statics/images/red_bg.jpg) no-repeat"><a
+																																							href="{$v[url]}" class="p12baiwei">调查数据</a></td>
+																																					</tr>
+																																				</table></td>
+																																			<td align="right"><table
+																																					width="60" border="0"
+																																					cellspacing="0" cellpadding="0">
+																																					<tr>
+																																						<td height="18" align="center"
+																																							class="p12baiwei"
+																																							style="background: url(statics/images/bule_bg.jpg) no-repeat"><a
+																																							href="{$v[url]}" class="p12baiwei">结果反馈</a></td>
+																																					</tr>
+																																				</table></td>
+																																		</tr>
+																																	</table></td>
+																															</tr>
+																														</table></td>
+																												</tr>
+																												{/loop}
+                                                                                                                            {/pc} 
+																											</table></td>
+																									</tr>
+																								</table></td>
+																						</tr>
+																					</table></td>
+																			</tr>
+																		</table></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+													<tr>
+														<td><img src="statics/images/wsbs_btm.jpg"
+															width="773" height="17" /></td>
+													</tr>
+												</table></td>
+										</tr>
+										<tr>
+											<td valign="top" style="padding-top: 9px;"><img
+												src="statics/images/zt_adv02.jpg" width="774" height="100" /></td>
+										</tr>
+									</table></td>
+							</tr>
+						</table></td>
+				</tr>
+				<tr>
+					<td valign="top" style="padding-top: 10px;"><table
+							width="1000" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="31"><a href="{$CATEGORYS[1457][url]}"><img
+										src="statics/images/rffc_tit.jpg" width="31" height="209"
+										border="0" /></a></td>
+								<td align="right"
+									style="background: url(statics/images/rffc_tit02.jpg) repeat-x"><table
+										width="950" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td width="34" valign="top"><img
+												src="statics/images/pre_icon.jpg" width="34" height="118" /></td>
+											<td><div id="MyMarqueeX2" class="MyMarqueeX2">
+													<table width="870" border="0" cellspacing="0"
+														cellpadding="0">
+														<tr>
+														{pc:content  action="lists"  catid="1457"  thumb="1" order="id DESC" num="10"}
+                                                        {loop $data $v} 
+															<td align="center"><table width="163" border="0"
+																	cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td height="123" align="center"
+																			style="border: 1px solid #d9d9d9; background: #fff;"><a
+																			href="{$v[url]}"><img src="{$v[thumb]}"
+																				width="155" height="116" /></a></td>
+																	</tr>
+																	<tr>
+																		<td height="34" align="center"><a href="{$v[url]}"
+																			class="p12heihui">{str_cut($v[title],32)} </a></td>
+																	</tr>
+																</table>
+															 </td>
+														  {/loop}
+                                                          {/pc} 															
+														</tr>
+													</table>
+												</div></td>
+											<td width="34" valign="top"><img
+												src="statics/images/next_icon.jpg" width="34" height="118" /></td>
+										</tr>
+									</table></td>
+								<td width="8"><img src="statics/images/rffc_tit03.jpg"
+									width="8" /></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table>
+
+		</td>
+	</tr>
+</table>
+{template "content","footer"}
+
+<script type="text/javascript">
+function Move(tis, oid) {
+    $("#1").attr("style", tis);
+    $("#" + oid).attr("class", "p14sycubai").siblings().attr("class", "p14sycuhui");
+    $("#1" + oid).attr("style", "display:block").siblings().attr("style", "display:none");
+}
+	Qfast.add('widgets', { path: "statics/js/terminator2.2.min.js", type: "js", requires: ['fx'] });  
+	Qfast(false, 'widgets', function () {
+		K.tabs({
+			id: 'fsD1',   //焦点图包裹id  
+			conId: "D1pic1",  //** 大图域包裹id  
+			tabId:"D1fBt",  
+			tabTn:"a",
+			conCn: '.fcon', //** 大图域配置class       
+			auto: 1,   //自动播放 1或0
+			effect: 'fade',   //效果配置
+			eType: 'click', //** 鼠标事件
+			pageBt:true,//是否有按钮切换页码
+			bns: ['.prev', '.next'],//** 前后按钮配置class                          
+			interval: 3000  //** 停顿时间  
+		}) 
+	})  
+</script>
+
