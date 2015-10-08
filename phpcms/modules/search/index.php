@@ -15,14 +15,11 @@ class index {
 		//获取siteid
 		$siteid = isset($_REQUEST['siteid']) && trim($_REQUEST['siteid']) ? intval($_REQUEST['siteid']) : 1;
 		$SEO = seo($siteid);
-
 		//搜索配置
 		$search_setting = getcache('search');
 		$setting = $search_setting[$siteid];
-
 		$search_model = getcache('search_model_'.$siteid);
 		$type_module = getcache('type_module_'.$siteid);
-
 		if(isset($_GET['q'])) {
 			if(trim($_GET['q'])=='') {
 				header('Location: '.APP_PATH.'index.php?m=search');exit;
@@ -35,7 +32,6 @@ class index {
 			$q = htmlspecialchars(strip_tags($q));
 			$q = str_replace('%', '', $q);	//过滤'%'，用户全文搜索
 			$search_q = $q;	//搜索原内容
-			
 			//按时间搜索
 			if($time == 'day') {
 				$search_time = SYS_TIME - 86400;
@@ -82,7 +78,6 @@ class index {
 				} else {
 					$sql = "`siteid`= '$siteid' AND `typeid` = '$typeid' $sql_time AND `data` like '%$q%'";
 				}
-
 				$result = $this->db->listinfo($sql, 'searchid DESC', $page, 10);
 			}
 
@@ -114,7 +109,6 @@ class index {
 				}
 				$relation = $this->keyword_db->select("MATCH (`data`) AGAINST ('%$relation_q%' IN BOOLEAN MODE)", '*', 10, 'searchnums DESC');
 			}
-				
 			//如果结果不为空
 			  if(!empty($result) || !empty($commend['id'])) {
 				//开启sphinx后文章id取法不同
@@ -138,7 +132,6 @@ class index {
 				$model_type_cache = getcache('type_model_'.$siteid,'search');
 				$model_type_cache = array_flip($model_type_cache);
 				$modelid = $model_type_cache[$typeid];
-
 				//是否读取其他模块接口
 				if($modelid) {
 					$this->content_db->set_model($modelid);

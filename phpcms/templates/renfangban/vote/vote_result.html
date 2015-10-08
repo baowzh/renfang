@@ -1,9 +1,34 @@
 {template "content","header"}
 <link href="{CSS_PATH}vote.css" rel="stylesheet" type="text/css" />
-<!--main-->
-<div class="main tps">
-<div class="crumbs"><a href="{siteurl($siteid)}">首页</a><span> &gt; </span> <a href="{APP_PATH}index.php?m=vote&c=index&a=lists&siteid={$siteid}">投票</a>  </div>
-<div class="vote_result">
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	align="center">
+	<tbody>
+		<tr>
+			<td height="500" align="center" valign="top"
+				style="background: url(statics/images/nrbg.png) repeat-y center top; padding-top: 7px;"><table
+					width="993" border="0" cellspacing="0" cellpadding="0">
+					<tbody>
+						<tr>
+							<td><table width="993" border="0" cellspacing="0"
+									cellpadding="0">
+									<tbody>
+										<tr>
+											<td width="210" height="40" align="left" class="p18huangwei"
+												style="background: url(statics/images/zyxx_titbg.jpg) no-repeat; padding-left: 10px; padding-bottom: 10px;">人防<span
+												class="p20huangwei">新闻</span> <span class="p12bai_yy">Renfang
+													News</span></td>
+											<td
+												style="background: url(statics/images/zyxx_titbg02.jpg) no-repeat; padding-left: 45px; padding-bottom: 12px;"
+												align="left" class="p12huiwei">您当前的位置：{catpos($catid)}</td>
+										</tr>
+									</tbody>
+								</table></td>
+						</tr>
+						<tr>
+							<td align="center"
+								style="border-left: 1px solid #98c4f3; border-right: 1px solid #98c4f3; padding-bottom: 20px;">
+								
+								<div class="vote_result">
     	<div class="tit"><span class="r">总票数：<strong>{$vote_data['total']}</strong></span><h5>{$subject}</h5></div>
         <div class="c_box wrap">
         	<table width="100%" border="1" cellspacing="0" cellpadding="0">
@@ -29,15 +54,25 @@
             </table>
         </div>
     </div>
-    <div class="vote_listt">
+     <div class="vote_listt">
     	<div class="tit"><span class="r"><a href="{APP_PATH}index.php?m=vote&c=index&a=lists&siteid={$siteid}">查看更多>></a></span><h5>其他投票</h5></div>
         <ul class="wrap licol2 icon3j">
               {pc:vote action="other_vote" catid="$catid" num="8" order="subjectid DESC"}
 				{loop $data $r}
-				 <li><a title="{$r['subject']}" href="{APP_PATH}index.php?m=vote&c=index&a=show&show_type=1&subjectid={$r['subjectid']}&siteid={$siteid}">{$r['subject']}</a><span><font color="#1E50A0">(得票数: {$r['votenumber']})</font></span></li>
+				 <li style="width:100%;text-align:left;"><a title="{$r['subject']}" href="{APP_PATH}index.php?m=vote&c=index&a=show&show_type=1&subjectid={$r['subjectid']}&siteid={$siteid}">{$r['subject']}</a><span><font color="#1E50A0">(得票数: {$r['votenumber']})</font></span></li>
 				{/loop}
 			 {/pc}
         </ul>
     </div>
-</div>
+								</td>
+						</tr>
+						<tr>
+							<td><img src="statics/images/zyxx_btm.jpg" width="993"
+								height="38"></td>
+						</tr>
+					</tbody>
+				</table></td>
+		</tr>
+	</tbody>
+</table>
 {template "content","footer"}

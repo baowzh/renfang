@@ -1,3 +1,6 @@
+<?php
+$CATEGORYS = getcache('category_content_1','commons');
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -19,6 +22,12 @@
 	overflow: hidden;
 }
 </style>
+<script type="text/javascript">
+ var search=function(){
+	 $('#search').submit();
+	 
+ }
+</script>
 </head>
 <body>
 	<div
@@ -110,14 +119,18 @@
 																											<td width="50" height="36" align="right"><img
 																												src="statics/images/date_icon.jpg"
 																												width="44" height="32"/></td>
-																											<td><span class="p12huiwei"
-																												style="background: url(statics/images/time_mid.jpg) no-repeat right">2013年11月4日
-																													星期三 14：34：09 </span></td>
+																											<td>
+																											<script src="statics/js/clock.js"></script>
+																											<span class="p12huiwei" id="clock"
+																												>
+																												 </span>
+																											</td>
 																										</tr>
 																									</tbody>
 																								</table></td>
-																							<td align="left" style="padding-left: 20px"><span
-																								class="p12lan">呼和浩特：</span>多云转阵雨 3℃~14℃</td>
+																							<td align="left" style="padding-left: 20px">
+																							 <iframe width="350" scrolling="no" height="30" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=1&icon=1&py=huhehaote&wind=1&num=1"></iframe>																							
+																							</td>
 																							<td align="right"><table width="351"
 																									border="0" cellspacing="0" cellpadding="0">
 																									<tbody>
@@ -125,7 +138,14 @@
 																											<td width="73" align="left"><img
 																												src="statics/images/head_ss01.jpg"
 																												width="70" height="32"/></td>
-																											<td><table width="278" border="0"
+																											<td>
+																											<form name="search" type="get" id="search"	action="{APP_PATH}/index.php?m=search">
+																											<input type="hidden" name="m" value="search" /> <input
+													                                 type="hidden" name="c" value="index" /> <input
+												                                 	type="hidden" name="a" value="init" /> <input type="hidden"
+													                              name="typeid" value="58" id="typeid" /> <input type="hidden"
+													                             name="siteid" value="1" id="siteid" />
+																											<table width="278" border="0"
 																													cellspacing="0" cellpadding="0">
 																													<tbody>
 																														<tr>
@@ -133,16 +153,19 @@
 																																src="statics/images/head_ss02.jpg"
 																																width="14" height="22"/></td>
 																															<td align="left"><input
-																																name="textfield" type="text"
+																																name="q" type="text"
 																																style="width: 204px; height: 22px; border: none; background: url(statics/images/head_ss03.jpg) repeat-x; line-height: 22px; font-size: 12px; color: #818181;"
 																																value="请输入您要查询的关键字"/></td>
 																															<td width="60" align="left"
-																																style="background: url(statics/images/head_ss03.jpg) repeat-x"><img
+																																style="background: url(statics/images/head_ss03.jpg) repeat-x">
+																																<a href="javascript:search();"><img
 																																src="statics/images/head_ss04.jpg"
-																																width="60" height="22"/></td>
+																																width="60" height="22"/></a></td>
 																														</tr>
 																													</tbody>
-																												</table></td>
+																												</table>
+																												</form>
+																												</td>
 																										</tr>
 																									</tbody>
 																								</table></td>

@@ -1,3 +1,6 @@
+<?php
+$result_data = $data;
+?>
 {template "content","header"}
 <?php
    //获取父级id
@@ -224,9 +227,7 @@
 															<div style="min-height: 465px;">
 																<table width="740" border="0" cellspacing="0"
 																	cellpadding="0">
-																	{pc:content action="lists" catid="$catid" num="15"
-																	order="is_top desc , id desc " page="$page"} {loop
-																	$data $v}
+																	{loop $result_data $i $v}
 																	<tr>
 																		<td height="34" align="center"
 																			style="background: url(statics/images/long_line.jpg) repeat-x bottom;"><table
@@ -242,7 +243,7 @@
 																				</tr>
 																			</table></td>
 																	</tr>
-																	{/loop} {/pc}
+																	{/loop}
 																</table>
 															</div>
 														</td>

@@ -20,7 +20,7 @@
 												<input type="hidden" name="m" value="search" /> <input
 													type="hidden" name="c" value="index" /> <input
 													type="hidden" name="a" value="init" /> <input type="hidden"
-													name="typeid" value="1" id="typeid" /> <input type="hidden"
+													name="typeid" value="58" id="typeid" /> <input type="hidden"
 													name="siteid" value="1" id="siteid" />
 
 												<table width="100%" border="0" cellspacing="0"
@@ -29,8 +29,10 @@
 														<td><select name="select"
 															style="height: 21px; width: 105px; text-align: center; color: #575656; margin-right: 5px;"
 															class="txt-search">
-																<!-- 栏目列表 --> {loop subcat(0) $v}
-																<option>{$v[catname]}</option> {/loop}
+																<!-- 栏目列表 --> 
+													{loop subcat(0) $v}
+																<option>{$v[catname]}</option> 
+													{/loop}
 
 														</select></td>
 														<td><select name="select"
