@@ -40,7 +40,7 @@ if ($dataid > 0){
 																class="lftmn_cur">公众留言</a> <a
 																href="?m=content&c=index&a=lists&catid=1481"
 																class="lftmn_cur">网上调查</a> <a
-																href="http://127.0.0.1/renfangban/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=1439"
+																href="{APP_PATH}index.php?m=content&amp;c=index&amp;a=lists&amp;catid=1439"
 																class="lftmn_cur">在线访谈</a>
 
 
@@ -67,36 +67,16 @@ if ($dataid > 0){
 																style="border-left: 1px solid #9fcede; border-right: 1px solid #9fcede; background: url(statics/images/syzxgg_bg.jpg) no-repeat bottom;"><table
 																	width="200" border="0" cellspacing="0" cellpadding="0">
 																	<tbody>
-																		<tr>
-																			<td height="30" align="left"><img
-																				src="statics/images/zxgg_icon.png"> <a
-																				href="http://127.0.0.1/renfangban/index.php?m=content&amp;c=index&amp;a=show&amp;catid=1463&amp;id=6715"
-																				class="p12heihui">对提高基层人防干部素质的思考</a></td>
-																		</tr>
-																		<tr>
-																			<td height="30" align="left"><img
-																				src="statics/images/zxgg_icon.png"> <a
-																				href="http://127.0.0.1/renfangban/index.php?m=content&amp;c=index&amp;a=show&amp;catid=1463&amp;id=6716"
-																				class="p12heihui">解放思想 科学发展积极推进...</a></td>
-																		</tr>
-																		<tr>
-																			<td height="30" align="left"><img
-																				src="statics/images/zxgg_icon.png"> <a
-																				href="http://127.0.0.1/renfangban/index.php?m=content&amp;c=index&amp;a=show&amp;catid=1463&amp;id=6717"
-																				class="p12heihui">加强以重点城市为核心的疏散...</a></td>
-																		</tr>
-																		<tr>
-																			<td height="30" align="left"><img
-																				src="statics/images/zxgg_icon.png"> <a
-																				href="http://127.0.0.1/renfangban/index.php?m=content&amp;c=index&amp;a=show&amp;catid=1463&amp;id=6724"
-																				class="p12heihui">对创建学习型人防机关的思考</a></td>
-																		</tr>
-																		<tr>
-																			<td height="30" align="left"><img
-																				src="statics/images/zxgg_icon.png"> <a
-																				href="http://127.0.0.1/renfangban/index.php?m=content&amp;c=index&amp;a=show&amp;catid=1463&amp;id=6725"
-																				class="p12heihui">解放思想,真抓实干 努力开创...</a></td>
-																		</tr>
+																		
+																    {pc:content action="lists" catid="1457" order="listorder
+													                 DESC" num="5"} {loop $data $v}
+													                <tr>
+														              <td height="30" align="left"><img
+															          src="statics/images/zxgg_icon.png" /> <a
+														            	href="{$v[url]}" class="p12heihui">{str_cut($v[title],45)}</a></td>
+												                	</tr>
+												                	{/loop} {/pc}
+																		
 																	</tbody>
 																</table></td>
 														</tr>
@@ -131,60 +111,16 @@ if ($dataid > 0){
 																style="border: 1px solid #9fcede; border-top: none; padding-top: 9px; padding-bottom: 10px;"><table
 																	width="198" border="0" cellspacing="0" cellpadding="0">
 																	<tbody>
-																		<tr>
-																			<td height="32"
-																				style="background: url(statics/images/short_line.jpg) repeat-x bottom"
-																				align="left"><img
-																				src="statics/images/red_icon.jpg" width="3"
-																				height="3"> <a
-																				href="http://127.0.0.1/renfangban/index.php?m=content&amp;c=index&amp;a=show&amp;catid=1451&amp;id=6672"
-																				class="p12heihui">火灾逃生自救九大要诀</a></td>
-																		</tr>
-																		<tr>
-																			<td height="32"
-																				style="background: url(statics/images/short_line.jpg) repeat-x bottom"
-																				align="left"><img
-																				src="statics/images/red_icon.jpg" width="3"
-																				height="3"> <a
-																				href="http://127.0.0.1/renfangban/index.php?m=content&amp;c=index&amp;a=show&amp;catid=1451&amp;id=6665"
-																				class="p12heihui">不同阶段应采取哪些核辐射防护...</a></td>
-																		</tr>
-																		<tr>
-																			<td height="32"
-																				style="background: url(statics/images/short_line.jpg) repeat-x bottom"
-																				align="left"><img
-																				src="statics/images/red_icon.jpg" width="3"
-																				height="3"> <a
-																				href="http://127.0.0.1/renfangban/index.php?m=content&amp;c=index&amp;a=show&amp;catid=1451&amp;id=6664"
-																				class="p12heihui">浸泡清洗可清除蔬菜上的辐射</a></td>
-																		</tr>
-																		<tr>
-																			<td height="32"
-																				style="background: url(statics/images/short_line.jpg) repeat-x bottom"
-																				align="left"><img
-																				src="statics/images/red_icon.jpg" width="3"
-																				height="3"> <a
-																				href="http://127.0.0.1/renfangban/index.php?m=content&amp;c=index&amp;a=show&amp;catid=1451&amp;id=6663"
-																				class="p12heihui">核泄漏时该怎么做</a></td>
-																		</tr>
-																		<tr>
-																			<td height="32"
-																				style="background: url(statics/images/short_line.jpg) repeat-x bottom"
-																				align="left"><img
-																				src="statics/images/red_icon.jpg" width="3"
-																				height="3"> <a
-																				href="http://127.0.0.1/renfangban/index.php?m=content&amp;c=index&amp;a=show&amp;catid=1451&amp;id=6662"
-																				class="p12heihui">核电站安全吗？</a></td>
-																		</tr>
-																		<tr>
-																			<td height="32"
-																				style="background: url(statics/images/short_line.jpg) repeat-x bottom"
-																				align="left"><img
-																				src="statics/images/red_icon.jpg" width="3"
-																				height="3"> <a
-																				href="http://127.0.0.1/renfangban/index.php?m=content&amp;c=index&amp;a=show&amp;catid=1451&amp;id=6661"
-																				class="p12heihui">核电站安全吗？</a></td>
-																		</tr>
+																		{pc:content action="lists" catid="1451" order="listorder
+													DESC" num="7"} {loop $data $v}
+													<tr>
+														<td height="32"
+															style="background: url(statics/images/short_line.jpg) repeat-x bottom"
+															align="left"><img src="statics/images/red_icon.jpg"
+															width="3" height="3" /> <a href="{$v[url]}"
+															class="p12heihui">{str_cut($v[title],48)}</a></td>
+													</tr>
+													{/loop} {/pc}
 
 																	</tbody>
 																</table></td>

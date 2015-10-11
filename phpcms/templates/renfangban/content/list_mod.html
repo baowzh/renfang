@@ -102,11 +102,10 @@
 				<tr>
 					<td width="217" valign="top"><table width="217" border="0"
 							cellspacing="0" cellpadding="0">
-							
+
 							<tr>
 								<td>
-								<table width="217" border="0" cellspacing="0"
-										cellpadding="0">
+									<table width="217" border="0" cellspacing="0" cellpadding="0">
 										<tr>
 											<td><img src="statics/images/lftmn-{$imgid}.jpg"
 												style="width: 217px; height: 55px;" /></td>
@@ -114,15 +113,10 @@
 										<tr>
 											<td height="100"
 												style="border-left: 1px solid #d6d6d6; border-right: 1px solid #d6d6d6; background: url(statics/images/zy_lft_mid.jpg) repeat-x bottom; padding-bottom: 15px;">
-												{loop $looparr $v} 
-												<a href="{$v[url]}" class="lftmn_cur">{$v[catname]}</a>
-												{/loop} 
-												<?php if ($didnotloop == false):?> 
-												{loop
-												subcat($finalid) $v} 
-												<a href="{$v[url]}" class="lftmn_cur">{$v[catname]}</a>
-												{/loop}
-												<?php endif;?>
+												{loop $looparr $v} <a href="{$v[url]}" class="lftmn_cur">{$v[catname]}</a>
+												{/loop} <?php if ($didnotloop == false):?> {loop
+												subcat($finalid) $v} <a href="{$v[url]}" class="lftmn_cur">{$v[catname]}</a>
+												{/loop} <?php endif;?>
 											</td>
 										</tr>
 										<tr>
@@ -130,10 +124,10 @@
 												height="13" /></td>
 										</tr>
 									</table>
-									</td>
+								</td>
 							</tr>
-							
-							
+
+
 							<tr>
 								<td valign="top" style="padding-top: 10px;"><table
 										width="217" border="0" cellspacing="0" cellpadding="0">
@@ -198,10 +192,10 @@
 									</table></td>
 							</tr>
 							<tr>
-								<td valign="top" style="padding-top: 10px;">
-								<a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"><img
-									src="statics/images/wsbs_icon.jpg" width="218" height="103" />
-									</a></td>
+								<td valign="top" style="padding-top: 10px;"><a
+									href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"><img
+										src="statics/images/wsbs_icon.jpg" width="218" height="103" />
+								</a></td>
 							</tr>
 						</table></td>
 					<td valign="top"><table width="780" border="0" cellspacing="0"
@@ -216,59 +210,10 @@
 								<td height="830" align="right" valign="top"
 									style="background: url(statics/images/zy_midline.jpg) no-repeat left;"><table
 										width="753" border="0" cellspacing="0" cellpadding="0">
-
-
 										<tr>
 											<td height="32"
 												style="background: url(statics/images/srh_titbg.jpg) repeat-x">
-                                              {template "content","plugin_search"}
-                                            <!--  
-												<table width="753" border="0" cellspacing="0"
-													cellpadding="0">
-													<tr>
-														<td width="280" height="32" align="left"><table
-																width="265" border="0" cellspacing="0" cellpadding="0">
-																<tr>
-																	<td width="92" height="32" align="center"><img
-																		src="statics/images/srh_tit.jpg" width="68"
-																		height="28" /></td>
-																	<td width="173"><table width="100%" border="0"
-																			cellspacing="0" cellpadding="0">
-																			<tr>
-																				<td><select name="select"
-																					style="height: 21px; width: 105px; text-align: center; color: #575656; margin-right: 5px;"
-																					class="txt-search">
-																						<option value="" selected>{catpos($catid)}</option>
-																						
-																						<option value="13121214482510000692">政务公开</option>
-																						<option value="13121217533510000790">科技信息</option>
-																						<option value="13121217515310000788">政策法规</option>
-																						<option value="13121215515510000721">民俗风情</option>
-																						<option value="13121215515510000721">民俗风情</option>
-
-																				</select></td>
-																				<td><select name="select"
-																					style="height: 21px; width: 80px; text-align: center; color: #575656"
-																					class="txt-search">
-																						<option value="" selected>文章标题</option>
-																						
-																						<option value="13121214482510000692">搜索内容</option>
-																				</select></td>
-																			</tr>
-																		</table></td>
-																</tr>
-															</table></td>
-														<td width="313" align="left">关键字： <input type="text"
-															name="" value="填写您想搜索的关键词"
-															onClick="if(this.value='填写您想搜索的关键词'){this.value=''}"
-															style="width: 250px; height: 21px; line-height: 21px;"
-															class="txt-search" /></td>
-														<td width="107" align="left"><img
-															src="statics/images/search-bt.jpg" width="53" height="21" /></td>
-													</tr>
-												</table>
-												-->
-											</td>
+												{template "content","plugin_search"}</td>
 										</tr>
 
 										<tr>

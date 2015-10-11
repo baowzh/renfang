@@ -423,7 +423,6 @@ class category extends admin {
 		$html_root = pc_base::load_config('system','html_root');
 		$this->categorys = $categorys = array();
 		$this->categorys = $categorys = $this->db->select(array('siteid'=>$this->siteid,'module'=>'content'), '*', '', 'listorder ASC, catid ASC', '', 'catid');
-		
 		$this->get_categorys($categorys);
 		if(is_array($this->categorys)) {
 			foreach($this->categorys as $catid => $cat) {

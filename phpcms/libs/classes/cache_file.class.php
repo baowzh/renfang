@@ -39,7 +39,6 @@ class cache_file {
 	    if(!is_dir($filepath)) {
 			mkdir($filepath, 0777, true);
 	    }
-	    
 	    if($this->_setting['type'] == 'array') {
 	    	$data = "<?php\nreturn ".var_export($data, true).";\n?>";
 	    } elseif($this->_setting['type'] == 'serialize') {
@@ -54,14 +53,14 @@ class cache_file {
 		    	$db->insert(array('filename'=>$filename, 'path'=>'caches_'.$module.'/caches_'.$type.'/', 'data'=>$datas));
 		    }
 	    }
-	    
+	   // print_r(pc_base::load_config('system', 'lock_ex'));
+	    //exit();
 	    //是否开启互斥锁
 		if(pc_base::load_config('system', 'lock_ex')) {
 			$file_size = file_put_contents($filepath.$filename, $data, LOCK_EX);
 		} else {
 			$file_size = file_put_contents($filepath.$filename, $data);
 		}
-	    
 	    return $file_size ? $file_size : 'false';
 	}
 	
