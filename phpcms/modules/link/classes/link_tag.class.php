@@ -44,7 +44,7 @@ class link_tag {
 				$sql = array('linktype'=>$linktype,'siteid'=>$siteid,'passed'=>'1');
 		}
   		$r = $this->link_db->select($sql, '*', $data['limit'], 'listorder '.$data['order']);
-		return new_html_special_chars($r);
+  		return new_html_special_chars($r);
 	}
 	
 	/**
@@ -76,9 +76,9 @@ class link_tag {
 			if (!in_array($data['listorder'], array('desc', 'asc'))) {
 					$data ['listorder'] = 'desc';
 				}
- 			$sql = array('module'=>ROUTE_M,'siteid'=>$data['siteid']);
+ 			$sql = array('module'=>'link','siteid'=>$data['siteid']);
  			$r = $this->type_db->select($sql, '*', $data['limit'], 'listorder '.$data['listorder']);
-			return new_html_special_chars($r);
+ 			return new_html_special_chars($r);
 	}
 	 
 	/**

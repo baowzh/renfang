@@ -190,8 +190,9 @@
 									</table></td>
 							</tr>
 							<tr>
-								<td valign="top" style="padding-top: 10px;"><a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"><img
-									src="statics/images/wsbs_icon.jpg" width="218" height="103" /></a></td>
+								<td valign="top" style="padding-top: 10px;"><a
+									href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"><img
+										src="statics/images/wsbs_icon.jpg" width="218" height="103" /></a></td>
 							</tr>
 						</table></td>
 					<td valign="top"><table width="780" border="0" cellspacing="0"
@@ -212,9 +213,7 @@
 											<td height="32"
 												style="background: url(statics/images/srh_titbg.jpg) repeat-x">
 
-                                           {template "content","plugin_search"}
-												
-											</td>
+												{template "content","plugin_search"}</td>
 										</tr>
 
 										<tr>
@@ -255,12 +254,21 @@
 																			$data $v}
 
 																			<div
-																				style="width: 217px; height: 167px; float: left; margin: 15px 10px;">
+																				style="width: 217px; height: 167px; float: left; margin: 15px 10px; position: relative;">
 																				<img src="{$v[thumb]}" width="198" height="148">
 																				<div
 																					style="text-align: center; font-size: 12px; margin-top: 15px; width: 198px;">
-																					{str_cut($v[title],40)} 
-																					</div>
+																					{str_cut($v[title],40)}</div>
+																				<div
+																					style="position: absolute; top: 60px; left: 75px; opacity: 0.8;">
+																					
+																					<a
+																						href="getuserdocdetail.do?docid=EF9C02822D1511E58CD5F7F08AB87DC1">
+																						<img src="statics/images/play_video.png" ></img>
+																					</a>
+
+																				</div>
+
 																			</div> {/loop} {/pc}
 																		</td>
 																	</tr>

@@ -18,43 +18,31 @@
       <tr>
         <td valign="top" style="padding-top:20px;"><table width="950" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td align="center"><img src="statics/images/yqlj_01.jpg" width="143" height="47" /></td>
-            <td align="center"><img src="statics/images/yqlj_02.jpg" width="143" height="47" /></td>
-            <td align="center"><img src="statics/images/yqlj_03.jpg" width="143" height="47" /></td>
-            <td align="center"><img src="statics/images/yqlj_04.jpg" width="142" height="47" /></td>
-            <td align="center"><img src="statics/images/yqlj_05.jpg" width="143" height="47" /></td>
-            <td align="center"><img src="statics/images/yqlj_06.jpg" width="143" height="47" /></td>
+            {pc:link action="type_list" linktype="1"  siteid="1"  listorder="desc" num="6"  }
+            {loop $data $type_v1}
+            <td align="center"><img src="{$type_v1['logo']}" width="143" height="47" /></td>
+             {/loop}
+            {/pc}
           </tr>
         </table></td>
       </tr>
       <tr>
         <td valign="top" style="padding-top:20px"><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td height="34" align="center"><select name="select" style="height:21px; width:165px; text-align:center">
-                                <OPTION value=# selected>--北京市--</OPTION>
-                                <OPTION>属性1111</OPTION>
-                                <OPTION>属性111</OPTION>
-                      </select></td>
-                <td align="center"><select name="select" style="height:21px; width:165px; text-align:center">
-                                <OPTION value=# selected>--国家部委网站--</OPTION>
-                                <OPTION>属性1111</OPTION>
-                                <OPTION>属性111</OPTION>
-                      </select></td>
-                <td align="center"><select name="select" style="height:21px; width:165px; text-align:center">
-                                <OPTION value=# selected>--新闻媒体网站--</OPTION>
-                                <OPTION>属性1111</OPTION>
-                                <OPTION>属性111</OPTION>
-                      </select></td>
-                <td align="center"><select name="select" style="height:21px; width:165px; text-align:center">
-                                <OPTION value=# selected>--区内各厅级网站--</OPTION>
-                                <OPTION>属性1111</OPTION>
-                                <OPTION>属性111</OPTION>
-                      </select></td>
-                <td align="center"><select name="select" style="height:21px; width:165px; text-align:center">
-                                <OPTION value=# selected>--区内媒体链接--</OPTION>
-                                <OPTION>属性1111</OPTION>
-                                <OPTION>属性111</OPTION>
-                      </select></td>
+                {pc:link action="type_lists" typeid="59" siteid="1"  listorder="desc" num="8"  }
+                {loop $data $type_v}
+                <td height="34" align="center">
+                <select name="select" style="height:21px; width:165px; text-align:center">
+                        <OPTION value=# selected>--{$type_v['name']}--</OPTION>
+                         {pc:link action="type_list" typeid="$type_v['typeid']" siteid="1" linktype="0"  listorder="desc" num="8"  }
+                         {loop $data $type_v1}
+                         <OPTION>{$type_v1['name']}</OPTION>
+                        {/loop}
+                        {/pc}
+                 </select>
+                 </td>
+                 {/loop}
+                 {/pc}                  
               </tr>
             </table></td>
       </tr>
@@ -102,6 +90,39 @@
     </table></td>
   </tr>
 </table>
+<div class="right_gzh">
+ <table width="91" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tbody><tr>
+    <td height="43" align="center" class="p12huiwei">欢迎扫描关注</td>
+  </tr>
+  <tr>
+    <td><table width="91" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td><table width="91" border="0" cellspacing="0" cellpadding="0">
+      <tbody><tr>
+        <td><img src="statics/images/weixin_img.jpg" width="91" height="91"></td>
+      </tr>
+      <tr>
+        <td height="30" align="center" class="p12huiwei" style="padding-bottom:10px;">人防公众号</td>
+      </tr>
+    </tbody></table></td>
+  </tr>
+  <tr>
+    <td><table width="91" border="0" cellspacing="0" cellpadding="0">
+      <tbody><tr>
+        <td><img src="statics/images/weibo_img.jpg" width="92" height="84"></td>
+      </tr>
+      <tr>
+        <td height="30" align="center"><a href="#" class="p12huiwei">人防微博</a></td>
+      </tr>
+    </tbody></table></td>
+  </tr>
+</tbody></table>
+</td>
+  </tr>
+</tbody></table>
+
+</div>
 
 
 

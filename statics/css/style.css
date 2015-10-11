@@ -1032,3 +1032,12 @@ a.lft_mn:hover, a.lftmn_cur {
 	width:1014px;
 	margin:0px auto;
 }
+.right_gzh {
+    top: 209px;
+    right: 5px;
+    position: fixed;
+    width: 110px;
+    height: 292px;
+    background: #f3f3f3;
+    border: 1px solid #d4d4d4;
+}
