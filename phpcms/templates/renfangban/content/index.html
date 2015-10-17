@@ -184,25 +184,25 @@
 																											id="1" height="40" align="left" valign="top">
 																											<div class="news_tab">
 																												<ul>
-																													<li><a href="#"
+																													<li><a href="{$CATEGORYS[1436][url]}"
 																														onmouseover="easytabs('1', '1');"
 																														onfocus="easytabs('1', '1');"
-																														onclick="return false;" title=""
+																														 title=""
 																														id="tablink1">工作动态</a></li>
-																													<li><a href="#"
+																													<li><a href="{$CATEGORYS[1437][url]}"
 																														onmouseover="easytabs('1', '2');"
 																														onfocus="easytabs('1', '2');"
-																														onclick="return false;" title=""
+																														 title=""
 																														id="tablink2">旗县快讯</a></li>
-																													<li><a href="#"
+																													<li><a href="{$CATEGORYS[1438][url]}"
 																														onmouseover="easytabs('1', '3');"
 																														onfocus="easytabs('1', '3');"
-																														onclick="return false;" title=""
+																														 title=""
 																														id="tablink3">图片传真</a></li>
-																													<li><a href="#"
+																													<li><a href="{$CATEGORYS[1439][url]}"
 																														onmouseover="easytabs('1', '4');"
 																														onfocus="easytabs('1', '4');"
-																														onclick="return false;" title=""
+																														 title=""
 																														id="tablink4">信息专递</a></li>
 																												</ul>
 																											</div>
@@ -658,13 +658,15 @@
 				</tr>
 				<tr>
 					<td height="416" align="center" valign="top"
-						style="border-left: 1px solid #c5c5c5; border-right: 1px solid #c5c5c5; background: url(statics/images/xxgkzl_nrbg.jpg) repeat-x bottom; padding-top: 12px;"><table
+						style="border-left: 1px solid #c5c5c5; border-right: 1px solid #c5c5c5; background: url(statics/images/xxgkzl_nrbg.jpg) repeat-x bottom; padding-top: 12px;">
+						<table
 							width="982" border="0" cellspacing="0" cellpadding="0">
 							<tr>
 								<td width="218" valign="top"><table width="218" border="0"
 										cellspacing="0" cellpadding="0">
 										<tr>
 											<td>
+												<form action="http://115.159.37.136/renfangbaosong" method="post" id="xxbs">
 												<table width="218" border="0" cellspacing="0"
 													cellpadding="0">
 													<tr>
@@ -680,7 +682,7 @@
 																			cellpadding="0">
 																			<tr>
 																				<td height="32">用户名：</td>
-																				<td align="left"><input name="" type="text"
+																				<td align="left"><input name="username" type="text"
 																					class="txt_login" /></td>
 																			</tr>
 																		</table></td>
@@ -689,8 +691,8 @@
 																	<td><table width="195" border="0" cellspacing="0"
 																			cellpadding="0">
 																			<tr>
-																				<td height="36">密 码：</td>
-																				<td align="left"><input name="" type="text"
+																				<td height="36">密&nbsp;码：</td>
+																				<td align="left"><input name="password" type="password"
 																					class="txt_login" /></td>
 																			</tr>
 																		</table></td>
@@ -702,7 +704,7 @@
 																			<tr>
 																				<td align="left"><img
 																					src="statics/images/login_bt.png" width="55"
-																					height="24" /></td>
+																					height="24" id="xlogin" /></td>
 																				<td align="right"><img
 																					src="statics/images/reset_bt.png" width="53"
 																					height="24" /></td>
@@ -715,6 +717,7 @@
 														<td><img src="statics/images/bsxt_btm.jpg" /></td>
 													</tr>
 												</table>
+												</form>
 
 											</td>
 										</tr>
@@ -729,14 +732,14 @@
 																<tr>
 																	<td height="29">
 																		<ul class="xxcy_tab">
-																			<li><a href="#tab-41" class="xxcy_cur">信息采用统计</a></li>
-																			<li><a href="#tab-42" class="xxcy_list">人事信息</a></li>
+																			<li><a href="#tab-41" class="xxcy_cur" onmouseover="javascript:switchclass1('xxcy_cur','xxcy_list','xxcy_tab',this);" style="cursor:pointer;" >信息采用统计</a></li>
+																			<li><a href="#tab-42" class="xxcy_list" onclick="javascript:openpage('{$CATEGORYS[1480][url]}')"  onmouseover="javascript:switchclass1('xxcy_cur','xxcy_list','xxcy_tab',this);" style="cursor:pointer;">人事信息</a></li>
 																		</ul> 
 																	</td>
 																</tr>
 																<tr>
 																	<td align="center">
-																		<div id="tab-41">
+																		<div id="tab-41" style="min-height:188px;">
 																			<table width="205" border="0" cellspacing="0"
 																				cellpadding="0">
 																				<tr>
@@ -829,7 +832,7 @@
 																				</tr>
 																			</table>
 																		</div>
-																		<div id="tab-42">
+																		<div id="tab-42" style="min-height:188px;">
 																			<table width="205" border="0" cellspacing="0"
 																				cellpadding="0">
 																				<!-- 
@@ -885,10 +888,10 @@
 															style="background: url(statics/images/jcck_titbg01.jpg) no-repeat; padding-bottom: 10px; padding-left: 40px;">决策参考</td>
 														<td
 															style="background: url(statics/images/jcck_titbg02.jpg); padding-left: 63px;">
-															<ul class="jcck_tab">
-																<li><a href="#tabs-31" class="cur_jcck">文章摘登</a></li>
-																<li><a href="#tabs-32" class="jcck_list">专家观点</a></li>
-																<li><a href="#tabs-33" class="jcck_list">大众视点</a></li>
+															<ul class="jcck_tab" style="width: 240px; height: 20px; border: 1px solid #89d6e6; padding: 2px;">
+																<li><a href="#tabs-31" id="link-31"  class="cur_jcck"   onclick="javascript:openpage('{$CATEGORYS[1477][url]}')"  onmouseover="javascript:switchclass1('cur_jcck','jcck_list','jcck_tab',this);" style="cursor:pointer;" >文章摘登</a></li>
+																<li><a href="#tabs-32"  id="link-32" class="jcck_list"  onclick="javascript:openpage('{$CATEGORYS[1478][url]}')" onmouseover="javascript:switchclass1('cur_jcck','jcck_list','jcck_tab',this);" style="cursor:pointer;" >专家观点</a></li>
+																<li><a href="#tabs-33" id="link-33"  class="jcck_list"  onclick="javascript:openpage('{$CATEGORYS[1479][url]}')"  onmouseover="javascript:switchclass1('cur_jcck','jcck_list','jcck_tab',this);" style="cursor:pointer;">大众视点</a></li>
 															</ul> 
 														</td>
 														<td width="6" align="right"><img
@@ -1102,8 +1105,8 @@
 															style="background: url(statics/images/zcfg_titbg.png) no-repeat"
 															height="35">															
 															<ul class="zcfg_tabout">
-																<li><a href="#tabs-51" class="zcfg_cur">政策法规</a></li>
-																<li><a href="#tabs-52" class="zcfg_tab">交流研讨</a></li>
+																<li><a href="#tabs-51" class="zcfg_cur" onclick="javascript:openpage('{$CATEGORYS[1453][url]}')"  onmouseover="javascript:switchclass1('zcfg_cur','zcfg_tab','zcfg_tabout',this);" style="cursor:pointer;">政策法规</a></li>
+																<li><a href="#tabs-52" class="zcfg_tab" onclick="javascript:openpage('{$CATEGORYS[1455][url]}')"  onmouseover="javascript:switchclass1('zcfg_cur','zcfg_tab','zcfg_tabout',this);" style="cursor:pointer;">交流研讨</a></li>
 															</ul>
 														</td>
 													</tr>
@@ -1226,14 +1229,21 @@
 																					style="background: url(statics/images/zzcx_titbg.jpg) repeat-x">
 																					<ul class="zzcx_tab_out">
 																						<li><a href="#tabs-21" id="zzcx_tab_first"
-																							class="zzcx_cur zzcx_tab">资质查询 </a></li>
-																						<li><a href="#tabs-22" class="zzcx_tab">成果推介
-																						</a></li>
+																							class="zzcx_cur"  onmouseover="javascript:switchclass1('zzcx_cur','zzcx_tab','zzcx_tab_out',this);"   onclick="javascript:openpage('{$CATEGORYS[1482][url]}')" style="cursor:pointer;" >资质查询 </a>
+																						</li>
+																						<li>
+																						<a href="#tabs-22" class="zzcx_tab" onmouseover="javascript:switchclass1('zzcx_cur','zzcx_tab','zzcx_tab_out',this);"   onclick="javascript:openpage('{$CATEGORYS[1483][url]}')" style="cursor:pointer;">成果推介
+																						</a>
+																						</li>
 																					</ul> 
 																				</td>
-																				<td width="9"><img
+																				
+																				<td width="9">
+																				<img
 																					src="statics/images/zzcx_titbg02.jpg" width="9"
-																					height="31" /></td>
+																					height="31" />
+																				</td>
+																				
 																			</tr>
 																		</table></td>
 																</tr>
@@ -1319,12 +1329,12 @@
 													</a>
 												</div>
 												<div class="fkfz_tabout" style="float: left;">
-													<ul style="padding-top: 3px;">
-														<li><a href="#tabs-71" class="fkfz_cur">人民防空</a></li>
-														<li><a href="#tabs-72" class="fkfz_tab">兵器档案 </a></li>
-														<li><a href="#tabs-73" class="fkfz_tab">空袭案例</a></li>
-														<li><a href="#tabs-74" class="fkfz_tab">防灾常识</a></li>
-														<li><a href="#tabs-75" class="fkfz_tab">化学救援</a></li>
+													<ul style="padding-top: 3px;" class="fkfz_tabs">
+														<li><a href="#tabs-71" class="fkfz_cur"  onclick="javascript:openpage('{$CATEGORYS[1471][url]}')"  onmouseover="javascrip:switchclass1('fkfz_cur','fkfz_tab','fkfz_tabs',this);" style="cursor:pointer;">人民防空</a></li>
+														<li><a href="#tabs-72" class="fkfz_tab"  onclick="javascript:openpage('{$CATEGORYS[1472][url]}')"  onmouseover="javascrip:switchclass1('fkfz_cur','fkfz_tab','fkfz_tabs',this);" style="cursor:pointer;">兵器档案 </a></li>
+														<li><a href="#tabs-73" class="fkfz_tab"  onclick="javascript:openpage('{$CATEGORYS[1473][url]}')"  onmouseover="javascrip:switchclass1('fkfz_cur','fkfz_tab','fkfz_tabs',this);" style="cursor:pointer;">空袭案例</a></li>
+														<li><a href="#tabs-74" class="fkfz_tab"  onclick="javascript:openpage('{$CATEGORYS[1474][url]}')"  onmouseover="javascrip:switchclass1('fkfz_cur','fkfz_tab','fkfz_tabs',this);" style="cursor:pointer;">防灾常识</a></li>
+														<li><a href="#tabs-75" class="fkfz_tab"  onclick="javascript:openpage('{$CATEGORYS[1475][url]}')"  onmouseover="javascrip:switchclass1('fkfz_cur','fkfz_tab','fkfz_tabs',this);" style="cursor:pointer;">化学救援</a></li>
 													</ul>
 												</div>
 												<div id="tabs-71">
@@ -1766,29 +1776,44 @@
 													</tr>
 													<tr>
 														<td height="254" align="center" valign="top"
-															style="border-left: 1px solid #c3dafa; border-right: 1px solid #c3dafa; background: url(statics/images/dmyx_bg.jpg) no-repeat bottom; padding-top: 15px;"><table
+															style="border-left: 1px solid #c3dafa; border-right: 1px solid #c3dafa; background: url(statics/images/dmyx_bg.jpg) no-repeat bottom; padding-top: 5px;"><table
 																width="235" border="0" cellspacing="0" cellpadding="0">
 																 
-																  
-																<tr>
-																	<td>
-																	<div style="width:235px;height:143px;">
-																	 {pc:content  action="lists" catid="1486" posid="17"  order="listorder DESC" num="1"}                                                                 
-                                                                  {loop $data $v}
-																	<a href="{$v[url]}"><img src="{$v[thumb]}"
-																		width="235" height="143" /></a>
-																	{/loop}
-																{/pc}
-																	</div>
-																	</td>
-																</tr>
+																 <tr>
+                                                                  <td>
+                                                                  <div style="width:235px;min-height:143px;">
+                                                                  <table width="239" border="0" cellspacing="0" cellpadding="0">
+                                                                      <tbody>
+                                                                       {pc:content  action="lists" catid="1486" posid="17"  order="listorder DESC" num="1"}                                                                 
+                                                                       {loop $data $v}
+                                                                      <tr>
+                                                                      <td height="148" style="background:url(statics/images/bd_video01.jpg) no-repeat; padding-left:5px; padding-top:5px;" align="left" valign="top">
+                                                                      
+                                                                      <a href="{$v[url]}">
+                                                                      <img src="statics/images/dmyx_vd.jpg" width="227" height="144" border="0">
+                                                                      </a>
+                                                                    
+                                                                      </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                      <td height="34" align="center" style="background:url(statics/images/bd_video02.jpg) no-repeat">
+                                                                      <a href="#" class="p12heihui"> 
+                                                                                {str_cut($v[title],52)}</a></td>
+                                                                      </tr>
+                                                                     {/loop}
+																     {/pc}
+                                                                  </tbody></table>
+                                                                  </div>
+                                                                  </td>
+                                                                 </tr>
+																 
 																
 																
 																<tr>
-																	<td valign="top" style="padding-top: 15px;"><table
+																	<td valign="top" style="padding-top:10px;"><table
 																			width="235" border="0" cellspacing="0"
 																			cellpadding="0">
-																			 {pc:content  action="lists" catid="1459"  thumb="1" order="listorder DESC" num="4"}
+																			 {pc:content  action="lists" catid="1459"  thumb="1" order="listorder DESC" num="3"}
                                                                              {loop $data $v} 
 																			<tr>
 																				<td height="30" align="left"><img
@@ -2154,19 +2179,19 @@
 																				<td
 																					style="background: url(statics/images/wyxx_tit02.jpg) no-repeat">
 																					<ul style="width: 557px;">
-																						<li><a href="#tabs-61"><img
+																						<li style="float:left;"><a href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"><img
 																								src="statics/images/wyxx_list01.jpg" width="104"
 																								height="33" /></a></li>
-																						<li><a href="#tabs-62"><img
+																						<li style="float:left;"><a href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=2"><img
 																								src="statics/images/wyxx_list02.jpg" width="104"
 																								height="33" /></a></li>
-																						<li><a href="#tabs-63"><img
+																						<li style="float:left;"><a href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=3"><img
 																								src="statics/images/wyxx_list03.jpg" width="104"
 																								height="33" /></a></li>
-																						<li><a href="#tabs-64"><img
+																						<li style="float:left;"><a href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=4"><img
 																								src="statics/images/wyxx_list04.jpg" width="105"
 																								height="33" /></a></li>
-																						<li><a href="#tabs-65"><img
+																						<li style="float:left;"><a href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=5"><img
 																								src="statics/images/wyxx_list05.jpg" width="105"
 																								height="33" /></a></li>
 																					</ul> 
@@ -2206,9 +2231,7 @@
 																									<table
 																										width="465" border="0" cellspacing="0"
 																										cellpadding="0">
-																									{pc:get sql="select * from
-																																v9_form_network where (mark<>'' and
-																																infotyp=1) order by dataid desc"
+																									{pc:get sql="select a.*, CASE when a.infotyp=1 then '主任信箱'  when a.infotyp=2 then '监督投诉' when a.infotyp=3 then '在线办事' when a.infotyp=4 then '业务咨询'   else '公众留言'  END as aa from v9_form_network a where (mark<>'')  order by answertime desc  "
 																																num="7" page="$page" return="data"}
 																																{loop $data $v}
 																									  <?php
@@ -2222,9 +2245,9 @@
 																													<tr>
 																														<td width="385" height="30" align="left"><img
 																															src="statics/images/xjhf_icon.jpg"
-																															width="4" height="7" /> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"
-																															class="p12zong">[主任信箱]</a> 
-																															<a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1&showdata=$dataid"
+																															width="4" height="7" /> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype={$v[infotyp]}"
+																															class="p12zong">[{$v[aa]}]</a> 
+																															<a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype={$v[infotyp]}&showdata={$dataid}"
 																															class="p12heihui">{str_cut($v[title],48)}</a>
 																															
 																														</td>
@@ -2238,214 +2261,7 @@
 																							</tr>
 																						</table>
 																					</div>
-																					<div id="tabs-62">
-																						<table width="484" border="0" cellspacing="0"
-																							cellpadding="0">
-																							<tr>
-																								<td><table width="484" border="0"
-																										cellspacing="0" cellpadding="0">
-																										<tr>
-																											<td class="p12hongwei"
-																												style="background: url(statics/images/xjhf_tit.jpg) no-repeat; padding-left: 40px;"
-																												align="left">监督投诉</td>
-																											<td width="33">
-																											<a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=2"><img
-																												src="statics/images/xjhf_gd.jpg" width="60"
-																												height="33" /></a></td>
-																										</tr>
-																									</table></td>
-																							</tr>
-																							<tr>
-																								<td align="center" valign="top"
-																									style="padding-top: 15px;"><table
-																										width="465" border="0" cellspacing="0"
-																										cellpadding="0">
-																										{pc:get sql="select * from
-																																v9_form_network where (mark<>'' and
-																																infotyp=2) order by dataid desc"
-																																num="7" page="$page" return="data"}
-																																{loop $data $v}
-																																<?php
-                                                                                                       $dataid = $v['dataid'];
-                                                                                                       ?>
-																										<tr>
-																											<td
-																												style="background: url(statics/images/short_line.jpg) repeat-x bottom;"><table
-																													width="470" border="0" cellspacing="0"
-																													cellpadding="0">
-																													<tr>
-																														<td width="385" height="30" align="left"><img
-																															src="statics/images/xjhf_icon.jpg"
-																															width="4" height="7" /> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=2"
-																															class="p12zong">[监督投诉]</a> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=2&showdata=$dataid"
-																															class="p12heihui">{str_cut($v[title],48)}</a>
-																														</td>
-																														<td width="85" class="p12qianlan">{date('Y-m-d',$v[datetime])}</td>
-																													</tr>
-																												</table></td>
-																										</tr>
-																									 {/loop}
-																									 {/pc}																																																					
-																									</table></td>
-																							</tr>
-																						</table>
-																					</div>
-																					<div id="tabs-63">
-																						<table width="484" border="0" cellspacing="0"
-																							cellpadding="0">
-																							<tr>
-																								<td><table width="484" border="0"
-																										cellspacing="0" cellpadding="0">
-																										<tr>
-																											<td class="p12hongwei"
-																												style="background: url(statics/images/xjhf_tit.jpg) no-repeat; padding-left: 40px;"
-																												align="left">在线办事</td>
-																											<td width="33"><a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=3"><img
-																												src="statics/images/xjhf_gd.jpg" width="60"
-																												height="33" /></a></td>
-																										</tr>
-																									</table></td>
-																							</tr>
-																							<tr>
-																								<td align="center" valign="top"
-																									style="padding-top: 15px;"><table
-																										width="465" border="0" cellspacing="0"
-																										cellpadding="0">
-																										{pc:get sql="select * from
-																																v9_form_network where (mark<>'' and
-																																infotyp=3) order by dataid desc"
-																																num="7" page="$page" return="data"}
-																																{loop $data $v}
-																										<?php
-                                                                                                       $dataid = $v['dataid'];
-                                                                                                       ?>
-																										<tr>
-																											<td
-																												style="background: url(statics/images/short_line.jpg) repeat-x bottom;"><table
-																													width="470" border="0" cellspacing="0"
-																													cellpadding="0">
-																													<tr>
-																														<td width="385" height="30" align="left"><img
-																															src="statics/images/xjhf_icon.jpg"
-																															width="4" height="7" /> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=3"
-																															class="p12zong">[在线办事]</a> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=3&showdata=$dataid"
-																															class="p12heihui">{str_cut($v[title],48)}</a>
-																														</td>
-																														<td width="85" class="p12qianlan">{date('Y-m-d',$v[datetime])}</td>
-																													</tr>
-																												</table></td>
-																										</tr>
-																									 {/loop}
-																									 {/pc}	
-																										
-																									</table></td>
-																							</tr>
-																						</table>
-																					</div>
-																					<div id="tabs-64">
-																						<table width="484" border="0" cellspacing="0"
-																							cellpadding="0">
-																							<tr>
-																								<td><table width="484" border="0"
-																										cellspacing="0" cellpadding="0">
-																										<tr>
-																											<td class="p12hongwei"
-																												style="background: url(statics/images/xjhf_tit.jpg) no-repeat; padding-left: 40px;"
-																												align="left">业务咨询</td>
-																											<td width="33"><a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=4"><img
-																												src="statics/images/xjhf_gd.jpg" width="60"
-																												height="33" /></a></td>
-																										</tr>
-																									</table></td>
-																							</tr>
-																							<tr>
-																								<td align="center" valign="top"
-																									style="padding-top: 15px;"><table
-																										width="465" border="0" cellspacing="0"
-																										cellpadding="0">
-																										{pc:get sql="select * from
-																																v9_form_network where (mark<>'' and
-																																infotyp=4) order by dataid desc"
-																																num="7" page="$page" return="data"}
-																																{loop $data $v}
-																																<?php
-                                                                                                       $dataid = $v['dataid'];
-                                                                                                       ?>
-																										<tr>
-																											<td
-																												style="background: url(statics/images/short_line.jpg) repeat-x bottom;"><table
-																													width="470" border="0" cellspacing="0"
-																													cellpadding="0">
-																													<tr>
-																														<td width="385" height="30" align="left"><img
-																															src="statics/images/xjhf_icon.jpg"
-																															width="4" height="7" /> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=4"
-																															class="p12zong">[业务咨询]</a> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=4&showdata=$dataid"
-																															class="p12heihui">{str_cut($v[title],48)}</a>
-																														</td>
-																														<td width="85" class="p12qianlan">{date('Y-m-d',$v[datetime])}</td>
-																													</tr>
-																												</table></td>
-																										</tr>
-																									 {/loop}
-																									 {/pc}																																																						
-																									</table></td>
-																							</tr>
-																						</table>
-																					</div>
-																					<div id="tabs-65">
-																						<table width="484" border="0" cellspacing="0"
-																							cellpadding="0">
-																							<tr>
-																								<td><table width="484" border="0"
-																										cellspacing="0" cellpadding="0">
-																										<tr>
-																											<td class="p12hongwei"
-																												style="background: url(statics/images/xjhf_tit.jpg) no-repeat; padding-left: 40px;"
-																												align="left">公众留言</td>
-																											<td width="33"><a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=5"><img
-																												src="statics/images/xjhf_gd.jpg" width="60"
-																												height="33" />
-																												</a></td>
-																										</tr>
-																									</table></td>
-																							</tr>
-																							<tr>
-																								<td align="center" valign="top"
-																									style="padding-top: 15px;"><table
-																										width="465" border="0" cellspacing="0"
-																										cellpadding="0">
-																											{pc:get sql="select * from
-																																v9_form_network where (mark<>'' and
-																																infotyp=5) order by dataid desc"
-																																num="7" page="$page" return="data"}
-																																{loop $data $v}
-																															<?php
-                                                                                                       $dataid = $v['dataid'];
-                                                                                                       ?>
-																										<tr>
-																											<td
-																												style="background: url(statics/images/short_line.jpg) repeat-x bottom;"><table
-																													width="470" border="0" cellspacing="0"
-																													cellpadding="0">
-																													<tr>
-																														<td width="385" height="30" align="left"><img
-																															src="statics/images/xjhf_icon.jpg"
-																															width="4" height="7" /> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=5"
-																															class="p12zong">[公众留言]</a> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=5&showdata=$dataid"
-																															class="p12heihui">{str_cut($v[title],48)}</a>
-																														</td>
-																														<td width="85" class="p12qianlan">{date('Y-m-d',$v[datetime])}</td>
-																													</tr>
-																												</table></td>
-																										</tr>
-																									 {/loop}
-																									 {/pc}	
-																										
-																									</table></td>
-																							</tr>
-																						</table>
-																					</div>
+										
 																				</td>
 																				<td align="right" valign="top"><table
 																						width="250" border="0" cellspacing="0"
@@ -2673,5 +2489,19 @@ function Move(tis, oid) {
 			interval: 3000  //** 停顿时间  
 		}) 
 	})  
+	$(function(){
+    $("#xlogin").click(function(){
+      $("#xxbs").submit();      
+      $("#username").val('');
+      $("#password").val('');
+    });
+  });
+	
 </script>
+<script language="javascript" type="text/javascript">
+	new Marquee({
+	        obj : 'MyMarqueeX2',
+	        movePause : true
+	});
+	</script>
 

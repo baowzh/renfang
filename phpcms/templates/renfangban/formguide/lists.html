@@ -1,0 +1,333 @@
+{template "content","header"}
+<?php 
+$dataid = $_GET['showdata'];
+if ($dataid > 0){
+  include(template("formguide" , "show_data"));                                        
+  exit();
+}
+?>
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	align="center">
+	<tbody>
+		<tr>
+			<td height="500" align="center" valign="top"
+				style="background: url(statics/images/nrbg.png) repeat-y center top; padding-top: 7px;"><table
+					width="998" border="0" cellspacing="0" cellpadding="0">
+					<tbody>
+						<tr>
+							<td width="217" valign="top">
+								<table width="217" border="0" cellspacing="0" cellpadding="0">
+									<tbody>
+										<tr>
+											<td><table width="217" border="0" cellspacing="0"
+													cellpadding="0">
+													<tbody>
+														<tr>
+															<td><img src="statics/images/wsbs_zytit.jpg"
+																style="width: 217px; height: 55px;"></td>
+														</tr>
+														<tr>
+															<td height="100"
+																style="border-left: 1px solid #d6d6d6; border-right: 1px solid #d6d6d6; background: url(statics/images/zy_lft_mid.jpg) repeat-x bottom; padding-bottom: 15px;">
+																<a
+																href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"
+																class="lftmn_cur">主任信箱</a> <a
+																href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=2"
+																class="lftmn_cur">监督投诉</a> <a
+																href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=3"
+																class="lftmn_cur">在线办事</a> <a
+																href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=4"
+																class="lftmn_cur">业务咨询</a> <a
+																href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=5"
+																class="lftmn_cur">公众留言</a> <a
+																href="{$CATEGORYS[1484][url]}" class="lftmn_cur">网上调查</a>
+																<a href="{$CATEGORYS[1481][url]}" class="lftmn_cur">在线访谈</a>
+
+
+															</td>
+														</tr>
+														<tr>
+															<td><img src="statics/images/zy_lft_btm.jpg"
+																width="217" height="13"></td>
+														</tr>
+													</tbody>
+												</table></td>
+										</tr>
+										<tr>
+											<td valign="top" style="padding-top: 10px;"><table
+													width="217" border="0" cellspacing="0" cellpadding="0">
+													<tbody>
+														<tr>
+															<td><a href="#"><img
+																	src="statics/images/zyrfcf_tit.jpg" width="217"
+																	height="31" border="0"></a></td>
+														</tr>
+														<tr>
+															<td height="171" align="center"
+																style="border-left: 1px solid #9fcede; border-right: 1px solid #9fcede; background: url(statics/images/syzxgg_bg.jpg) no-repeat bottom;"><table
+																	width="200" border="0" cellspacing="0" cellpadding="0">
+																	<tbody>
+																		{pc:content action="lists" catid="1457" order="id
+																		DESC" num="5"} {loop $data $v}
+																		<tr>
+																			<td height="30" align="left"><img
+																				src="statics/images/zxgg_icon.png"> <a
+																				href="{$v[url]}" class="p12heihui">{str_cut($v[title],42)}</a></td>
+																		</tr>
+																		{/loop} {/pc}
+																	</tbody>
+																</table></td>
+														</tr>
+														<tr>
+															<td><img src="statics/images/syzxgg_btm.jpg"
+																width="217" height="14"></td>
+														</tr>
+													</tbody>
+												</table></td>
+										</tr>
+										<tr>
+											<td valign="top" style="padding-top: 10px;"><table
+													width="217" border="0" cellspacing="0" cellpadding="0">
+													<tbody>
+														<tr>
+															<td><table width="217" border="0" cellspacing="0"
+																	cellpadding="0">
+																	<tbody>
+																		<tr>
+																			<td width="115" height="25" align="center"
+																				style="background: url(statics/images/jrht_tit01.jpg) no-repeat; padding-top: 5px;"
+																				class="p14hei">今日<span class="p14hong">话题</span></td>
+																			<td align="right"
+																				style="background: url(statics/images/jrht_tit02.jpg) no-repeat; padding-right: 10px;"><a
+																				href="#" class="p12bai">更多&gt;&gt;</a></td>
+																		</tr>
+																	</tbody>
+																</table></td>
+														</tr>
+														<tr>
+															<td height="222" align="center" valign="top"
+																style="border: 1px solid #9fcede; border-top: none; padding-top: 9px; padding-bottom: 10px;"><table
+																	width="198" border="0" cellspacing="0" cellpadding="0">
+																	<tbody>
+																		{pc:content action="lists" catid="1451" num="7"
+																		order="listorder DESC" } {loop $data $v}
+																		<tr>
+																			<td height="32"
+																				style="background: url(statics/images/short_line.jpg) repeat-x bottom"
+																				align="left"><img
+																				src="statics/images/red_icon.jpg" width="3"
+																				height="3"> <a href="{$v[url]}"
+																				class="p12heihui">{str_cut($v[title],42)}</a></td>
+																		</tr>
+																		{/loop} {/pc}
+																	</tbody>
+																</table></td>
+														</tr>
+													</tbody>
+												</table></td>
+										</tr>
+										<tr>
+											<td valign="top" style="padding-top: 10px;"><a
+												href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"><img
+													src="statics/images/wsbs_icon.jpg" width="218" height="103">
+
+											</a></td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+							<td valign="top"><table width="780" border="0"
+									cellspacing="0" cellpadding="0">
+									<tbody>
+										<tr>
+											<td height="38" align="left" class="p12huiwei"
+												style="background: url(statics/images/zywz_bg.jpg) no-repeat top; padding-left: 45px; padding-bottom: 12px;">您当前的位置：<a
+												href="index.html" class="p12huiwei">内蒙古人防</a> &gt;<span
+												class="p12lan"> <?php 
+                                    $infotype=$_GET['infotype'];
+                                   switch($infotype)
+                                  {
+                                     case 1:
+                                       echo "主任信箱";
+                                       break;
+                                    case 2:
+                                       echo "监督投诉";
+                                       break;
+                                    case 3:
+                                       echo "在线办事";
+                                       break;       
+                                    case 4:
+                                       echo "业务咨询";
+                                       break;
+                                    case 5:
+                                       echo "公众留言";
+                                       break;
+	                                
+                                  }
+                          
+                              ?>
+											</span></td>
+										</tr>
+										<tr>
+											<td height="830" align="right" valign="top"
+												style="background: url(statics/images/zy_midline.jpg) no-repeat left;"><table
+													width="753" border="0" cellspacing="0" cellpadding="0">
+													<tbody>
+														<tr>
+															<td height="32"
+																style="background: url(statics/images/srh_titbg.jpg) repeat-x">
+																{template "content","plugin_search"}</td>
+														</tr>
+														<tr>
+															<td>
+																
+																	<table width="753" border="0" cellspacing="0"
+																		cellpadding="0">
+																		<tbody>
+																			<tr>
+																				<td valign="top" style="padding-top: 5px;"><table
+																						width="753" border="0" cellspacing="0"
+																						cellpadding="0">
+																						<tbody>
+																							<tr>
+																								<td><table width="753" border="0"
+																										cellspacing="0" cellpadding="0">
+																										<tbody>
+																											<tr>
+																												<td width="26"><img
+																													src="statics/images/zytit_bg01.jpg"
+																													width="26" height="35"></td>
+																												<td align="left" class="p14hei"
+																													style="background: url(statics/images/zytit_bg02.jpg) repeat-x; padding-top: 9px;">主任信箱</td>
+																											</tr>
+																										</tbody>
+																									</table></td>
+																							</tr>
+																							<tr>
+																								<td><img
+																									src="statics/images/zytit_bg03.jpg" width="753"
+																									height="3"></td>
+																							</tr>
+																						</tbody>
+																					</table></td>
+																			</tr>
+																			<tr>
+																				<td align="center" valign="top"
+																					style="padding-top: 15px;"><table width="749"
+																						border="0" cellspacing="0" cellpadding="0">
+																						<tbody>
+																							<tr>
+																								<td valign="top" style="padding-top: 30px;"><table
+																										width="749" border="0" cellspacing="0"
+																										cellpadding="0">
+																										<tbody>
+																											<tr>
+																												<td width="122" align="left"><img
+																													src="statics/images/msgxz_lft.jpg"></td>
+																												<td align="left" class="p12huiwei"
+																													style="background: url(statics/images/msgxz_rt.jpg) no-repeat right; padding-left: 20px; padding-right: 20px; line-height: 22px;">1、写信时必须遵守中华人民共和国宪法、法律、法规、规章，遵守社会公德，如实反映情况，不得捏造、歪曲事实，诽谤、诬告、陷害他人，不得发布、传播虚假信息和有害言论。<br>
+																													2、请注意一信一事，说明事情原因、过程，提出您的要求，请尽量做到简洁、清楚、明白。同样内容的信件提交一次即可，不要重复提交；如果有多个事项需要反映，请分别撰写提交。如果您要反映的问题涉及法律诉讼，请直接与法院、检察院联系。
+
+																												</td>
+																											</tr>
+																										</tbody>
+																									</table></td>
+																							</tr>
+																							<tr>
+																								<td height="67" align="center"><a
+																									href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype={$infotype}" class="msg_wyly">我要写信</a><a
+																									href="index.php" class="msg_wyly02">返回首页</a></td>
+																							</tr>
+																							<tr>
+																								<td><table width="749" border="0"
+																										cellspacing="0" cellpadding="0">
+																										<tbody>
+																											<tr>
+																												<td><table width="749" border="0"
+																														cellspacing="0" cellpadding="0"
+																														class="table2">
+																														<tbody>
+																															<tr>
+																																<td width="502">信息标题</td>
+																																<td width="151">来信时间</td>
+																																<td width="96">回复状态</td>
+																															</tr>
+																														</tbody>
+																													</table></td>
+																											</tr>
+																											<tr>
+																												<td>
+																												<div style="min-height:430px;">
+																												<table width="749" border="0"
+																														cellspacing="0" cellpadding="0">
+																														<tbody>
+																															{pc:get sql="select * from
+																																v9_form_network where (mark<>'' ) order by dataid desc"
+																																num="5" page="$page" return="data"}
+																																{loop $data $v}
+																															<tr>
+																																<td
+																																	style="background: url(statics/images/lyhf_line.jpg) repeat-x bottom"
+																																	height="28"><table width="749"
+																																		border="0" cellspacing="0"
+																																		cellpadding="0">
+																																		<tbody>
+																																			<tr>
+																																				<td width="498" height="30"
+																																					align="left" class="p12heihuiwei"
+																																					style="padding-left: 5px;"><a
+																																					href="wsbs01.html"
+																																					class="p12heihuiwei">{$v[title]}</a></td>
+																																				<td width="151" align="center"
+																																					class="p12heiwei">{date('Y-m-d h:m:s',$v[datetime])}</td>
+																																				<td width="95" align="center"
+																																					class="p12hongwei">已回复</td>
+																																			</tr>
+																																		</tbody>
+																																	</table></td>
+																															</tr>
+																															 {/loop} {/pc}										
+																														</tbody>
+																													</table>
+																													</div>
+																													</td>
+																											</tr>
+																											<tr>
+																												<td align="center"
+																													>
+																													<div id="pages" style="width: 700px;">{$pages}</div>
+																													</td>
+																											</tr>
+																										</tbody>
+																									</table></td>
+																							</tr>
+																							<tr>
+																								<td>&nbsp;</td>
+																							</tr>
+																						</tbody>
+																					</table></td>
+																			</tr>
+																		</tbody>
+																	</table>													
+															</td>
+														</tr>
+
+													</tbody>
+												</table></td>
+										</tr>
+									</tbody>
+								</table></td>
+						</tr>
+					</tbody>
+				</table></td>
+		</tr>
+	</tbody>
+</table>
+{template "content","footer"}
+<script type="text/javascript">
+var infotyp='<?php $infotype=$_GET['infotype']; echo $infotype ?>';
+$('#infotype').val(infotyp);
+var submit=function(){
+	$('#myform').submit();
+}
+</script>

@@ -204,7 +204,7 @@
 									class="p12lan"> {catpos($catid)}</span></td>
 							</tr>
 							<tr>
-								<td height="830" align="right" valign="top"
+								<td height="730" align="right" valign="top"
 									style="background: url(statics/images/zy_midline.jpg) no-repeat left;"><table
 										width="753" border="0" cellspacing="0" cellpadding="0">
 
@@ -251,13 +251,13 @@
 																	<tr>
 																		<td valign="top"
 																			style="padding-top: 10px; padding-left: 8px;">
-																			{pc:content action="lists" catid="1435" num="9"
+																			{pc:content action="lists" catid="$catid" num="9"
 																			order="is_top desc , id desc " page="$page"} {loop
 																			$data $v}
 
 																			<div
 																				style="width: 217px; height: 167px; float: left; margin: 15px 10px;">
-																				<a href="{$v[url]}"><img src="{$v[thumb]}" width="198" height="148"/></a>
+																				<a href="{$v[url]}" style="width:198px;height:148px;display:block;border: solid 1px #ccc; padding: 5px; background: #fff;"><img src="{$v[thumb]}" width="198" height="148"/></a>
 																				<div
 																					style="text-align: center; font-size: 12px; margin-top: 15px; width: 198px;">
 																					<a href="{$v[url]}" style="color: #0f0f0f;">{str_cut($v[title],40)} </a>

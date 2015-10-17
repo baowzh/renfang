@@ -204,7 +204,7 @@
 									class="p12lan"> {catpos($catid)}</span></td>
 							</tr>
 							<tr>
-								<td height="830" align="right" valign="top"
+								<td height="730" align="right" valign="top"
 									style="background: url(statics/images/zy_midline.jpg) no-repeat left;"><table
 										width="753" border="0" cellspacing="0" cellpadding="0">
 
@@ -249,26 +249,18 @@
 																	<tr>
 																		<td valign="top"
 																			style="padding-top: 10px; padding-left: 8px;">
-																			{pc:content action="lists" catid="1435" num="9"
+																			{pc:content action="lists" catid="$catid" num="9"
 																			order="is_top desc , id desc " page="$page"} {loop
 																			$data $v}
 
 																			<div
 																				style="width: 217px; height: 167px; float: left; margin: 15px 10px; position: relative;">
-																				<img src="{$v[thumb]}" width="198" height="148">
+																				<a href="{$v[url]}" style="width:189px;height:142px;display:block;padding:5px; background: url(statics/images/video_bg.jpg) no-repeat;">
+																				<img src="{$v[thumb]}" width="177" height="118">
+																				</a>
 																				<div
-																					style="text-align: center; font-size: 12px; margin-top: 15px; width: 198px;">
-																					{str_cut($v[title],40)}</div>
-																				<div
-																					style="position: absolute; top: 60px; left: 75px; opacity: 0.8;">
-																					
-																					<a
-																						href="getuserdocdetail.do?docid=EF9C02822D1511E58CD5F7F08AB87DC1">
-																						<img src="statics/images/play_video.png" ></img>
-																					</a>
-
-																				</div>
-
+																					style="text-align: center; font-size: 12px; margin-top: 10px; width: 198px;">
+																					{str_cut($v[title],40)}</div>																			
 																			</div> {/loop} {/pc}
 																		</td>
 																	</tr>

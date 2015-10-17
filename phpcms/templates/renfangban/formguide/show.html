@@ -40,10 +40,8 @@ if ($dataid > 0){
 																class="lftmn_cur">业务咨询</a> <a
 																href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=5"
 																class="lftmn_cur">公众留言</a> <a
-																href="{$CATEGORYS[1484][url]}"
-																class="lftmn_cur">网上调查</a> <a
-																href="{$CATEGORYS[1481][url]}"
-																class="lftmn_cur">在线访谈</a>
+																href="{$CATEGORYS[1484][url]}" class="lftmn_cur">网上调查</a>
+																<a href="{$CATEGORYS[1481][url]}" class="lftmn_cur">在线访谈</a>
 
 
 															</td>
@@ -69,16 +67,14 @@ if ($dataid > 0){
 																style="border-left: 1px solid #9fcede; border-right: 1px solid #9fcede; background: url(statics/images/syzxgg_bg.jpg) no-repeat bottom;"><table
 																	width="200" border="0" cellspacing="0" cellpadding="0">
 																	<tbody>
-																		{pc:content  action="lists"  catid="1457"   order="id DESC" num="5"}
-                                                                        {loop $data $v} 
+																		{pc:content action="lists" catid="1457" order="id
+																		DESC" num="5"} {loop $data $v}
 																		<tr>
 																			<td height="30" align="left"><img
 																				src="statics/images/zxgg_icon.png"> <a
-																				href="{$v[url]}"
-																				class="p12heihui">{str_cut($v[title],42)}</a></td>
+																				href="{$v[url]}" class="p12heihui">{str_cut($v[title],42)}</a></td>
 																		</tr>
-																		 {/loop}
-                                                                         {/pc} 																																				
+																		{/loop} {/pc}
 																	</tbody>
 																</table></td>
 														</tr>
@@ -113,20 +109,17 @@ if ($dataid > 0){
 																style="border: 1px solid #9fcede; border-top: none; padding-top: 9px; padding-bottom: 10px;"><table
 																	width="198" border="0" cellspacing="0" cellpadding="0">
 																	<tbody>
-																	 {pc:content action="lists" catid="1451"
-																				num="7"  order="listorder DESC" }
-																	{loop $data $v}
+																		{pc:content action="lists" catid="1451" num="7"
+																		order="listorder DESC" } {loop $data $v}
 																		<tr>
 																			<td height="32"
 																				style="background: url(statics/images/short_line.jpg) repeat-x bottom"
 																				align="left"><img
 																				src="statics/images/red_icon.jpg" width="3"
-																				height="3"> <a
-																				href="{$v[url]}"
+																				height="3"> <a href="{$v[url]}"
 																				class="p12heihui">{str_cut($v[title],42)}</a></td>
 																		</tr>
-																		{/loop}
-																		{/pc}																	
+																		{/loop} {/pc}
 																	</tbody>
 																</table></td>
 														</tr>
@@ -134,11 +127,11 @@ if ($dataid > 0){
 												</table></td>
 										</tr>
 										<tr>
-											<td valign="top" style="padding-top: 10px;">
-											<a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"><img
-												src="statics/images/wsbs_icon.jpg" width="218" height="103">
-												
-												</a></td>
+											<td valign="top" style="padding-top: 10px;"><a
+												href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"><img
+													src="statics/images/wsbs_icon.jpg" width="218" height="103">
+
+											</a></td>
 										</tr>
 									</tbody>
 								</table>
@@ -182,61 +175,248 @@ if ($dataid > 0){
 													<tbody>
 														<tr>
 															<td height="32"
-																style="background: url(images/srh_titbg.jpg) repeat-x"><table
-																	width="753" border="0" cellspacing="0" cellpadding="0">
-																	<tbody>
-																		<tr>
-																			<td width="280" height="32" align="left"><table
-																					width="265" border="0" cellspacing="0"
-																					cellpadding="0">
-																					<tbody>
-																						<tr>
-																							<td width="92" height="32" align="center"><img
-																								src="statics/images/srh_tit.jpg" width="68"
-																								height="28"></td>
-																							<td width="173"><table width="100%"
-																									border="0" cellspacing="0" cellpadding="0">
-																									<tbody>
-																										<tr>
-																											<td><select name="select"
-																												style="height: 21px; width: 105px; text-align: center; color: #575656; margin-right: 5px;"
-																												class="txt-search">
-																													<option value="" selected="">工作动态</option>
-																													<!-- 栏目列表 -->
-																													<option value="13121214482510000692">政务公开</option>
-																													<option value="13121217533510000790">科技信息</option>
-																													<option value="13121217515310000788">政策法规</option>
-																													<option value="13121215515510000721">民俗风情</option>
-																													<option value="13121215515510000721">民俗风情</option>
-
-																											</select></td>
-																											<td><select name="select"
-																												style="height: 21px; width: 80px; text-align: center; color: #575656"
-																												class="txt-search">
-																													<option value="" selected="">文章标题</option>
-																													<!-- 栏目列表 -->
-																													<option value="13121214482510000692">搜索内容</option>
-																											</select></td>
-																										</tr>
-																									</tbody>
-																								</table></td>
-																						</tr>
-																					</tbody>
-																				</table></td>
-																			<td width="313" align="left">关键字： <input
-																				type="text" name="" value="填写您想搜索的关键词"
-																				onclick="if(this.value='填写您想搜索的关键词'){this.value=''}"
-																				style="width: 250px; height: 21px; line-height: 21px;"
-																				class="txt-search"></td>
-																			<td width="107" align="left"><img
-																				src="statics/images/search-bt.jpg" width="53"
-																				height="21"></td>
-																		</tr>
-																	</tbody>
-																</table></td>
+																style="background: url(images/srh_titbg.jpg) repeat-x">
+																{template "content","plugin_search"}</td>
 														</tr>
 														<tr>
-															<td><table width="753" border="0" cellspacing="0"
+															<td>
+																<!--  -->
+																<form method="post"
+																	action="?m=formguide&c=index&a=show&formid=15&siteid=1"
+																	name="myform" id="myform">
+																	<table width="753" border="0" cellspacing="0"
+																		cellpadding="0">
+																		<tbody>
+																			<tr>
+																				<td valign="top" style="padding-top: 5px;"><table
+																						width="753" border="0" cellspacing="0"
+																						cellpadding="0">
+																						<tbody>
+																							<tr>
+																								<td><table width="753" border="0"
+																										cellspacing="0" cellpadding="0">
+																										<tbody>
+																											<tr>
+																												<td width="26"><img
+																													src="statics/images/zytit_bg01.jpg"
+																													width="26" height="35"></td>
+																												<td align="left" class="p14hei"
+																													style="background: url(statics/images/zytit_bg02.jpg) repeat-x; padding-top: 9px;">主任信箱</td>
+																											</tr>
+																										</tbody>
+																									</table></td>
+																							</tr>
+																							<tr>
+																								<td><img
+																									src="statics/images/zytit_bg03.jpg" width="753"
+																									height="3"></td>
+																							</tr>
+																						</tbody>
+																					</table></td>
+																			</tr>
+																			<tr>
+																				<td align="center" valign="top"
+																					style="padding-top: 15px;"><table width="749"
+																						border="0" cellspacing="0" cellpadding="0">
+																						<tbody>
+																							<tr>
+																								<td valign="top" style="padding-top: 30px;"><table
+																										width="749" border="0" cellspacing="0"
+																										cellpadding="0">
+																										<tbody>
+																											<tr>
+																												<td width="122" align="left"><img
+																													src="statics/images/msgxz_lft.jpg"></td>
+																												<td align="left" class="p12huiwei"
+																													style="background: url(statics/images/msgxz_rt.jpg) no-repeat right; padding-left: 20px; padding-right: 20px; line-height: 22px;">1、写信时必须遵守中华人民共和国宪法、法律、法规、规章，遵守社会公德，如实反映情况，不得捏造、歪曲事实，诽谤、诬告、陷害他人，不得发布、传播虚假信息和有害言论。<br>
+																													2、请注意一信一事，说明事情原因、过程，提出您的要求，请尽量做到简洁、清楚、明白。同样内容的信件提交一次即可，不要重复提交；如果有多个事项需要反映，请分别撰写提交。如果您要反映的问题涉及法律诉讼，请直接与法院、检察院联系。
+
+																												</td>
+																											</tr>
+																										</tbody>
+																									</table></td>
+																							</tr>
+																							<tr>
+																								<td height="67" align="center" valign="top"
+																									style="padding-top: 15px;"><table
+																										width="749" border="0" cellspacing="0"
+																										cellpadding="0">
+																										<tbody>
+																											<tr>
+																												<td><table width="750" border="0"
+																														cellspacing="0" cellpadding="0">
+																														<tbody>
+																															<tr>
+																																<td align="left"
+																																	style="background: url(statics/images/msg_titbg.jpg) repeat-x"><img
+																																	src="statics/images/msg_tit.jpg"
+																																	width="160" height="43"></td>
+																																<td width="26"><img
+																																	src="statics/images/msg_titrt.jpg"
+																																	width="26" height="43"></td>
+																															</tr>
+																														</tbody>
+																													</table></td>
+																											</tr>
+																											<tr>
+																												<td height="450" align="center" valign="top"
+																													style="background: url(statics/images/msg_tbbg.jpg) repeat-y; padding-top: 30px;"><table
+																														width="710" border="0" cellspacing="0"
+																														cellpadding="0">
+																														<tbody>
+																															<tr>
+																																<td><table width="710" border="0"
+																																		cellspacing="0" cellpadding="0"
+																																		class="table3">
+																																		<tbody>
+																																			<tr>
+																																				<td width="95" align="right"
+																																					style="background: #f6f6f6">您的姓名：</td>
+																																				<td width="253" align="left"><input
+																																					type="text" name="info[name]"
+																																					id="name" class="txt-search"
+																																					style="width: 185px;"> <span
+																																					class="p12hongwei">*</span></td>
+																																				<td width="95" align="right"
+																																					style="background: #f6f6f6">联系电话：</td>
+																																				<td width="267" align="left"><input
+																																					name="info[phone]" type="text"
+																																					id="phone" class="txt-search"
+																																					style="width: 185px;"> <span
+																																					class="p12hongwei">*</span></td>
+																																			</tr>
+																																			<tr>
+																																				<td width="95" align="right"
+																																					style="background: #f6f6f6">电子信箱：</td>
+																																				<td width="253" align="left"><input
+																																					name="info[email]" id="email"
+																																					type="text" class="txt-search"
+																																					style="width: 185px;"></td>
+																																				<td width="95" align="right"
+																																					style="background: #f6f6f6">
+																																					邮政编码：</td>
+																																				<td width="267" align="left"><input
+																																					id="poster" type="text"
+																																					name="info[poster]"
+																																					class="txt-search"
+																																					style="width: 185px;"></td>
+																																			</tr>
+																																			<tr>
+																																				<td align="right"
+																																					style="background: #f6f6f6">地
+																																					址：</td>
+																																				<td colspan="3" align="left"><input
+																																					id="address" type="text"
+																																					name="info[address]"
+																																					class="txt-search"
+																																					style="width: 430px;"></td>
+																																			</tr>
+																																			<tr>
+																																				<td align="right"
+																																					style="background: #f6f6f6">类
+																																					别：</td>
+																																				<td colspan="3" align="left"><select
+																																					id="infotype" name="info[infotyp]"
+																																					class="txt-search">
+																																						<option value="">请选择类别</option>
+																																						<option value="1">主任信箱</option>
+																																						<option selected="" value="2">监督投诉</option>
+																																						<option value="3">在线办事</option>
+																																						<option value="4">业务咨询</option>
+																																						<option value="5">公众留言</option>
+																																				</select></td>
+																																			</tr>
+
+
+																																			<tr>
+																																				<td align="right"
+																																					style="background: #f6f6f6">标
+																																					题：</td>
+																																				<td colspan="3" align="left"><input
+																																					id="title" type="text"
+																																					name="info[title]"
+																																					class="txt-search"
+																																					style="width: 430px;"> <span
+																																					class="p12hongwei">*</span></td>
+																																			</tr>
+
+																																			<tr>
+																																				<td align="right"
+																																					style="background: #f6f6f6">内
+																																					容：</td>
+																																				<td colspan="3" align="left"
+																																					style="padding-top: 10px; padding-bottom: 10px;"><textarea
+																																						style="WIDTH: 506px; HEIGHT: 125px"
+																																						id="content" name="info[content]"
+																																						class="txt-search"></textarea></td>
+																																			</tr>
+
+																																			<tr>
+																																				<td align="right"
+																																					style="background: #f6f6f6">
+																																					验证码：</td>
+																																				<td colspan="3" align="left"><input
+																																					style="WIDTH: 150px" name="code"
+																																					type="text" class="txt-search"
+																																					id="code" style="float:left;" />
+																																					<div
+																																						style="width: 84px; margin-top: 1px; margin-left: 5px; float: left;">{form::checkcode('code_img',
+																																						'4', '14', 84, 24)}</div></td>
+																																				</td>
+																																			</tr>
+
+
+																																		</tbody>
+																																	</table></td>
+																															</tr>
+																															<tr>
+																																<td height="50" align="left"
+																																	valign="bottom"
+																																	style="padding-left: 100px;"><table
+																																		width="110" border="0" cellspacing="0"
+																																		cellpadding="0">
+																																		<tbody>
+																																			<tr>
+																																				<td>
+																																				 <input type="submit" name="dosubmit" id="dosubmit" value=" 提交 "/>
+																																				<!--  
+																																				<img
+																																					src="statics/images/sumit.png"
+																																					>
+																																					-->
+																																					</td>
+																																				<td>
+																																				<input type="reset" name="reset" id="reset" value="重置"/>
+																																				<!--  
+																																				<img
+																																					src="statics/images/reset.png">
+																																					-->
+																																					</td>
+																																			</tr>
+																																		</tbody>
+																																	</table></td>
+																															</tr>
+																														</tbody>
+																													</table></td>
+																											</tr>
+																											<tr>
+																												<td><img
+																													src="statics/images/msg_btm.jpg"
+																													width="749" height="18"></td>
+																											</tr>
+																										</tbody>
+																									</table></td>
+																							</tr>
+																							<tr>
+																								<td>&nbsp;</td>
+																							</tr>
+																						</tbody>
+																					</table></td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</form> <!--  
+															<table width="753" border="0" cellspacing="0"
 																	cellpadding="0">
 																	<tbody>
 																		<tr>
@@ -377,18 +557,14 @@ if ($dataid > 0){
 																										</tr>
 																									</tbody>
 																								</table>
-<!-- 																								</form> -->
+
 																								<div style="MARGIN-BOTTOM: 20px" class="page">
 																									<input type="hidden" name="back_url"/> 
 																									<input
 																										value="1" type="hidden" name="site_id"/>
 																										  <input type="submit" name="dosubmit" id="dosubmit" value=" 提交 "/>&nbsp;<input type="reset" value=" 取消 "/>
 																										
-																									<!--  	
-																									<a href="javascript:submit();"><img src="statics/images/sumit.png"/></a>
-																									<a> <img
-																										src="statics/images/reset.png"/></a>
-																										-->
+																									
 																										
 																								</div></td>
 																						</tr>
@@ -483,7 +659,11 @@ if ($dataid > 0){
 																			</td>
 																		</tr>
 																	</tbody>
-																</table></td>
+																</table>
+																-->
+
+
+															</td>
 														</tr>
 
 													</tbody>

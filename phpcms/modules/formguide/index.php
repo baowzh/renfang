@@ -146,22 +146,6 @@ class index {
 			}else{
 				showmessage ( L ( 'form_no_exist' ), HTTP_REFERER );
 			}
-			$infotype = $_GET ['infotype'] ? intval ( $_GET ['infotype'] ) : 1;
-			if ($infotype == 2) {
-				$SEO ['title'] = '主任信箱-';
-			}
-			if ($infotype == 3) {
-				$SEO ['title'] = '监督投诉-';
-			}
-			if ($infotype == 4) {
-				$SEO ['title'] = '在线办事-';
-			}
-			if ($infotype == 6) {
-				$SEO ['title'] = '业务咨询-';
-			}
-			if ($infotype == 7) {
-				$SEO ['title'] = '公众留言-';
-			}
 			if (isset ( $_GET ['action'] ) && $_GET ['action'] == 'js') {
 				if (! function_exists ( 'ob_gzhandler' ))
 					ob_clean ();
@@ -175,6 +159,32 @@ class index {
 				exit ( format_js ( $data ) );
 			}
 		}
+	}
+	/**
+	 * 表单展示
+	 */
+	public function lists() {
+		if (! isset ( $_GET ['formid'] ) || empty ( $_GET ['formid'] )) {
+			$_GET ['action'] ? exit () : showmessage ( L ( 'form_no_exist' ), HTTP_REFERER );
+		}
+		$siteid = $_GET ['siteid'] ? intval ( $_GET ['siteid'] ) : 1;
+		$formid = intval ( $_GET ['formid'] );
+		$r = $this->db->get_one ( array (
+				'modelid' => $formid,
+				'siteid' => $siteid,
+				'disabled' => 0
+		), 'tablename, setting' );
+		if (! $r) {
+			$_GET ['action'] ? exit () : showmessage ( L ( 'form_no_exist' ), HTTP_REFERER );
+		}
+		$setting = string2array ( $r ['setting'] );
+		if ($setting ['enabletime']) {
+			if ($setting ['starttime'] > SYS_TIME || ($setting ['endtime'] + 3600 * 24) < SYS_TIME) {
+				$_GET ['action'] ? exit () : showmessage ( L ( 'form_expired' ), APP_PATH . 'index.php?m=formguide&c=index&a=index' );
+			}
+			print_r($_GET ['action']);
+		}
+		include template ( 'formguide', 'lists' );
 	}
 }
 ?>

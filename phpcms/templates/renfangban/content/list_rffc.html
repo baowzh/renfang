@@ -102,6 +102,32 @@
 				<tr>
 					<td width="217" valign="top"><table width="217" border="0"
 							cellspacing="0" cellpadding="0">
+
+							<tr>
+								<td>
+									<table width="217" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td><img src="statics/images/lftmn-{$imgid}.jpg"
+												style="width: 217px; height: 55px;" /></td>
+										</tr>
+										<tr>
+											<td height="100"
+												style="border-left: 1px solid #d6d6d6; border-right: 1px solid #d6d6d6; background: url(statics/images/zy_lft_mid.jpg) repeat-x bottom; padding-bottom: 15px;">
+												{loop $looparr $v} <a href="{$v[url]}" class="lftmn_cur">{$v[catname]}</a>
+												{/loop} <?php if ($didnotloop == false):?> {loop
+												subcat($finalid) $v} <a href="{$v[url]}" class="lftmn_cur">{$v[catname]}</a>
+												{/loop} <?php endif;?>
+											</td>
+										</tr>
+										<tr>
+											<td><img src="statics/images/zy_lft_btm.jpg" width="217"
+												height="13" /></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+
+
 							<tr>
 								<td valign="top" style="padding-top: 10px;"><table
 										width="217" border="0" cellspacing="0" cellpadding="0">
@@ -166,10 +192,10 @@
 									</table></td>
 							</tr>
 							<tr>
-								<td valign="top" style="padding-top: 10px;">
-								<a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"><img
-									src="statics/images/wsbs_icon.jpg" width="218" height="103" />
-									</a></td>
+								<td valign="top" style="padding-top: 10px;"><a
+									href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"><img
+										src="statics/images/wsbs_icon.jpg" width="218" height="103" />
+								</a></td>
 							</tr>
 						</table></td>
 					<td valign="top"><table width="780" border="0" cellspacing="0"
@@ -181,18 +207,13 @@
 									class="p12lan"> {catpos($catid)}</span></td>
 							</tr>
 							<tr>
-								<td height="480" align="right" valign="top"
+								<td height="830" align="right" valign="top"
 									style="background: url(statics/images/zy_midline.jpg) no-repeat left;"><table
 										width="753" border="0" cellspacing="0" cellpadding="0">
-
-
 										<tr>
 											<td height="32"
 												style="background: url(statics/images/srh_titbg.jpg) repeat-x">
-
-                                            {template "content","plugin_search"}
-												
-											</td>
+												{template "content","plugin_search"}</td>
 										</tr>
 
 										<tr>
@@ -222,10 +243,10 @@
 													</tr>
 													<tr>
 														<td align="center" valign="top" style="padding-top: 15px;">
-															<div style="min-height: 435px;">
+															<div style="min-height: 785px;">
 																<table width="740" border="0" cellspacing="0"
 																	cellpadding="0">
-																	{pc:content action="lists" catid="$catid" num="12"
+																	{pc:content action="lists" catid="$catid" num="23"
 																	order="is_top desc , id desc " page="$page"} {loop
 																	$data $v}
 																	<tr>
