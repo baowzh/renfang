@@ -57,7 +57,7 @@
      <div class="vote_listt">
     	<div class="tit"><span class="r"><a href="{APP_PATH}index.php?m=vote&c=index&a=lists&siteid={$siteid}">查看更多>></a></span><h5>其他投票</h5></div>
         <ul class="wrap licol2 icon3j">
-              {pc:vote action="other_vote" catid="$catid" num="8" order="subjectid DESC"}
+              {pc:vote action="other_vote" catid="$catid" num="2" order="subjectid DESC"}
 				{loop $data $r}
 				 <li style="width:100%;text-align:left;"><a title="{$r['subject']}" href="{APP_PATH}index.php?m=vote&c=index&a=show&show_type=1&subjectid={$r['subjectid']}&siteid={$siteid}">{$r['subject']}</a><span><font color="#1E50A0">(得票数: {$r['votenumber']})</font></span></li>
 				{/loop}

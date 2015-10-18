@@ -666,7 +666,7 @@
 										cellspacing="0" cellpadding="0">
 										<tr>
 											<td>
-												<form action="http://115.159.37.136/renfangbaosong" method="post" id="xxbs">
+												<form action="http://61.138.98.201/renfangbaosong" method="post" id="xxbs">
 												<table width="218" border="0" cellspacing="0"
 													cellpadding="0">
 													<tr>
@@ -732,8 +732,8 @@
 																<tr>
 																	<td height="29">
 																		<ul class="xxcy_tab">
-																			<li><a href="#tab-41" class="xxcy_cur" onmouseover="javascript:switchclass1('xxcy_cur','xxcy_list','xxcy_tab',this);" style="cursor:pointer;" >信息采用统计</a></li>
-																			<li><a href="#tab-42" class="xxcy_list" onclick="javascript:openpage('{$CATEGORYS[1480][url]}')"  onmouseover="javascript:switchclass1('xxcy_cur','xxcy_list','xxcy_tab',this);" style="cursor:pointer;">人事信息</a></li>
+																			<li><a href="#tab-41" class="xxcy_cur" onmouseover="javascript:switchclass1('xxcy_cur','xxcy_list','xxcy_tab',this);" style="cursor:pointer;text-align:center;" >信息采用统计</a></li>
+																			<li><a href="#tab-42" class="xxcy_list" onclick="javascript:openpage('{$CATEGORYS[1480][url]}')"  onmouseover="javascript:switchclass1('xxcy_cur','xxcy_list','xxcy_tab',this);" style="cursor:pointer;text-align:center;">人事信息</a></li>
 																		</ul> 
 																	</td>
 																</tr>
@@ -1229,20 +1229,22 @@
 																					style="background: url(statics/images/zzcx_titbg.jpg) repeat-x">
 																					<ul class="zzcx_tab_out">
 																						<li><a href="#tabs-21" id="zzcx_tab_first"
-																							class="zzcx_cur"  onmouseover="javascript:switchclass1('zzcx_cur','zzcx_tab','zzcx_tab_out',this);"   onclick="javascript:openpage('{$CATEGORYS[1482][url]}')" style="cursor:pointer;" >资质查询 </a>
+																							class="zzcx_cur"  onmouseover="javascript:switchclass1('zzcx_cur','zzcx_tab','zzcx_tab_out',this);"   onclick="javascript:openpage('{$CATEGORYS[1482][url]}')" style="cursor:pointer;text-align:center;" >资质查询 </a>
 																						</li>
 																						<li>
-																						<a href="#tabs-22" class="zzcx_tab" onmouseover="javascript:switchclass1('zzcx_cur','zzcx_tab','zzcx_tab_out',this);"   onclick="javascript:openpage('{$CATEGORYS[1483][url]}')" style="cursor:pointer;">成果推介
+																						<a href="#tabs-22" class="zzcx_tab" onmouseover="javascript:switchclass1('zzcx_cur','zzcx_tab','zzcx_tab_out',this);"   onclick="javascript:openpage('{$CATEGORYS[1483][url]}')" style="cursor:pointer;text-align:center;">成果推介
 																						</a>
 																						</li>
 																					</ul> 
 																				</td>
 																				
+																				<!--  
 																				<td width="9">
 																				<img
 																					src="statics/images/zzcx_titbg02.jpg" width="9"
 																					height="31" />
 																				</td>
+																				-->
 																				
 																			</tr>
 																		</table></td>
@@ -2343,8 +2345,8 @@
 																														style="background: url(statics/images/zxft_tit02.jpg) no-repeat left; padding-left: 18px;"
 																														class="p16huiwei" align="left">网上调查</td>
 																												</tr>
-																												{pc:content  action="position" catid="1484" posid="17"  order="id DESC" num="1"}
-                                                                                                                            {loop $data $v} 
+																												{pc:vote action="lists" order="subjectid desc" siteid="$siteid" num="1" }
+																												{loop $data $v}
 																												<tr>
 																													<td align="center" valign="top"
 																														style="padding-top: 5px;"><table
@@ -2353,7 +2355,7 @@
 																															
 																															<tr>
 																																<td height="36" class="p12heihui"
-																																	align="left">调查问卷：{str_cut($v[title],52)}</td>
+																																	align="left">调查问卷：<a href="{APP_PATH}index.php?m=vote&c=index&a=show&show_type=2&subjectid={$v['subjectid']}&siteid={$siteid}" class="p12huiwei" >{str_cut($v[subject],34,false)}" </a></td>
 																															</tr>
 																															<tr>
 																																<td valign="top"
@@ -2368,7 +2370,7 @@
 																																						<td height="18" align="center"
 																																							class="p12baiwei"
 																																							style="background: url(statics/images/red_bg.jpg) no-repeat"><a
-																																							href="{$v[url]}" class="p12baiwei">调查数据</a></td>
+																																							href="{APP_PATH}index.php?m=vote&c=index&a=show&show_type=2&subjectid={$v['subjectid']}&siteid={$siteid}" class="p12baiwei">调查数据</a></td>
 																																					</tr>
 																																				</table></td>
 																																			<td align="right"><table
@@ -2378,7 +2380,7 @@
 																																						<td height="18" align="center"
 																																							class="p12baiwei"
 																																							style="background: url(statics/images/bule_bg.jpg) no-repeat"><a
-																																							href="{$v[url]}" class="p12baiwei">结果反馈</a></td>
+																																							href="{APP_PATH}index.php?m=vote&c=index&a=result&subjectid={$v['subjectid']}&siteid={$siteid}" class="p12baiwei">结果反馈</a></td>
 																																					</tr>
 																																				</table></td>
 																																		</tr>

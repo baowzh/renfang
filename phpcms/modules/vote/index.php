@@ -92,7 +92,6 @@ class index {
  			$check_status = '';
  		}
  		
- 		
   		//JS调用 
 		if($_GET['action']=='js'){
 		 	if(!function_exists('ob_gzhandler')) ob_clean();

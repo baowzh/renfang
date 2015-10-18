@@ -965,13 +965,13 @@ a.current {
 }
 
 .zzcx_tab_out {
-	width: 208px;
+	width: 216px;
 	height: 31px;
 }
 
 .zzcx_tab_out a.zzcx_tab {
 	display: block;
-	width: 104px;
+	width: 108px;
 	height: 31px;
 	line-height: 31px;
 	float: left;
@@ -983,7 +983,7 @@ a.current {
 
 .zzcx_tab_out a.zzcx_tab:hover, a.zzcx_cur {
 	display: block;
-	width: 104px;
+	width: 108px;
 	height: 31px;
 	line-height: 31px;
 	float: left;
