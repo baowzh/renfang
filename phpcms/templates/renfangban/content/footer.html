@@ -20,7 +20,7 @@
           <tr>
             {pc:link action="type_list" linktype="1"  siteid="1"  listorder="desc" num="6"  }
             {loop $data $type_v1}
-            <td align="center"><img src="{$type_v1['logo']}" width="143" height="47" /></td>
+            <td align="center"><a href="{$type_v1['url']}" target="blank"><img src="{$type_v1['logo']}" width="143" height="47" /></a></td>
              {/loop}
             {/pc}
           </tr>
@@ -32,11 +32,11 @@
                 {pc:link action="type_lists" typeid="59" siteid="1"  listorder="desc" num="8"  }
                 {loop $data $type_v}
                 <td height="34" align="center">
-                <select name="select" style="height:21px; width:165px; text-align:center">
+                <select name="select" class="linksele" style="height:21px; width:165px; text-align:center">
                         <OPTION value=# selected>--{$type_v['name']}--</OPTION>
                          {pc:link action="type_list" typeid="$type_v['typeid']" siteid="1" linktype="0"  listorder="desc" num="8"  }
                          {loop $data $type_v1}
-                         <OPTION>{$type_v1['name']}</OPTION>
+                         <OPTION  value="{$type_v1['url']}">{$type_v1['name']}</OPTION>
                         {/loop}
                         {/pc}
                  </select>
@@ -132,6 +132,11 @@ function Move(tis, oid) {
         $("#" + oid).attr("class", "p14sycubai").siblings().attr("class", "p14sycuhui");
         $("#1" + oid).attr("style", "display:block").siblings().attr("style", "display:none");
     }
+$(function() {
+	$('.linksele').change(function(e) {
+		window.open( $(this).val());
+	});
+});
 </script>
 
 </body>

@@ -89,7 +89,7 @@
 											<td><table width="217" border="0" cellspacing="0"
 													cellpadding="0">
 													<tr>
-														<td><a href="{$CATEGORYS[1450][url]}"><img
+														<td><a href="{$CATEGORYS[1450][url]}" target="_blank"><img
 																src="statics/images/sy_zxgg_tit.jpg" width="217"
 																height="31" border="0" /></a></td>
 													</tr>
@@ -103,7 +103,7 @@
 																<tr>
 																	<td height="30" align="left"><img
 																		src="statics/images/zxgg_icon.png" /> <a href="{$v[url]}"
-																		class="p12heihui">{str_cut($v[title],52)}</a></td>
+																		class="p12heihui" target="_blank">{str_cut($v[title],52)}</a></td>
 																</tr>
 																{/loop} {/pc}
 																																
@@ -127,7 +127,7 @@
 																		class="p14hei">今日<span class="p14hong">话题</span></td>
 																	<td align="right"
 																		style="background: url(statics/images/jrht_tit02.jpg) no-repeat; padding-right: 10px;"><a
-																		href="{$CATEGORYS[1451][url]}" class="p12bai">更多&gt;&gt;</a></td>
+																		href="{$CATEGORYS[1451][url]}" class="p12bai" target="_blank">更多&gt;&gt;</a></td>
 																</tr>
 															</table></td>
 													</tr>
@@ -143,7 +143,7 @@
 																		style="background: url(statics/images/short_line.jpg) repeat-x bottom"
 																		align="left"><img
 																		src="statics/images/red_icon.jpg" width="3" height="3" />
-																		<a href="{$v[url]}" class="p12heihui">{str_cut($v[title],48)}</a></td>
+																		<a href="{$v[url]}" class="p12heihui" target="_blank">{str_cut($v[title],48)}</a></td>
 																</tr>
 																{/loop}
 																{/pc}
@@ -188,22 +188,22 @@
 																														onmouseover="easytabs('1', '1');"
 																														onfocus="easytabs('1', '1');"
 																														 title=""
-																														id="tablink1">工作动态</a></li>
+																														id="tablink1" target="_blank">工作动态</a></li>
 																													<li><a href="{$CATEGORYS[1437][url]}"
 																														onmouseover="easytabs('1', '2');"
 																														onfocus="easytabs('1', '2');"
 																														 title=""
-																														id="tablink2">旗县快讯</a></li>
+																														id="tablink2" target="_blank">旗县快讯</a></li>
 																													<li><a href="{$CATEGORYS[1438][url]}"
 																														onmouseover="easytabs('1', '3');"
 																														onfocus="easytabs('1', '3');"
 																														 title=""
-																														id="tablink3">图片传真</a></li>
+																														id="tablink3" target="_blank">图片传真</a></li>
 																													<li><a href="{$CATEGORYS[1439][url]}"
 																														onmouseover="easytabs('1', '4');"
 																														onfocus="easytabs('1', '4');"
 																														 title=""
-																														id="tablink4">信息专递</a></li>
+																														id="tablink4" target="_blank" >信息专递</a></li>
 																												</ul>
 																											</div>
 																										</td>
@@ -258,7 +258,7 @@
 																																		align="left"><img
 																																		src="statics/images/red_arrow.jpg"
 																																		width="7" height="9" /> <a href="{$v[url]}"
-																																		class="p12heihui">{str_cut($v[title],68)}</a></td>
+																																		class="p12heihui" target="_blank">{str_cut($v[title],68)}</a></td>
 																																	<td width="65" align="left"
 																																		class="p12qianhui">{date('Y-m-d',$v[inputtime])}</td>
 																																</tr>
@@ -286,7 +286,7 @@
 																													<tr>
 																														<td class="p12qianhui"
 																															style="line-height: 20px;" align="left"><a
-																															href="" class="p12qianhui">
+																															href="" class="p12qianhui" target="_blank">
 																															 {pc:get sql="select * from v9_news_data where id=$v[id]" return="data1"} 
 																															 {loop $data1 $r}
 																															 {str_cut(strip_tags($r[content]),150)}
@@ -314,7 +314,7 @@
 																																		align="left"><img
 																																		src="statics/images/red_arrow.jpg"
 																																		width="7" height="9" /> <a href="{$v[url]}"
-																																		class="p12heihui">{str_cut($v[title],68)}</a></td>
+																																		class="p12heihui" target="_blank">{str_cut($v[title],68)}</a></td>
 																																	<td width="65" align="left"
 																																		class="p12qianhui">{date('Y-m-d',$v[inputtime])}</td>
 																																</tr>
@@ -371,7 +371,7 @@
 																																		align="left"><img
 																																		src="statics/images/red_arrow.jpg"
 																																		width="7" height="9" /> <a href="{$v[url]}"
-																																		class="p12heihui">{str_cut($v[title],68)}</a></td>
+																																		class="p12heihui" target="_blank">{str_cut($v[title],68)}</a></td>
 																																	<td width="65" align="left"
 																																		class="p12qianhui">{date('Y-m-d',$v[inputtime])}</td>
 																																</tr>
@@ -427,7 +427,7 @@
 																																		align="left"><img
 																																		src="statics/images/red_arrow.jpg"
 																																		width="7" height="9" /> <a href="{$v[url]}"
-																																		class="p12heihui">{str_cut($v[title],68)}</a></td>
+																																		class="p12heihui" target="_blank">{str_cut($v[title],68)}</a></td>
 																																	<td width="65" align="left"
 																																		class="p12qianhui">{date('Y-m-d',$v[inputtime])}</td>
 																																</tr>
@@ -459,11 +459,11 @@
 																													{loop $data $v}
 																							<div class="fcon" style="display: none;">
 																								<a target="_blank"
-																									href="{$v[url]}">
+																									href="{$v[url]}" target="_blank">
 																									<img
 																									src="{$v[thumb]}" style="opacity: 1;"></a>
 																								<span class="shadow"><a target="_blank"
-																									href="{$v[url]}">
+																									href="{$v[url]}" target="_blank">
 																									{str_cut($v[title],52)}
 																									</a></span>
 																							</div>
@@ -472,13 +472,13 @@
 																						<div class="fbg">
 																							<div class="D1fBt" id="D1fBt">
 																								<a href="javascript:void(0)" hidefocus="true"
-																									target="_self" class=""><i>1</i></a> <a
+																									target="_self" class="" target="_blank"><i>1</i></a> <a
 																									href="javascript:void(0)" hidefocus="true"
-																									target="_self" class=""><i>2</i></a> <a
+																									target="_self" class="" target="_blank"><i>2</i></a> <a
 																									href="javascript:void(0)" hidefocus="true"
-																									target="_self" class="current"><i>3</i></a> <a
+																									target="_self" class="current" target="_blank"><i>3</i></a> <a
 																									href="javascript:void(0)" hidefocus="true"
-																									target="_self" class=""><i>4</i></a>
+																									target="_self" class="" target="_blank"><i>4</i></a>
 																							</div>
 																						</div>
 																				</td>
@@ -503,7 +503,7 @@
 																		style="background: url(statics/images/zfxxgk_tit02.jpg) repeat-x">&nbsp;</td>
 																	<td width="94" align="center" class="p12shenglan"
 																		style="background: url(statics/images/zfxxgk_tit03.jpg) no-repeat"><a
-																		href="{$CATEGORYS[1440][url]}" class="p12shenglan">点击进入&gt;&gt;</a></td>
+																		href="{$CATEGORYS[1440][url]}" class="p12shenglan" target="_blank">点击进入&gt;&gt;</a></td>
 																</tr>
 															</table></td>
 													</tr>
@@ -525,7 +525,7 @@
 																									<tr>
 																										<td height="28" align="center"
 																											class="zfxxgk_list01"><a href="{$CATEGORYS[1441][url]}"
-																											class="current">信息公开制度</a></td>
+																											class="current" target="_blank">信息公开制度</a></td>
 																									</tr>
 																								</table></td>
 																							<td align="center"><table width="107"
@@ -533,7 +533,7 @@
 																									<tr>
 																										<td height="28" align="center"
 																											class="zfxxgk_list02"><a href="{$CATEGORYS[1442][url]}"
-																											class="zfxxgk_li">信息公开指南</a></td>
+																											class="zfxxgk_li" target="_blank">信息公开指南</a></td>
 																									</tr>
 																								</table></td>
 																							<td align="center"><table width="107"
@@ -541,7 +541,7 @@
 																									<tr>
 																										<td height="28" align="center"
 																											class="zfxxgk_list03"><a href="{$CATEGORYS[1443][url]}"
-																											class="zfxxgk_li">信息公开目录</a></td>
+																											class="zfxxgk_li" target="_blank">信息公开目录</a></td>
 																									</tr>
 																								</table></td>
 																							<td align="center"><table width="107"
@@ -549,7 +549,7 @@
 																									<tr>
 																										<td height="28" align="center"
 																											class="zfxxgk_list04"><a href="{$CATEGORYS[1444][url]}"
-																											class="zfxxgk_li">机构简介</a></td>
+																											class="zfxxgk_li" target="_blank">机构简介</a></td>
 																									</tr>
 																								</table></td>
 																						</tr>
@@ -561,7 +561,7 @@
 																									<tr>
 																										<td height="28" align="center"
 																											class="zfxxgk_list05"><a href="{$CATEGORYS[1445][url]}"
-																											class="zfxxgk_li">信息公开年报</a></td>
+																											class="zfxxgk_li" target="_blank">信息公开年报</a></td>
 																									</tr>
 																								</table></td>
 																							<td align="center" valign="top"
@@ -571,7 +571,7 @@
 																									<tr>
 																										<td height="28" align="center"
 																											class="zfxxgk_list06"><a href="{$CATEGORYS[1446][url]}"
-																											class="zfxxgk_li">依申请公开</a></td>
+																											class="zfxxgk_li" target="_blank">依申请公开</a></td>
 																									</tr>
 																								</table></td>
 																							<td align="center" valign="top"
@@ -581,7 +581,7 @@
 																									<tr>
 																										<td height="28" align="center"
 																											class="zfxxgk_list07"><a href="{$CATEGORYS[1447][url]}"
-																											class="zfxxgk_li">预决算公开 </a></td>
+																											class="zfxxgk_li" target="_blank">预决算公开 </a></td>
 																									</tr>
 																								</table></td>
 																							<td align="center" valign="top"
@@ -591,7 +591,7 @@
 																									<tr>
 																										<td height="28" align="center"
 																											class="zfxxgk_list08"><a href="{$CATEGORYS[1448][url]}"
-																											class="zfxxgk_li">领导介绍</a></td>
+																											class="zfxxgk_li" target="_blank">领导介绍</a></td>
 																									</tr>
 																								</table></td>
 																						</tr>
@@ -616,7 +616,7 @@
 																													{loop $data $v}
 																									<tr>
 																										<td height="24" align="left" class="p12heihui"><a
-																											href="{$v[url]}" class="p12heihui">{str_cut($v[title],56)}</a></td>
+																											href="{$v[url]}" target="_blank" class="p12heihui">{str_cut($v[title],56)}</a></td>
 																									</tr>
 																									{/loop}
 																									{/pc}																																																		
@@ -691,7 +691,7 @@
 																	<td><table width="195" border="0" cellspacing="0"
 																			cellpadding="0">
 																			<tr>
-																				<td height="36">密&nbsp;码：</td>
+																				<td height="36" ><div style="width:48px;height:32px;padding-top:10px;">密&nbsp;码：</div></td>
 																				<td align="left"><input name="password" type="password"
 																					class="txt_login" /></td>
 																			</tr>
@@ -857,7 +857,7 @@
                                                                                             {loop $data $v} 
 																							 <tr>
 																	<td height="32" style="background: url(statics/images/short_line.jpg) repeat-x bottom" align="left"><img src="statics/images/red_icon02.jpg" width="9" height="9">
-																		<a href="{$v[url]}" class="p12heihui">{str_cut($v[title],46)}</a></td>
+																		<a href="{$v[url]}" class="p12heihui" target="_blank">{str_cut($v[title],46)}</a></td>
 																</tr>
 																							
 																							{/loop}
@@ -924,8 +924,8 @@
 																															 {loop $data1 $r}
 																															 <tr>
 																					<td width="380" height="30" align="left"><a
-																						href="" class="p12heihui"> {str_cut(strip_tags($r[content]),150)}</a></td>
-																					<td width="80"><a href="{$v[url]}" class="p12hongse">【查看更多】</a></td>
+																						href="" class="p12heihui" > {str_cut(strip_tags($r[content]),150)}</a></td>
+																					<td width="80"><a href="{$v[url]}" target="_blank" class="p12hongse">【查看更多】</a></td>
 																				</tr>
 																															
 																															 {/loop} 
@@ -951,7 +951,7 @@
 																				<tr>
 																					<td width="375" height="28" align="left"><img
 																						src="statics/images/red_icon02.jpg" width="9"
-																						height="9" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																						height="9" /> <a href="{$v[url]}" target="_blank" class="p12heihui">{str_cut($v[title],52)}</a>
 																					</td>
 																					<td width="80" class="p12qianlan">{date('Y-m-d',$v[inputtime])}</td>
 																				</tr>
@@ -988,7 +988,7 @@
 																															 <tr>
 																					<td width="380" height="30" align="left"><a
 																						href="" class="p12heihui"> {str_cut(strip_tags($r[content]),150)}</a></td>
-																					<td width="80"><a href="{$v[url]}" class="p12hongse">【查看更多】</a></td>
+																					<td width="80"><a href="{$v[url]}" class="p12hongse" target="_blank">【查看更多】</a></td>
 																				</tr>
 																															
 																															 {/loop} 
@@ -1014,7 +1014,7 @@
 																				<tr>
 																					<td width="375" height="28" align="left"><img
 																						src="statics/images/red_icon02.jpg" width="9"
-																						height="9" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																						height="9" /> <a href="{$v[url]}" class="p12heihui" target="_blank">{str_cut($v[title],52)}</a>
 																					</td>
 																					<td width="80" class="p12qianlan">{date('Y-m-d',$v[inputtime])}</td>
 																				</tr>
@@ -1050,7 +1050,7 @@
 																															 <tr>
 																					<td width="380" height="30" align="left"><a
 																						href="" class="p12heihui"> {str_cut(strip_tags($r[content]),150)}</a></td>
-																					<td width="80"><a href="{$v[url]}" class="p12hongse">【查看更多】</a></td>
+																					<td width="80"><a href="{$v[url]}" target="_blank" class="p12hongse">【查看更多】</a></td>
 																				</tr>
 																															
 																															 {/loop} 
@@ -1076,7 +1076,7 @@
 																				<tr>
 																					<td width="375" height="28" align="left"><img
 																						src="statics/images/red_icon02.jpg" width="9"
-																						height="9" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																						height="9" /> <a href="{$v[url]}" target="_blank" class="p12heihui">{str_cut($v[title],52)}</a>
 																					</td>
 																					<td width="80" class="p12qianlan">{date('Y-m-d',$v[inputtime])}</td>
 																				</tr>
@@ -1106,7 +1106,7 @@
 															height="35">															
 															<ul class="zcfg_tabout">
 																<li><a href="#tabs-51" class="zcfg_cur" onclick="javascript:openpage('{$CATEGORYS[1453][url]}')"  onmouseover="javascript:switchclass1('zcfg_cur','zcfg_tab','zcfg_tabout',this);" style="cursor:pointer;">政策法规</a></li>
-																<li><a href="#tabs-52" class="zcfg_tab" onclick="javascript:openpage('{$CATEGORYS[1455][url]}')"  onmouseover="javascript:switchclass1('zcfg_cur','zcfg_tab','zcfg_tabout',this);" style="cursor:pointer;">交流研讨</a></li>
+																<li><a href="#tabs-52" class="zcfg_tab" onclick="javascript:openpage('{$CATEGORYS[1487][url]}')"  onmouseover="javascript:switchclass1('zcfg_cur','zcfg_tab','zcfg_tabout',this);" style="cursor:pointer;">避难疏散</a></li>
 															</ul>
 														</td>
 													</tr>
@@ -1132,7 +1132,7 @@
 																						style="background: url(statics/images/short_line.jpg) repeat-x bottom"
 																						align="left"><img
 																						src="statics/images/red_icon.jpg" width="3"
-																						height="3" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																						height="3" /> <a href="{$v[url]}" target="_blank" class="p12heihui">{str_cut($v[title],52)}</a>
 																					</td>
 																				</tr>
 																				{/loop}
@@ -1155,7 +1155,7 @@
 																		<td><table width="226" border="0" cellspacing="0"
 																				cellpadding="0">
 																				
-																				{pc:content action="lists" catid="1455" 
+																				{pc:content action="lists" catid="1487" 
 																													 num="8"  order="listorder DESC" }
 																													{loop $data $v}
 																				<tr>
@@ -1163,7 +1163,7 @@
 																						style="background: url(statics/images/short_line.jpg) repeat-x bottom"
 																						align="left"><img
 																						src="statics/images/red_icon.jpg" width="3"
-																						height="3" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																						height="3" /> <a href="{$v[url]}" target="_blank" class="p12heihui">{str_cut($v[title],52)}</a>
 																					</td>
 																				</tr>
 																				{/loop}
@@ -1269,7 +1269,7 @@
 																							<tr>
 																								<td height="28" align="left"><img
 																									src="statics/images/zzcx_icon.jpg" width="6"
-																									height="5" /><a href="{$v[url]}" class="p12heihui">
+																									height="5" /><a href="{$v[url]}" target="_blank" class="p12heihui">
 																										{str_cut($v[title],46)}
 																										</a></td>
 																							</tr>
@@ -1297,7 +1297,7 @@
 																							<tr>
 																								<td height="28" align="left"><img
 																									src="statics/images/zzcx_icon.jpg" width="6"
-																									height="5" /><a href="{$v[url]}" class="p12heihui">
+																									height="5" /><a href="{$v[url]}" target="_blank" class="p12heihui">
 																										{str_cut($v[title],46)}
 																										</a></td>
 																							</tr>
@@ -1325,7 +1325,7 @@
 											<td width="494" valign="top" id="tabs-7">
 												
 												<div style="width: 90px; height: 35px; float: left;">													
-													<a href="{$CATEGORYS[1454][url]}">
+													<a href="{$CATEGORYS[1454][url]}" target="_blank">
 													<img src="statics/images/fkfz_tit.jpg" width="90"
 														height="35">
 													</a>
@@ -1379,7 +1379,7 @@
 																									<td align="left" class="p12qianlan"
 																										style="padding-left: 10px; line-height: 22px;"><span
 																										class="p12heihui">摘要：</span>{str_cut(strip_tags($r[content]),150)}
-																										<a href="{$v[url]}" class="p12hongse">【详细】</a></td>
+																										<a href="{$v[url]}" target="_blank" class="p12hongse">【详细】</a></td>
 																								</tr>
 																							
 																							</table></td>
@@ -1403,7 +1403,7 @@
 																								<tr>
 																									<td width="385" height="30" align="left"><img
 																										src="statics/images/red_icon02.jpg" width="9"
-																										height="9" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																										height="9" /> <a href="{$v[url]}" target="_blank" class="p12heihui">{str_cut($v[title],52)}</a>
 																									</td>
 																									<td width="85" class="p12qianlan">{date('Y-m-d',$v[inputtime])}</td>
 																								</tr>
@@ -1463,7 +1463,7 @@
 																									<td align="left" class="p12qianlan"
 																										style="padding-left: 10px; line-height: 22px;"><span
 																										class="p12heihui">摘要：</span>{str_cut(strip_tags($r[content]),150)}
-																										<a href="{$v[url]}" class="p12hongse">【详细】</a></td>
+																										<a href="{$v[url]}" target="_blank" class="p12hongse">【详细】</a></td>
 																								</tr>
 																							
 																							</table></td>
@@ -1487,7 +1487,7 @@
 																								<tr>
 																									<td width="385" height="30" align="left"><img
 																										src="statics/images/red_icon02.jpg" width="9"
-																										height="9" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																										height="9" /> <a href="{$v[url]}" target="_blank" class="p12heihui">{str_cut($v[title],52)}</a>
 																									</td>
 																									<td width="85" class="p12qianlan">{date('Y-m-d',$v[inputtime])}</td>
 																								</tr>
@@ -1547,7 +1547,7 @@
 																									<td align="left" class="p12qianlan"
 																										style="padding-left: 10px; line-height: 22px;"><span
 																										class="p12heihui">摘要：</span>{str_cut(strip_tags($r[content]),150)}
-																										<a href="{$v[url]}" class="p12hongse">【详细】</a></td>
+																										<a href="{$v[url]}" target="_blank" class="p12hongse">【详细】</a></td>
 																								</tr>
 																							
 																							</table></td>
@@ -1571,7 +1571,7 @@
 																								<tr>
 																									<td width="385" height="30" align="left"><img
 																										src="statics/images/red_icon02.jpg" width="9"
-																										height="9" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																										height="9" /> <a href="{$v[url]}" target="_blank" class="p12heihui">{str_cut($v[title],52)}</a>
 																									</td>
 																									<td width="85" class="p12qianlan">{date('Y-m-d',$v[inputtime])}</td>
 																								</tr>
@@ -1631,7 +1631,7 @@
 																									<td align="left" class="p12qianlan"
 																										style="padding-left: 10px; line-height: 22px;"><span
 																										class="p12heihui">摘要：</span>{str_cut(strip_tags($r[content]),150)}
-																										<a href="{$v[url]}" class="p12hongse">【详细】</a></td>
+																										<a href="{$v[url]}" target="_blank" class="p12hongse">【详细】</a></td>
 																								</tr>
 																							
 																							</table></td>
@@ -1655,7 +1655,7 @@
 																								<tr>
 																									<td width="385" height="30" align="left"><img
 																										src="statics/images/red_icon02.jpg" width="9"
-																										height="9" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																										height="9" /> <a href="{$v[url]}" target="_blank" class="p12heihui">{str_cut($v[title],52)}</a>
 																									</td>
 																									<td width="85" class="p12qianlan">{date('Y-m-d',$v[inputtime])}</td>
 																								</tr>
@@ -1715,7 +1715,7 @@
 																									<td align="left" class="p12qianlan"
 																										style="padding-left: 10px; line-height: 22px;"><span
 																										class="p12heihui">摘要：</span>{str_cut(strip_tags($r[content]),150)}
-																										<a href="{$v[url]}" class="p12hongse">【详细】</a></td>
+																										<a href="{$v[url]}" target="_blank" class="p12hongse">【详细】</a></td>
 																								</tr>
 																							
 																							</table></td>
@@ -1739,7 +1739,7 @@
 																								<tr>
 																									<td width="385" height="30" align="left"><img
 																										src="statics/images/red_icon02.jpg" width="9"
-																										height="9" /> <a href="{$v[url]}" class="p12heihui">{str_cut($v[title],52)}</a>
+																										height="9" /> <a href="{$v[url]}" target="_blank" class="p12heihui">{str_cut($v[title],52)}</a>
 																									</td>
 																									<td width="85" class="p12qianlan">{date('Y-m-d',$v[inputtime])}</td>
 																								</tr>
@@ -1772,7 +1772,7 @@
 																		class="p14hong">影像</span></td>
 																	<td align="right"
 																		style="background: url(statics/images/dmyx_tit02.jpg) no-repeat; padding-right: 10px;"><a
-																		href="{$CATEGORYS[1459][url]}" class="p12bai">更多&gt;&gt;</a></td>
+																		href="{$CATEGORYS[1459][url]}" target="_blank" class="p12bai">更多&gt;&gt;</a></td>
 																</tr>
 															</table></td>
 													</tr>
@@ -1791,7 +1791,7 @@
                                                                       <tr>
                                                                       <td height="148" style="background:url(statics/images/bd_video01.jpg) no-repeat; padding-left:5px; padding-top:5px;" align="left" valign="top">
                                                                       
-                                                                      <a href="{$v[url]}">
+                                                                      <a href="{$v[url]}" target="_blank">
                                                                       <img src="statics/images/dmyx_vd.jpg" width="227" height="144" border="0">
                                                                       </a>
                                                                     
@@ -1820,7 +1820,7 @@
 																			<tr>
 																				<td height="30" align="left"><img
 																					src="statics/images/dmyx_icon.jpg" width="16"
-																					height="10" /> <a href="{$v[url]}" class="p12heihui">
+																					height="10" /> <a href="{$v[url]}" target="_blank" class="p12heihui">
 																						{str_cut($v[title],52)}
 																						</a></td>
 																			</tr>
@@ -2054,7 +2054,7 @@
 																		class="p14hong">天地</span></td>
 																	<td align="right"
 																		style="background: url(statics/images/jrht_tit02.jpg) no-repeat; padding-right: 10px;"><a
-																		href="{$CATEGORYS[1458][url]}" class="p12bai">更多&gt;&gt;</a></td>
+																		href="{$CATEGORYS[1458][url]}" target="_blank" class="p12bai">更多&gt;&gt;</a></td>
 																</tr>
 															</table></td>
 													</tr>
@@ -2085,7 +2085,7 @@
 																						<tr>
 																							<td align="left" class="p12qianlan"
 																								style="line-height: 18px"><a href="{$v[url]}"
-																								class="p12qianhui">
+																								class="p12qianhui" target="_blank">
 																								{str_cut(strip_tags($r[content]),34)}
 																							</a></td>
 																						</tr>
@@ -2110,7 +2110,7 @@
 																					style="background: url(statics/images/short_line.jpg) repeat-x bottom"
 																					align="left"><img
 																					src="statics/images/xjhf_icon.jpg" width="4"
-																					height="7" /><a href="{$v[url]}" class="p12heihui">
+																					height="7" /><a href="{$v[url]}" target="_blank" class="p12heihui">
 																						{str_cut($v[title],48)}</a></td>
 																			</tr>
 																			{/loop}
@@ -2134,21 +2134,21 @@
 															width="218" height="43" /></td>
 													</tr>
 													<tr>
-														<td><a href="{$CATEGORYS[1465][url]}"><img src="statics/images/rfxh_list01.jpg"
+														<td><a href="{$CATEGORYS[1465][url]}" target="_blank"><img src="statics/images/rfxh_list01.jpg"
 															width="218" height="29" /></a></td>
 													</tr>
 													<tr>
-														<td><a href="{$CATEGORYS[1466][url]}"><img src="statics/images/rfxh_list02.jpg"
+														<td><a href="{$CATEGORYS[1466][url]}" target="_blank"><img src="statics/images/rfxh_list02.jpg"
 															width="218" height="27" /></a></td>
 													</tr>
 													<tr>
-														<td><a href="{$CATEGORYS[1467][url]}"><img src="statics/images/rfxh_list03.jpg"
+														<td><a href="{$CATEGORYS[1467][url]}" target="_blank"><img src="statics/images/rfxh_list03.jpg"
 															width="218" height="30" /></a></td>
 													</tr>
 													<tr>
 														<td
 															style="background: url(statics/images/rfxh_list05.jpg) no-repeat bottom; padding-bottom: 27px;">
-															<a href="{$CATEGORYS[1468][url]}"><img
+															<a href="{$CATEGORYS[1468][url]}" target="_blank"><img
 															src="statics/images/rfxh_list04.jpg" width="218"
 															height="29" /></a></td>
 													</tr>
@@ -2161,7 +2161,7 @@
 											<td valign="top" align="right"><table width="773"
 													border="0" cellspacing="0" cellpadding="0">
 													<tr>
-														<td><a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"><img
+														<td><a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1" target="_blank"><img
 																src="statics/images/wsbs_tit.jpg" width="773"
 																height="33" border="0" /></a></td>
 													</tr>
@@ -2175,25 +2175,25 @@
 																		<table width="753" border="0" cellspacing="0"
 																			cellpadding="0">
 																			<tr>
-																				<td width="190"><a href="{APP_PATH}index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"><img
+																				<td width="190"><a href="{APP_PATH}index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1" target="_blank"><img
 																						src="statics/images/wyxx_tit.jpg" width="190"
 																						height="58" border="0" /></a></td>
 																				<td
 																					style="background: url(statics/images/wyxx_tit02.jpg) no-repeat">
 																					<ul style="width: 557px;">
-																						<li style="float:left;"><a href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1"><img
+																						<li style="float:left;"><a href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=1" target="_blank"><img
 																								src="statics/images/wyxx_list01.jpg" width="104"
 																								height="33" /></a></li>
-																						<li style="float:left;"><a href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=2"><img
+																						<li style="float:left;"><a href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=2" target="_blank"><img
 																								src="statics/images/wyxx_list02.jpg" width="104"
 																								height="33" /></a></li>
-																						<li style="float:left;"><a href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=3"><img
+																						<li style="float:left;"><a href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=3" target="_blank"><img
 																								src="statics/images/wyxx_list03.jpg" width="104"
 																								height="33" /></a></li>
-																						<li style="float:left;"><a href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=4"><img
+																						<li style="float:left;"><a href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=4" target="_blank"><img
 																								src="statics/images/wyxx_list04.jpg" width="105"
 																								height="33" /></a></li>
-																						<li style="float:left;"><a href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=5"><img
+																						<li style="float:left;"><a href="?m=formguide&c=index&a=show&formid=15&siteid=1&infotype=5" target="_blank"><img
 																								src="statics/images/wyxx_list05.jpg" width="105"
 																								height="33" /></a></li>
 																					</ul> 
@@ -2250,7 +2250,7 @@
 																															width="4" height="7" /> <a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype={$v[infotyp]}"
 																															class="p12zong">[{$v[aa]}]</a> 
 																															<a href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype={$v[infotyp]}&showdata={$dataid}"
-																															class="p12heihui">{str_cut($v[title],48)}</a>
+																															class="p12heihui" target="_blank">{str_cut($v[title],48)}</a>
 																															
 																														</td>
 																														<td width="85" class="p12qianlan">{date('Y-m-d',$v[datetime])}</td>
@@ -2278,7 +2278,7 @@
 																											style="padding-left: 18px; padding-top: 10px;">在线访谈</td>
 																										<td align="right"
 																											style="padding-right: 8px; padding-top: 10px;"><a
-																											href="{$CATEGORYS[1481][url]}" class="p12shenglan">更多>></a></td>
+																											href="{$CATEGORYS[1481][url]}" target="_blank" class="p12shenglan">更多>></a></td>
 																									</tr>
 																								</table></td>
 																						</tr>
@@ -2323,7 +2323,7 @@
 																																		</tr>
 																																		<tr>
 																																			<td align="left" class="p12huiwei"><a
-																																				href="{$v[url]}" class="p12huiwei">
+																																				href="{$v[url]}" class="p12huiwei" target="_blank">
 																																				{str_cut($v[title],52)}
 <!-- 																																				锡林郭勒盟人防办陈主任一行来到正镶白旗 -->
 																																				</a></td>
@@ -2355,7 +2355,7 @@
 																															
 																															<tr>
 																																<td height="36" class="p12heihui"
-																																	align="left">调查问卷：<a href="{APP_PATH}index.php?m=vote&c=index&a=show&show_type=2&subjectid={$v['subjectid']}&siteid={$siteid}" class="p12huiwei" >{str_cut($v[subject],34,false)}" </a></td>
+																																	align="left">调查问卷：<a href="{APP_PATH}index.php?m=vote&c=index&a=show&show_type=2&subjectid={$v['subjectid']}&siteid={$siteid}" class="p12huiwei"  target="_blank">{str_cut($v[subject],34,false)}" </a></td>
 																															</tr>
 																															<tr>
 																																<td valign="top"
@@ -2370,7 +2370,7 @@
 																																						<td height="18" align="center"
 																																							class="p12baiwei"
 																																							style="background: url(statics/images/red_bg.jpg) no-repeat"><a
-																																							href="{APP_PATH}index.php?m=vote&c=index&a=show&show_type=2&subjectid={$v['subjectid']}&siteid={$siteid}" class="p12baiwei">调查数据</a></td>
+																																							href="{APP_PATH}index.php?m=vote&c=index&a=show&show_type=2&subjectid={$v['subjectid']}&siteid={$siteid}" class="p12baiwei" target="_blank">调查数据</a></td>
 																																					</tr>
 																																				</table></td>
 																																			<td align="right"><table
@@ -2380,7 +2380,7 @@
 																																						<td height="18" align="center"
 																																							class="p12baiwei"
 																																							style="background: url(statics/images/bule_bg.jpg) no-repeat"><a
-																																							href="{APP_PATH}index.php?m=vote&c=index&a=result&subjectid={$v['subjectid']}&siteid={$siteid}" class="p12baiwei">结果反馈</a></td>
+																																							href="{APP_PATH}index.php?m=vote&c=index&a=result&subjectid={$v['subjectid']}&siteid={$siteid}" class="p12baiwei" target="_blank">结果反馈</a></td>
 																																					</tr>
 																																				</table></td>
 																																		</tr>
@@ -2419,7 +2419,7 @@
 					<td valign="top" style="padding-top: 10px;"><table
 							width="1000" border="0" cellspacing="0" cellpadding="0">
 							<tr>
-								<td width="31"><a href="{$CATEGORYS[1457][url]}"><img
+								<td width="31"><a href="{$CATEGORYS[1457][url]}" target="_blank"><img
 										src="statics/images/rffc_tit.jpg" width="31" height="209"
 										border="0" /></a></td>
 								<td align="right"
@@ -2439,12 +2439,12 @@
 																	<tr>
 																		<td height="123" align="center"
 																			style="border: 1px solid #d9d9d9; background: #fff;"><a
-																			href="{$v[url]}"><img src="{$v[thumb]}"
+																			href="{$v[url]}" target="_blank"><img src="{$v[thumb]}"
 																				width="155" height="116" /></a></td>
 																	</tr>
 																	<tr>
 																		<td height="34" align="center"><a href="{$v[url]}"
-																			class="p12heihui">{str_cut($v[title],32)} </a></td>
+																			class="p12heihui" target="_blank">{str_cut($v[title],32)} </a></td>
 																	</tr>
 																</table>
 															 </td>
