@@ -34,7 +34,6 @@ class index {
 	public function show() {
 		$catid = intval($_GET['catid']);
 		$id = intval($_GET['id']);
-
 		if(!$catid || !$id) showmessage(L('information_does_not_exist'),'blank');
 		$_userid = $this->_userid;
 		$_username = $this->_username;
@@ -261,7 +260,7 @@ class index {
 			define('URLRULE', $urlrules);
 			$GLOBALS['URL_ARRAY']['categorydir'] = $categorydir;
 			$GLOBALS['URL_ARRAY']['catdir'] = $catdir;
-			$GLOBALS['URL_ARRAY']['catid'] = $catid;	
+			$GLOBALS['URL_ARRAY']['catid'] = $catid;
 			include template('content',$template);
 		} else {
 		//单网页
