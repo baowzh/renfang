@@ -52,7 +52,7 @@ CKEDITOR.dialog.add('flvPlayer',　function(a){
 　　　　　　　　　　　　　　required:　true,
 　　　　　　　　　　　　　　'default':　'false',
 　　　　　　　　　　　　　　items:　[['是',　'true'],　['否',　'false']]
-                        }]//children finish
+                        }]// children finish
                         },{
 　　　　　　　　　　        type:　'textarea',
 　　　　　　　　　　　　　　style:　'width:300px;height:220px',
@@ -75,7 +75,8 @@ CKEDITOR.dialog.add('flvPlayer',　function(a){
                             id: 'uploadButton',
                             label: '发送到服务器',
                             filebrowser: 'info:src',
-                            'for': ['Upload', 'upload']//'page_id', 'element_id'
+                            'for': ['Upload', 'upload']// 'page_id',
+														// 'element_id'
                         }]
 　　　　　　　　}],
 　　　　　　　　onOk:　function(){
@@ -84,8 +85,10 @@ CKEDITOR.dialog.add('flvPlayer',　function(a){
 　　　　　　　　　　　　myloop　=　this.getValueOf('info',　'myloop');
 　　　　　　　　　　　　mysrc　=　this.getValueOf('info',　'src');
 　　　　　　　　　　　　html　=　''　+　escape(mysrc)　+　'';
-　　　　　　　　　　　　//editor.insertHtml("<pre　class=\"brush:"　+　lang　+　";\">"　+　html　+　"</pre>");
+　　　　　　　　　　　　// editor.insertHtml("<pre class=\"brush:" + lang + ";\">" + html +
+			// "</pre>");
 　　　　　　　　　　　　a.insertHtml("<embed height=\""　+　myheight　+　"\" width=\""　+　mywidth　+　"\" flashvars=\"icon=false\&amp;file="　+　html　+　"\&amp;skin=" +b.flv_path + "player\/skin.zip\&amp;autostart=" +　myloop　+　"\" allowfullscreen=\"true\" allowscriptaccess=\"always\" bgcolor=\"#ffffff\" src=\"" + b.flv_path +"player\/player.swf\"></embed>");
+                       $('#video_url').val(html);
 　　　　　　　　},
 　　　　　　　　onLoad:　function(){
 　　　　　　　　}

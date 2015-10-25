@@ -1811,19 +1811,23 @@
 																			<table width="239" border="0" cellspacing="0"
 																				cellpadding="0">
 																				<tbody>
-																					{pc:content action="lists" catid="1486" posid="17"
-																					order="listorder DESC" num="1"} {loop $data $v}
+																					{pc:content action="position" catid="1486" posid="18"
+																					order="listorder DESC" num="1" } 
+																					{loop $data $v}
 																					<tr>
 																						<td height="148"
 																							style="background: url(statics/images/bd_video01.jpg) no-repeat; padding-left: 5px; padding-top: 5px;"
-																							align="left" valign="top">
-
-																							<div id="vd"></div> 
+																							align="left" valign="top">																							
+																							<div id="vd">
+																							
+																							</div> 
+				 																			 {pc:get sql="select * from v9_video_data where id=$v[id]" return="data1"}
+                                                                                             {loop $data1 $r}
 																							<script
 																								type="text/javascript">
                                                                                                  var flashvars = {
                                                                                                     wmode: 'opaque',
-                                                                                                    file: 'http://61.138.98.201/flv/test.flv',
+                                                                                                    file: '{$r[video_url]}',
                                                                                                      width: "227",
                                                                                                      height : "144" ,
                                                                                                      image: "http://www.nmtktdj.gov.cn/statics/images/index_r43_c32.jpg"
@@ -1838,6 +1842,8 @@
                                                                                                               };  
                                                                                                    swfobject.embedSWF("statics/images/flvplayer.swf", "vd", 221,  143, "9.0.0", "expressInstall.swf ", flashvars, params);
                                                                                              </script> 
+                                                                                             {/loop}
+                                                                                             {/pc}
 
 																						</td>
 																					</tr>
@@ -1861,7 +1867,7 @@
 																	<td valign="top" style="padding-top: 10px;"><table
 																			width="235" border="0" cellspacing="0"
 																			cellpadding="0">
-																			{pc:content action="lists" catid="1459" thumb="1"
+																			{pc:content action="lists" catid="1486" 
 																			order="listorder DESC" num="3"} {loop $data $v}
 																			<tr>
 																				<td height="30" align="left"><img
@@ -1893,8 +1899,11 @@
 					<td valign="top" style="padding-top: 10px;"><table
 							width="1000" border="0" cellspacing="0" cellpadding="0">
 							<tr>
-								<td width="40"><img src="statics/images/jbst_tit.jpg"
-									width="40" height="106" /></td>
+								<td width="40">
+								<a href="{$CATEGORYS[1489][url]}"><img src="statics/images/jbst_tit.jpg"
+									width="40" height="106" />
+									</a>
+									</td>
 								<td align="center"
 									style="background: url(statics/images/jbst_bg.jpg) repeat-x bottom;"><table
 										width="930" border="0" cellspacing="0" cellpadding="0">
@@ -1931,7 +1940,8 @@
 																											height="11" />
 																										</a>
 																										</td>
-																										<td width="36" align="left" class="p12baiwei">试听</td>
+																										<td width="36" align="left" class="p12baiwei">
+																										<a href="{$CATEGORYS[1490][url]}" target="_blank" class="p12baiwei">试听</a></td>
 																									</tr>
 																								</table></td>
 																						</tr>
@@ -1978,7 +1988,9 @@
 																											height="11" />
 																										</a>
 																										</td>
-																										<td width="36" align="left" class="p12baiwei">试听</td>
+																										<td width="36" align="left" class="p12baiwei">
+																										<a href="{$CATEGORYS[1491][url]}" target="_blank" class="p12baiwei">试听
+																										</a></td>
 																									</tr>
 																								</table></td>
 																						</tr>
@@ -2025,7 +2037,9 @@
 																											height="11" />
 																										</a>
 																										</td>
-																										<td width="36" align="left" class="p12baiwei">试听</td>
+																										<td width="36" align="left" class="p12baiwei">
+																										<a href="{$CATEGORYS[1491][url]}" target="_blank" class="p12baiwei">试听
+																										</a></td>
 																									</tr>
 																								</table></td>
 																						</tr>
@@ -2071,7 +2085,11 @@
 																											height="11" />
 																										</a>
 																										</td>
-																										<td width="36" align="left" class="p12baiwei">试听</td>
+																										<td width="36" align="left" class="p12baiwei">
+																										<a href="{$CATEGORYS[1491][url]}" target="_blank" class="p12baiwei">
+																										试听
+																										</a>
+																										</td>
 																									</tr>
 																								</table></td>
 																						</tr>

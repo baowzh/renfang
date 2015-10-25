@@ -29,6 +29,7 @@ CKEDITOR.plugins.add('flvPlayer',
                 }
             };
         });*/
+        
         editor.ui.addButton('flvPlayer',
         {               
             label: '插入Flv视频',

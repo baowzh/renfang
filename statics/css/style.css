@@ -1185,3 +1185,39 @@ span.msg_reply {
     color: #ffffff;
     background: #067dc7;
 }
+
+.table4 {
+	border-collapse: collapse;
+}
+
+.table4 td {
+	border: none;
+	height: 30px;
+	line-height: 21px;
+	text-align: center;
+	font-family: "Microsoft Yahei", "宋体", "黑体";
+	border: 1px solid #dadada;
+	color: #333333;
+	padding: 3px 0px;
+}
+
+.p20heiwei {
+	COLOR: #000000;
+	TEXT-DECORATION: none;
+	font-family: "Microsoft Yahei", "宋体", "黑体";
+	font-size: 18px;
+}
+
+A.p20heiwei:link {
+	COLOR: #000000;
+	TEXT-DECORATION: none
+}
+
+A.p20heiwei:visited {
+	COLOR: #000000;
+	TEXT-DECORATION: none;
+}
+
+A.p20heiwei:hover {
+	color: #06559b;
+}
