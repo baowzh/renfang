@@ -436,6 +436,9 @@ A.p12hongse:hover {
 	color: #000000;
 	font-weight: bold;
 }
+.p14hei a{
+color: #000000;	
+}
 
 .p14hong {
 	font-size: 14px;
@@ -1220,4 +1223,20 @@ A.p20heiwei:visited {
 
 A.p20heiwei:hover {
 	color: #06559b;
+}
+.table4 {
+	border-collapse:collapse;
+}
+.table4 td {
+	border:none;
+	height:28px;
+	line-height:21px;
+	text-align:center;
+	font-family:"Microsoft Yahei","宋体","黑体";
+	border:1px solid #98bfd5;
+	color:#333333;
+	padding:3px 0px;
+	background:#ffffff;
+	padding:5px;
+	
 }

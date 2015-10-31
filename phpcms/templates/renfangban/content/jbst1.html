@@ -3,7 +3,7 @@
   $style="p14hui";
   switch($catid){
      case 1490:
-         $looparr =  subcat(1435);
+         $looparr =  subcat(1489);
          $didnotloop = true;
          $imgid=1435;
          break;                                               
@@ -32,7 +32,9 @@
 										<tr>
 											<td height="100"
 												style="border-left: 1px solid #d6d6d6; border-right: 1px solid #d6d6d6; background: url(statics/images/zy_lft_mid.jpg) repeat-x bottom; padding-bottom: 15px;">
-												{loop $looparr $v} <a href="{$v[url]}" class="lftmn_cur">{$v[catname]}</a>
+												{loop $looparr $v} <?php if ($v[catid] == $catid):?> <a
+												href="{$v[url]}" class="lftmn_cur">{$v[catname]}</a> <?php else:?>
+												<a href="{$v[url]}" class="lft_mn">{$v[catname]}</a> <?php endif;?>
 												{/loop}
 											</td>
 										</tr>
@@ -148,7 +150,7 @@
 																					height="35" /></td>
 																				<td align="left" class="p14hei"
 																					style="background: url(statics/images/zytit_bg02.jpg) repeat-x; padding-top: 9px;">
-																					{catpos($catid)}</td>
+																					{catname($catid)}</td>
 																			</tr>
 																		</table></td>
 																</tr>
@@ -176,40 +178,63 @@
 																							height="30">防空袭警报规定与人员防护动作要求</td>
 																					</tr>
 																					<tr>
-																						<td valign="top"><table width="730"
-																								border="0" cellspacing="0" cellpadding="0"
-																								class="table4">
+																						<td>
+																							<table width="740" border="0" cellspacing="0"
+																								cellpadding="0" align="center">
 																								<tbody>
 																									<tr>
-																										<td width="143"
-																											style="background: #f8f8f8; font-size: 14px; font-weight: bold;">警报名称</td>
-																										<td width="295"
-																											style="background: #f8f8f8; font-size: 14px; font-weight: bold;">音响规定</td>
-																										<td width="292"
-																											style="background: #f8f8f8; font-size: 14px; font-weight: bold;">防护行动要点</td>
-																									</tr>
-																									<tr>
-																										<td>预先警报</td>
-																										<td>鸣36秒、停24秒，反复循环 持续180秒为一个周期。</td>
-																										<td>十分钟左右进入人防工程隐蔽或实行紧急疏散。</td>
+																										<td width="122"><img
+																											src="statics/images/jbxx_bg01.jpg"
+																											width="122" height="205"></td>
+																										<td align="left" valign="top"
+																											style="background: url(statics/images/jbxx_bg02.jpg) no-repeat; padding-left: 5px;"><table
+																												width="600" border="0" cellspacing="0"
+																												cellpadding="0">
+																												<tbody>
+																													<tr>
+																														<td valign="top"
+																															style="padding-top: 50px;"><table
+																																width="600" border="0" cellspacing="0"
+																																cellpadding="0" class="table4">
+																																<tbody>
+																																	<tr>
+																																		<td width="83"
+																																			style="background: #f8f8f8; font-size: 14px; font-weight: bold;">警报名称</td>
+																																		<td width="325"
+																																			style="background: #f8f8f8; font-size: 14px; font-weight: bold;">音响规定</td>
+																																		<td width="192"
+																																			style="background: #f8f8f8; font-size: 14px; font-weight: bold;">防护行动要点</td>
+																																	</tr>
+																																	<tr>
+																																		<td class="p12shenglan">预先警报</td>
+																																		<td class="p12shenglan">鸣36秒、停24秒，反复循环
+																																			持续180秒为一个周期。</td>
+																																		<td class="p12shenglan">十分钟左右进入人防工程隐蔽或实行紧急疏散。</td>
+																																	</tr>
+																																</tbody>
+																															</table></td>
+																													</tr>
+																													<tr>
+																														<td valign="top"
+																															style="padding-top: 15px;"><embed
+																																src="statics/images/Lyplayer.swf?path=statics/images/m1.mp3&amp;type=mp3&amp;autoplay=false&amp;backcolor=2ec0e1&amp;frontcolor=ffffff"
+																																type="application/x-shockwave-flash"
+																																width="600" height="27" quality="high"
+																																style="background: #18344c;"></td>
+																													</tr>
+																												</tbody>
+																											</table></td>
 																									</tr>
 																								</tbody>
-																							</table></td>
+																							</table>
+																						</td>
 																					</tr>
-																					<tr>
-																						<td align="center" valign="top"
-																							style="padding-top: 20px;">
-																							<embed
-																								src="statics/images/Lyplayer.swf?path=statics/images/m1.mp3&type=mp3&autoplay=false"
-																								type="application/x-shockwave-flash" width="500"
-																								height="27" quality="high">
-																							</embed>
 
-																							</td>
-																					</tr>
+
 																				</tbody>
 																			</table></td>
 																	</tr>
+
 																</tbody>
 															</table></td>
 													</tr>

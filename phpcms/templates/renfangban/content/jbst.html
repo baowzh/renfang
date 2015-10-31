@@ -3,7 +3,7 @@
   $style="p14hui";
   switch($catid){
      case 1489:
-         $looparr =  subcat(1435);
+         $looparr =  subcat(1489);
          $didnotloop = true;
          $imgid=1435;
          break;                                               
@@ -32,8 +32,14 @@
 										<tr>
 											<td height="100"
 												style="border-left: 1px solid #d6d6d6; border-right: 1px solid #d6d6d6; background: url(statics/images/zy_lft_mid.jpg) repeat-x bottom; padding-bottom: 15px;">
-												{loop $looparr $v} <a href="{$v[url]}" class="lftmn_cur">{$v[catname]}</a>
+												{loop $looparr $v} 
+												<?php if ($v[catid] == $catid):?>
+												   <a href="{$v[url]}" class="lftmn_cur">{$v[catname]}</a>
+												 <?php else:?>
+												  <a href="{$v[url]}" class="lft_mn">{$v[catname]}</a>
+												 <?php endif;?>	
 												{/loop}
+												
 											</td>
 										</tr>
 										<tr>
@@ -148,7 +154,7 @@
 																					height="35" /></td>
 																				<td align="left" class="p14hei"
 																					style="background: url(statics/images/zytit_bg02.jpg) repeat-x; padding-top: 9px;">
-																					{catpos($catid)}</td>
+																					{catname($catid)}</td>
 																			</tr>
 																		</table></td>
 																</tr>
@@ -238,7 +244,7 @@
 																																	<tr>
 																																		<td height="58" align="center"
 																																			style="background: url(statics/images/zy_jbst04.jpg) no-repeat; padding-left: 20px;">
-																																			{pc:content action="lists" catid="1492" order="listorder
+																																			{pc:content action="lists" catid="1493" order="listorder
 												                                                                                           	DESC" num="1"} {loop $data $v}
 																																			<a
 																																			href="{$v[url]}" class="p20heiwei">灾害警报</a>

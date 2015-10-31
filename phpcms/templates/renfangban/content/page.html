@@ -1,20 +1,37 @@
-{template "content","header_page"}
-<div id="content">
-	<div class="col-left left-nav">
-    	<h1>关于我们</h1>
-    	<ul class="content">
-        	{loop $arrchild_arr $cid}
-                <li{if $catid==$cid} class="cur"{/if}><a href="{$CATEGORYS[$cid][url]}">{$CATEGORYS[$cid][catname]}</a></li>
-			{/loop}
-        </ul>
-        <div class="bottom"></div>
-    </div>
-  <div class="col-auto">
-    	<img src="{IMG_PATH}v9/about_ad.png" width="659" height="171" />
-    	<h1 class="title">{$title}</h1>
-        <div class="content">
-        	    {$content}
-        </div>
-    </div>
- </div>
+{template "content","header"}
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tbody><tr>
+    <td height="500" align="center" valign="top" style="background:url(statics/images/nrbg.png) repeat-y center top; padding-top:7px;"><table width="993" border="0" cellspacing="0" cellpadding="0">
+      <tbody><tr>
+        <td><table width="993" border="0" cellspacing="0" cellpadding="0">
+          <tbody><tr>
+            <td width="210" height="40" align="left" class="p18huangwei" style="background:url(statics/images/zyxx_titbg.jpg) no-repeat; padding-left:10px; padding-bottom:10px;">人防<span class="p20huangwei">新闻</span> <span class="p12bai_yy">Renfang News</span></td>
+            <td style="background:url(statics/images/zyxx_titbg02.jpg) no-repeat; padding-left:45px; padding-bottom:12px;" align="left" class="p12huiwei">您当前的位置：{catpos($catid)}</td>
+          </tr>
+        </tbody></table></td>
+      </tr>
+      <tr>
+        <td align="center" style="border-left:1px solid #98c4f3; border-right:1px solid #98c4f3; padding-bottom:20px;"><table width="940" border="0" cellspacing="0" cellpadding="0">
+          <tbody><tr>
+            <td height="60" align="center" class="p18lanwei">{$title}</td>
+          </tr>
+          <tr>
+            <td height="28" align="center" class="p12bai" style="background:#3f7aa8;">{$inputtime} 　来源：{$copyfrom} 【字号 大 中 小】【<a href="javascript:void(0)" class="p12bai"><span onclick="javascript:window.print()">打印本页</span></a>】【<a>返回列表</a>】</td>
+          </tr>
+          <tr>
+            <td style="padding:15px; padding-top:35px; background:url(statics/images/bule_line.jpg) repeat-x bottom; padding-bottom:30px;" align="left" class="p14huizhengwen">　
+             <div style="width:100%;height:270px;">
+             {$content}
+             </div>
+            </td>
+           </tr>
+          
+        </tbody></table></td>
+      </tr>
+      <tr>
+        <td><img src="statics/images/zyxx_btm.jpg" width="993" height="38"></td>
+      </tr>
+    </tbody></table></td>
+  </tr>
+</tbody></table>
 {template "content","footer"}
