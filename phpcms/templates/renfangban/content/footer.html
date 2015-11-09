@@ -18,7 +18,7 @@
       <tr>
         <td valign="top" style="padding-top:20px;"><table width="950" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            {pc:link action="type_list" linktype="1"  siteid="1"  listorder="desc" num="6"  }
+            {pc:link action="type_list" linktype="1"  siteid="1"  order=" listorder asc" num="6"  }
             {loop $data $type_v1}
             <td align="center"><a href="{$type_v1['url']}" target="blank"><img src="{$type_v1['logo']}" width="143" height="47" /></a></td>
              {/loop}
@@ -29,7 +29,7 @@
       <tr>
         <td valign="top" style="padding-top:20px"><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
-                {pc:link action="type_lists" typeid="59" siteid="1"  listorder="desc" num="8"  }
+                {pc:link action="type_lists" typeid="59" siteid="1"  listorder="asc" num="5"  }
                 {loop $data $type_v}
                 <td height="34" align="center">
                 <select name="select" class="linksele" style="height:21px; width:165px; text-align:center">
@@ -69,7 +69,11 @@
           <tr>
             <td style="background:url(statics/images/btm_mnbg04.jpg) repeat-x top" height="114" align="center"><table width="514" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="75" align="left"><img src="statics/images/dzjg_icon.jpg" width="52" height="63" /></td>
+    <td width="75" align="left"><img src="statics/images/dzjg_icon.jpg" width="52" height="63" />
+     <div align="center">
+                    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256730673'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256730673%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+                  </div>
+    </td>
     <td align="left"><table width="430" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td height="21" align="left" class="p12heihui">Copyright2005-2015 All Rights Reserved 版权所有，未经授权，禁止转载</td>

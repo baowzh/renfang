@@ -98,11 +98,11 @@
 															style="border-left: 1px solid #9fcede; border-right: 1px solid #9fcede; background: url(statics/images/syzxgg_bg.jpg) no-repeat bottom;"><table
 																width="200" border="0" cellspacing="0" cellpadding="0">
 																{pc:content action="lists" catid="1450" num="5"
-																order="listorder DESC" } {loop $data $v}
+																order="inputtime DESC" } {loop $data $v}
 																<tr>
 																	<td height="30" align="left"><img
 																		src="statics/images/zxgg_icon.png" /> <a
-																		href="{$v[url]}" class="p12heihui" target="_blank">{str_cut($v[title],52)}</a></td>
+																		href="{$v[url]}" class="p12heihui" target="_blank">{str_cut($v[title],48)}</a></td>
 																</tr>
 																{/loop} {/pc}
 
@@ -136,7 +136,7 @@
 															style="border: 1px solid #9fcede; border-top: none; padding-top: 9px; padding-bottom: 10px;"><table
 																width="198" border="0" cellspacing="0" cellpadding="0">
 																{pc:content action="lists" catid="1451" num="7"
-																order="listorder DESC" } {loop $data $v}
+																order="inputtime DESC" } {loop $data $v}
 																<tr>
 																	<td height="32"
 																		style="background: url(statics/images/short_line.jpg) repeat-x bottom"
@@ -227,7 +227,7 @@
 																															where id=$v[id]" return="data1"} {loop
 																															$data1 $r} <a href="{$v[url]}"
 																															target="_blank" class="p12qianhui">
-																																{str_cut(strip_tags($r[content]),150)} </a>
+																																{str_cut(strip_tags($r[content]),120)} </a>
 																															{/loop} {/pc}
 																														</td>
 																													</tr>
@@ -240,7 +240,7 @@
 																													cellpadding="0">
 																													{pc:content action="lists" catid="1436"
 																													num="5" where="posids=0 and catid=1436"
-																													order="listorder DESC" } {loop $data $v}
+																													order="inputtime DESC" } {loop $data $v}
 																													<tr>
 																														<td align="center"><table width="348"
 																																border="0" cellspacing="0"
@@ -280,10 +280,10 @@
 																														<td class="p12qianhui"
 																															style="line-height: 20px;" align="left">
 																															{pc:get sql="select * from v9_news_data
-																															where id=$v[id]" return="data1"} {loop
+																															where id=$v[id]" num="1" return="data1"} {loop
 																															$data1 $r} <a href="{$v[url]}"
 																															class="p12qianhui" target="_blank">
-																																{str_cut(strip_tags($r[content]),150)} </a>
+																																{str_cut(strip_tags($r[content]),120)} </a>
 																															{/loop} {/pc}
 																														</td>
 																													</tr>
@@ -296,7 +296,7 @@
 																													cellpadding="0">
 																													{pc:content action="lists" catid="1437"
 																													num="5" where="posids=0 and catid=1437"
-																													order="listorder DESC" } {loop $data $v}
+																													order="inputtime DESC" } {loop $data $v}
 																													<tr>
 																														<td align="center"><table width="348"
 																																border="0" cellspacing="0"
@@ -340,7 +340,7 @@
 																															where id=$v[id]" return="data1"} {loop
 																															$data1 $r} <a href="{$v[url]}"
 																															target="_blank" class="p12qianhui">
-																																{str_cut(strip_tags($r[content]),150)} </a>
+																																{str_cut(strip_tags($r[content]),120)} </a>
 																															{/loop} {/pc}
 																														</td>
 																													</tr>
@@ -353,7 +353,7 @@
 																													cellpadding="0">
 																													{pc:content action="lists" catid="1438"
 																													num="5" where="posids=0 and catid=1438"
-																													order="listorder DESC" } {loop $data $v}
+																													order=" inputtime DESC" } {loop $data $v}
 																													<tr>
 																														<td align="center"><table width="348"
 																																border="0" cellspacing="0"
@@ -397,7 +397,7 @@
 																															$data1 $r} <a href="{$v[url]}"
 																															target="_blank" class="p12qianhui">
 
-																																{str_cut(strip_tags($r[content]),150)} </a>
+																																{str_cut(strip_tags($r[content]),120)} </a>
 																															{/loop} {/pc}
 																														</td>
 																													</tr>
@@ -409,8 +409,8 @@
 																													width="353" border="0" cellspacing="0"
 																													cellpadding="0">
 																													{pc:content action="lists" catid="1439"
-																													num="5" where="posids=0 and catid=1438"
-																													order="listorder DESC" } {loop $data $v}
+																													num="5" where="posids=0 and catid=1439"
+																													order="inputtime DESC" } {loop $data $v}
 																													<tr>
 																														<td align="center"><table width="348"
 																																border="0" cellspacing="0"
@@ -762,6 +762,8 @@
 																						style="padding-top: 5px; padding-bottom: 7px;">
 																						<table width="205" border="0" cellspacing="0"
 																							cellpadding="0">
+																							 {pc:get sql=" select ccount,name from (select count(*) ccount ,b.`name` from v9_xfile a,v9_department b where  a.department_id=b.id and EXISTS(select 1 from v9_fileaccept d where a.id=d.xfile_id)  GROUP BY b.name ) c order by ccount desc " return="data1" num="5" } 																																								  
+																			                 {loop $data1 $v}																																		
 																							<tr>
 																								<td
 																									style="background: url(statics/images/short_line.jpg) repeat-x bottom;"
@@ -769,67 +771,22 @@
 																										width="205" border="0" cellspacing="0"
 																										cellpadding="0">
 																										<tr>
-																											<td width="35" height="30">01</td>
-																											<td width="132"><a href="#"
-																												class="p12heihui">内蒙人防办公室</a></td>
-																											<td>188</td>
+																											<td width="35" height="30">
+																											 {if $n<10 }
+																											  <?php echo '0'.$n ?>
+																											 {/if}
+																											  {if $n>=10 }
+																											  <?php echo $n ?>
+																											 {/if}																											
+																											</td>
+																											<td width="132">{$v[name]}</td>
+																											<td>{$v[ccount]}</td>
 																										</tr>
 																									</table></td>
 																							</tr>
-																							<tr>
-																								<td
-																									style="background: url(statics/images/short_line.jpg) repeat-x bottom;"
-																									height="30" class="p12heihui"><table
-																										width="205" border="0" cellspacing="0"
-																										cellpadding="0">
-																										<tr>
-																											<td width="35" height="30">02</td>
-																											<td width="132"><a href="#"
-																												class="p12heihui">内蒙人防办公室</a></td>
-																											<td>188</td>
-																										</tr>
-																									</table>
-																							</tr>
-																							<tr>
-																								<td
-																									style="background: url(statics/images/short_line.jpg) repeat-x bottom;"
-																									height="30" class="p12heihui"><table
-																										width="205" border="0" cellspacing="0"
-																										cellpadding="0">
-																										<tr>
-																											<td width="35" height="30">03</td>
-																											<td width="132"><a href="#"
-																												class="p12heihui">内蒙人防办公室</a></td>
-																											<td>188</td>
-																										</tr>
-																									</table>
-																							</tr>
-																							<tr>
-																								<td
-																									style="background: url(statics/images/short_line.jpg) repeat-x bottom;"
-																									height="30" class="p12heihui"><table
-																										width="205" border="0" cellspacing="0"
-																										cellpadding="0">
-																										<tr>
-																											<td width="35" height="30">04</td>
-																											<td width="132"><a href="#"
-																												class="p12heihui">内蒙人防办公室</a></td>
-																											<td>188</td>
-																										</tr>
-																									</table>
-																							</tr>
-																							<tr>
-																								<td height="30" class="p12heihui"><table
-																										width="205" border="0" cellspacing="0"
-																										cellpadding="0">
-																										<tr>
-																											<td width="35" height="30">05</td>
-																											<td width="132"><a href="#"
-																												class="p12heihui">内蒙人防办公室</a></td>
-																											<td>188</td>
-																										</tr>
-																									</table>
-																							</tr>
+																							{/loop} {/pc}
+																							
+																							
 																						</table>
 
 																					</td>
@@ -858,7 +815,7 @@
 																						<table width="205" border="0" cellspacing="0"
 																							cellpadding="0">
 																							{pc:content action="lists" catid="1480"
-																							order="listorder DESC" num="5"} {loop $data $v}
+																							order="inputtime DESC" num="5"} {loop $data $v}
 																							<tr>
 																								<td height="32"
 																									style="background: url(statics/images/short_line.jpg) repeat-x bottom"
@@ -964,7 +921,7 @@
 																	cellspacing="0" cellpadding="0">
 																	{pc:content action="lists" catid="1477"
 																	where="catid=1477 and posids=0" num="8"
-																	order="listorder DESC" } {loop $data $v}
+																	order="inputtime DESC" } {loop $data $v}
 																	<tr>
 																		<td height="30"><table width="455" border="0"
 																				cellspacing="0" cellpadding="0">
@@ -1026,7 +983,7 @@
 																	cellspacing="0" cellpadding="0">
 																	{pc:content action="lists" catid="1478"
 																	where="catid=1478 and posids=0" num="8"
-																	order="listorder DESC" } {loop $data $v}
+																	order="inputtime DESC" } {loop $data $v}
 																	<tr>
 																		<td height="30"><table width="455" border="0"
 																				cellspacing="0" cellpadding="0">
@@ -1088,7 +1045,7 @@
 																	cellspacing="0" cellpadding="0">
 																	{pc:content action="lists" catid="1479"
 																	where="catid=1479 and posids=0" num="8"
-																	order="listorder DESC" } {loop $data $v}
+																	order="inputtime DESC" } {loop $data $v}
 																	<tr>
 																		<td height="30"><table width="455" border="0"
 																				cellspacing="0" cellpadding="0">
@@ -1150,7 +1107,7 @@
 
 																				{pc:content action="lists" catid="1469"
 																				where="catid=1469 and posids=0" num="8"
-																				order="listorder DESC" } {loop $data $v}
+																				order="inputtime DESC" } {loop $data $v}
 																				<tr>
 																					<td height="30"
 																						style="background: url(statics/images/short_line.jpg) repeat-x bottom"
@@ -1179,7 +1136,7 @@
 																				cellpadding="0">
 
 																				{pc:content action="lists" catid="1487" num="8"
-																				order="listorder DESC" } {loop $data $v}
+																				order="inputtime DESC" } {loop $data $v}
 																				<tr>
 																					<td height="30"
 																						style="background: url(statics/images/short_line.jpg) repeat-x bottom"
@@ -1291,7 +1248,7 @@
 																						<table width="198" border="0" cellspacing="0"
 																							cellpadding="0">
 																							{pc:content action="lists" catid="1482"
-																							order="listorder DESC" num="7"} {loop $data $v}
+																							order="inputtime DESC" num="7"} {loop $data $v}
 																							<tr>
 																								<td height="28" align="left"><img
 																									src="statics/images/zzcx_icon.jpg" width="6"
@@ -1318,7 +1275,7 @@
 																						<table width="198" border="0" cellspacing="0"
 																							cellpadding="0">
 																							{pc:content action="lists" catid="1483"
-																							order="listorder DESC" num="7"} {loop $data $v}
+																							order="inputtime DESC" num="7"} {loop $data $v}
 																							<tr>
 																								<td height="28" align="left"><img
 																									src="statics/images/zzcx_icon.jpg" width="6"
@@ -1435,7 +1392,7 @@
 																										style="padding-left: 10px; line-height: 22px;"><span
 																										class="p12heihui">摘要：</span> <a
 																										href="{$v[url]}" target="_blank"
-																										style="COLOR: #525252; TEXT-DECORATION: none;">{str_cut(strip_tags($r[content]),150)}</a>
+																										style="COLOR: #525252; TEXT-DECORATION: none;">{str_cut(strip_tags($r[content]),100)}</a>
 																										<a href="{$v[url]}" target="_blank"
 																										class="p12hongse">【详细】</a></td>
 																								</tr>
@@ -1449,7 +1406,7 @@
 																					width="470" border="0" cellspacing="0"
 																					cellpadding="0">
 																					{pc:content action="lists" catid="1471" num="5"
-																					order="listorder DESC" } {loop $data $v}
+																					order="inputtime DESC" } {loop $data $v}
 																					<tr>
 																						<td><table width="470" border="0"
 																								cellspacing="0" cellpadding="0">
@@ -1517,7 +1474,7 @@
 																										style="padding-left: 10px; line-height: 22px;"><span
 																										class="p12heihui">摘要：</span> <a
 																										href="{$v[url]}" target="_blank"
-																										style="COLOR: #525252; TEXT-DECORATION: none;">{str_cut(strip_tags($r[content]),150)}</a>
+																										style="COLOR: #525252; TEXT-DECORATION: none;">{str_cut(strip_tags($r[content]),100)}</a>
 																										<a href="{$v[url]}" target="_blank"
 																										class="p12hongse">【详细】</a></td>
 																								</tr>
@@ -1531,7 +1488,7 @@
 																					width="470" border="0" cellspacing="0"
 																					cellpadding="0">
 																					{pc:content action="lists" catid="1472" num="5"
-																					order="listorder DESC" } {loop $data $v}
+																					order="inputtime DESC" } {loop $data $v}
 																					<tr>
 																						<td><table width="470" border="0"
 																								cellspacing="0" cellpadding="0">
@@ -1598,7 +1555,7 @@
 																										style="padding-left: 10px; line-height: 22px;"><span
 																										class="p12heihui">摘要：</span><a
 																										href="{$v[url]}" target="_blank"
-																										style="COLOR: #525252; TEXT-DECORATION: none;">{str_cut(strip_tags($r[content]),150)}</a>
+																										style="COLOR: #525252; TEXT-DECORATION: none;">{str_cut(strip_tags($r[content]),100)}</a>
 																										<a href="{$v[url]}" target="_blank"
 																										class="p12hongse">【详细】</a></td>
 																								</tr>
@@ -1612,7 +1569,7 @@
 																					width="470" border="0" cellspacing="0"
 																					cellpadding="0">
 																					{pc:content action="lists" catid="1473" num="5"
-																					order="listorder DESC" } {loop $data $v}
+																					order="inputtime DESC" } {loop $data $v}
 																					<tr>
 																						<td><table width="470" border="0"
 																								cellspacing="0" cellpadding="0">
@@ -1679,7 +1636,7 @@
 																										style="padding-left: 10px; line-height: 22px;"><span
 																										class="p12heihui">摘要：</span><a
 																										href="{$v[url]}" target="_blank"
-																										style="COLOR: #525252; TEXT-DECORATION: none;">{str_cut(strip_tags($r[content]),150)}</a>
+																										style="COLOR: #525252; TEXT-DECORATION: none;">{str_cut(strip_tags($r[content]),100)}</a>
 																										<a href="{$v[url]}" target="_blank"
 																										class="p12hongse">【详细】</a></td>
 																								</tr>
@@ -1693,7 +1650,7 @@
 																					width="470" border="0" cellspacing="0"
 																					cellpadding="0">
 																					{pc:content action="lists" catid="1474" num="5"
-																					order="listorder DESC" } {loop $data $v}
+																					order="inputtime DESC" } {loop $data $v}
 																					<tr>
 																						<td><table width="470" border="0"
 																								cellspacing="0" cellpadding="0">
@@ -1760,7 +1717,7 @@
 																										style="padding-left: 10px; line-height: 22px;"><span
 																										class="p12heihui">摘要：</span><a
 																										href="{$v[url]}" target="_blank"
-																										style="COLOR: #525252; TEXT-DECORATION: none;">{str_cut(strip_tags($r[content]),150)}</a>
+																										style="COLOR: #525252; TEXT-DECORATION: none;">{str_cut(strip_tags($r[content]),100)}</a>
 																										<a href="{$v[url]}" target="_blank"
 																										class="p12hongse">【详细】</a></td>
 																								</tr>
@@ -1774,7 +1731,7 @@
 																					width="470" border="0" cellspacing="0"
 																					cellpadding="0">
 																					{pc:content action="lists" catid="1475" num="5"
-																					order="listorder DESC" } {loop $data $v}
+																					order="inputtime DESC" } {loop $data $v}
 																					<tr>
 																						<td><table width="470" border="0"
 																								cellspacing="0" cellpadding="0">
@@ -1895,7 +1852,7 @@
 																			width="235" border="0" cellspacing="0"
 																			cellpadding="0">
 																			{pc:content action="lists" catid="1486"
-																			order="listorder DESC" num="3"} {loop $data $v}
+																			order="inputtime DESC" num="3"} {loop $data $v}
 																			<tr>
 																				<td height="30" align="left"><img
 																					src="statics/images/dmyx_icon.jpg" width="16"
@@ -2212,7 +2169,7 @@
 																			width="206" border="0" cellspacing="0"
 																			cellpadding="0">
 																			{pc:content action="lists" catid="1458"
-																			order="listorder DESC" num="6"} {loop $data $v}
+																			order="inputtime DESC" num="6"} {loop $data $v}
 																			<tr>
 																				<td height="30"
 																					style="background: url(statics/images/short_line.jpg) repeat-x bottom"
@@ -2575,7 +2532,7 @@
 														cellpadding="0">
 														<tr>
 															{pc:content action="lists" catid="1457" thumb="1"
-															order="id DESC" num="10"} {loop $data $v}
+															order="inputtime DESC" num="10"} {loop $data $v}
 															<td align="center" width="174" style="padding: 2px 5px;">
 																<table width="163" border="0" cellspacing="0"
 																	cellpadding="0">

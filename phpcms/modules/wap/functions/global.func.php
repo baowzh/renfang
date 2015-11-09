@@ -32,7 +32,7 @@ function show_url($catid, $id, $typeid='') {
 			}
 		}
 	}
-    return WAP_SITEURL."&amp;a=show&amp;catid=$catid&amp;typeid=$typeid&amp;id=$id";
+  return WAP_SITEURL."&amp;a=show&amp;catid=$catid&amp;typeid=$typeid&amp;id=$id";
 }
 
 
@@ -47,9 +47,10 @@ function wap_pos($typeid, $symbol=' > '){
 	$type_arr = getcache('wap_type','wap');
 	if(!isset($type_arr[$typeid])) return '';
 	$pos = '';
+	/*
 	if($type_arr[$typeid]['parentid']!=0) {
 		$pos = '<a href="'.list_url($type_arr[$typeid]['parentid']).'">'.$type_arr[$type_arr[$typeid]['parentid']]['typename'].'</a>'.$symbol;
-	}
+	}*/
 	$pos .= '<a href="'.list_url($typeid).'">'.$type_arr[$typeid]['typename'].'</a>'.$symbol;
 	return $pos;
 }
@@ -77,7 +78,7 @@ function subtype($parentid = NULL, $siteid = '') {
  * @param $array 需要传递的数组，用于增加额外的方法
  * @return 分页
  */
-function wpa_pages($num, $curr_page, $perpage = 20, $urlrule = '', $array = array(),$setpages = 10) {
+function wpa_pages($num, $curr_page, $perpage = 20, $urlrule = '', $array = array(),$setpages = 5) {
 	if(defined('URLRULE')) {
 		$urlrule = URLRULE;
 		$array = $GLOBALS['URL_ARRAY'];
@@ -106,16 +107,18 @@ function wpa_pages($num, $curr_page, $perpage = 20, $urlrule = '', $array = arra
 			}
 			$more = 1;
 		} 
-		$multipage .= $curr_page.'/'.$pages;
+		//$multipage .= $curr_page.'/'.$pages;
+		$multipage .= ' <a href="'.pageurl($urlrule, 1, $array).'">'.L('first').'</a>';
 		if($curr_page>0) {
 			$multipage .= ' <a href="'.pageurl($urlrule, $curr_page-1, $array).'">'.L('previous').'</a>';
 		}
+		$multipage .= ' <a href="'.pageurl($urlrule, $curr_page, $array).'" style="background-color:#07b4ff;color:#FFF;">'.$curr_page.'</a>';
 		if($curr_page==$pages) {
 			$multipage .= ' <a href="'.pageurl($urlrule, $curr_page, $array).'">'.L('next').'</a>';
 		} else {
 			$multipage .= ' <a href="'.pageurl($urlrule, $curr_page+1, $array).'">'.L('next').'</a>';
 		}
-		
+		$multipage .= ' <a href="'.pageurl($urlrule, $pages, $array).'">'.L('last').'</a>';
 	}
 	return $multipage;
 }
@@ -171,8 +174,8 @@ function strip_selected_tags($text) {
 
 function content_pages($num, $curr_page,$pageurls,$showremain = 1) {
 	$multipage = '';
-	$page = 11;
-	$offset = 4;
+	$page = 5;
+	$offset = 2;
 	$pages = $num;
 	$from = $curr_page - $offset;
 	$to = $curr_page + $offset;

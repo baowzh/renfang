@@ -1,29 +1,85 @@
-{template "wap","min_header"}
-<div class="wrap" id="hd">
- <div class="adds">{wap_pos($typeid)}</div>
-<h1>{$title}</h1>
-<div class="tm">作者：{$username}&nbsp;&nbsp;日期：{date('m-d',strtotime($inputtime))}<br/>来源：{$copyfrom}</div>
-<div class="content">
-{if $pictureurl}{$pictureurl}<br>{$pages}{/if}
-{$content}
-</div>
-{if !$pictureurl}<div class="pages">{$pages}</div>{/if}
-{php $commentid=id_encode('content_'.$catid,$id,$siteid)}
-{pc:comment action="get_comment" commentid="$commentid"}
-{php $comment = $data;}
-{/pc}
-<div class="mg_b6"><a href="{APP_PATH}index.php?m=wap&amp;c=index&amp;a=comment_list&amp;commentid={$commentid}&amp;typeid={$typeid}">网友评论({if $comment[total]}{$comment[total]}{else}0{/if})</a></div>
-<form action="{APP_PATH}index.php?m=wap&amp;c=index&amp;a=comment" method="post">
-<div class="comment">
-<textarea name="msg" rows="2"></textarea>
-<input type="hidden" name="commentid" value="{id_encode('content_'.$catid,$id,$siteid)}" />
-<input type="hidden" name="typeid" value="{$typeid}" />
-<input type="hidden" name="catid" value="{$catid}" />
-<input type="hidden" name="id" value="{$id}" />
-<input type="hidden" name="title" value="{urlencode(($comment[title] ? $comment[title] : $title))}">
-<input type="hidden" name="url" value="{urlencode(show_url($catid,$typeid,$id))}">
-<br/>
-<input type="submit" value="发言" name="dosumbit" class="ipt"/> 
-</div>
-</form>	
-{template "wap","min_footer"}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>内蒙古人防</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="statics/wap/css/css.css" rel="stylesheet">
+<link href="statics/wap/css/component.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="statics/wap/js/jquery.js"></script>
+<script type="text/javascript" src="statics/wap/js/modernizr.custom.js"></script>
+<script type="text/javascript" src="statics/wap/js/jquery.dlmenu.js"></script>
+</head>
+
+<body class="bg">
+
+	<div class="top">
+		<div class="left">
+		
+			<a href="index.php?m=wap&a=init"><img src="statics/wap/images/back.png"></a>
+		</div>
+		<div class="center">{wap_pos($typeid,'')}</div>
+		<div class="right">
+			<header class="header">
+				<div id="dl-menu" class="dl-menuwrapper">
+					<button id="dl-menu-button">Open Menu</button>
+					<ul class="dl-menu">
+						<li><a href="{list_url('13')}">工作动态</a>
+						<li><a href="{list_url('12')}">旗县快讯</a>
+						<li><a href="{list_url('11')}">图片传真</a>
+						<li><a href="{list_url('19')}">人民防空</a>
+						<li><a href="{list_url('18')}">化学救援</a>
+						<li><a href="{list_url('17')}">兵器档案</a>
+						<li><a href="{list_url('16')}">空袭案例</a>
+						<li><a href="{list_url('15')}">防灾常识</a>
+						<li><a href="{list_url('20')}">政策法规</a></li>
+					</ul>
+				</div>
+			</header>
+		</div>
+		<div class="clearfloat"></div>
+	</div>
+	<div class="news_content">
+<!-- 	{if $thumb!=null} -->
+<!-- 		<p class="npic"> -->
+<!-- 			<img src="{$thumb}"> -->
+<!-- 		</p> -->
+<!-- 	{/if} -->
+		<h1>{$title}</h1>
+		<h3>内蒙古人防网   {date('m-d',strtotime($inputtime))}</h3>
+		 <div>
+			{$content}
+			</div>
+		
+	</div>
+	<div class="foot_txt">
+		<ul>
+			<li><a href="index.php?m=wap&a=init"><img
+					src="statics/wap/images/home.png" style="margin-bottom: 8px;">
+					<p>首页</p></a></li>
+			<li><a href="{list_url('10')}"> <img
+					src="statics/wap/images/news.png" style="margin-bottom: 3px;">
+					<p>新闻动态</p></a></li>
+			<li><a href="{list_url('14')}"><img
+					src="statics/wap/images/changshi.png" style="margin-bottom: 8px;">
+					<p>防空常识</p></a></li>
+			<li><a href="{list_url('20')}"><img
+					src="statics/wap/images/more2.png" style="margin-bottom: 10px;">
+					<p>更多</p></a></li>
+			<li><a href="#" id="dl-menu1"><img src="statics/wap/images/top.png" style="margin-bottom:5px;"><p>回到顶部</p></a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+$(function(){
+	$( '#dl-menu' ).dlmenu();
+	$( '#dl-menu1' ).dlmenu();
+});
+</script>
+</body>
+</html>

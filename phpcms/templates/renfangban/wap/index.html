@@ -1,25 +1,102 @@
-{template "wap","header"}
-<h2><a href="#" class="cat">焦点推荐</a>&nbsp;<span style="color:#999; font-size:12px; font-weight:100;">{date('Y-m-d',SYS_TIME)}</span></h2>
-<div>
-{pc:wap  action="position" posid="12" order="listorder DESC" num="6"}
- {loop $data $r}
-	<a href="{$r[url]}">{str_cut($r['title'],26,'')}</a><br/>
-   {/loop}  
- {/pc} 
-</div>
-<div class="ad1"><a href="#"><img src="{IMG_PATH}wap/ad220x26.gif" alt="phpcms手机网建站利器" width="220" height="26" /></a></div>
-{loop subtype(0) $s}
-	{php $typeid=$s[typeid]}
-	{pc:wap action="lists" typeid="$typeid" num="10" order="id DESC" return="info"}
-		<h2><a href="{list_url($typeid)}" class="cat">{$s['typename']}</a>
-		 {loop subtype($typeid) $_s}<a href="{list_url($_s[typeid])}">{$_s[typename]}</a>{/loop}
-		</h2>
-		<div>
-		{loop $info $i}
-			<a href="{show_url($i[catid],$i[id])}">{str_cut($i['title'],26,'')}</a><br/>
-		{/loop}
-		</div>
-	{/pc}
-{/loop}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>内蒙古人防</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="statics/wap/css/css.css" rel="stylesheet">
+</head>
 
-{template "wap","footer"}
+<body class="bg">
+
+	<div class="top">
+		<div class="left">
+			<a href="index.php?m=wap&a=init"><img
+				src="statics/wap/images/back.png"></a>
+		</div>
+		<div class="center">内蒙古人防网</div>
+		<div class="right">
+			<a href="#"><img src="statics/wap/images/more.png"></a>
+		</div>
+		<div class="clearfloat"></div>
+	</div>
+	<div class="banner">
+		<img src="statics/wap/images/banner.jpg">
+	</div>
+	<div class="sous">
+		<div class="sleft">
+			<img src="statics/wap/images/sskleft.png">
+		</div>
+		<form name="search" method="post" id="search"
+			action="{APP_PATH}/index.php?m=wap&c=index&a=search">
+			<div class="scenter">
+				<div class="ssimg">
+					<img src="statics/wap/images/sous.png"
+						onclick="javascript:searchcon();">
+				</div>
+				<input type="text" name="title" value="请输入要搜索的内容"
+					onfocus="if(this.value == '请输入要搜索的内容'){ this.value = '';}"
+					onblur="if (this.value == '') {this.value = '请输入要搜索的内容';}">
+				<input type="hidden" name="typeid"
+											value="58" id="typeid" /> <input type="hidden" name="siteid"
+											value="1" id="siteid" />
+		
+			</div>
+		</form>
+		<div class="sright">
+			<img src="statics/wap/images/sskright.png">
+		</div>
+	</div>
+	<div class="content">
+		<div class="ctit"></div>
+		<ul>
+			<li><a href="{list_url('13')}"><img
+					src="statics/wap/images/1.jpg"></a>
+				<p>工作动态</p></li>
+			<li><a href="{list_url('12')}"><img
+					src="statics/wap/images/2.jpg"></a>
+				<p>旗县快讯</p></li>
+			<li><a href="{list_url('11')}"><img
+					src="statics/wap/images/3.jpg"></a>
+				<p>图片传真</p></li>
+			<li><a href="{list_url('19')}"><img
+					src="statics/wap/images/4.jpg"></a>
+				<p>人民防空</p></li>
+			<li><a href="{list_url('18')}"><img
+					src="statics/wap/images/5.jpg"></a>
+				<p>化学救援</p></li>
+			<li><a href="{list_url('17')}"><img
+					src="statics/wap/images/6.jpg"></a>
+				<p>兵器档案</p></li>
+			<li><a href="{list_url('16')}"><img
+					src="statics/wap/images/7.jpg"></a>
+				<p>空袭案例</p></li>
+			<li><a href="{list_url('15')}"><img
+					src="statics/wap/images/8.jpg"></a>
+				<p>防灾常识</p></li>
+			<li><a href="{list_url('20')}"><img
+					src="statics/wap/images/9.jpg"></a>
+				<p>政策法规</p></li>
+		</ul>
+		<div class="clearfloat"></div>
+	</div>
+	<div class="footbox">
+
+		<div class="foot">
+			<a href="#">触屏版</a> <a href="#">返回顶部↑</a>
+		</div>
+
+		<div class="footer">Copyright©2015 内蒙古自治区人民防空办公室</div>
+	</div>
+</body>
+<script type="text/javascript">
+	 function searchcon() {
+		//alert(1);
+		document.getElementById('search').submit();
+	}
+</script>
+</html>

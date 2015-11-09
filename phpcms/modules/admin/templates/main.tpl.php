@@ -90,7 +90,7 @@ function addtext(data) {
 </div>
 <div class="bk10"></div>
 <div class="col-2 lf mr10" style="width:48%">
-	<h6><?php echo L('main_product_team')?></h6>
+	<!-- <h6><?php echo L('main_product_team')?></h6>
 	<div class="content">
 	<?php echo L('main_copyright')?><?php echo $product_copyright?><br />
 	<?php echo L('main_product_planning')?><?php echo $architecture?><br />
@@ -99,6 +99,7 @@ function addtext(data) {
 	<?php echo L('main_product_site')?><a href="http://www.phpcms.cn/" target="_blank">http://www.phpcms.cn/</a> <br />
 	<?php echo L('main_product_bbs')?><a href="http://bbs.phpcms.cn/" target="_blank">http://bbs.phpcms.cn/</a> 
 	</div>
+	 -->
 </div>
 
 <div class="col-2 col-auto">

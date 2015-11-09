@@ -25,8 +25,7 @@ class index extends admin {
 	}
 	
 	public function login() {
-		if(isset($_GET['dosubmit'])) {
-			
+		if(isset($_GET['dosubmit'])||$_POST['dosubmit']) {
 			//不为口令卡验证
 			if (!isset($_GET['card'])) {
 				$username = isset($_POST['username']) ? trim($_POST['username']) : showmessage(L('nameerror'),HTTP_REFERER);
@@ -40,8 +39,8 @@ class index extends admin {
 				}
 				$username = $_SESSION['card_username'] ? $_SESSION['card_username'] :  showmessage(L('nameerror'),HTTP_REFERER);
 			}
-			
 			//密码错误剩余重试次数
+			
 			$this->times_db = pc_base::load_model('times_model');
 			$rtime = $this->times_db->get_one(array('username'=>$username,'isadmin'=>1));
 			$maxloginfailedtimes = getcache('common','commons');
@@ -67,9 +66,10 @@ class index extends admin {
 				}
 				showmessage(L('password_error',array('times'=>$times)),'?m=admin&c=index&a=login',3000);
 			}
-			$this->times_db->delete(array('username'=>$username));
 			
+			$this->times_db->delete(array('username'=>$username));
 			//查看是否使用口令卡
+			
 			if (!isset($_GET['card']) && $r['card'] && pc_base::load_config('system', 'safe_card') == 1) {
 				$_SESSION['card_username'] = $username;
 				$_SESSION['card_password'] = $_POST['password'];
@@ -80,6 +80,7 @@ class index extends admin {
 				isset($_SESSION['card_password']) ? $_SESSION['card_password'] = '' : '';
 				isset($_SESSION['card_password']) ? $_SESSION['card_verif'] = '' : '';
 			}
+			
 			
 			$this->db->update(array('lastloginip'=>ip(),'lastlogintime'=>SYS_TIME),array('userid'=>$r['userid']));
 			$_SESSION['userid'] = $r['userid'];
@@ -96,11 +97,11 @@ class index extends admin {
 			param::set_cookie('sys_lang', $r['lang'],$cookie_time);
 			showmessage(L('login_success'),'?m=admin&c=index');
 			//同步登陆vms,先检查是否启用了vms
-			$video_setting = getcache('video', 'video');
+			/*$video_setting = getcache('video', 'video');
 			if ($video_setting['sn'] && $video_setting['skey']) {
 				$vmsapi = pc_base::load_app_class('ku6api', 'video');
 				$vmsapi->member_login_vms();
-			}
+			}*/
 		} else {
 			pc_base::load_sys_class('form', '', 0);
 			include $this->admin_tpl('login');
