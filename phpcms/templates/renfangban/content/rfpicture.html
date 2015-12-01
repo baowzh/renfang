@@ -19,80 +19,12 @@
       $finalid = $pararr[3];
       $imgid = $pararr[1];
    }         
-?>
-
-<?php 
-  $didnotloop = false;
-  $style="p14hui";
-  switch($catid){
-     case 1164:
-         $looparr = array($CATEGORYS[1164]);
-         break;
-     case 1202:
-         $looparr = array($CATEGORYS[1202]);         
-         break;
-     case 1201:
-         $looparr = array($CATEGORYS[1201]);   
-         break;    
-     case 1211:
-         $looparr = array($CATEGORYS[1211]);   
-         break;           
-     case 1165:
-         //$looparr = array($CATEGORYS[1386],$CATEGORYS[1375],$CATEGORYS[1387]);
-         //$didnotloop = true;
-         break; 
-     //专题专栏    
-     case 1209:
-         $looparr = array($CATEGORYS[1395],$CATEGORYS[1328],$CATEGORYS[1329],$CATEGORYS[1330],$CATEGORYS[1331],$CATEGORYS[1332]);
-         $didnotloop = true;
-         $style="p12hei02";
-         break; 
-     case 1216:
-         $looparr =  subcat(1216);
-         $didnotloop = true;
-         $imgid=1216;
-         break;   
-     case 1217:
-         $looparr =  subcat(1217);
-         $didnotloop = true;
-         $imgid=1217;
-         break;    
-     case 1218:
-         $looparr =  subcat(1218);
-         $didnotloop = true;
-         $imgid=1218;
-         break;   
-     case 1219:
-         $looparr =  subcat(1219);
-         $didnotloop = true;
-         $imgid=1219;
-         break;                                               
-     default:
-         $looparr= null;
-  }
-
-  switch($imgid){
-     case 1209:
-         $looparr = array($CATEGORYS[1239],$CATEGORYS[1328],$CATEGORYS[1329],$CATEGORYS[1330],$CATEGORYS[1331],$CATEGORYS[1332]);
-         $didnotloop = true;
-         $style="p12hei02";
-         break;
-     case 1161:
-         $looparr = array($CATEGORYS[1284],$CATEGORYS[1382],$CATEGORYS[1383],$CATEGORYS[1384],$CATEGORYS[1300],$CATEGORYS[1428]);
-         $didnotloop = true;
-         $style="p14hui";
-         break;     
-     case 1355:
-         $style="p12hei02";
-         break;  
-     case 1214:
-         $style="p14hui";
-         break;      
-  }
-  if( ($parentid == 1216)  ) $imgid = $parentid;
-  if( ($parentid == 1217)  ) $imgid = $parentid;
-  if( ($parentid == 1218)  ) $imgid = $parentid;
-  if( ($parentid == 1219)  ) $imgid = $parentid;
+   $childs=subcat($catid);
+    if(count($childs)>1)
+  {
+    $cats = array_shift($childs);
+    $catid= $cats['catid'];
+   }
 ?>
 <table width="100%" border="0" cellspacing="0" cellpadding="0"
 	align="center">
@@ -256,7 +188,7 @@
 																		<td valign="top"
 																			style="padding-top: 10px; padding-left: 8px;">
 																			{pc:content action="lists" catid="$catid" num="9"
-																			order="is_top desc , id desc " page="$page"} {loop
+																			order=" inputtime desc " page="$page"} {loop
 																			$data $v}
 
 																			<div

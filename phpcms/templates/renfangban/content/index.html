@@ -1,8 +1,13 @@
 {template "content","header"}
+<style type="text/css">
+  .GonggaoMarquee{width:200px;height:171px;overflow:hidden;}
+</style>
+
 <link href="statics/css/jquery-ui.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript"
 	src="statics/js/jquery-ui-1.10.3.custom.min.js"></script>
 <script type="text/javascript" src="statics/js/index.js"></script>
+<script type="text/javascript" src="statics/js/jquery.sgallery.js"></script>
 <script type="text/javascript">
 	var tablink_idname = new Array("tablink", "anotherlink")
 	var tabcontent_idname = new Array("tabcontent", "anothercontent")
@@ -95,18 +100,25 @@
 													</tr>
 													<tr>
 														<td height="171" align="center"
-															style="border-left: 1px solid #9fcede; border-right: 1px solid #9fcede; background: url(statics/images/syzxgg_bg.jpg) no-repeat bottom;"><table
+															style="border-left: 1px solid #9fcede; border-right: 1px solid #9fcede; background: url(statics/images/syzxgg_bg.jpg) no-repeat bottom;">
+															<div style="height:171px;overflow:hidden;width:200px;" id="GonggaoMarquee" class="GonggaoMarquee">
+															<table
 																width="200" border="0" cellspacing="0" cellpadding="0">
-																{pc:content action="lists" catid="1450" num="5"
-																order="inputtime DESC" } {loop $data $v}
+																{pc:content action="lists" catid="1450" num="18"
+																order="inputtime DESC" } 
+																{loop $data $v}
 																<tr>
 																	<td height="30" align="left"><img
 																		src="statics/images/zxgg_icon.png" /> <a
 																		href="{$v[url]}" class="p12heihui" target="_blank">{str_cut($v[title],48)}</a></td>
 																</tr>
-																{/loop} {/pc}
+																{/loop} 
+																{/pc}
 
-															</table></td>
+															</table>
+															</div>
+															</td>
+														
 													</tr>
 													<tr>
 														<td><img src="statics/images/syzxgg_btm.jpg"
@@ -295,7 +307,7 @@
 																													width="353" border="0" cellspacing="0"
 																													cellpadding="0">
 																													{pc:content action="lists" catid="1437"
-																													num="5" where="posids=0 and catid=1437"
+																													num="5" where="  catid=1437"
 																													order="inputtime DESC" } {loop $data $v}
 																													<tr>
 																														<td align="center"><table width="348"
@@ -448,8 +460,9 @@
 																				<td height="298">
 																					<div id="fsD1" class="focus">
 																						<div id="D1pic1" class="fPic">
-																							{pc:content action="lists" catid="1452" num="5"
-																							order="listorder DESC" } {loop $data $v}
+																							{pc:content action="position" posid="19"  num="6"
+																							order="listorder DESC" } 
+																							{loop $data $v}
 																							<div class="fcon" style="display: none;">
 																								<a target="_blank" href="{$v[url]}"
 																									target="_blank"> <img src="{$v[thumb]}"
@@ -469,6 +482,10 @@
 																									target="_self" class="current" target="_blank"><i>3</i></a>
 																								<a href="javascript:void(0)" hidefocus="true"
 																									target="_self" class="" target="_blank"><i>4</i></a>
+																								<a href="javascript:void(0)" hidefocus="true"
+																									target="_self" class="" target="_blank"><i>5</i></a>
+																								<a href="javascript:void(0)" hidefocus="true"
+																									target="_self" class="" target="_blank"><i>6</i></a>
 																							</div>
 																						</div>
 																				</td>
@@ -637,8 +654,28 @@
 						</table></td>
 				</tr>
 				<tr>
-					<td height="140px" valign="bottom"><img
-						src="statics/images/zt_adv01.jpg" width="1000" height="130" /></td>
+					<td height="140px" valign="bottom">
+					 <div id="gallery" style="width:1000px;height:130px;">
+                      <div class="FocusPic" style="overflow:hidden;width:1000px;height:130px;">
+                                              <div class="content" id="main-slide" style="width: 1000px; height: 130px;">
+                              <div class="changeDiv"> 
+                             {pc:special action="lists" siteid="$siteid" kind="1" listorder="5"  num="20"}
+								{loop $data $r}
+                                 <a href="{$r[url]}" title="{str_cut($r[title],52)}" target="_blank" >
+                                 <img src="{$r[thumb]}" alt="{str_cut($r[title],52)}"  border="0" style="width: 1000px; height: 130px;"></a>
+                                {/loop} 
+							 {/pc}             
+                               </div>
+                                                  
+                          </div>                       
+                    </div>   
+                </div>
+					<!--  
+					<a href="http://61.138.98.201/index.php?m=special&c=index&id=1&pc_hash=k0NURd">
+					<img
+						src="statics/images/zt_adv01.jpg" width="1000" height="130" /></a>
+					-->
+					</td>
 				</tr>
 			</table></td>
 	</tr>
@@ -663,7 +700,7 @@
 										cellspacing="0" cellpadding="0">
 										<tr>
 											<td>
-												<form action="http://61.138.98.201/renfangbaosong"
+												<form action="http://61.138.98.201/renfangbaosong/index.php?cmd=login"
 													method="post" id="xxbs">
 													<table width="218" border="0" cellspacing="0"
 														cellpadding="0">
@@ -863,12 +900,12 @@
 																	class="jcck_list"
 																	onclick="javascript:openpage('{$CATEGORYS[1478][url]}')"
 																	onmouseover="javascript:switchclass1('cur_jcck','jcck_list','jcck_tab',this);"
-																	style="cursor: pointer;">专家观点</a></li>
+																	style="cursor: pointer;">专家视角</a></li>
 																<li><a href="#tabs-33" id="link-33"
 																	class="jcck_list"
 																	onclick="javascript:openpage('{$CATEGORYS[1479][url]}')"
 																	onmouseover="javascript:switchclass1('cur_jcck','jcck_list','jcck_tab',this);"
-																	style="cursor: pointer;">大众视点</a></li>
+																	style="cursor: pointer;">大众观点</a></li>
 															</ul>
 														</td>
 														<td width="6" align="right"><img
@@ -900,7 +937,7 @@
 																				id=$v[id]" return="data1"} {loop $data1 $r}
 																				<tr>
 																					<td width="380" height="30" align="left"><a
-																						href="{$v[url]}" target="_blank" class="p12heihui">
+																						href="{$v[url]}" target="_blank" class="p12qianhui" style="line-height: 22px;">
 																							{str_cut(strip_tags($r[content]),150)}</a></td>
 																					<td width="80"><a href="{$v[url]}"
 																						target="_blank" class="p12hongse">【查看更多】</a></td>
@@ -962,7 +999,7 @@
 																				id=$v[id]" return="data1"} {loop $data1 $r}
 																				<tr>
 																					<td width="380" height="30" align="left"><a
-																						href="{$v[url]}" target="_blank" class="p12heihui">
+																						href="{$v[url]}" target="_blank" class="p12qianhui" style="line-height: 22px;">
 																							{str_cut(strip_tags($r[content]),150)}</a></td>
 																					<td width="80"><a href="{$v[url]}"
 																						class="p12hongse" target="_blank">【查看更多】</a></td>
@@ -1024,7 +1061,7 @@
 																				id=$v[id]" return="data1"} {loop $data1 $r}
 																				<tr>
 																					<td width="380" height="30" align="left"><a
-																						href="{$v[url]}" target="_blank" class="p12heihui">
+																						href="{$v[url]}" target="_blank" class="p12qianhui" style="line-height: 22px;">
 																							{str_cut(strip_tags($r[content]),150)}</a></td>
 																					<td width="80"><a href="{$v[url]}"
 																						target="_blank" class="p12hongse">【查看更多】</a></td>
@@ -2320,7 +2357,7 @@
 																									style="padding-top: 15px;">
 																									<table width="465" border="0" cellspacing="0"
 																										cellpadding="0">
-																										{pc:get sql="select a.*, CASE when a.infotyp=1
+																										{pc:get sql="select a.*,DATE_FORMAT(a.answertime,'%Y-%m-%d') as answertime1, CASE when a.infotyp=1
 																										then '主任信箱' when a.infotyp=2 then '监督投诉' when
 																										a.infotyp=3 then '在线办事' when a.infotyp=4 then
 																										'业务咨询' else '公众留言' END as aa from
@@ -2345,7 +2382,7 @@
 																															class="p12heihui" target="_blank">{str_cut($v[title],48)}</a>
 
 																														</td>
-																														<td width="85" class="p12qianlan">{date('Y-m-d',$v[datetime])}</td>
+																														<td width="85" class="p12qianlan">{$v[answertime1]}</td>
 																													</tr>
 																												</table></td>
 																										</tr>
@@ -2507,8 +2544,28 @@
 												</table></td>
 										</tr>
 										<tr>
-											<td valign="top" style="padding-top: 9px;"><img
-												src="statics/images/zt_adv02.jpg" width="774" height="100" /></td>
+											<td valign="top" style="padding-top: 9px;">
+											
+											 <div id="gallery" style="width:774px;height:100px;">
+                      <div class="FocusPic" style="overflow:hidden;width:774px;height:100px;">
+                                              <div class="content" id="main-slide1" style="width: 774px; height: 100px;">
+                              <div class="changeDiv"> 
+                             {pc:special action="lists" siteid="$siteid" kind="2" listorder="5"  num="20"}
+								{loop $data $r}
+                                 <a href="{$r[url]}" title="{str_cut($r[title],52)}" target="_blank" >
+                                 <img src="{$r[thumb]}" alt="{str_cut($r[title],52)}"  border="0" style="width: 774px; height: 100px;"></a>
+                                {/loop} 
+							 {/pc}             
+                               </div>
+                                                  
+                          </div>                       
+                    </div>   
+                </div>
+											<!--  
+											<img
+												src="statics/images/zt_adv02.jpg" width="774" height="100" />
+											-->
+											</td>
 										</tr>
 									</table></td>
 							</tr>
@@ -2610,5 +2667,25 @@
 		obj : 'MyMarqueeX2',
 		movePause : true
 	});
+	function AutoScroll(obj) {
+		$(obj).find("table:first").animate({
+			marginTop : "-20px"
+		}, 500, function() {
+			$(this).css({
+				marginTop : "0px"
+			}).find("tr:first").appendTo(this);
+		});
+	}
+	$(document).ready(function() {
+		setInterval('AutoScroll("#GonggaoMarquee")', 2000);
+	});
+	$(function(){
+		   new slide("#main-slide","cur",1000,130,1);//焦点图
+		}) ;
+	$(function(){
+		   new slide("#main-slide1","cur",774,100,1);//焦点图
+		}) ;
+	
+
 </script>
 

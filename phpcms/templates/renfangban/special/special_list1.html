@@ -1,30 +1,4 @@
-<?php
-   //获取父级id
-   $parents = $CATEGORYS[$catid][arrparentid];
-   $pararr = explode(",",$parents); 
-   if (count($pararr) == 1){
-      $finalid = $catid;
-      $imgid = $catid;      
-   }
-   if (count($pararr) == 2){
-      $finalid = $pararr[1];
-      $imgid = $pararr[1];
-   } 
-   if (count($pararr) == 3){
-      $finalid = $pararr[2];
-      $imgid = $pararr[1];
-   }  
-   if (count($pararr) == 4){
-      $finalid = $pararr[3];
-      $imgid = $pararr[1];
-   }     
-   $childs=subcat($catid);
-   if(count($childs)>1){
-    $cats = array_shift($childs);
-    $catid= $cats['catid'];
-   }
-?>
-
+{template 'content', 'header'}
 <table width="100%" border="0" cellspacing="0" cellpadding="0"
 	align="center">
 	<tr>
@@ -40,19 +14,17 @@
 									<table width="217" border="0" cellspacing="0" cellpadding="0">
 										<tr>
 											<td><img src="statics/images/lftmn-{$imgid}.jpg"
-												style="width: 217px; height: 55px;" /></td>
+												style="width: 217px; height: 44px;" /></td>
 										</tr>
 										<tr>
 											<td height="100"
-												style="border-left: 1px solid #d6d6d6; border-right: 1px solid #d6d6d6; background: url(statics/images/zy_lft_mid.jpg) repeat-x bottom; padding-bottom: 15px;">											
-											    {loop
-												 subcat($finalid) $v}
-												 <?php if ($v[catid] == $catid):?>
-												   <a href="{$v[url]}" class="lftmn_cur">{$v[catname]}</a>
-												 <?php else:?>
-												  <a href="{$v[url]}" class="lft_mn">{$v[catname]}</a>
-												 <?php endif;?>												 
+												style="border-left: 1px solid #d6d6d6; border-right: 1px solid #d6d6d6; background: url(statics/images/zy_lft_mid.jpg) repeat-x bottom; padding-bottom: 15px;">
+												{pc:special action="lists" siteid="$siteid" listorder="3"  num="20"}
+												{loop $data $r}
+												<a href="{$r['url']}" class="lftmn_cur">{str_cut($r['title'], 34)}</a>
 												{/loop} 
+												{/pc}
+												
 											</td>
 										</tr>
 										<tr>
@@ -138,18 +110,19 @@
 							cellpadding="0">
 							<tr>
 								<td height="38" align="left" class="p12huiwei"
-									style="background: url(statics/images/zywz_bg.jpg) no-repeat top; padding-left: 45px; padding-bottom: 8px;">您当前的位置：<a
+									style="background: url(statics/images/zywz_bg.jpg) no-repeat top; padding-left: 45px; padding-bottom: 12px;">您当前的位置：<a
 									href="index.html" class="p12huiwei">内蒙古人防</a> &gt;<span
-									class="p12lan"> {catpos($catid)}</span></td>
+									class="p12lan"> 专题</span></td>
 							</tr>
 							<tr>
-								<td height="790" align="right" valign="top"
+								<td height="630" align="right" valign="top"
 									style="background: url(statics/images/zy_midline.jpg) no-repeat left;"><table
 										width="753" border="0" cellspacing="0" cellpadding="0">
 										<tr>
 											<td height="32"
 												style="background: url(statics/images/srh_titbg.jpg) repeat-x">
-												{template "content","plugin_search"}</td>
+												{template "content","plugin_search"}
+												</td>
 										</tr>
 
 										<tr>
@@ -178,12 +151,12 @@
 															</table></td>
 													</tr>
 													<tr>
-														<td align="center" valign="top" style="padding-top: 5px;">
-															<div style="min-height:645px;">
+														<td align="center" valign="top" style="padding-top: 15px;">
+															<div style="min-height:550px;">
 																<table width="740" border="0" cellspacing="0"
 																	cellpadding="0">
-																	{pc:content action="lists" catid="$catid" num="20"
-																	order="inputtime desc " page="$page"} {loop
+																	{pc:content action="lists" catid="$catid" num="23"
+																	order=" inputtime desc " page="$page"} {loop
 																	$data $v}
 																	<tr>
 																		<td height="34" align="center"
@@ -206,8 +179,8 @@
 														</td>
 													</tr>
 													<tr>
-														<td align="center" style="padding-top: 15px;">
-															<div id="pages"  style="width: 700px;">{$pages}</div>
+														<td align="center" style="padding-top: 25px;">
+															<div id="pages" style="width: 700px;">{$pages}</div>
 														</td>
 
 													</tr>
@@ -221,3 +194,4 @@
 			</table></td>
 	</tr>
 </table>
+{template 'content', 'footer'}

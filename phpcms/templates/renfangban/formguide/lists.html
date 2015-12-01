@@ -5,6 +5,7 @@ if ($dataid > 0){
   include(template("formguide" , "show_data"));                                        
   exit();
 }
+$skiprow=($_GET['page']-1)*5;
 ?>
 <table width="100%" border="0" cellspacing="0" cellpadding="0"
 	align="center">
@@ -262,9 +263,12 @@ if ($dataid > 0){
 																														cellspacing="0" cellpadding="0">
 																														<tbody>
 																															{pc:get sql="select * from
-																																v9_form_network where (mark<>'' ) order by dataid desc"
-																																num="5" page="$page" return="data"}
+																																v9_form_network where (mark<>'' ) order by dataid desc "
+																																num="5" page="$_GET['page']" return="data"}
 																																{loop $data $v}
+																																<?php
+                                                                                                                    $dataid = $v['dataid'];
+                                                                                                                             ?>
 																															<tr>
 																																<td
 																																	style="background: url(statics/images/lyhf_line.jpg) repeat-x bottom"
@@ -276,7 +280,7 @@ if ($dataid > 0){
 																																				<td width="498" height="30"
 																																					align="left" class="p12heihuiwei"
 																																					style="padding-left: 5px;"><a
-																																					href="wsbs01.html"
+																																					href="{APP_PATH}/index.php?m=formguide&c=index&a=show&formid=15&siteid=1&infotype={$v[infotyp]}&showdata={$dataid}"
 																																					class="p12heihuiwei">{$v[title]}</a></td>
 																																				<td width="151" align="center"
 																																					class="p12heiwei">{date('Y-m-d h:m:s',$v[datetime])}</td>

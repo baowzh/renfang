@@ -43,8 +43,6 @@ $siteids = getcache('category_content','commons');
 $siteid = $siteids[$catid];
 $CATEGORYS = getcache('category_content_'.$siteid,'commons');
 $catname=$CATEGORYS[$catid]['catname'];
-$showname=$CATEGORYS[$finalid]['catname'];
-$enname=$CATEGORYS[$finalid]['enname'];
 ?>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
   <tbody><tr>
@@ -52,7 +50,7 @@ $enname=$CATEGORYS[$finalid]['enname'];
       <tbody><tr>
         <td><table width="993" border="0" cellspacing="0" cellpadding="0">
           <tbody><tr>
-            <td width="210" height="40" align="left" class="p18huangwei" style="background:url(statics/images/zyxx_titbg.jpg) no-repeat; padding-left:10px; padding-bottom:10px;">{mb_substr($showname,0,2,"utf-8")}<span class="p20huangwei">{mb_substr($showname,2,strlen($showname),"utf-8")}</span> <span class="p12bai_yy">{$enname}</span></td>
+            <td width="210" height="40" align="left" class="p18huangwei" style="background:url(statics/images/zyxx_titbg.jpg) no-repeat; padding-left:10px; padding-bottom:10px;">人防<span class="p20huangwei">新闻</span> <span class="p12bai_yy">Renfang News</span></td>
             <td style="background:url(statics/images/zyxx_titbg02.jpg) no-repeat; padding-left:45px; padding-bottom:12px;" align="left" class="p12huiwei">您当前的位置：{catpos($catid)}</td>
           </tr>
         </tbody></table></td>
@@ -66,7 +64,7 @@ $enname=$CATEGORYS[$finalid]['enname'];
             <td height="28" align="center" class="p12bai" style="background:#3f7aa8;">{$inputtime} 　来源：{$copyfrom} 【<a href="javascript:void(0)" class="p12bai"><span onclick="javascript:window.print()">打印本页</span></a>】【<a href="{$CATEGORYS[$catid][url]}" class="p12bai">返回列表</a>】</td>
           </tr>
           <tr>
-            <td style="padding:15px; padding-top:35px; background:url(statics/images/bule_line.jpg) repeat-x bottom; padding-bottom:30px;" align="left" class="p14huizhengwen">　
+            <td style="padding:15px; padding-top:35px; background:url(statics/images/bule_line.jpg) repeat-x bottom; padding-bottom:30px;" align="center" class="p14huizhengwen">　
              {$content}
             </td></tr>
           <tr>

@@ -85,7 +85,7 @@ class formguide_info extends admin {
 	public function public_answer() {
 			$did = $_POST['did'];
 			$answer = $_POST['answer'];
-			$re= $this->db->query("update v9_form_network set answer='".$answer."',mark='已回答' where dataid=".$did);
+			$re= $this->db->query("update v9_form_network set answer='".$answer."',mark='已回答',answertime=now( ) where dataid=".$did);
 			echo $re;
 	}
 }

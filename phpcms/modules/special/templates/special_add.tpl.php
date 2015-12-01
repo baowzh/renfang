@@ -34,6 +34,15 @@ include $this->admin_tpl('header', 'admin');
 	        <td valign="top"><?php echo form::radio(array('1'=>L('yes'), '0'=>L('no')),'1', 'name="special[ishtml]"');?>
 	        </td>
 	    </tr>
+	    <tr>
+	    	<th align="right"  valign="top">专题分类：</th>
+	        <td valign="top">
+	         <select name="special[kind]" id="kind" >
+	           <option value="1" selected="selected">首页大专题</option>
+	           <option value="2" >首页小专题</option>
+	         </select>
+	        </td>
+	    </tr>
 	    <tr id="file_div" style="display:'block';">
 	    	<th align="right" valign="top"><?php echo L('special_filename')?>：<br /><span style="font-size:9px;color:#ff4400"><?php echo L('submit_no_edit')?></span></th>
 	        <td valign="top"><input type="text" name="special[filename]" id="filename" class="input-text" value="<?php echo $info['filename']?>" size="20">

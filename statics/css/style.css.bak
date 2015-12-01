@@ -436,9 +436,8 @@ A.p12hongse:hover {
 	color: #000000;
 	font-weight: bold;
 }
-
-.p14hei a {
-	color: #000000;
+.p14hei a{
+color: #000000;	
 }
 
 .p14hong {
@@ -799,7 +798,7 @@ a.current {
 
 .focus .fbg {
 	bottom: 7px;
-	left: 270px;
+	right: 10px;
 	position: absolute;
 	height: 21px;
 	text-align: center;
@@ -1155,44 +1154,39 @@ span.msg_reply {
 	padding-left: 10px;
 	font-family: "Microsoft Yahei", "宋体", "黑体";
 }
-
 #pages {
-	padding: 14px 0 10px;
-	font-family: 宋体;
+    padding: 14px 0 10px;
+    font-family: 宋体;
 }
-
 #pages a.a1 {
-	background: url(../images/admin_img/pages.png) no-repeat 0 5px;
-	width: 56px;
-	padding: 0;
+    background: url(../images/admin_img/pages.png) no-repeat 0 5px;
+    width: 56px;
+    padding: 0;
 }
-
 #pages a {
-	display: inline-block;
-	height: 22px;
-	line-height: 22px;
-	background: #fff;
-	border: 1px solid #e3e3e3;
-	text-align: center;
-	color: #333;
-	padding: 0 10px;
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    text-align: center;
+    color: #333;
+    padding: 0 10px;
 }
-
 #pages span {
-	display: inline-block;
-	height: 22px;
-	line-height: 22px;
-	background: #5a85b2;
-	border: 1px solid #5a85b2;
-	color: #fff;
-	text-align: center;
-	padding: 0 10px;
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    background: #5a85b2;
+    border: 1px solid #5a85b2;
+    color: #fff;
+    text-align: center;
+    padding: 0 10px;
 }
-
 #pages a:hover {
-	border: 1px solid #067dc7;
-	color: #ffffff;
-	background: #067dc7;
+    border: 1px solid #067dc7;
+    color: #ffffff;
+    background: #067dc7;
 }
 
 .table4 {
@@ -1230,129 +1224,19 @@ A.p20heiwei:visited {
 A.p20heiwei:hover {
 	color: #06559b;
 }
-
 .table4 {
-	border-collapse: collapse;
+	border-collapse:collapse;
 }
-
 .table4 td {
-	border: none;
-	height: 28px;
-	line-height: 21px;
-	text-align: center;
-	font-family: "Microsoft Yahei", "宋体", "黑体";
-	border: 1px solid #98bfd5;
-	color: #333333;
-	padding: 3px 0px;
-	background: #ffffff;
-	padding: 5px;
-}
-
-.FocusPic {
-	zoom: 1;
-	position: relative;
-	overflow: hidden;
-}
-
-.FocusPic .content {
-	overflow: hidden;
-}
-
-.FocusPic .title-bg {
-	background: #666;
-	filter: alpha(opacity = 50);
-	opacity: 0.5;
-}
-
-.title {
-	position: absolute;
-	left: 0px;
-	bottom: 0;
-	width: 205px;
-	height: 20px;
-	line-height: 20px;
-	overflow: hidden;
-	text-align: left;
-	display: none;
-}
-
-.FocusPic .change {
-	bottom: 0px;
-	height: 20px;
-	right: 3px;
-	_right: 4px;
-	position: absolute;
-	text-align: right;
-	z-index: 9999;
-}
-
-.FocusPic .change {
-	bottom: 0px;
-	height: 20px;
-	right: 3px;
-	_right: 4px;
-	position: absolute;
-	text-align: right;
-	z-index: 9999;
-}
-
-.FocusPic .change i {
-	background: #666;
-	color: #FFF;
-	cursor: pointer;
-	font-family: Arial;
-	font-size: 12px;
-	line-height: 15px;
-	margin-right: 2px;
-	padding: 2px 6px;
-	font-style: normal;
-	height: 15px;
-	display: inline-block;
-	display: -moz-inline-stack;
-	zoom: 1;
-}
-
-.FocusPic .change i.cur {
-	background: #FF7700;
-}
-
-.p14lan {
-	font-size: 14px;
-	color: #0362b2;
-	font-family: "Microsoft Yahei", "宋体", "黑体";
-}
-
-A.p14lan:link {
-	COLOR: #0362b2;
-	TEXT-DECORATION: none
-}
-
-A.p14lan:visited {
-	COLOR: #0362b2;
-	TEXT-DECORATION: none;
-}
-
-A.p14lan:hover {
-	color: #e01f00
-}
-
-.p18lancu {
-	COLOR: #005fb0;
-	TEXT-DECORATION: none;
-	font-family: "Microsoft Yahei", "宋体", "黑体";
-	font-size: 16px;
-}
-
-A.p18lancu:link {
-	COLOR: #005fb0;
-	TEXT-DECORATION: none
-}
-
-A.p18lancu:visited {
-	COLOR: #005fb0;
-	TEXT-DECORATION: none;
-}
-
-A.p18lancu:hover {
-	color: #d50202;
+	border:none;
+	height:28px;
+	line-height:21px;
+	text-align:center;
+	font-family:"Microsoft Yahei","宋体","黑体";
+	border:1px solid #98bfd5;
+	color:#333333;
+	padding:3px 0px;
+	background:#ffffff;
+	padding:5px;
+	
 }

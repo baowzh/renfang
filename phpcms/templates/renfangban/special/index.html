@@ -1,126 +1,168 @@
-{template 'special', 'header'}
-<style type="text/css">
-.plan-2{ padding:0 8px; text-align:center; overflow:hidden}
-.plan-2 li div.img-wrap,.plan-2 li a{ width:120px; height:100px; margin:auto}
-</style>
-<!--main-->
-<div class="main">
-	<div class="col-left new">
-			<div class="FocusPic">
-            {pc:special  action="content_list" specialid="$specialid" thumb="1" listorder="3" num="5"}
-            	<div class="content" id="main-slide">
-                    <div class="changeDiv">  
-                    {loop $data $r}
-                        <a href="{$r['url']}" title="{str_cut($r['title'],30)}"><img src="{thumb($r['thumb'],310,260)}" alt="{$r['title']}" width="310" height="260" /></a>
-                    {/loop}
-                    </div>
-                </div>
-            {/pc}
-            </div>
-			<div class="bk10"></div>
-			<div class="box">
-			{php $blockid = 'special_'.$specialid.'_4';}
-			{pc:block pos="$blockid"}
-			{/pc}
-			</div>
-			<div class="bk10"></div>
-			<div class="box">
-			{php $blockid = 'special_'.$specialid.'_5';}
-			{pc:block pos="$blockid"}
-			{/pc}
-			</div>
-    </div>
-    <div class="col-left img-text" >
-		<div class="box intro"><strong>导读：</strong>{$description}</div>
-    	<div class="news-hot">
-		{pc:special  action="content_list" specialid="$specialid" listorder="3" num="3"}
-			{loop $data $r}
-            {if $n>1}<div class="bk20 hr"><hr></div>{/if}
-                <h4 class="blue"><a href="{$r['url']}" target="_blank">{str_cut($r['title'], 36, '')}</a></h4>
-                <p>{str_cut($r['description'], 100)}</p>
-			{/loop}
-		{/pc}
-        </div>
-        {loop $types $t}
-    <div class="bk10"></div>
-    <div class="box">
-        		<h5>{$t['name']}<a href="{$t['url']}" class="more">更多>></a></h5>
-			{pc:special action="content_list" specialid="$id" typeid="$t[typeid]" listorder="3" num="10"}
-				<ul class="list f14 lh26 ">
-				{loop $data $r}
-                <li>·<a href="{$r['url']}" target="_blank">{str_cut($r['title'], 36)}</a></li>
-            {/loop}
-            </ul>
-			{/pc}
-        </div>
-		{/loop}	
-    </div>
-    <div class="col-auto">
-	<div class="box">
-            {php $blockid = 'special_'.$specialid.'_1';}
-			{pc:block pos="$blockid"}
-			{/pc}
-    </div>
-	<div class="bk10"></div>
-	<div class="box">
-            {php $blockid = 'special_'.$specialid.'_2';}
-			{pc:block pos="$blockid"}
-			{/pc}
-    </div>
-	<div class="bk10"></div>
-	<div class="box">
-            {php $blockid = 'special_'.$specialid.'_3';}
-			{pc:block pos="$blockid"}
-			{/pc}
-    </div>
-	{if $voteid}
-	<div class="bk10"></div>
-    <div class="box vote">
-		<h5 class="title-2">在线调查</h5>
-			<script language="javascript" src="{APP_PATH}index.php?m=vote&c=index&a=show&action=js&subjectid={$voteid}&type=3"></script>
-	</div>
-	{/if}
-    </div>
-	<div class="bk10"></div>
-	{$pic_data}
-	{loop $types $t}
-    <div class="bk10"></div>
-    <div class="box">
-        		<h5>{$t['name']}<a href="{$t['url']}" class="more">更多>></a></h5>
-				{pc:special action="content_list" specialid="$id" typeid="$t[typeid]" thumb="1" listorder="3" num="6"}
-            <ul class="content news-photo picbig">
-			{loop $data $r}
-            	<li>
-                    <div class="img-wrap">
-                        <a href="{$r['url']}"><img src="{thumb($r['thumb'], 110, 85)}" /></a>
-                    </div>
-                    <a href="{$r['url']}">{str_cut($r['title'], 20)}</a>
-                </li>
-         {/loop}
-            </ul>
-			{/pc}
-			<div class="hr bk15"></div>
-			{pc:special action="content_list" specialid="$id" typeid="$t[typeid]" listorder="3" num="10"}
-				<ul class="list f14 lh26 row-2">
-				{loop $data $r}
-                <li>·<a href="{$r['url']}" target="_blank">{str_cut($r['title'], 36)}</a></li>
-            {/loop}
-            </ul>
-			</pc>
-        </div>
-		{/loop}	
-		<div class="bk10"></div>
-	  {if module_exists('comment')}
-      <iframe src="{APP_PATH}index.php?m=comment&c=index&a=init&commentid={id_encode("special",$id,$siteid)}&iframe=1" width="100%" height="40%" id="comment_iframe" frameborder="0" scrolling="no"></iframe>
-	  {/if}
-	  <script language='javascript' src='{APP_PATH}index.php?m=formguide&c=index&a=show&formid=48&action=js'></script>
-</div>
-<script type="text/javascript"> 
-<!--
-$(function(){
-	new slide("#main-slide","cur",290,260,1);//焦点图
-	new SwapTab(".SwapTab","span",".tab-content","ul","fb");//排行TAB
-})
-//-->
-</script>
+{template 'content', 'header'}
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	align="center">
+	<tr>
+		<td height="500" align="center" valign="top"
+			style="background: url(statics/images/nrbg.png) repeat-y center top; padding-top: 7px;"><table
+				width="998" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="217" valign="top"><table width="217" border="0"
+							cellspacing="0" cellpadding="0">
+							<tr>
+								<td valign="top" style="padding-top: 10px;"><table
+										width="217" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td><a href="#"><img
+													src="statics/images/zyrfcf_tit.jpg" width="217" height="31"
+													border="0" /></a></td>
+										</tr>
+										<tr>
+											<td height="171" align="center"
+												style="border-left: 1px solid #9fcede; border-right: 1px solid #9fcede; background: url(statics/images/syzxgg_bg.jpg) no-repeat bottom;"><table
+													width="200" border="0" cellspacing="0" cellpadding="0">
+
+													{pc:content action="lists" catid="1457" order="listorder
+													DESC" num="5"} {loop $data $v}
+													<tr>
+														<td height="30" align="left"><img
+															src="statics/images/zxgg_icon.png" /> <a
+															href="{$v[url]}" class="p12heihui">{str_cut($v[title],45)}</a></td>
+													</tr>
+													{/loop} {/pc}
+												</table></td>
+										</tr>
+										<tr>
+											<td><img src="statics/images/syzxgg_btm.jpg" width="217"
+												height="14" /></td>
+										</tr>
+									</table></td>
+							</tr>
+							<tr>
+								<td valign="top" style="padding-top: 10px;"><table
+										width="217" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td><table width="217" border="0" cellspacing="0"
+													cellpadding="0">
+													<tr>
+														<td width="115" height="25" align="center"
+															style="background: url(statics/images/jrht_tit01.jpg) no-repeat; padding-top: 5px;"
+															class="p14hei">今日<span class="p14hong">话题</span></td>
+														<td align="right"
+															style="background: url(statics/images/jrht_tit02.jpg) no-repeat; padding-right: 10px;"><a
+															href="#" class="p12bai">更多&gt;&gt;</a></td>
+													</tr>
+												</table></td>
+										</tr>
+										<tr>
+											<td height="222" align="center" valign="top"
+												style="border: 1px solid #9fcede; border-top: none; padding-top: 9px; padding-bottom: 10px;"><table
+													width="198" border="0" cellspacing="0" cellpadding="0">
+													{pc:content action="lists" catid="1451" order="listorder
+													DESC" num="7"} {loop $data $v}
+													<tr>
+														<td height="32"
+															style="background: url(statics/images/short_line.jpg) repeat-x bottom"
+															align="left"><img src="statics/images/red_icon.jpg"
+															width="3" height="3" /> <a href="{$v[url]}"
+															class="p12heihui">{str_cut($v[title],48)}</a></td>
+													</tr>
+													{/loop} {/pc}
+
+												</table></td>
+										</tr>
+									</table></td>
+							</tr>
+							<tr>
+								<td valign="top" style="padding-top: 10px;"><img
+									src="statics/images/wsbs_icon.jpg" width="218" height="103" /></td>
+							</tr>
+						</table></td>
+					<td valign="top"><table width="780" border="0" cellspacing="0"
+							cellpadding="0">
+							<tr>
+								<td height="38" align="left" class="p12huiwei"
+									style="background: url(statics/images/zywz_bg.jpg) no-repeat top; padding-left: 45px; padding-bottom: 12px;">您当前的位置：<a
+									href="index.html" class="p12huiwei">内蒙古人防</a> &gt; <span
+									class="p12lan"><a href="http://61.138.98.201/index.php?m=special&c=index&a=special">专题专栏</a></span>&gt;<span class="p12lan"> <a href="{$url}"> {$title}</a></span></td>
+							</tr>
+							<tr>
+								<td height="400" align="right" valign="top"
+									style="background: url(statics/images/zy_midline.jpg) no-repeat left;"><table
+										width="753" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td height="32"
+												style="background: url(statics/images/srh_titbg.jpg) repeat-x">
+												{template "content","plugin_search"}</td>
+										</tr>
+										<tr>
+											<td><table width="753" border="0" cellspacing="0"
+													cellpadding="0">
+													<tr>
+														<td valign="top" style="padding-top: 5px;"><table
+																width="753" border="0" cellspacing="0" cellpadding="0">
+																<tr>
+																	<td><table width="753" border="0" cellspacing="0"
+																			cellpadding="0">
+																			<tr>
+																				<td width="26"><img
+																					src="statics/images/zytit_bg01.jpg" width="26"
+																					height="35" /></td>
+																				<td align="left" class="p14hei"
+																					style="background: url(statics/images/zytit_bg02.jpg) repeat-x; padding-top: 9px;">{$title}</td>
+																			</tr>
+																		</table></td>
+																</tr>
+																<tr>
+																	<td><img src="statics/images/zytit_bg03.jpg"
+																		width="753" height="3" /></td>
+																</tr>
+															</table></td>
+													</tr>
+													<tr>
+														<td align="center" valign="top" style="padding-top: 15px;"><table
+																width="740" border="0" cellspacing="0" cellpadding="0">
+																<tbody>
+																	{pc:special action="content_list" specialid="$id"
+																	typeid="$t[typeid]" listorder="3" num="12" page="$page"} 
+																	{loop $data
+																	$r}
+																	<tr>
+																		<td align="left"
+																			style="border-bottom: 1px solid #dfdfdf; padding-top: 10px; padding-bottom: 10px;"><table
+																				width="740" border="0" cellspacing="0"
+																				cellpadding="0">
+																				<tbody>
+																					<tr>
+																						<td width="30" height="30" align="center"><img
+																							src="statics/images/ls_icon.jpg" width="9"
+																							height="9"></td>
+																						<td width="710" height="30"><span
+																							class="p16huiwei"><a href="{$r['url']}"
+																								class="p18lancu"> {str_cut($r['title'], 36)}</a></span></td>
+																					</tr>
+																				</tbody>
+																			</table></td>
+																	</tr>
+																	{/loop} {/pc}
+
+																</tbody>
+															</table></td>
+													</tr>
+													<tr>
+														<td align="center" style="padding-top: 25px;">
+															<div id="pages" style="width: 700px;">{$pages}</div>
+														</td>
+
+													</tr>
+												</table></td>
+										</tr>
+
+									</table></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></td>
+	</tr>
+</table>
 {template 'content', 'footer'}
+

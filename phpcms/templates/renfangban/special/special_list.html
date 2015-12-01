@@ -1,80 +1,207 @@
 {template 'content', 'header'}
-<!--main-->
-<div class="main special-channel">
-	<div class="col-left">
-        <div class="box-hots">
-            <div class="icon"></div>
-            <div class="content">
-            	<div class="special-slide">
-				{pc:special  action="lists" siteid="$siteid" elite="1" listorder="3" num="2"}
-                    <div class="changeDiv">
-					{loop $data $r}
-                        <a href="{$r['url']}"><img src="{thumb($r['thumb'], 224, 112)}" width="224" height="112" alt="{$r['title']}" /><p><strong>{$r['title']}</strong><br />
-{$r['description']}</p></a>
-					{/loop}
-                    </div>
-				{/pc}
-                    <div class="change">
-                        <i class="cur">1</i>
-                        <i>2</i>
-                    </div>
-                </div>
-<script type="text/javascript"> 
-$(function(){
-	new slide(".special-slide","cur",674,126);
-})
-</script>
-<div class=" bk30 hr"></div>
-{pc:special action="lists" siteid="$siteid" elite="1" listorder="3"}
-<ul class="list row-2 f14 lh24">
-	{loop $data $r}
-    <li>·<a href="{$r['url']}" target="_blank">{str_cut($r['title'], 42)}</a></li>
-   {/loop}
-</ul>
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	align="center">
+	<tr>
+		<td height="500" align="center" valign="top"
+			style="background: url(statics/images/nrbg.png) repeat-y center top; padding-top: 7px;"><table
+				width="998" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="217" valign="top"><table width="217" border="0"
+							cellspacing="0" cellpadding="0">
+							<tr>
+								<td valign="top" style="padding-top: 10px;"><table
+										width="217" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td><a href="#"><img
+													src="statics/images/zyrfcf_tit.jpg" width="217" height="31"
+													border="0" /></a></td>
+										</tr>
+										<tr>
+											<td height="171" align="center"
+												style="border-left: 1px solid #9fcede; border-right: 1px solid #9fcede; background: url(images/syzxgg_bg.jpg) no-repeat bottom;"><table
+													width="200" border="0" cellspacing="0" cellpadding="0">
 
-{/pc}
-</div>
-        </div>
-        <div class="bk10"></div>
-        <div class="box">
-        		<h5>专题</h5>
-<div class="pad-lr-10">
-{pc:special action="lists" siteid="$siteid" listorder="3" page="$_GET[page]" num="20"}
-    <ul class="list row-2 f14 lh24">
-	{loop $data $r}
-		<li>·<a href="{$r['url']}" target="_blank">{str_cut($r['title'], 42)}</a></li>
+													{pc:content action="lists" catid="1457" order="listorder
+													DESC" num="5"} {loop $data $v}
+													<tr>
+														<td height="30" align="left"><img
+															src="statics/images/zxgg_icon.png" /> <a
+															href="{$v[url]}" class="p12heihui">{str_cut($v[title],45)}</a></td>
+													</tr>
+													{/loop} {/pc}
+												</table></td>
+										</tr>
+										<tr>
+											<td><img src="statics/images/syzxgg_btm.jpg" width="217"
+												height="14" /></td>
+										</tr>
+									</table></td>
+							</tr>
+							<tr>
+								<td valign="top" style="padding-top: 10px;"><table
+										width="217" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td><table width="217" border="0" cellspacing="0"
+													cellpadding="0">
+													<tr>
+														<td width="115" height="25" align="center"
+															style="background: url(statics/images/jrht_tit01.jpg) no-repeat; padding-top: 5px;"
+															class="p14hei">今日<span class="p14hong">话题</span></td>
+														<td align="right"
+															style="background: url(statics/images/jrht_tit02.jpg) no-repeat; padding-right: 10px;"><a
+															href="#" class="p12bai">更多&gt;&gt;</a></td>
+													</tr>
+												</table></td>
+										</tr>
+										<tr>
+											<td height="222" align="center" valign="top"
+												style="border: 1px solid #9fcede; border-top: none; padding-top: 9px; padding-bottom: 10px;"><table
+													width="198" border="0" cellspacing="0" cellpadding="0">
+													{pc:content action="lists" catid="1451" order="listorder
+													DESC" num="7"} {loop $data $v}
+													<tr>
+														<td height="32"
+															style="background: url(statics/images/short_line.jpg) repeat-x bottom"
+															align="left"><img src="statics/images/red_icon.jpg"
+															width="3" height="3" /> <a href="{$v[url]}"
+															class="p12heihui">{str_cut($v[title],48)}</a></td>
+													</tr>
+													{/loop} {/pc}
 
-	{/loop}
-    </ul>
-	<div id="pages" class="text-c">{$pages}</div>
-{/pc}
-</div>
-        </div>
-    </div>
-<div class="col-auto">
+												</table></td>
+										</tr>
+									</table></td>
+							</tr>
+							<tr>
+								<td valign="top" style="padding-top: 10px;"><img
+									src="statics/images/wsbs_icon.jpg" width="218" height="103" /></td>
+							</tr>
+						</table></td>
+					<td valign="top"><table width="780" border="0" cellspacing="0"
+							cellpadding="0">
+							<tr>
+								<td height="38" align="left" class="p12huiwei"
+									style="background: url(statics/images/zywz_bg.jpg) no-repeat top; padding-left: 45px; padding-bottom: 12px;">您当前的位置：<a
+									href="index.html" class="p12huiwei">内蒙古人防</a> &gt; 
+									<span
+									class="p12lan"><a href="http://61.138.98.201/index.php?m=special&c=index&a=special">专题专栏</a></span></td>
+							</tr>
+							<tr>
+								<td height="400" align="right" valign="top"
+									style="background: url(statics/images/zy_midline.jpg) no-repeat left;"><table
+										width="753" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td height="32"
+												style="background: url(statics/images/srh_titbg.jpg) repeat-x">
+												{template "content","plugin_search"}</td>
+										</tr>
+										<tr>
+											<td><table width="753" border="0" cellspacing="0"
+													cellpadding="0">
+													<tr>
+														<td valign="top" style="padding-top: 5px;"><table
+																width="753" border="0" cellspacing="0" cellpadding="0">
+																<tr>
+																	<td><table width="753" border="0" cellspacing="0"
+																			cellpadding="0">
+																			<tr>
+																				<td width="26"><img
+																					src="statics/images/zytit_bg01.jpg" width="26"
+																					height="35" /></td>
+																				<td align="left" class="p14hei"
+																					style="background: url(statics/images/zytit_bg02.jpg) repeat-x; padding-top: 9px;">专题专栏</td>
+																			</tr>
+																		</table></td>
+																</tr>
+																<tr>
+																	<td><img src="statics/images/zytit_bg03.jpg"
+																		width="753" height="3" /></td>
+																</tr>
+															</table></td>
+													</tr>
+													<tr>
+														<td align="center" valign="top" style="padding-top: 15px;">
+															<div style="width: 740px; height: 400px;">
+															  {pc:special action="lists" siteid="$siteid" listorder="3"  num="8"}
+												               {loop $data $r}
+																<div
+																	style="margin: 5px 5px 0px 5px; width: 351px; height: 106px; float: left;">
+																	<a href="{$r['url']}"
+																		style="width: 351px; height: 76px; display: block;">
+																		<img src="{$r[thumb]}" width="351"
+																		height="70" border="0" />
+																	</a>
+																	<div
+																		style="text-align: center; width: 343px; height: 30px;"
+																		class="p14huiwei">
+																		<a
+																			href="{$r['url']}"
+																			class="p14lan">{str_cut($r['title'], 44)}</a>
+																	</div>
+																</div>
+																{/loop} 
+												               {/pc}
+																
 
-    <div class="box">
-            <h5 class="title-2">一周点击排行</h5>
-			{pc:special action="hits" num="10" order="views DESC"}
-            <ul class="content digg">
-				{loop $data $r}
-                <li><a href="{$r[url]}" target="_blank">{$r[title]}</a></li>
-            {/loop}
-            </ul>
-			{/pc}
-    </div>
-    <div class="bk10"></div>
-    <div class="box">
-            <h5 class="title-2">一周评论排行</h5>
-			{pc:comment action="bang" cache="3600"}
-            <ul class="content digg">
-				{loop $data $r}
-                <li><a href="{$r[url]}" target="_blank">{$r[title]}</a></li>
-            {/loop}
-            </ul>
-			{/pc}
-    </div>
-</div>
+															</div> <!--  
+														<table
+																width="740" border="0" cellspacing="0" cellpadding="0">
+																<tr>
+																	<td align="center" valign="top"
+																		style="padding-top: 20px;"><table width="730"
+																			border="0" cellspacing="0" cellpadding="0">
+																			<tr>
+																				<td align="left"><table width="357" border="0"
+																						cellspacing="0" cellpadding="0">
+																						<tr>
+																							<td align="center"
+																								style="border: 1px solid #cccccc;" height="74"><a
+																								href="#"><img
+																									src="statics/images/ztzl_xx01.jpg" width="351"
+																									height="70" border="0" /></a></td>
+																						</tr>
+																						<tr>
+																							<td height="40" class="p14huiwei"><a
+																								href="#" class="p14lan">·
+																									苏尼特左旗人防办积极开展警报试鸣暨人防宣传周活动</a></td>
+																						</tr>
+																					</table></td>
+																				<td align="right"><table width="357" border="0"
+																						cellspacing="0" cellpadding="0">
+																						<tr>
+																							<td align="center"
+																								style="border: 1px solid #cccccc;" height="74"><a
+																								href="#"><img src="images/ztzl_xx02.jpg"
+																									width="351" height="70" border="0" /></a></td>
+																						</tr>
+																						<tr>
+																							<td height="40" class="p14huiwei" align="left"><a
+																								href="#" class="p14lan">·
+																									苏尼特左旗人防办积极开展警报试鸣暨人防宣传周活动</a></td>
+																						</tr>
+																					</table></td>
+																			</tr>
+																		</table></td>
+																</tr>
+															</table>
+															-->
+														</td>
+													</tr>
+													<tr>
+														<td align="center" style="padding-top: 25px;">
+															<div id="pages" style="width: 700px;">{$pages}</div>
+														</td>
 
-</div>
+													</tr>
+												</table></td>
+										</tr>
+
+									</table></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></td>
+	</tr>
+</table>
 {template 'content', 'footer'}
+

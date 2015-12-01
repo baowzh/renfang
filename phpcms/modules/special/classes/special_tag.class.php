@@ -19,6 +19,7 @@ class special_tag {
 	public function lists($data) {
 		$siteid = $data['siteid'] ? intval($data['siteid']) : get_siteid();
 		$where .= "`siteid`='".$siteid."'";
+		if ($data['kind']) $where .= " AND `kind`=".$data['kind'];
 		if ($data['elite']) $where .= " AND `elite`='1'";
 		if ($data['thumb']) $where .= " AND `thumb`!=''"; 
 		if ($data['disable']) {
